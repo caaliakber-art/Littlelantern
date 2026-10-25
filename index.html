@@ -64,7 +64,7 @@ a{color:var(--green)}
 /* cover */
 .cover{display:grid;gap:18px}
 .cover-art{border-radius:24px;overflow:hidden;aspect-ratio:16/10;max-width:100%;background:var(--gold-soft)}
-.cover-art img{width:100%;height:100%;object-fit:cover;object-position:50% 60%;display:block}
+.cover-art img{width:100%;height:100%;object-fit:cover;object-position:50% 70%;display:block}
 .brand{display:flex;flex-direction:column;gap:4px}
 .brand .bism{font-family:var(--f-ar);font-size:1.5rem;color:var(--green);direction:rtl}
 .kids{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
@@ -164,13 +164,21 @@ a{color:var(--green)}
 
 /* score */
 .score{display:grid;gap:14px;justify-items:center;text-align:center}
-.score .pic{width:min(260px,70%);border-radius:24px;overflow:hidden;background:var(--gold-soft);padding:18px}
+.score .pic{width:min(260px,70%);border-radius:24px;overflow:hidden;background:var(--gold-soft)}
+.pic img.g1{filter:grayscale(.55) brightness(.8)}
+.pic img.g3{filter:saturate(1.25) brightness(1.08)}
+.pic:has(img.g3){box-shadow:0 0 0 4px var(--gold),0 0 36px 6px var(--gold)}
+.drive{width:100%;max-width:440px;display:grid;gap:6px}
+.lane{position:relative;height:84px;overflow:hidden;border-bottom:6px dashed var(--line)}
+.lane img{position:absolute;bottom:4px;height:64px;left:calc(50% - 70px);transform:scaleX(-1);animation:drive 1.8s cubic-bezier(.2,.7,.3,1) both}
+@keyframes drive{from{left:-45%}to{left:calc(50% - 70px)}}
+.hv{height:24px;vertical-align:middle;margin-right:6px}
 .score .pic img{display:block;width:100%}
 .bigstars{font-size:2.6rem;color:var(--gold);letter-spacing:6px}
 
 /* parents */
 .ph{display:flex;gap:16px;align-items:center}
-.ph img{width:96px;height:96px;object-fit:contain;border-radius:22px;flex:none;background:var(--gold-soft);padding:8px}
+.ph img{width:96px;height:96px;object-fit:cover;border-radius:22px;flex:none}
 .road svg{display:block;width:100%;height:auto;margin-top:8px}
 .sect{display:grid;gap:12px}
 .sect h2{font-size:1.25rem}
@@ -439,7 +447,7 @@ function symEl(k,size=64){const kid=S.kids[k];const i=Object.keys(S.kids).indexO
 function cover(){
   const ids=Object.keys(S.kids);
   return `<div class="cover">
-   <div class="cover-art"><img src="img/road-cover.jpg" alt="A red motorbike, a red car and a black car on the road from Bangalore"></div>
+   <div class="cover-art"><img src="img/cover-masjid.jpg" alt="Minarets and a dome at sunset, framed by an arched window with a glowing lantern"></div>
    <div class="brand"><span class="bism">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span><h1>Little Lantern</h1>
     <p class="muted">Learn about Allah, your daily duas and the Arabic letters. Every lesson grows a flower.</p></div>
    ${ids.length?`<h2>Who is learning today?</h2><div class="kids">${ids.map(k=>`<button class="kidtile" data-act="pickKid" data-id="${k}">${symEl(k)}<b>${esc(S.kids[k].name)}</b><span class="stars">${'★'.repeat(Math.min(5,Object.keys(prog(k).done).length))}</span></button>`).join('')}</div>`
@@ -487,7 +495,6 @@ function home(){
   <section class="today"><h2>Today's three</h2>${tasks.map(t=>{const W=WORLDS[t.w];return `<button class="task ${t.did?'done':''}" ${t.nx?`data-act="open" data-id="${t.nx.id}"`:'disabled'}><span class="tick">${t.did?'✓':''}</span><span class="tx"><b>${W.name}</b><small>${t.nx?esc(t.nx.title):(t.did?'Done for today':'Waiting for Daddy to unlock')}</small></span><span aria-hidden="true">${W.icon}</span></button>`}).join('')}</section>
   <section class="card duelcard"><div class="tx"><h3>Duel with Daddy</h3><p class="muted">${dOpen?`Two players, one phone. Letter Slap, Dot Catcher and Tug of War.${D.played?` You have won ${D.won} of ${D.played}.`:''}`:'Finish one lesson today to unlock the games.'}</p></div>
    ${dOpen?'<button class="btn rose" data-act="duelPick">Play</button>':'<button class="btn ghost sm" data-act="duelUnlock">Daddy unlock</button>'}</section>
-  ${roadMap(P)}
   <section class="sect"><h2>Your worlds</h2><div class="worlds">
    ${Object.entries(WORLDS).map(([w,W])=>{const n=W.lessons.filter(l=>P.done[l.id]).length;return `<button class="world ${W.cls}" data-act="world" data-w="${w}"><span class="wicon ${w==='ar'?'ar':''}">${W.icon}</span><h3>${W.name}</h3><p>${W.sub} · ${n} of ${W.lessons.length} done</p><span class="bar"><i style="width:${n/W.lessons.length*100}%"></i></span></button>`}).join('')}
    ${SOON.map(s=>`<div class="world locked"><span class="wicon">${s[0]}</span><h3>${s[1]}</h3><p class="muted">${s[2]}</p><span class="chip plain" style="margin-top:auto;align-self:flex-start">Coming soon</span></div>`).join('')}
@@ -568,21 +575,23 @@ function lanternMini(){return `<svg width="18" height="26" viewBox="0 0 64 96" a
 function finishLesson(){
   const L=ui.L,k=ui.kid,P=prog(k);
   const stars=L.miss===0?3:L.miss<=2?2:1;
+  const dayBefore=todayTasks(k).every(t=>t.did||!t.nx);
   const prev=P.done[L.id]||0;P.done[L.id]=Math.max(prev,stars);
   const now=Date.now(),t=dayKey(),y=dayKey(new Date(now-864e5));
   if(P.lastDay!==t){P.streak=P.lastDay===y?(P.streak||0)+1:1;P.lastDay=t}
   P.log=[...(P.log||[]),{l:L.id,at:now}].slice(-300);
   saveProg(k);
   const w=byId[L.id].world;
-  ui.result={id:L.id,stars,first:!prev,worldDone:worldDone(w,k)};go('score');
+  ui.result={id:L.id,stars,first:!prev,worldDone:worldDone(w,k),dayDone:!dayBefore&&todayTasks(k).every(t=>t.did||!t.nx)};go('score');
 }
 function score(){
-  const r=ui.result,l=byId[r.id],img=r.worldDone?'mag-rear':r.stars===3?'brio-front':r.stars===2?'brio-side':'moto-side';
+  const r=ui.result,l=byId[r.id];
   const nx=nextIn(l.world);
   return `<div class="score">
-   <div class="pic"><img src="img/${img}.png" alt=""></div>
+   <div class="pic">${r.worldDone?'<img src="img/back-view.jpg" alt="Daddy and daughter, seen from behind, looking at the masjid">':`<img class="g${r.stars}" src="img/lantern.jpg" alt="A lantern glowing with ${r.stars} of 3 lights">`}</div>
    <h1>${r.worldDone?'You finished the whole world!':r.stars===3?'MashaAllah, perfect!':'Well done, '+esc(kidName())+'!'}</h1>
    <div class="bigstars" aria-label="${r.stars} of 3 stars">${starsTxt(r.stars)}</div>
+   ${r.dayDone?driveStrip('brio-side',"Today's three are done. The Brio is parked for the day!"):''}
    <p class="muted">${esc(l.title)}${r.first?' · A new flower grew in your garden.':' · Great practice!'}${r.worldDone?' A tree grew too!':''}</p>
    <div class="row" style="justify-content:center">${nx&&nx.id!==l.id?`<button class="btn" data-act="open" data-id="${nx.id}">Next: ${esc(nx.title)}</button>`:''}<button class="btn ghost" data-act="home">My garden</button></div>
    ${duelOpen(ui.kid)?'<button class="btn rose" data-act="duelPick">Duel with Daddy</button>':''}
@@ -590,14 +599,14 @@ function score(){
 }
 
 /* ---------- road to Kerala ---------- */
+const vehOf=name=>name==='Daddy'?'moto-side':'mag-side';
+function driveStrip(img,text){return `<div class="drive"><div class="lane"><img src="img/${img}.png" alt=""></div>${text?`<p class="small muted">${text}</p>`:''}</div>`}
 const ROAD_D='M30 196 C 120 196 130 112 210 122 S 330 204 400 152 S 465 92 548 96';
-function roadMap(P){
-  const order=['aq','ad','ar'];let sum=0;
-  for(const w of order){const L=WORLDS[w].lessons;sum+=L.filter(l=>P.done[l.id]).length/L.length}
-  const p=Math.min(1,sum/9),cur=order.find(w=>!worldDone(w,ui.kid));
+function roadMap(won){
+  const goal=20,p=Math.min(1,won/goal);
   const sky=[[8,150,16,50],[28,128,14,72],[46,160,12,40],[62,140,16,60]].map(r=>`<rect x="${r[0]}" y="${r[1]}" width="${r[2]}" height="${r[3]}" rx="2" fill="var(--muted)" opacity=".35"/>`).join('');
-  return `<section class="card road"><div class="spread"><h3>Road to Kerala</h3><span class="chip rose">${Math.round(p*100)}% of the way</span></div>
-  <svg viewBox="0 0 600 236" data-p="${p}" role="img" aria-label="Road from Bangalore to home in Kerala, ${Math.round(p*100)} percent travelled">
+  return `<section class="card road"><div class="spread"><h3>Road to Kerala</h3><span class="chip rose">${Math.min(won,goal)} of ${goal} wins</span></div>
+  <svg viewBox="0 0 600 236" data-p="${p}" role="img" aria-label="Road from Bangalore to home in Kerala, ${won} of ${goal} duel wins">
    ${sky}<text x="10" y="226" font-size="13" font-family="Nunito,sans-serif" font-weight="700" fill="var(--muted)">Bangalore</text>
    <image href="img/tree.png" x="250" y="30" width="44" height="58"/><image href="img/sign.png" x="150" y="150" width="34" height="50"/>
    <g transform="translate(520 22)"><rect x="0" y="22" width="62" height="40" rx="3" fill="var(--rose-soft)" stroke="var(--rose)" stroke-width="2"/><path d="M-6 26 L31 0 L68 26Z" fill="var(--rose)"/><rect x="24" y="38" width="14" height="24" rx="2" fill="var(--gold)"/></g>
@@ -609,14 +618,13 @@ function roadMap(P){
    <g id="roadStops"></g>
    <g id="roadCar"><g transform="scale(-1 1)"><image href="img/brio-side.png" x="-38" y="-38" width="76" height="40"/></g></g>
   </svg>
-  <p class="small muted">${cur?`Next stop: ${WORLDS[cur].name}. Every lesson moves your car along the road.`:'You finished every world built so far. New stops are coming, insha Allah.'}</p></section>`;
+  <p class="small muted">${won>=goal?'MashaAllah, you drove all the way home! Keep winning to stay there.':`Every duel you win drives the Brio closer to home. ${goal-won} more to go.`}</p></section>`;
 }
 function placeRoad(){
   const path=document.getElementById('roadPath');if(!path)return;
   const svg=path.ownerSVGElement,p=+svg.dataset.p,len=path.getTotalLength();
-  const icons=[...['aq','ad','ar'].map(w=>WORLDS[w].icon),...SOON.map(s=>s[0])].slice(0,8);
-  document.getElementById('roadStops').innerHTML=icons.map((ic,i)=>{const f=(i+1)/9,pt=path.getPointAtLength(len*f),reached=p>=f-1e-6;
-    return `<circle cx="${pt.x}" cy="${pt.y}" r="12" fill="${reached?'var(--green)':'var(--surface)'}" stroke="var(--gold)" stroke-width="2"/><text x="${pt.x}" y="${pt.y+5}" text-anchor="middle" font-size="13" font-family="Amiri,serif" fill="${reached?'var(--bg)':'var(--ink)'}">${ic}</text>`}).join('');
+  document.getElementById('roadStops').innerHTML=[1,2,3,4].map(i=>{const f=i/5,pt=path.getPointAtLength(len*f),reached=p>=f-1e-6;
+    return `<circle cx="${pt.x}" cy="${pt.y}" r="10" fill="${reached?'var(--gold)':'var(--surface)'}" stroke="var(--gold)" stroke-width="2"/><text x="${pt.x}" y="${pt.y+4}" text-anchor="middle" font-size="11" fill="${reached?'var(--surface)':'var(--gold)'}">★</text>`}).join('');
   const pt=path.getPointAtLength(len*Math.max(.01,p));
   document.getElementById('roadCar').setAttribute('transform',`translate(${pt.x.toFixed(1)} ${(pt.y-2).toFixed(1)})`);
 }
@@ -640,6 +648,7 @@ function duelPick(){
   return `<div class="topbar"><button class="back" data-act="home">← My garden</button></div>
   <h1>Duel with ${esc(opp)}</h1>
   <p class="muted">Put the phone flat between you. ${esc(kidName())} plays from the bottom, ${esc(opp)} from the top. Letters used: ${pool.map(x=>x[0]).join(' ')}</p>
+  ${roadMap((prog(ui.kid).duels||{}).won||0)}
   <section class="sect"><h2>Pick a game</h2><div class="games">${Object.entries(GAMES).map(([id,G])=>`<button class="game ${g===id?'on':''}" data-act="duelGame" data-g="${id}"><span class="gi">${G.icon}</span><h3>${G.name}</h3><span class="small muted">${G.how}</span></button>`).join('')}</div></section>
   <section class="sect"><h2>Who is playing?</h2><div class="row">${opps.map(o=>`<button class="btn ${opp===o?'rose':'ghost'} sm" data-act="duelOpp" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div></section>
   <section class="sect"><h2>Grown-up challenge</h2><p class="muted small">Makes the top player's side harder: more decoy letters, faster letters, a short wait each round. Turn it up until the games are close.</p>
@@ -653,7 +662,7 @@ function startDuel(){
   G={game:ui.duelGame||'slap',pool,poolSet:new Set(pool.map(x=>x[0])),h:ui.duelH??1,opp:ui.duelOpp||'Daddy',score:[0,0],frz:[0,0],rope:0,lock:false,over:false,timers:[],raf:0,items:[[],[]],catches:0};
   ui.screen='duel';
   app.innerHTML=`<div class="duelwrap" id="dw">
-   ${[1,0].map(p=>`<div class="half ${p?'p2':'p1'}" id="h${p}"><div class="hhead"><span>${esc(p?G.opp:kidName())}</span><span class="pts" id="s${p}">0</span></div><div class="hq" id="q${p}"></div><div class="field" id="f${p}"></div></div>${p?`<div class="mid"><button data-act="duelQuit" aria-label="Stop game">✕</button><div class="info" id="mid"></div><button data-act="duelSay" aria-label="Say it again" ${arVoice?'':'hidden'}>🔊</button></div>`:''}`).join('')}
+   ${[1,0].map(p=>`<div class="half ${p?'p2':'p1'}" id="h${p}"><div class="hhead"><span><img class="hv" src="img/${p?vehOf(G.opp):'brio-side'}.png" alt="">${esc(p?G.opp:kidName())}</span><span class="pts" id="s${p}">0</span></div><div class="hq" id="q${p}"></div><div class="field" id="f${p}"></div></div>${p?`<div class="mid"><button data-act="duelQuit" aria-label="Stop game">✕</button><div class="info" id="mid"></div><button data-act="duelSay" aria-label="Say it again" ${arVoice?'':'hidden'}>🔊</button></div>`:''}`).join('')}
   </div>`;
   ({slap:slapRound,dots:dotsStart,tug:tugRound})[G.game]();
 }
@@ -673,7 +682,7 @@ function slapRound(){
   $('mid').textContent='First to 7';
   for(const p of [0,1]){
     const n=p===0?(G.pool.length>=8?6:4):Math.min(4+G.h*2,12);
-    $('q'+p).innerHTML=`Slap <span class="ar" style="display:inline;font-size:inherit;color:inherit">${tg[1]}</span>`;
+    $('q'+p).innerHTML=`Slap <b>${tg[1]}</b>`;
     const opts=optsFor(p,tg[0],n),f=$('f'+p);
     if(p===1&&G.h){f.innerHTML='<div class="sgrid" style="--c:1"><span class="hq muted">Get ready...</span></div>';later(()=>{if(G.target===tg[0]&&!G.over)f.innerHTML=gridHTML(1,opts,'slap')},G.h*300)}
     else f.innerHTML=gridHTML(p,opts,'slap');
@@ -748,7 +757,7 @@ function endDuel(w){
 }
 function duelRes(){
   const r=ui.duelRes,win=r.w===0,draw=r.w===-1;
-  return `<div class="score"><div class="pic"><img src="img/${win?'brio-side':'moto-side'}.png" alt=""></div>
+  return `<div class="score">${draw?'<div class="pic"><img class="g2" src="img/lantern.jpg" alt=""></div>':driveStrip(win?'brio-side':vehOf(r.opp),win?`${esc(kidName())} takes the victory drive!`:`${esc(r.opp)} takes the victory drive!`)}
    <h1>${draw?"It's a draw!":win?`${esc(kidName())} wins!`:`${esc(r.opp)} wins this time`}</h1>
    <p class="bigstars" style="font-size:2rem;letter-spacing:0">${r.score[0]} : ${r.score[1]}</p>
    <p class="muted">${GAMES[r.game].name}${!win&&!draw?'. Rematch? Practice makes perfect, insha Allah.':''}</p>
@@ -773,7 +782,7 @@ function parents(){
   const worlds=['aq','ad'].map(w=>({w,list:WORLDS[w].lessons}));
   const ek=ui.editKid,kid=ek&&ek!=='new'?S.kids[ek]:{name:'',pin:'',symbol:'🌸'};
   return `<div class="topbar"><button class="back" data-act="cover">← Done</button>${saveChip()}</div>
-  <div class="ph"><img src="img/mag-front.png" alt=""><div><h1>Parents' corner</h1><p class="muted">Approve lessons, confirm good deeds and see how everyone is doing.</p></div></div>
+  <div class="ph"><img src="img/quran.jpg" alt=""><div><h1>Parents' corner</h1><p class="muted">Approve lessons, confirm good deeds and see how everyone is doing.</p></div></div>
 
   <section class="sect"><div class="spread"><h2>Children</h2><button class="btn sm" data-act="editKid" data-id="new">Add a child</button></div>
    ${ek?`<div class="card stage"><h3>${ek==='new'?'Add a child':'Edit '+esc(kid.name)}</h3>
