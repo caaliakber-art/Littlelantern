@@ -64,7 +64,7 @@ a{color:var(--green)}
 /* cover */
 .cover{display:grid;gap:18px}
 .cover-art{border-radius:24px;overflow:hidden;aspect-ratio:16/10;max-width:100%;background:var(--gold-soft)}
-.cover-art img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;display:block}
+.cover-art img{width:100%;height:100%;object-fit:cover;object-position:50% 60%;display:block}
 .brand{display:flex;flex-direction:column;gap:4px}
 .brand .bism{font-family:var(--f-ar);font-size:1.5rem;color:var(--green);direction:rtl}
 .kids{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
@@ -164,13 +164,14 @@ a{color:var(--green)}
 
 /* score */
 .score{display:grid;gap:14px;justify-items:center;text-align:center}
-.score .pic{width:min(260px,70%);border-radius:24px;overflow:hidden;background:var(--gold-soft)}
+.score .pic{width:min(260px,70%);border-radius:24px;overflow:hidden;background:var(--gold-soft);padding:18px}
 .score .pic img{display:block;width:100%}
 .bigstars{font-size:2.6rem;color:var(--gold);letter-spacing:6px}
 
 /* parents */
 .ph{display:flex;gap:16px;align-items:center}
-.ph img{width:96px;height:96px;object-fit:cover;border-radius:22px;flex:none}
+.ph img{width:96px;height:96px;object-fit:contain;border-radius:22px;flex:none;background:var(--gold-soft);padding:8px}
+.road svg{display:block;width:100%;height:auto;margin-top:8px}
 .sect{display:grid;gap:12px}
 .sect h2{font-size:1.25rem}
 .list{display:grid;gap:8px}
@@ -430,6 +431,7 @@ function render(){
   if(ui.screen==='duel')return;
   const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes}[ui.screen]||cover;
   app.innerHTML=f();
+  placeRoad();
 }
 function saveChip(){return mode==='db'?'<span class="chip green">Saved to your family space</span>':'<span class="chip plain">Saved on this device</span>'}
 function symEl(k,size=64){const kid=S.kids[k];const i=Object.keys(S.kids).indexOf(k);return `<span class="sym" style="width:${size}px;height:${size}px;font-size:${size/2}px;background:${SYMBG[i%4]}">${esc(kid.symbol||'🌙')}</span>`}
@@ -437,7 +439,7 @@ function symEl(k,size=64){const kid=S.kids[k];const i=Object.keys(S.kids).indexO
 function cover(){
   const ids=Object.keys(S.kids);
   return `<div class="cover">
-   <div class="cover-art"><img src="img/cover.jpg" alt="Daddy and daughter reading the Qur'an together"></div>
+   <div class="cover-art"><img src="img/road-cover.jpg" alt="A red motorbike, a red car and a black car on the road from Bangalore"></div>
    <div class="brand"><span class="bism">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span><h1>Little Lantern</h1>
     <p class="muted">Learn about Allah, your daily duas and the Arabic letters. Every lesson grows a flower.</p></div>
    ${ids.length?`<h2>Who is learning today?</h2><div class="kids">${ids.map(k=>`<button class="kidtile" data-act="pickKid" data-id="${k}">${symEl(k)}<b>${esc(S.kids[k].name)}</b><span class="stars">${'★'.repeat(Math.min(5,Object.keys(prog(k).done).length))}</span></button>`).join('')}</div>`
@@ -485,6 +487,7 @@ function home(){
   <section class="today"><h2>Today's three</h2>${tasks.map(t=>{const W=WORLDS[t.w];return `<button class="task ${t.did?'done':''}" ${t.nx?`data-act="open" data-id="${t.nx.id}"`:'disabled'}><span class="tick">${t.did?'✓':''}</span><span class="tx"><b>${W.name}</b><small>${t.nx?esc(t.nx.title):(t.did?'Done for today':'Waiting for Daddy to unlock')}</small></span><span aria-hidden="true">${W.icon}</span></button>`}).join('')}</section>
   <section class="card duelcard"><div class="tx"><h3>Duel with Daddy</h3><p class="muted">${dOpen?`Two players, one phone. Letter Slap, Dot Catcher and Tug of War.${D.played?` You have won ${D.won} of ${D.played}.`:''}`:'Finish one lesson today to unlock the games.'}</p></div>
    ${dOpen?'<button class="btn rose" data-act="duelPick">Play</button>':'<button class="btn ghost sm" data-act="duelUnlock">Daddy unlock</button>'}</section>
+  ${roadMap(P)}
   <section class="sect"><h2>Your worlds</h2><div class="worlds">
    ${Object.entries(WORLDS).map(([w,W])=>{const n=W.lessons.filter(l=>P.done[l.id]).length;return `<button class="world ${W.cls}" data-act="world" data-w="${w}"><span class="wicon ${w==='ar'?'ar':''}">${W.icon}</span><h3>${W.name}</h3><p>${W.sub} · ${n} of ${W.lessons.length} done</p><span class="bar"><i style="width:${n/W.lessons.length*100}%"></i></span></button>`}).join('')}
    ${SOON.map(s=>`<div class="world locked"><span class="wicon">${s[0]}</span><h3>${s[1]}</h3><p class="muted">${s[2]}</p><span class="chip plain" style="margin-top:auto;align-self:flex-start">Coming soon</span></div>`).join('')}
@@ -574,16 +577,48 @@ function finishLesson(){
   ui.result={id:L.id,stars,first:!prev,worldDone:worldDone(w,k)};go('score');
 }
 function score(){
-  const r=ui.result,l=byId[r.id],img=r.worldDone?'proud':r.stars===3?'stars':r.stars===2?'cheer':'thumbs';
+  const r=ui.result,l=byId[r.id],img=r.worldDone?'mag-rear':r.stars===3?'brio-front':r.stars===2?'brio-side':'moto-side';
   const nx=nextIn(l.world);
   return `<div class="score">
-   <div class="pic"><img src="img/${img}.jpg" alt=""></div>
+   <div class="pic"><img src="img/${img}.png" alt=""></div>
    <h1>${r.worldDone?'You finished the whole world!':r.stars===3?'MashaAllah, perfect!':'Well done, '+esc(kidName())+'!'}</h1>
    <div class="bigstars" aria-label="${r.stars} of 3 stars">${starsTxt(r.stars)}</div>
    <p class="muted">${esc(l.title)}${r.first?' · A new flower grew in your garden.':' · Great practice!'}${r.worldDone?' A tree grew too!':''}</p>
    <div class="row" style="justify-content:center">${nx&&nx.id!==l.id?`<button class="btn" data-act="open" data-id="${nx.id}">Next: ${esc(nx.title)}</button>`:''}<button class="btn ghost" data-act="home">My garden</button></div>
    ${duelOpen(ui.kid)?'<button class="btn rose" data-act="duelPick">Duel with Daddy</button>':''}
   </div>`;
+}
+
+/* ---------- road to Kerala ---------- */
+const ROAD_D='M30 196 C 120 196 130 112 210 122 S 330 204 400 152 S 465 92 548 96';
+function roadMap(P){
+  const order=['aq','ad','ar'];let sum=0;
+  for(const w of order){const L=WORLDS[w].lessons;sum+=L.filter(l=>P.done[l.id]).length/L.length}
+  const p=Math.min(1,sum/9),cur=order.find(w=>!worldDone(w,ui.kid));
+  const sky=[[8,150,16,50],[28,128,14,72],[46,160,12,40],[62,140,16,60]].map(r=>`<rect x="${r[0]}" y="${r[1]}" width="${r[2]}" height="${r[3]}" rx="2" fill="var(--muted)" opacity=".35"/>`).join('');
+  return `<section class="card road"><div class="spread"><h3>Road to Kerala</h3><span class="chip rose">${Math.round(p*100)}% of the way</span></div>
+  <svg viewBox="0 0 600 236" data-p="${p}" role="img" aria-label="Road from Bangalore to home in Kerala, ${Math.round(p*100)} percent travelled">
+   ${sky}<text x="10" y="226" font-size="13" font-family="Nunito,sans-serif" font-weight="700" fill="var(--muted)">Bangalore</text>
+   <image href="img/tree.png" x="250" y="30" width="44" height="58"/><image href="img/sign.png" x="150" y="150" width="34" height="50"/>
+   <g transform="translate(520 22)"><rect x="0" y="22" width="62" height="40" rx="3" fill="var(--rose-soft)" stroke="var(--rose)" stroke-width="2"/><path d="M-6 26 L31 0 L68 26Z" fill="var(--rose)"/><rect x="24" y="38" width="14" height="24" rx="2" fill="var(--gold)"/></g>
+   <path d="M505 70 q-4 -30 2 -50" stroke="#8A6A4A" stroke-width="4" fill="none"/><path d="M507 22 q-16 -6 -24 6 M507 22 q14 -10 24 0 M507 22 q-4 -14 -16 -16 M507 22 q8 -14 20 -12" stroke="var(--green)" stroke-width="5" fill="none" stroke-linecap="round"/>
+   <image href="img/mag-side.png" x="414" y="34" width="86" height="42"/>
+   <text x="590" y="122" text-anchor="end" font-size="13" font-family="Nunito,sans-serif" font-weight="700" fill="var(--muted)">Home in Kerala</text>
+   <path id="roadPath" d="${ROAD_D}" fill="none" stroke="#6F6E78" stroke-width="22" stroke-linecap="round"/>
+   <path d="${ROAD_D}" fill="none" stroke="#F4EFE4" stroke-width="2" stroke-dasharray="10 10"/>
+   <g id="roadStops"></g>
+   <g id="roadCar"><g transform="scale(-1 1)"><image href="img/brio-side.png" x="-38" y="-38" width="76" height="40"/></g></g>
+  </svg>
+  <p class="small muted">${cur?`Next stop: ${WORLDS[cur].name}. Every lesson moves your car along the road.`:'You finished every world built so far. New stops are coming, insha Allah.'}</p></section>`;
+}
+function placeRoad(){
+  const path=document.getElementById('roadPath');if(!path)return;
+  const svg=path.ownerSVGElement,p=+svg.dataset.p,len=path.getTotalLength();
+  const icons=[...['aq','ad','ar'].map(w=>WORLDS[w].icon),...SOON.map(s=>s[0])].slice(0,8);
+  document.getElementById('roadStops').innerHTML=icons.map((ic,i)=>{const f=(i+1)/9,pt=path.getPointAtLength(len*f),reached=p>=f-1e-6;
+    return `<circle cx="${pt.x}" cy="${pt.y}" r="12" fill="${reached?'var(--green)':'var(--surface)'}" stroke="var(--gold)" stroke-width="2"/><text x="${pt.x}" y="${pt.y+5}" text-anchor="middle" font-size="13" font-family="Amiri,serif" fill="${reached?'var(--bg)':'var(--ink)'}">${ic}</text>`}).join('');
+  const pt=path.getPointAtLength(len*Math.max(.01,p));
+  document.getElementById('roadCar').setAttribute('transform',`translate(${pt.x.toFixed(1)} ${(pt.y-2).toFixed(1)})`);
 }
 
 /* ---------- duels ---------- */
@@ -713,7 +748,7 @@ function endDuel(w){
 }
 function duelRes(){
   const r=ui.duelRes,win=r.w===0,draw=r.w===-1;
-  return `<div class="score"><div class="pic"><img src="img/${win?'cheer':'thumbs'}.jpg" alt=""></div>
+  return `<div class="score"><div class="pic"><img src="img/${win?'brio-side':'moto-side'}.png" alt=""></div>
    <h1>${draw?"It's a draw!":win?`${esc(kidName())} wins!`:`${esc(r.opp)} wins this time`}</h1>
    <p class="bigstars" style="font-size:2rem;letter-spacing:0">${r.score[0]} : ${r.score[1]}</p>
    <p class="muted">${GAMES[r.game].name}${!win&&!draw?'. Rematch? Practice makes perfect, insha Allah.':''}</p>
@@ -738,7 +773,7 @@ function parents(){
   const worlds=['aq','ad'].map(w=>({w,list:WORLDS[w].lessons}));
   const ek=ui.editKid,kid=ek&&ek!=='new'?S.kids[ek]:{name:'',pin:'',symbol:'🌸'};
   return `<div class="topbar"><button class="back" data-act="cover">← Done</button>${saveChip()}</div>
-  <div class="ph"><img src="img/dash.jpg" alt=""><div><h1>Parents' corner</h1><p class="muted">Approve lessons, confirm good deeds and see how everyone is doing.</p></div></div>
+  <div class="ph"><img src="img/mag-front.png" alt=""><div><h1>Parents' corner</h1><p class="muted">Approve lessons, confirm good deeds and see how everyone is doing.</p></div></div>
 
   <section class="sect"><div class="spread"><h2>Children</h2><button class="btn sm" data-act="editKid" data-id="new">Add a child</button></div>
    ${ek?`<div class="card stage"><h3>${ek==='new'?'Add a child':'Edit '+esc(kid.name)}</h3>
