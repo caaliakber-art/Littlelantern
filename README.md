@@ -8,4 +8,6 @@ A family learning game for Islamic basics, built for one 8-year-old and her cous
 - **Duel with Daddy**: two-player, one-phone letter games (Letter Slap, Dot Catcher, Tug of War)
 - **Parents' corner**: approve lessons before they unlock, confirm good deeds, see progress
 
-Progress is saved in the browser on each device. Open `index.html` or the GitHub Pages link on the child's device and add it to the home screen.
+Progress syncs across the family through Firebase (Firestore, Mumbai). A grown-up on the family list signs in with Google once per device; children just pick their name. Without signing in, progress stays on that device.
+
+Access rules live in `firestore.rules`. `build.sh` rebuilds `index.html` from the game source.

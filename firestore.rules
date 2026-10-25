@@ -1,0 +1,36 @@
+rules_version = '2';
+
+// Little Lantern: only the owners and the parents they add can read or write anything.
+// Paste this into Firebase console > Firestore Database > Rules, then click Publish.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null && request.auth.token.email_verified == true;
+    }
+
+    function isOwner() {
+      return signedIn() && request.auth.token.email.lower() in ['ali.rgnprice@gmail.com', 'ca.aliakber@gmail.com'];
+    }
+
+    function isMember() {
+      return isOwner()
+        || (signedIn()
+            && exists(/databases/$(database)/documents/fam/access)
+            && request.auth.token.email.lower() in get(/databases/$(database)/documents/fam/access).data.members);
+    }
+
+    // The family access list: every member can read it, only owners change it.
+    match /fam/access {
+      allow read: if isMember();
+      allow write: if isOwner();
+    }
+
+    // Game data: settings, approvals, children, progress and good deeds.
+    match /{collection}/{doc} {
+      allow read, write: if isMember()
+        && collection in ['fam', 'kids', 'progress', 'deeds']
+        && !(collection == 'fam' && doc == 'access');
+    }
+  }
+}

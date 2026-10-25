@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#B9587A">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>window.LL_FB={apiKey:"AIzaSyAIZ4JyxxZPBcPD5OHjQ-hpofP-KJwHtzE",authDomain:"little-lantern-b8a7b.firebaseapp.com",projectId:"little-lantern-b8a7b",storageBucket:"little-lantern-b8a7b.firebasestorage.app",messagingSenderId:"598122924180",appId:"1:598122924180:web:2bf132131983ea04d74c81"};</script>
 </head>
 <body>
 <title>Little Lantern</title>
@@ -368,7 +372,7 @@ const byId=Object.fromEntries(ALL.map(l=>[l.id,l]));
 
 /* ===================== STATE + STORAGE ===================== */
 const LKEY='deeniyath-garden-v1';
-function emptyState(){return{settings:{},kids:{},progress:{},approvals:{},deeds:{}}}
+function emptyState(){return{settings:{},kids:{},progress:{},approvals:{},deeds:{},access:[]}}
 let S=emptyState();
 try{const raw=localStorage.getItem(LKEY);if(raw)S=Object.assign(emptyState(),JSON.parse(raw))}catch(e){}
 let mode='local',db=null,dbReady=false;
@@ -385,29 +389,53 @@ const saveKid=id=>put('kids/'+id,S.kids[id]);
 const saveProg=id=>put('progress/'+id,S.progress[id]);
 const saveDeed=id=>put('deeds/'+id,S.deeds[id]);
 
+function subscribeAll(onErr){
+  const local=JSON.parse(JSON.stringify(S));let first=true;
+  const err=e=>{onErr&&onErr(e)};
+  const coll=(name,key)=>db.collection(name).onSnapshot(s=>{
+    const m={};s.docs.forEach(x=>m[x.id]=x.data());S[key]=m;saveLocal();soft();
+  },err);
+  coll('kids','kids');coll('progress','progress');coll('deeds','deeds');
+  db.collection('fam').onSnapshot(async s=>{
+    const m={};s.docs.forEach(x=>m[x.id]=x.data());
+    if(first){first=false;
+      if(!m.settings&&local.settings&&local.settings.parentPin){ // move this device's data into the family space once
+        S=Object.assign(local,{access:S.access||[]});await put('fam/settings',S.settings);await put('fam/approvals',S.approvals);
+        for(const k in S.kids)await put('kids/'+k,S.kids[k]);
+        for(const k in S.progress)await put('progress/'+k,S.progress[k]);
+        for(const k in S.deeds)await put('deeds/'+k,S.deeds[k]);
+        return;}}
+    S.settings=Object.assign({},m.settings||{});S.approvals=Object.assign({},m.approvals||{});
+    S.access=(m.access&&m.access.members)||[];
+    dbReady=true;saveLocal();soft();
+  },err);
+}
+/* Firebase (GitHub version only): grown-ups sign in with Google once per device */
+const OWNERS=['ali.rgnprice@gmail.com','ca.aliakber@gmail.com'];
+let fb=null;
+function connectFirebase(){
+  firebase.initializeApp(window.LL_FB);
+  const fs=firebase.firestore();
+  try{fs.enablePersistence({synchronizeTabs:true}).catch(()=>{})}catch(e){}
+  fb={auth:firebase.auth(),fs,user:null,state:'checking'};
+  fb.auth.onAuthStateChanged(u=>{
+    fb.user=u;
+    if(u){fb.state='in';db=fs;mode='db';
+      subscribeAll(e=>{if(e&&e.code==='permission-denied'){fb.state='denied';mode='local';db=null;soft()}});}
+    else{fb.state='out';mode='local';db=null}
+    soft();
+  });
+  fb.auth.getRedirectResult().catch(()=>{});
+}
+const fbEmail=()=>(fb&&fb.user&&fb.user.email||'').toLowerCase();
+const isOwner=()=>OWNERS.includes(fbEmail());
 (async function connect(){
   try{
+    if(window.LL_FB&&window.firebase){connectFirebase();return}
     if(!window.claude||!window.claude.use)return;
     const d=await window.claude.use('db');
     if(!d)return;
-    db=d;mode='db';
-    const local=JSON.parse(JSON.stringify(S));let first=true;
-    const coll=(name,key)=>db.collection(name).onSnapshot(s=>{
-      const m={};s.docs.forEach(x=>m[x.id]=x.data());S[key]=m;saveLocal();soft();
-    },()=>{});
-    coll('kids','kids');coll('progress','progress');coll('deeds','deeds');
-    db.collection('fam').onSnapshot(async s=>{
-      const m={};s.docs.forEach(x=>m[x.id]=x.data());
-      if(first){first=false;
-        if(!m.settings&&local.settings&&local.settings.parentPin){ // move this device's data into the family space once
-          S=local;await put('fam/settings',S.settings);await put('fam/approvals',S.approvals);
-          for(const k in S.kids)await put('kids/'+k,S.kids[k]);
-          for(const k in S.progress)await put('progress/'+k,S.progress[k]);
-          for(const k in S.deeds)await put('deeds/'+k,S.deeds[k]);
-          return;}}
-      S.settings=Object.assign({},m.settings||{});S.approvals=Object.assign({},m.approvals||{});
-      dbReady=true;saveLocal();soft();
-    },()=>{});
+    db=d;mode='db';subscribeAll();
   }catch(e){}
 })();
 
@@ -443,7 +471,12 @@ function render(){
   app.innerHTML=f();
   placeRoad();
 }
-function saveChip(){return mode==='db'?'<span class="chip green">Saved to your family space</span>':'<span class="chip plain">Saved on this device</span>'}
+function saveChip(){if(fb&&fb.state==='in')return '<span class="chip green">Synced with the family</span>';return mode==='db'?'<span class="chip green">Saved to your family space</span>':'<span class="chip plain">Saved on this device</span>'}
+function fbGate(){
+  if(!fb||fb.state==='in'||fb.state==='checking')return '';
+  if(fb.state==='denied')return `<div class="card stage"><h3>This account isn't on the family list yet</h3><p class="muted">${esc(fbEmail())} is signed in, but Daddy hasn't added it. Ask him to add this email in the Parents' corner under Family access, then reopen the game.</p><div class="row"><button class="btn ghost sm" data-act="fbSignOut">Use a different account</button></div></div>`;
+  return `<div class="card stage"><h3>A grown-up signs in once</h3><p class="muted">Sign in with Google on this device so everyone's gardens, stars and duel wins stay in sync across the family. Children never need to sign in.</p><div class="row"><button class="btn rose" data-act="fbSignIn">Sign in with Google</button></div><p class="small muted">You can still play without signing in. Progress then stays on this device only.</p></div>`;
+}
 function symEl(k,size=64){const kid=S.kids[k];const i=Object.keys(S.kids).indexOf(k);return `<span class="sym" style="width:${size}px;height:${size}px;font-size:${size/2}px;background:${SYMBG[i%4]}">${esc(kid.symbol||'🌙')}</span>`}
 
 function cover(){
@@ -453,6 +486,7 @@ function cover(){
    <div class="us"><img src="img/back-view.jpg" alt="Daddy and his daughter sitting together, seen from behind, looking at the masjid"></div>
    <div class="brand"><span class="bism">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span><h1>Little Lantern</h1>
     <p class="muted">Learn about Allah, your daily duas and the Arabic letters. Every lesson grows a flower.</p></div>
+   ${fbGate()}
    ${ids.length?`<h2>Who is learning today?</h2><div class="kids">${ids.map(k=>`<button class="kidtile" data-act="pickKid" data-id="${k}">${symEl(k)}<b>${esc(S.kids[k].name)}</b><span class="stars">${'★'.repeat(Math.min(5,Object.keys(prog(k).done).length))}</span></button>`).join('')}</div>`
    :`<div class="card"><h3>Assalamu alaikum!</h3><p class="muted" style="margin-top:6px">Daddy, set a parent PIN and add the children to get started.</p><div class="row" style="margin-top:14px"><button class="btn rose" data-act="setup">Set up the family</button></div></div>`}
    <div class="spread"><button class="btn ghost sm" data-act="parentLogin">Parents' corner</button>${saveChip()}</div>
@@ -815,8 +849,12 @@ function parents(){
    <div class="li"><span class="tx"><a href="https://abdurrahman.org/hisn-al-muslim/" target="_blank" rel="noopener">Hisn al-Muslim</a><span class="small muted" style="display:block">Source checks for the daily duas</span></span></div>
   </div></section>
 
+  ${fb&&fb.state==='in'?`<section class="sect"><h2>Family access</h2><p class="muted small">Signed in as ${esc(fbEmail())}. Grown-ups on this list can sign in with Google on their own devices and see everyone's progress.</p>
+   <div class="list">${OWNERS.map(e=>`<div class="li"><span class="tx">${esc(e)}</span><span class="chip gold">Owner</span></div>`).join('')}${(S.access||[]).map(e=>`<div class="li"><span class="tx">${esc(e)}</span>${isOwner()?`<button class="btn ghost sm" data-act="rmMember" data-e="${esc(e)}">Remove</button>`:''}</div>`).join('')}</div>
+   ${isOwner()?`<div class="card stage"><div class="field"><label for="newmember">Add a parent's Google email</label><input id="newmember" type="email" autocomplete="off" placeholder="name@gmail.com"></div><div class="row"><button class="btn sm" data-act="addMember">Add to family</button></div></div>`:''}
+   <div class="row"><button class="btn ghost sm" data-act="fbSignOut">Sign out of Google on this device</button></div></section>`:''}
   <section class="sect"><h2>Settings</h2><div class="card stage"><div class="field"><label for="ppin2">Change parent PIN</label><input id="ppin2" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="New 4-number PIN"></div><div class="row"><button class="btn ghost sm" data-act="changePin">Update PIN</button></div>
-   <p class="small muted">${mode==='db'?'Progress is saved to your family space, so it follows each child across devices where a signed-in grown-up opens this page.':'Progress is saved on this device only. Open this page while signed in to save it to your family space.'}</p></div></section>`;
+   <p class="small muted">${mode==='db'?(fb?'Progress syncs through the family database, so it follows each child to every device where a family grown-up has signed in.':'Progress is saved to your family space, so it follows each child across devices where a signed-in grown-up opens this page.'):'Progress is saved on this device only. Open this page while signed in to save it to your family space.'}</p></div></section>`;
 }
 function previewHTML(l){
   if(l.world==='ad')return `<div class="preview"><div class="ar" style="font-size:1.4rem">${l.ar}</div><div><i>${esc(l.tr)}</i></div><div>${esc(l.mean)}</div>${l.extra?`<div class="ar" style="font-size:1.2rem">${l.extra.ar}</div><div>${esc(l.extra.mean)}</div>`:''}<div class="small muted">When: ${esc(l.when)} · Source: ${esc(l.src)}</div></div>`;
@@ -830,6 +868,10 @@ app.addEventListener('click',e=>{
   const L=ui.L,st=L&&L.st,s=L&&curStep();
   switch(a){
    case 'cover':ui.parent=false;ui.editKid=null;go('cover');break;
+   case 'fbSignIn':{const pr=new firebase.auth.GoogleAuthProvider();pr.setCustomParameters({prompt:'select_account'});fb.auth.signInWithPopup(pr).catch(e=>{if(e&&/popup-blocked|operation-not-supported/.test(e.code||''))fb.auth.signInWithRedirect(pr);else if(!/popup-closed|cancelled/.test(e.code||''))toast('Sign-in did not finish. Please try again.')});break;}
+   case 'fbSignOut':fb.auth.signOut().then(()=>location.reload());break;
+   case 'addMember':{const v=(document.getElementById('newmember').value||'').trim().toLowerCase();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){toast('Enter a full email address');break}if(OWNERS.includes(v)||S.access.includes(v)){toast('Already on the list');break}S.access=[...S.access,v];put('fam/access',{members:S.access});toast('Added. They can sign in now.');render();break;}
+   case 'rmMember':S.access=S.access.filter(x=>x!==b.dataset.e);put('fam/access',{members:S.access});render();break;
    case 'setup':go(S.settings.parentPin?'parents':'setup');break;
    case 'parentLogin':if(!S.settings.parentPin)go('setup');else go('pin',{pin:'',pinFor:'parent'});break;
    case 'pickKid':if(!S.kids[id].pin){ui.kid=id;go('home')}else go('pin',{pin:'',pinFor:id});break;
