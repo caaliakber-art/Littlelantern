@@ -215,6 +215,21 @@ a{color:var(--green)}
 .shareov{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.55);display:grid;place-items:center;padding:16px}
 .sharebox{max-width:420px;width:100%;max-height:90vh;overflow:auto}
 .sharebox img{width:100%;border-radius:14px}
+/* family online */
+.family{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.fam{flex:0 0 108px;display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 6px;border-radius:16px;background:var(--surface);border:2px solid var(--line);text-align:center;min-width:0}
+.fam.sel{border-color:var(--rose)}
+.fam b{font-size:.88rem}
+.fam small{font-size:.7rem;color:var(--muted);line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.fam.on small{color:var(--green);font-weight:700}
+.famav{position:relative;display:inline-block}
+.famav .dot{position:absolute;right:0;bottom:2px;width:14px;height:14px;border-radius:50%;background:#B7ABB4;border:2px solid var(--surface)}
+.fam.on .famav .dot{background:#2EBD6B}
+.waveov{position:fixed;left:0;right:0;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:35;display:grid;gap:8px;justify-items:center;padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.wavecard{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:2px solid var(--gold);border-radius:20px;padding:12px 14px;max-width:460px;width:100%;box-shadow:0 12px 30px rgba(43,36,48,.25);animation:pop .35s ease-out}
+.wavecard p{font-size:1.15rem;font-weight:700;margin:2px 0 8px}
+.wtx{min-width:0}
+@keyframes pop{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
 /* compact home */
 .hello2{display:flex;gap:14px;align-items:center}
 .hx{min-width:0}
@@ -840,6 +855,66 @@ function certsShelf(){
   return `<section class="sect"><h2 class="h2s">My certificates 🏅</h2><div class="certs strip">${list.map(c=>`<button class="certchip" data-act="openCert" data-key="${esc(c.key)}"><span>🏅</span><b>${esc(c.title)}</b><span class="small muted">${esc(c.story?byId[c.story].title:c.line)}</span></button>`).join('')}</div></section>`;
 }
 
+
+/* ===================== WHO'S HERE + SALAM ===================== */
+const ONLINE_MS=75000;
+const WAVES=['Assalamu alaikum! 👋','Come and play! 🏮',"Let's read a story! 📜",'MashaAllah! 🌟'];
+const REPLIES=['Wa alaikum assalam! 😊','Coming! 🏃','Jazakallahu khair! 💛'];
+let lastBeat=0,lastDoing='';
+function doingNow(){
+  const s=ui.screen;
+  if(s==='play'&&ui.L){const l=byId[ui.L.id];return l.world==='st'?`Reading ${l.title}`:l.world==='sk'?`Playing ${l.title}`:l.world==='ad'?`Learning a dua`:`Learning ${l.title}`}
+  if(s==='duel'||s==='duelpick'||s==='duelres')return 'In a letter duel';
+  if(s==='world')return `In ${WORLDS[ui.world]?.name||'the game'}`;
+  if(s==='avatar')return 'Making an avatar';
+  if(s==='cert')return 'Looking at a certificate';
+  return 'In the garden';
+}
+function beat(force){
+  if(mode!=='db'||!ui.kid||document.hidden)return;
+  const d=doingNow(),now=Date.now();
+  if(!force&&d===lastDoing&&now-lastBeat<28000)return;
+  lastBeat=now;lastDoing=d;
+  put('fam/p-'+ui.kid,{kid:ui.kid,at:now,doing:d});
+}
+function goOffline(kid){if(mode==='db'&&kid)put('fam/p-'+kid,{kid,at:0,doing:''});lastDoing=''}
+setInterval(()=>beat(true),30000);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)goOffline(ui.kid);else beat(true)});
+addEventListener('pagehide',()=>goOffline(ui.kid));
+function isOnline(k){const p=(S.presence||{})[k];return !!(p&&p.at&&Date.now()-p.at<ONLINE_MS)}
+function seenAgo(k){const p=(S.presence||{})[k];if(!p||!p.at)return 'Not seen yet';const m=Math.round((Date.now()-p.at)/60000);if(m<60)return `Seen ${m} min ago`;const hh=Math.round(m/60);return hh<24?`Seen ${hh} hour${hh>1?'s':''} ago`:`Seen ${Math.round(hh/24)} day${hh>=48?'s':''} ago`}
+function whosHere(){
+  if(mode!=='db')return '';
+  const others=Object.keys(S.kids).filter(k=>k!==ui.kid);if(!others.length)return '';
+  others.sort((a,b)=>isOnline(b)-isOnline(a));
+  return `<section class="sect"><h2 class="h2s">Family</h2><div class="family">${others.map(k=>{const on=isOnline(k),p=(S.presence||{})[k]||{};
+    return `<button class="fam ${on?'on':''} ${ui.waveTo===k?'sel':''}" data-act="waveTo" data-k="${k}"><span class="famav">${symEl(k,48)}<i class="dot"></i></span><b>${esc(S.kids[k].name)}</b><small>${on?esc(p.doing||'Online'):seenAgo(k)}</small></button>`}).join('')}</div>
+   ${ui.waveTo&&S.kids[ui.waveTo]?`<div class="card stage wavepick"><p class="small muted">Send ${esc(S.kids[ui.waveTo].name)} a message${isOnline(ui.waveTo)?'':". They'll see it next time they open the game"}:</p><div class="row">${WAVES.map(w=>`<button class="btn ghost sm" data-act="sendWave" data-m="${esc(w)}">${esc(w)}</button>`).join('')}</div></div>`:''}</section>`;
+}
+function sendWave(to,msg){
+  if(mode!=='db')return;
+  const id='w-'+uid();S.waves=S.waves||{};S.waves[id]={from:ui.kid,to,msg,at:Date.now()};
+  put('fam/'+id,S.waves[id]);
+}
+let waveShown={};
+function handleWaves(){
+  const now=Date.now();
+  for(const id in (S.waves||{})){const w=S.waves[id];
+    if(!w||now-w.at>86400000){del('fam/'+id);continue}
+    if(w.to!==ui.kid||waveShown[id])continue;
+    waveShown[id]=1;showWave(id,w);
+  }
+}
+function showWave(id,w){
+  let o=document.getElementById('waveov');if(!o){o=document.createElement('div');o.id='waveov';o.className='waveov';o.setAttribute('role','status');document.body.appendChild(o)}
+  const from=S.kids[w.from];if(!from){del('fam/'+id);return}
+  const card=document.createElement('div');card.className='wavecard';
+  card.innerHTML=`<span class="waveav">${symEl(w.from,52)}</span><div class="wtx"><b>${esc(from.name)}</b><p>${esc(w.msg)}</p><div class="row">${REPLIES.map(r=>`<button class="btn sm ghost" data-r="${esc(r)}">${esc(r)}</button>`).join('')}<button class="btn sm" data-close>OK</button></div></div>`;
+  card.addEventListener('click',e=>{const r=e.target.closest('[data-r]');if(r){sendWave(w.from,r.dataset.r);toast('Sent!')}if(r||e.target.closest('[data-close]'))card.remove()});
+  o.appendChild(card);del('fam/'+id);delete S.waves[id];
+  setTimeout(()=>card.isConnected&&card.remove(),45000);
+}
+
 /* ===================== STACK IT ===================== */
 const PNAME=Object.fromEntries(PROPHETS.map(p=>[p[0],{t:p[1],ar:p[2]}]));
 const SK=[
@@ -908,6 +983,7 @@ function subscribeAll(onErr){
   coll('kids','kids');coll('progress','progress');coll('deeds','deeds');
   db.collection('fam').onSnapshot(async s=>{
     const m={};s.docs.forEach(x=>m[x.id]=x.data());
+    const wasFirst=first;
     if(first){first=false;
       if(!m.settings&&local.settings&&local.settings.parentPin){ // move this device's data into the family space once
         S=Object.assign(local,{access:S.access||[]});await put('fam/settings',S.settings);await put('fam/approvals',S.approvals);
@@ -915,6 +991,11 @@ function subscribeAll(onErr){
         for(const k in S.progress)await put('progress/'+k,S.progress[k]);
         for(const k in S.deeds)await put('deeds/'+k,S.deeds[k]);
         return;}}
+    S.presence={};S.waves={};
+    for(const id in m){if(id.startsWith('p-'))S.presence[id.slice(2)]=m[id];else if(id.startsWith('w-'))S.waves[id]=m[id]}
+    handleWaves();
+    const ch=s.docChanges?s.docChanges():[];
+    if(!wasFirst&&ch.length&&ch.every(c=>/^[pw]-/.test(c.doc.id))){if(ui.screen==='home')soft();return}
     S.settings=Object.assign({},m.settings||{});S.approvals=Object.assign({},m.approvals||{});
     S.access=(m.access&&m.access.members)||[];
     dbReady=true;saveLocal();soft();
@@ -983,6 +1064,7 @@ function render(){
   const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen,cert:certScreen}[ui.screen]||cover;
   app.innerHTML=f();
   placeRoad();
+  beat(false);
   if(ui.screen==='cert')drawCert();
 }
 let certCanvas=null;
@@ -1048,6 +1130,7 @@ function home(){
   return `<div class="topbar"><button class="back" data-act="logout">← Switch</button>${saveChip()}</div>
   <div class="hello2"><button class="avbtn" data-act="avatar" aria-label="Make my avatar">${symEl(k,64)}<span class="avedit">${S.kids[k].av?'Edit':'Make me!'}</span></button>
    <div class="hx"><h1 class="hi">Assalamu alaikum, ${esc(S.kids[k].name)}!</h1><div class="pills"><span class="pill">⭐ ${stars}</span><span class="pill">🔥 ${P.streak||0} day${(P.streak||0)===1?'':'s'}</span><span class="pill">🌸 ${done+deedsOk(k)}</span></div></div></div>
+  ${whosHere()}
   <div class="garden slim">${gardenSVG(done+deedsOk(k),trees)}</div>
   <section class="sect"><h2 class="h2s">Today's three</h2><div class="today3">${tasks.map(t=>{const W=WORLDS[t.w];return `<button class="t3 ${t.did?'done':''}" ${t.nx?`data-act="open" data-id="${t.nx.id}"`:'disabled'}><span class="ic ${t.w==='ar'?'ar':''}">${t.did?'✅':W.icon}</span><b>${short[t.w]}</b><small>${t.nx?esc(t.nx.title):(t.did?'Done!':'Waiting for Daddy')}</small></button>`}).join('')}</div></section>
   <section class="sect"><h2 class="h2s">Play and learn</h2><div class="tiles">${['st','sk','aq','ad','ar'].map(tile).join('')}
@@ -1445,7 +1528,7 @@ app.addEventListener('click',e=>{
        if(ui.pin===want){if(ui.pinFor==='parent'){ui.parent=true;go('parents')}else if(ui.pinFor==='duelUnlock'){ui.duelUnlocked=true;go('duelpick')}else if(ui.pinFor==='daddyCheck'){toast("Daddy's star!");ui.screen='play';finishLesson()}else{ui.kid=ui.pinFor;checkCerts(ui.kid);go('home')}}
        else{ui.pin='';render();const p=document.getElementById('pinbox');p&&p.classList.add('shake');toast('Try again')}}
      else render();break;}
-   case 'logout':ui.kid=null;go('cover');break;
+   case 'logout':goOffline(ui.kid);ui.kid=null;ui.waveTo=null;go('cover');break;
    case 'home':go('home');break;
    case 'world':go('world',{world:b.dataset.w});break;
    case 'open':startLesson(id);break;
@@ -1472,6 +1555,8 @@ app.addEventListener('click',e=>{
    case 'sPrev':if(st.k>0){st.k--;render()}break;
    case 'chunk':{const i=+b.dataset.i;if(i===st.placed.length)st.placed.push(i);else{L.miss+=0;toast('Which piece comes first?');b.classList.add('shake');break}render();break;}
    case 'daddyCheck':go('pin',{pin:'',pinFor:'daddyCheck'});break;
+   case 'waveTo':ui.waveTo=ui.waveTo===b.dataset.k?null:b.dataset.k;render();break;
+   case 'sendWave':sendWave(ui.waveTo,b.dataset.m);toast(`Sent to ${S.kids[ui.waveTo].name}!`);ui.waveTo=null;render();break;
    case 'deedOpen':ui.deedOpen=!ui.deedOpen;render();break;
    case 'deed':{ui.deedOpen=false;const k=uid();S.deeds[k]={kid:ui.kid,text:b.dataset.t,status:'pending',at:Date.now()};saveDeed(k);toast('Sent to Daddy');render();break;}
    case 'savePin':{const v=document.getElementById('ppin').value.trim();if(!/^\d{4}$/.test(v)){toast('Use exactly 4 numbers');break}S.settings.parentPin=v;saveSettings();ui.parent=true;ui.editKid='new';go('parents');break;}
