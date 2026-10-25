@@ -110,7 +110,7 @@ a{color:var(--green)}
 .world h3{font-size:1.2rem}
 .world .bar{height:8px;border-radius:9px;background:rgba(127,127,127,.18);overflow:hidden;margin-top:auto}
 .world .bar i{display:block;height:100%;background:currentColor}
-.w-aq{background:var(--green-soft);color:var(--green)} .w-ad{background:var(--rose-soft);color:var(--rose)} .w-ar{background:var(--gold-soft);color:var(--gold)}
+.w-aq{background:var(--green-soft);color:var(--green)} .w-st{background:var(--sky);color:var(--ink)} .w-ad{background:var(--rose-soft);color:var(--rose)} .w-ar{background:var(--gold-soft);color:var(--gold)}
 .world p{color:var(--ink);font-size:.92rem}
 .world.locked{background:var(--surface);border:2px dashed var(--line);color:var(--muted);cursor:default}
 .lantern{display:flex;gap:16px;align-items:center}
@@ -168,6 +168,21 @@ a{color:var(--green)}
 .letter.open{border-color:var(--gold);background:var(--gold-soft)}
 .src{font-size:.8rem;color:var(--muted)}
 
+/* stories */
+.story{display:grid;gap:12px;touch-action:pan-y}
+.scene{border-radius:var(--r);overflow:hidden;aspect-ratio:5/3;max-width:100%;background:var(--sky)}
+.scene svg{display:block;width:100%;height:100%}
+.ayah{background:var(--green-soft);border-radius:14px;padding:12px 14px;display:grid;gap:4px}
+.ayah .ar{font-size:1.55rem;color:var(--green);text-align:center}
+.ayah p{font-weight:700;text-align:center}
+.ayah .src{text-align:center}
+.sdots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.sdots i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.sdots i.on{background:var(--rose);width:20px;border-radius:5px}
+.wind{animation:blow 3.2s linear infinite}
+@keyframes blow{from{transform:translateX(-60px)}to{transform:translateX(60px)}}
+.rain{animation:fall 1s linear infinite}
+@keyframes fall{from{transform:translateY(-6px);opacity:.3}to{transform:translateY(10px);opacity:1}}
 /* score */
 .score{display:grid;gap:14px;justify-items:center;text-align:center}
 .score .pic{width:min(260px,70%);border-radius:24px;overflow:hidden;background:var(--gold-soft)}
@@ -340,7 +355,7 @@ const AD=[
 {id:'ad7',title:'Leaving home',ar:'بِسْمِ اللَّهِ، تَوَكَّلْتُ عَلَى اللَّهِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ',when:'When you go out of the house',tr:"Bismillah, tawakkaltu 'alallah, wa la hawla wa la quwwata illa billah",mean:'In the name of Allah, I trust in Allah, and there is no power and no strength except with Allah.',chunks:['بِسْمِ اللَّهِ','تَوَكَّلْتُ عَلَى اللَّهِ','وَلَا حَوْلَ وَلَا قُوَّةَ','إِلَّا بِاللَّهِ'],src:'Abu Dawud, at-Tirmidhi'},
 {id:'ad8',title:'When someone sneezes',ar:'الْحَمْدُ لِلَّهِ',when:'You sneeze: say Alhamdulillah. The one who hears replies, then you reply back.',tr:'Alhamdulillah',mean:'All praise is for Allah.',extra:{ar:'يَرْحَمُكَ اللَّهُ ... يَهْدِيكُمُ اللَّهُ وَيُصْلِحُ بَالَكُمْ',tr:"Yarhamuk-Allah ... Yahdikumullahu wa yuslihu balakum",mean:'Listener: May Allah have mercy on you. You reply: May Allah guide you and set your affairs right.'},chunks:['يَهْدِيكُمُ اللَّهُ','وَيُصْلِحُ','بَالَكُمْ'],src:'al-Bukhari'},
 {id:'ad9',title:'Morning and evening protection',ar:'بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ',when:'Three times every morning and every evening',tr:"Bismillahil-ladhi la yadurru ma'asmihi shay'un fil-ardi wa la fis-sama'i wa huwas-Sami'ul-'Alim",mean:'In the name of Allah, with whose name nothing on earth or in the sky can cause harm, and He is the All-Hearing, the All-Knowing.',chunks:['بِسْمِ اللَّهِ','الَّذِي لَا يَضُرُّ','مَعَ اسْمِهِ شَيْءٌ','فِي الْأَرْضِ','وَلَا فِي السَّمَاءِ','وَهُوَ السَّمِيعُ الْعَلِيمُ'],src:'Abu Dawud, at-Tirmidhi',count:3},
-{id:'ad10',title:'The three Quls',ar:'قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ',when:'Surah al-Ikhlas, al-Falaq and an-Nas, three times every morning and evening, and before sleeping',tr:"Qul huwallahu ahad. Allahus-samad. Lam yalid wa lam yulad. Wa lam yakun lahu kufuwan ahad.",mean:'Say: He is Allah, the One. Allah, the One everyone needs. He has no children and was not born. And nothing is like Him. (Then recite al-Falaq and an-Nas.)',chunks:['قُلْ هُوَ اللَّهُ أَحَدٌ','اللَّهُ الصَّمَدُ','لَمْ يَلِدْ وَلَمْ يُولَدْ','وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ'],src:'Abu Dawud, at-Tirmidhi',count:3}
+{id:'ad10',title:'The three Quls',ar:'قُلْ هُوَ اللَّهُ أَحَدٌ<br>اللَّهُ الصَّمَدُ<br>لَمْ يَلِدْ وَلَمْ يُولَدْ<br>وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ',when:'Surah al-Ikhlas, al-Falaq and an-Nas, three times every morning and evening, and before sleeping',tr:"Qul huwallahu ahad. Allahus-samad. Lam yalid wa lam yulad. Wa lam yakun lahu kufuwan ahad.",mean:'Say: He is Allah, the One. Allah, the One everyone needs. He has no children and was not born. And nothing is like Him. (Then recite al-Falaq and an-Nas.)',chunks:['قُلْ هُوَ اللَّهُ أَحَدٌ','اللَّهُ الصَّمَدُ','لَمْ يَلِدْ وَلَمْ يُولَدْ','وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ'],src:'Abu Dawud, at-Tirmidhi',count:3}
 ];
 AD.forEach(d=>{d.world='ad';d.sub=d.when;d.steps=adhkarSteps(d)});
 function adhkarSteps(d){
@@ -358,16 +373,76 @@ const LV=[];
 for(let i=0;i<7;i++){const set=LETTERS.slice(i*4,i*4+4);
   LV.push({id:'ar'+(i+1),world:'ar',title:'Letters '+set.map(x=>x[0]).join(' '),ar:set.map(x=>x[0]).join(' '),sub:set.map(x=>x[1]).join(', '),set,auto:true,gen:true});}
 
+
+/* ===================== STORIES (no people are ever drawn) ===================== */
+let scN=0;
+function scene(o){
+  const id='s'+(++scN),W=400,H=240;
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${o.label}" preserveAspectRatio="xMidYMid slice"><defs>
+   <linearGradient id="${id}k" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${o.sky[0]}"/><stop offset="1" stop-color="${o.sky[1]}"/></linearGradient>
+   <radialGradient id="${id}g"><stop offset="0" stop-color="#FFE9A8" stop-opacity=".95"/><stop offset="1" stop-color="#FFE9A8" stop-opacity="0"/></radialGradient></defs>
+   <rect width="${W}" height="${H}" fill="url(#${id}k)"/>`;
+  if(o.stars)for(let i=0;i<28;i++)s+=`<circle cx="${(i*67)%400}" cy="${(i*29)%120}" r="${i%3?1:1.6}" fill="#FFF8E1" opacity=".85"/>`;
+  if(o.moon)s+=`<circle cx="330" cy="46" r="18" fill="#FFF3C4"/><circle cx="338" cy="40" r="16" fill="${o.sky[0]}"/>`;
+  if(o.sun)s+=`<circle cx="${o.sun[0]}" cy="${o.sun[1]}" r="${o.sun[2]*2.4}" fill="url(#${id}g)"/><circle cx="${o.sun[0]}" cy="${o.sun[1]}" r="${o.sun[2]}" fill="${o.sunC||'#FFD36E'}"/>`;
+  if(o.cloud){const [x,y,sc,c]=o.cloud;s+=`<g transform="translate(${x} ${y}) scale(${sc})" fill="${c}"><circle cx="0" cy="20" r="26"/><circle cx="34" cy="6" r="34"/><circle cx="76" cy="16" r="28"/><circle cx="104" cy="28" r="20"/><rect x="-20" y="22" width="140" height="26" rx="13"/></g>`}
+  if(o.rain)for(let i=0;i<16;i++)s+=`<line class="rain" x1="${70+i*14}" y1="${92+(i%3)*6}" x2="${64+i*14}" y2="${112+(i%3)*6}" stroke="#4F8FC0" stroke-width="2.6" stroke-linecap="round"/>`;
+  if(o.pillars){const base=o.pillars.y||170,col=o.pillars.c||'#D9A36B',top=o.pillars.t||'#B57A45';
+    [[40,70],[66,96],[92,120],[118,84],[150,132],[178,104],[206,140],[236,92],[262,118],[290,76],[318,100]].forEach(([x,hgt],i)=>{
+      if(o.pillars.broken&&i%3===1)hgt=hgt*.45;
+      s+=`<rect x="${x}" y="${base-hgt}" width="16" height="${hgt}" fill="${col}"/><rect x="${x-3}" y="${base-hgt-6}" width="22" height="7" rx="2" fill="${top}"/><rect x="${x+4}" y="${base-hgt+4}" width="2" height="${hgt-8}" fill="${top}" opacity=".35"/><rect x="${x+10}" y="${base-hgt+4}" width="2" height="${hgt-8}" fill="${top}" opacity=".35"/>`});
+    s+=`<rect x="28" y="${base}" width="320" height="8" fill="${top}"/>`}
+  const d=o.dunes||['#E8B877','#D9A05E','#C98B4A'];
+  s+=`<path d="M0 182 Q 90 150 190 176 T 400 168 V240 H0Z" fill="${d[0]}"/><path d="M0 204 Q 120 178 240 200 T 400 196 V240 H0Z" fill="${d[1]}"/><path d="M0 226 Q 140 206 270 224 T 400 220 V240 H0Z" fill="${d[2]}"/>`;
+  if(o.cracks)s+=`<g stroke="#9A6A3A" stroke-width="2" fill="none" opacity=".7"><path d="M40 214 l20 6 l14 -8 l22 10"/><path d="M150 222 l18 -6 l10 10 l26 -4"/><path d="M260 216 l16 8 l22 -6 l18 9"/><path d="M90 232 l12 -6 l16 4"/></g>`;
+  if(o.wind)for(let i=0;i<5;i++){const y=40+i*34;s+=`<path class="wind" style="animation-delay:${i*.35}s" d="M-40 ${y} q 60 -26 120 0 t 120 0 t 120 0 t 120 0 m -70 0 q 22 -22 0 -34 q -26 -6 -26 18" fill="none" stroke="#EADBC3" stroke-width="${4-i%2}" stroke-linecap="round" opacity=".8"/>`}
+  if(o.palms)o.palms.forEach(([x,sc])=>{s+=`<g transform="translate(${x} 188) scale(${sc})"><path d="M0 0 q -4 -40 6 -78" stroke="#8A6A4A" stroke-width="6" fill="none"/><g fill="#3E8E5E"><path d="M6 -78 q -34 -6 -46 18 q 22 -14 46 -18Z"/><path d="M6 -78 q 34 -10 48 14 q -24 -12 -48 -14Z"/><path d="M6 -78 q -16 -26 -42 -26 q 24 8 42 26Z"/><path d="M6 -78 q 18 -26 44 -22 q -26 6 -44 22Z"/></g></g>`});
+  if(o.water)s+=`<ellipse cx="200" cy="200" rx="70" ry="12" fill="#6FB7D6" opacity=".9"/><ellipse cx="200" cy="198" rx="48" ry="5" fill="#BFE3F2" opacity=".8"/>`;
+  if(o.lantern){const [x,y]=o.lantern;s+=`<circle cx="${x}" cy="${y+26}" r="58" fill="url(#${id}g)"/><g transform="translate(${x-18} ${y})"><rect x="13" y="-10" width="10" height="8" rx="2" fill="#C98F22"/><path d="M4 2 h28 l6 10 v34 l-6 10 h-28 l-6 -10 v-34z" fill="#FFE29A" stroke="#C98F22" stroke-width="3"/><path d="M18 12 v34 M4 28 h28" stroke="#C98F22" stroke-width="2" opacity=".6"/></g>`}
+  if(o.book)s+=`<g transform="translate(150 150)"><path d="M0 10 q 50 -18 100 0 v 46 q -50 -18 -100 0z" fill="#1F5C4A"/><path d="M50 2 v52" stroke="#D9A441" stroke-width="2"/><path d="M8 14 q 20 -8 38 -4 M54 10 q 20 -4 38 4" stroke="#F4EFE4" stroke-width="2" fill="none"/></g>`;
+  return s+'</svg>';
+}
+const AY={
+ fajr:{ar:'إِرَمَ ذَاتِ الْعِمَادِ<br>الَّتِي لَمْ يُخْلَقْ مِثْلُهَا فِي الْبِلَادِ',en:'Iram, the city of tall pillars, the like of which was never made in any land.',ref:'Surah al-Fajr 89:7-8'},
+ call:{ar:'يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ',en:'O my people, worship Allah. You have no god other than Him.',ref:'Surah Hud 11:50'},
+ istighfar:{ar:'وَيَا قَوْمِ اسْتَغْفِرُوا رَبَّكُمْ ثُمَّ تُوبُوا إِلَيْهِ يُرْسِلِ السَّمَاءَ عَلَيْكُم مِّدْرَارًا',en:'O my people, ask your Rabb to forgive you, then turn back to Him. He will send you plenty of rain from the sky.',ref:'Surah Hud 11:52'},
+ trust:{ar:'إِنِّي تَوَكَّلْتُ عَلَى اللَّهِ رَبِّي وَرَبِّكُم',en:'I put my trust in Allah, my Rabb and your Rabb.',ref:'Surah Hud 11:56'},
+ cloud:{ar:'قَالُوا هَٰذَا عَارِضٌ مُّمْطِرُنَا',en:'They said: This is a cloud that will bring us rain.',ref:'Surah al-Ahqaf 46:24'},
+ saved:{ar:'وَلَمَّا جَاءَ أَمْرُنَا نَجَّيْنَا هُودًا وَالَّذِينَ آمَنُوا مَعَهُ بِرَحْمَةٍ مِّنَّا',en:'When Our command came, We saved Huud and those who believed with him, by mercy from Us.',ref:'Surah Hud 11:58'}
+};
+const STORIES=[
+{id:'st1',title:'Prophet Huud and the people of \'Aad',ar:'هُود عَلَيْهِ السَّلَام',sub:'A story about thanking Allah and saying Astaghfirullah',slides:[
+ {sc:{label:'Sand hills in the desert at sunrise',sky:['#F8C77E','#FBE3B8'],sun:[300,120,26]},text:"Long ago, after the time of Prophet Nuh, there lived a people called 'Aad. Their home was al-Ahqaf, a land of curving sand hills in the south of Arabia."},
+ {sc:{label:'A city of very tall pillars under a blue sky',sky:['#7FB6E0','#D6ECF7'],sun:[340,50,18],pillars:{}},text:"Allah gave the people of 'Aad so much: strong bodies, gardens, springs of water, animals and children. They built a great city with very tall pillars.",ay:AY.fajr},
+ {sc:{label:'The tall city under a dark purple sky',sky:['#4B3A6B','#9B7BA8'],moon:true,pillars:{c:'#B98A5E',t:'#8E6440'},dunes:['#B88A5A','#A67848','#946639']},text:"But they forgot who gave them all of this. They worshipped idols that could not hear them or help them. They became proud and said: Who is stronger than us?"},
+ {sc:{label:'A glowing lantern on the sand at night',sky:['#1E2A4A','#3D4E7A'],stars:true,moon:true,lantern:[200,118],dunes:['#B88A5A','#A67848','#946639']},text:"So Allah sent them a Prophet from among their own people: Huud, alayhis salaam. He told them:",ay:AY.call},
+ {sc:{label:'A rain cloud over green sand hills',sky:['#9CC3DE','#E3F0F7'],cloud:[110,40,1.1,'#F4F7FA'],rain:true,dunes:['#A9C98A','#8DB873','#76A35E']},text:"Huud gave them good advice. If they asked Allah to forgive them, Allah would send them rain and make them even stronger.",ay:AY.istighfar},
+ {sc:{label:'The tall city under a stormy grey sky',sky:['#5E6472','#A3A9B5'],pillars:{c:'#B98A5E',t:'#8E6440'},dunes:['#B88A5A','#A67848','#946639']},text:"But they would not listen. They said: Huud, you have not brought us any proof. We will never leave our gods because of what you say. Huud stayed patient and brave.",ay:AY.trust},
+ {sc:{label:'Dry, cracked ground under a hot sun',sky:['#F6B26B','#FCE1B3'],sun:[200,70,34,],sunC:'#FFB547',cracks:true,dunes:['#E4B57B','#D8A464','#C99252']},text:"Their land became very dry. Day after day they waited for rain, but it did not come."},
+ {sc:{label:'A huge dark cloud coming toward the valley',sky:['#C9B79C','#EADFCB'],cloud:[60,30,1.9,'#5B5F6E'],dunes:['#D9A05E','#C98B4A','#B87A3D']},text:"One day they saw a huge cloud coming toward their valleys. They were happy and said:",ay:AY.cloud},
+ {sc:{label:'A strong wind blowing sand across the desert',sky:['#8D8577','#C4B8A2'],wind:true,dunes:['#B8A07E','#A88E6B','#97805E']},text:"But it was not rain. It was a fierce, freezing wind. It blew for seven nights and eight days without stopping. Only the empty homes of those who refused were left."},
+ {sc:{label:'A calm oasis with palm trees and water at dawn',sky:['#F7C9A8','#FDEBD9'],sun:[80,150,22],palms:[[120,1],[290,.85],[330,1.05]],water:true,dunes:['#C9D89A','#AFC97E','#97B868']},text:"Allah saved Huud and the people who believed with him, by His mercy. They lived on, thanking Allah.",ay:AY.saved},
+ {sc:{label:'A glowing lantern beside an open Qur\'an',sky:['#1E2A4A','#3D4E7A'],stars:true,lantern:[90,104],book:true,dunes:['#B88A5A','#A67848','#946639']},text:"What do we learn? Every blessing we have is from Allah, so we thank Him. We worship Allah alone. We are never proud, because Allah is stronger than everyone. And we say Astaghfirullah often, because Allah loves to forgive."}
+ ],quiz:[
+  {q:"Where did the people of 'Aad live?",o:['In al-Ahqaf, a land of sand hills','On an island in the sea','In a snowy forest'],why:"They lived in al-Ahqaf, in the south of Arabia."},
+  {q:'What did Prophet Huud ask his people to do?',o:['Worship Allah alone','Build taller pillars','Leave their homes'],why:'He said: O my people, worship Allah. You have no god other than Him.'},
+  {q:'What did Huud say would bring them rain?',o:["Asking Allah's forgiveness",'Shouting at the sky','Praying to idols'],why:'Saying Astaghfirullah and turning back to Allah brings His mercy.'},
+  {q:'What came instead of rain?',o:['A fierce wind for seven nights and eight days','A big flood','Snow'],why:'A freezing wind blew for seven nights and eight days.'},
+  {q:'Who did Allah save?',o:['Huud and those who believed with him','Only the strongest people','Nobody'],why:'Allah saved Huud and the believers by His mercy.'}]}
+];
+STORIES.forEach(st=>{st.world='st';st.steps=[{t:'story',slides:st.slides},{t:'quiz',qs:st.quiz}]});
+
 const WORLDS={
  aq:{name:'Knowing Allah',sub:'Aqeedah island 1',icon:'🌙',cls:'w-aq',lessons:AQ,seq:true},
  ad:{name:'My daily duas',sub:'Adhkar',icon:'🤲',cls:'w-ad',lessons:AD,seq:false},
- ar:{name:'Arabic letters',sub:'Alif to Yaa',icon:'ا',cls:'w-ar',lessons:LV,seq:true}
+ ar:{name:'Arabic letters',sub:'Alif to Yaa',icon:'ا',cls:'w-ar',lessons:LV,seq:true},
+ st:{name:'Stories of the Prophets',sub:'One story a day',icon:'📜',cls:'w-st',lessons:STORIES,seq:true}
 };
-const SOON=[['📖',"Qur'an and Hifz",'Juz Amma, surah by surah'],['💧','Wudu and salah','Step by step, the Sunnah way'],['🌷','Akhlaq missions','Good manners you do for real'],['⛵','Stories of the Prophets','Huud, Saaleh and more'],['🗣️','Arabic words','Everyday words, Madina style'],['🌙','The Islamic year','Ramadan, Dhul Hijjah, Muharram']];
+const SOON=[['📖',"Qur'an and Hifz",'Juz Amma, surah by surah'],['💧','Wudu and salah','Step by step, the Sunnah way'],['🌷','Akhlaq missions','Good manners you do for real'],['🗣️','Arabic words','Everyday words, Madina style'],['🌙','The Islamic year','Ramadan, Dhul Hijjah, Muharram']];
 const SYMS=['🌙','⭐','🌸','🌷','🌻','🏮','💎','🌈','🍀','📖','🌿','🍉'];
 const SYMBG=['var(--rose-soft)','var(--green-soft)','var(--gold-soft)','var(--sky)'];
 const DEEDS=['I helped Ummi','I helped Daddy','I said salam first','I shared with someone','I told the truth','I said Bismillah before eating','I was kind to my cousin','I said sorry'];
-const ALL=[...AQ,...AD,...LV];
+const ALL=[...AQ,...AD,...LV,...STORIES];
 const byId=Object.fromEntries(ALL.map(l=>[l.id,l]));
 
 /* ===================== STATE + STORAGE ===================== */
@@ -451,7 +526,8 @@ const kidName=()=>S.kids[ui.kid]?.name||'friend';
 const fill=t=>esc(t).replace('{name}',esc(kidName()));
 function prog(id){return S.progress[id]||(S.progress[id]={done:{},log:[],streak:0,lastDay:''})}
 const approved=l=>l.auto||!!S.approvals[l.id];
-function unlocked(l){const w=WORLDS[l.world];if(!w.seq)return true;const i=w.lessons.indexOf(l);return i===0||!!prog(ui.kid).done[w.lessons[i-1].id]}
+function doneDay(id){const e=(prog(ui.kid).log||[]).find(x=>x.l===id);return e?dayKey(new Date(e.at)):''}
+function unlocked(l){const w=WORLDS[l.world];if(!w.seq)return true;const i=w.lessons.indexOf(l);if(i===0)return true;const prev=w.lessons[i-1];if(!prog(ui.kid).done[prev.id])return false;if(l.world==='st')return doneDay(prev.id)!==dayKey();return true}
 function starsTxt(n){return '★'.repeat(n)+'☆'.repeat(3-n)}
 let toastT;function toast(m){let t=document.querySelector('.toast');if(!t){t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t)}t.textContent=m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,2600)}
 let arVoice=null;function loadVoices(){try{arVoice=speechSynthesis.getVoices().find(v=>/^ar/i.test(v.lang))||null}catch(e){}}
@@ -534,6 +610,7 @@ function home(){
   <div class="stats"><div class="stat"><b>${stars}</b><span>STARS</span></div><div class="stat"><b>${P.streak||0}</b><span>DAY STREAK</span></div><div class="stat"><b>${done+deedsOk(k)}</b><span>FLOWERS</span></div></div>
   <div class="garden">${gardenSVG(done+deedsOk(k),trees)}<div class="garden-cap">Your garden. Lessons and good deeds grow flowers. Finish a whole world to grow a tree.</div></div>
   <section class="today"><h2>Today's three</h2>${tasks.map(t=>{const W=WORLDS[t.w];return `<button class="task ${t.did?'done':''}" ${t.nx?`data-act="open" data-id="${t.nx.id}"`:'disabled'}><span class="tick">${t.did?'✓':''}</span><span class="tx"><b>${W.name}</b><small>${t.nx?esc(t.nx.title):(t.did?'Done for today':'Waiting for Daddy to unlock')}</small></span><span aria-hidden="true">${W.icon}</span></button>`}).join('')}</section>
+  ${storyCard()}
   <section class="card duelcard"><div class="tx"><h3>Duel with Daddy</h3><p class="muted">${dOpen?`Two players, one phone. Letter Slap, Dot Catcher and Tug of War.${D.played?` You have won ${D.won} of ${D.played}.`:''}`:'Finish one lesson today to unlock the games.'}</p></div>
    ${dOpen?'<button class="btn rose" data-act="duelPick">Play</button>':'<button class="btn ghost sm" data-act="duelUnlock">Daddy unlock</button>'}</section>
   <section class="sect"><h2>Your worlds</h2><div class="worlds">
@@ -577,12 +654,14 @@ function prepStep(){const s=curStep();const st={};
   if(s.t==='sort'){st.items=shuffle(s.items);st.k=0;st.ans=null}
   if(s.t==='match'){st.left=shuffle(s.pairs.map((p,i)=>i));st.right=shuffle(s.pairs.map((p,i)=>i));st.sel=null;st.done={}}
   if(s.t==='count')st.c=0;
+  if(s.t==='story')st.k=0;
   if(s.t==='order'){st.pool=shuffle(s.chunks.map((c,i)=>i));st.placed=[]}
   ui.L.st=st;}
 function canNext(){const s=curStep(),st=ui.L.st;
   if(s.t==='tap')return Object.keys(st.open).length===s.items.length;
   if(s.t==='letters')return Object.keys(st.open).length===s.set.length;
   if(s.t==='count')return st.c>=s.n;
+  if(s.t==='story')return st.k>=s.slides.length-1;
   if(s.t==='order')return st.placed.length===s.chunks.length;
   if(s.t==='match')return Object.keys(st.done).length===s.pairs.length;
   if(s.t==='sort')return st.k>=s.items.length;
@@ -594,6 +673,7 @@ function play(){
   let body='';
   const daddy='<div class="daddy">'+lanternMini()+'Daddy says</div>';
   if(s.t==='say')body=`<div class="card stage">${daddy}<p class="say">${fill(s.text)}</p>${s.ar?`<div class="bigar">${s.ar}</div><p class="tr">${esc(s.tr)}</p><p class="tr" style="font-style:normal">${esc(s.mean)}</p>`:''}</div>`;
+  else if(s.t==='story'){const sl=s.slides[st.k];body=`<div class="story" id="story"><div class="scene">${scene(sl.sc)}</div><div class="card stage"><p class="say">${fill(sl.text)}</p>${sl.ay?`<div class="ayah"><div class="ar">${sl.ay.ar}</div><p>${esc(sl.ay.en)}</p><span class="src">${esc(sl.ay.ref)}</span></div>`:''}</div><div class="spread"><button class="btn ghost sm" data-act="sPrev" ${st.k?'':'disabled'}>← Back</button><span class="sdots" aria-label="Page ${st.k+1} of ${s.slides.length}">${s.slides.map((x,i)=>`<i class="${i===st.k?'on':''}"></i>`).join('')}</span><button class="btn sm" data-act="sNext" ${st.k<s.slides.length-1?'':'disabled'}>Next →</button></div><p class="small muted" style="text-align:center">Swipe the picture or tap Next</p></div>`;}
   else if(s.t==='key')body=`<div class="key"><span class="lbl">Remember this</span><p>${fill(s.text)}</p></div>`;
   else if(s.t==='tap')body=`<h2>${esc(s.prompt)}</h2><div class="taps">${s.items.map((it,i)=>`<button class="tapit ${st.open[i]?'open':''}" data-act="tap" data-i="${i}"><span class="ic" aria-hidden="true">${it[0]}</span><b>${esc(it[1])}</b>${st.open[i]?`<span class="rev">${esc(s.reveal)}</span>`:''}</button>`).join('')}</div>`;
   else if(s.t==='letters')body=`<div class="letters">${s.set.map((x,i)=>`<button class="letter ${st.open[i]?'open':''}" data-act="letter" data-i="${i}"><span class="g">${x[0]}</span><b>${x[1]}${arVoice?' 🔊':''}</b>${st.open[i]?`<span class="small">${x[2]} · sounds like <b>${esc(x[3])}</b></span>`:'<span class="small muted">Tap me</span>'}</button>`).join('')}</div>`;
@@ -607,7 +687,7 @@ function play(){
   else if(s.t==='daddy'){body=`<div class="card stage">${daddy}<p class="say">${fill(s.text)}</p><div class="row"><button class="btn gold" data-act="daddyCheck">Daddy's PIN</button></div><p class="small muted">Daddy not here? Come back later. Your answers are kept.</p></div>`;}
   const isLast=L.i===L.steps.length-1;
   return `<div class="topbar"><button class="back" data-act="quit" aria-label="Leave lesson">✕</button><div class="prog"><i style="width:${pct}%"></i></div></div>
-  <div class="spread"><h3>${esc(l.title)}</h3>${l.world!=='ad'&&L.i===0&&WORLDS[l.world].seq&&!L.quick?`<button class="btn ghost sm" data-act="quick">I know this</button>`:''}</div>
+  <div class="spread"><h3>${esc(l.title)}</h3>${l.world!=='ad'&&l.world!=='st'&&L.i===0&&WORLDS[l.world].seq&&!L.quick?`<button class="btn ghost sm" data-act="quick">I know this</button>`:''}</div>
   <div class="stage">${body}</div>
   ${s.t==='daddy'||(s.t==='sort'&&st.ans!=null)||(s.t==='quiz'&&st.ans!=null)?'':`<div class="row" style="justify-content:flex-end"><button class="btn ${isLast?'rose':''}" data-act="next" ${canNext()?'':'disabled'}>${isLast?'Finish':'Next'}</button></div>`}`;
 }
@@ -670,6 +750,15 @@ function placeRoad(){
   document.getElementById('roadCar').setAttribute('transform',`translate(${pt.x.toFixed(1)} ${(pt.y-2).toFixed(1)})`);
 }
 
+function storyCard(){
+  const P=prog(ui.kid),nx=STORIES.find(l=>!P.done[l.id]);
+  let msg,btn='';
+  if(!nx)msg='You have heard every story so far. A new one is coming soon, insha Allah.';
+  else if(!approved(nx))msg='A new story is waiting for Daddy to read first.';
+  else if(!unlocked(nx))msg="One story a day. Come back tomorrow for the next one!";
+  else{msg=esc(nx.title);btn=`<button class="btn" data-act="open" data-id="${nx.id}">Read</button>`}
+  return `<section class="card duelcard"><div class="tx"><h3>📜 Story time</h3><p class="muted">${msg}</p></div>${btn}</section>`;
+}
 /* ---------- duels ---------- */
 function todayTasks(k){const P=prog(k),t=dayKey(),log=(P.log||[]).filter(e=>dayKey(new Date(e.at))===t);
   return ['aq','ad','ar'].map(w=>{const did=log.some(e=>byId[e.l]?.world===w);const nx=nextIn(w)||(w==='ad'?AD.find(l=>P.done[l.id]):null);return{w,did,nx}})}
@@ -804,6 +893,9 @@ function duelRes(){
    <p class="muted">${GAMES[r.game].name}${!win&&!draw?'. Rematch? Practice makes perfect, insha Allah.':''}</p>
    <div class="row" style="justify-content:center"><button class="btn rose" data-act="duelGo">Rematch</button><button class="btn ghost" data-act="duelPick">Another game</button><button class="btn ghost" data-act="home">My garden</button></div></div>`;
 }
+let swX=null;
+app.addEventListener('pointerdown',e=>{if(ui.screen==='play'&&e.target.closest('#story .scene'))swX=e.clientX});
+app.addEventListener('pointerup',e=>{if(swX==null)return;const dx=e.clientX-swX;swX=null;if(Math.abs(dx)<45)return;const L=ui.L,s=L&&curStep();if(!s||s.t!=='story')return;if(dx<0&&L.st.k<s.slides.length-1)L.st.k++;else if(dx>0&&L.st.k>0)L.st.k--;else return;render()});
 app.addEventListener('pointerdown',e=>{
   if(ui.screen!=='duel'||!G||G.over)return;const b=e.target.closest('[data-g]');if(!b)return;e.preventDefault();
   const p=+b.dataset.p,v=b.dataset.v,k=b.dataset.g;
@@ -820,7 +912,7 @@ function setupScreen(){
 function parents(){
   const ids=Object.keys(S.kids);
   const pendingDeeds=Object.entries(S.deeds).filter(([i,d])=>d.status==='pending');
-  const worlds=['aq','ad'].map(w=>({w,list:WORLDS[w].lessons}));
+  const worlds=['aq','ad','st'].map(w=>({w,list:WORLDS[w].lessons}));
   const ek=ui.editKid,kid=ek&&ek!=='new'?S.kids[ek]:{name:'',pin:'',symbol:'🌸'};
   return `<div class="topbar"><button class="back" data-act="cover">← Done</button>${saveChip()}</div>
   <div class="ph"><img src="img/quran.jpg" alt=""><div><h1>Parents' corner</h1><p class="muted">Approve lessons, confirm good deeds and see how everyone is doing.</p></div></div>
@@ -844,8 +936,8 @@ function parents(){
    ${ids.length?`<div class="card stage"><h3>Add a deed you saw</h3><div class="field"><label for="dkid">Child</label><select id="dkid">${ids.map(k=>`<option value="${k}">${esc(S.kids[k].name)}</option>`).join('')}</select></div><div class="field"><label for="dtext">What did they do?</label><input id="dtext" placeholder="Helped clear the table without being asked" autocomplete="off"></div><div class="row"><button class="btn rose" data-act="addDeed">Add and grow a flower</button></div></div>`:''}
   </section>
 
-  <section class="sect"><h2>Progress</h2>${ids.length?`<div class="card tablewrap"><table><thead><tr><th>Child</th><th>Knowing Allah</th><th>Duas</th><th>Letters</th><th>Stars</th><th>Streak</th><th>Last active</th></tr></thead><tbody>
-   ${ids.map(k=>{const P=prog(k);const c=w=>WORLDS[w].lessons.filter(l=>P.done[l.id]).length+'/'+WORLDS[w].lessons.length;const last=(P.log||[]).slice(-1)[0];return `<tr><td><b>${esc(S.kids[k].name)}</b></td><td>${c('aq')}</td><td>${c('ad')}</td><td>${c('ar')}</td><td>${Object.values(P.done).reduce((a,b)=>a+b,0)}</td><td>${P.streak||0}</td><td>${last?new Date(last.at).toLocaleDateString():'Not yet'}</td></tr>`}).join('')}</tbody></table></div>`:'<p class="muted">Progress appears once children start.</p>'}</section>
+  <section class="sect"><h2>Progress</h2>${ids.length?`<div class="card tablewrap"><table><thead><tr><th>Child</th><th>Knowing Allah</th><th>Duas</th><th>Letters</th><th>Stories</th><th>Stars</th><th>Streak</th><th>Last active</th></tr></thead><tbody>
+   ${ids.map(k=>{const P=prog(k);const c=w=>WORLDS[w].lessons.filter(l=>P.done[l.id]).length+'/'+WORLDS[w].lessons.length;const last=(P.log||[]).slice(-1)[0];return `<tr><td><b>${esc(S.kids[k].name)}</b></td><td>${c('aq')}</td><td>${c('ad')}</td><td>${c('ar')}</td><td>${c('st')}</td><td>${Object.values(P.done).reduce((a,b)=>a+b,0)}</td><td>${P.streak||0}</td><td>${last?new Date(last.at).toLocaleDateString():'Not yet'}</td></tr>`}).join('')}</tbody></table></div>`:'<p class="muted">Progress appears once children start.</p>'}</section>
 
   <section class="sect"><h2>For you to read</h2><div class="list">
    <div class="li"><span class="tx"><a href="https://abdurrahman.org/2014/06/04/how-does-a-father-teach-his-children-tawheed-shaykh-muhammad-bin-salih-al-uthaymeen/" target="_blank" rel="noopener">How does a father teach his children Tawheed?</a><span class="small muted" style="display:block">Shaykh al-Uthaymeen</span></span></div>
@@ -863,7 +955,7 @@ function parents(){
 }
 function previewHTML(l){
   if(l.world==='ad')return `<div class="preview"><div class="ar" style="font-size:1.4rem">${l.ar}</div><div><i>${esc(l.tr)}</i></div><div>${esc(l.mean)}</div>${l.extra?`<div class="ar" style="font-size:1.2rem">${l.extra.ar}</div><div>${esc(l.extra.mean)}</div>`:''}<div class="small muted">When: ${esc(l.when)} · Source: ${esc(l.src)}</div></div>`;
-  return `<div class="preview">${l.steps.map(s=>s.t==='say'||s.t==='key'||s.t==='daddy'?`<div>${s.t==='key'?'<b>Remember:</b> ':''}${esc(s.text)}</div>`:s.t==='quiz'?s.qs.map(q=>`<div class="small">Q: ${esc(q.q)} <b>${esc(q.o[0])}</b></div>`).join(''):s.t==='sort'?`<div class="small">Sort: ${s.items.map(i=>esc(i[0])+(i[1]?' ✓':' ✗')).join(' · ')}</div>`:s.t==='match'?`<div class="small">Match: ${s.pairs.map(p=>esc(p[1])+' = '+esc(p[2])).join(' · ')}</div>`:s.t==='tap'?`<div class="small">Tap game: ${s.items.map(i=>esc(i[1])).join(', ')}</div>`:'').join('')}</div>`;
+  return `<div class="preview">${l.steps.map(s=>s.t==='say'||s.t==='key'||s.t==='daddy'?`<div>${s.t==='key'?'<b>Remember:</b> ':''}${esc(s.text)}</div>`:s.t==='quiz'?s.qs.map(q=>`<div class="small">Q: ${esc(q.q)} <b>${esc(q.o[0])}</b></div>`).join(''):s.t==='sort'?`<div class="small">Sort: ${s.items.map(i=>esc(i[0])+(i[1]?' ✓':' ✗')).join(' · ')}</div>`:s.t==='match'?`<div class="small">Match: ${s.pairs.map(p=>esc(p[1])+' = '+esc(p[2])).join(' · ')}</div>`:s.t==='tap'?`<div class="small">Tap game: ${s.items.map(i=>esc(i[1])).join(', ')}</div>`:s.t==='story'?s.slides.map((x,i)=>`<div><b>${i+1}.</b> ${esc(x.text)}${x.ay?` <span class="small muted">[${esc(x.ay.ref)}: ${esc(x.ay.en)}]</span>`:''}</div>`).join(''):'').join('')}</div>`;
 }
 
 /* ===================== EVENTS ===================== */
@@ -913,6 +1005,8 @@ app.addEventListener('click',e=>{
    case 'ans':{const q=s.qs[st.q];st.ans=b.dataset.v;if(st.ans!==q.o[0])L.miss++;else if(q.big||q.glyph){const x=LETTERS.find(y=>y[1]===q.o[0]||y[0]===q.o[0]);x&&speak(x[2])}render();break;}
    case 'qNext':st.q++;st.ans=null;if(st.q>=s.qs.length){if(L.i<L.steps.length-1){L.i++;prepStep()}else{finishLesson();break}}render();break;
    case 'count':st.c++;render();break;
+   case 'sNext':if(st.k<s.slides.length-1){st.k++;render()}break;
+   case 'sPrev':if(st.k>0){st.k--;render()}break;
    case 'chunk':{const i=+b.dataset.i;if(i===st.placed.length)st.placed.push(i);else{L.miss+=0;toast('Which piece comes first?');b.classList.add('shake');break}render();break;}
    case 'daddyCheck':go('pin',{pin:'',pinFor:'daddyCheck'});break;
    case 'deed':{const k=uid();S.deeds[k]={kid:ui.kid,text:b.dataset.t,status:'pending',at:Date.now()};saveDeed(k);toast('Sent to Daddy');render();break;}
