@@ -25,6 +25,8 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>window.LL_FB={apiKey:"AIzaSyAIZ4JyxxZPBcPD5OHjQ-hpofP-KJwHtzE",authDomain:"little-lantern-b8a7b.firebaseapp.com",projectId:"little-lantern-b8a7b",storageBucket:"little-lantern-b8a7b.firebasestorage.app",messagingSenderId:"598122924180",appId:"1:598122924180:web:2bf132131983ea04d74c81"};</script>
+<meta name="ll-build" content="202610251530">
+<script>window.LL_BUILD="202610251530";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
 </head>
 <body>
 <title>Little Lantern</title>
@@ -1178,6 +1180,7 @@ function cover(){
    ${ids.length?`<h2>Who is learning today?</h2><div class="kids">${ids.map(k=>`<button class="kidtile" data-act="pickKid" data-id="${k}">${symEl(k)}<b>${esc(S.kids[k].name)}</b><span class="stars">${'★'.repeat(Math.min(5,Object.keys(prog(k).done).length))}</span></button>`).join('')}</div>`
    :`<div class="card"><h3>Assalamu alaikum!</h3><p class="muted" style="margin-top:6px">Daddy, set a parent PIN and add the children to get started.</p><div class="row" style="margin-top:14px"><button class="btn rose" data-act="setup">Set up the family</button></div></div>`}
    <div class="spread"><button class="btn ghost sm" data-act="parentLogin">Parents' corner</button>${saveChip()}</div>
+   ${window.LL_BUILD?`<p class="small muted" style="text-align:center;margin:0">Updated ${(b=>new Date(Date.UTC(+b.slice(0,4),+b.slice(4,6)-1,+b.slice(6,8),+b.slice(8,10),+b.slice(10,12))).toLocaleString([],{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'}))(window.LL_BUILD)}</p>`:''}
   </div>`;
 }
 
