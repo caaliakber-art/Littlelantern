@@ -24,9 +24,9 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-<script>window.LL_FB={apiKey:"AIzaSyAIZ4JyxxZPBcPD5OHjQ-hpofP-KJwHtzE",authDomain:"little-lantern-b8a7b.firebaseapp.com",projectId:"little-lantern-b8a7b",storageBucket:"little-lantern-b8a7b.firebasestorage.app",messagingSenderId:"598122924180",appId:"1:598122924180:web:2bf132131983ea04d74c81"};</script>
-<meta name="ll-build" content="202610251537">
-<script>window.LL_BUILD="202610251537";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
+<script>window.LL_FB={apiKey:"AIzaSyAIZ4JyxxZPBcPD5OHjQ-hpofP-KJwHtzE",authDomain:"little-lantern-b8a7b.firebaseapp.com",projectId:"little-lantern-b8a7b",storageBucket:"little-lantern-b8a7b.firebasestorage.app",messagingSenderId:"598122924180",appId:"1:598122924180:web:2bf132131983ea04d74c81"};window.LL_NTFY="little-lantern-17b8f6b09be7";</script>
+<meta name="ll-build" content="202610251609">
+<script>window.LL_BUILD="202610251609";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
 </head>
 <body>
 <title>Little Lantern</title>
@@ -156,6 +156,8 @@ a{color:var(--green)}
 .lt .lg{font-family:var(--f-ar);font-size:2.2rem;line-height:1.35;color:var(--h)}
 .lt .le{font-size:1.5rem;line-height:1}
 .lt small{font-size:.72rem;color:var(--muted);direction:ltr}
+.bell{display:flex;align-items:center;gap:12px;text-align:left;border:2px solid var(--gold);background:var(--gold-soft);color:var(--ink);font:inherit;cursor:pointer;width:100%}
+.bell .ic{font-size:1.8rem}
 @keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
 
 /* kid home */
@@ -519,7 +521,7 @@ const AQ=[
 ];
 AQ.forEach(l=>l.world='aq');
 
-const PICW={'ا':['🦁','أَسَد','lion'],'ب':['🏠','بَيْت','house'],'ت':['🍎','تُفَّاح','apple'],'ث':['❄️','ثَلْج','snow'],'ج':['🐪','جَمَل','camel'],'ح':['🥛','حَلِيب','milk'],'خ':['🍞','خُبْز','bread'],'د':['🐻','دُبّ','bear'],'ذ':['🌽','ذُرَة','corn'],'ر':['🪶','رِيشَة','feather'],'ز':['🫒','زَيْتُون','olive'],'س':['🐟','سَمَك','fish'],'ش':['☀️','شَمْس','sun'],'ص':['📦','صُنْدُوق','box'],'ض':['🐸','ضِفْدَع','frog'],'ط':['✈️','طَائِرَة','plane'],'ظ':['✉️','ظَرْف','envelope'],'ع':['🍇','عِنَب','grapes'],'غ':['☁️','غَيْمَة','cloud'],'ف':['🐘','فِيل','elephant'],'ق':['🌙','قَمَر','moon'],'ك':['📖','كِتَاب','book'],'ل':['🍋','لَيْمُون','lemon'],'م':['🍌','مَوْز','banana'],'ن':['🐝','نَحْلَة','bee'],'ه':['🎁','هَدِيَّة','gift'],'و':['🌹','وَرْدَة','rose'],'ي':['✋','يَد','hand']};
+const PICW={'ا':['🍍','أَنَانَاس','pineapple'],'ب':['🏠','بَيْت','house'],'ت':['🍎','تُفَّاح','apple'],'ث':['❄️','ثَلْج','snow'],'ج':['🥕','جَزَر','carrot'],'ح':['🥛','حَلِيب','milk'],'خ':['🍞','خُبْز','bread'],'د':['🚲','دَرَّاجَة','bicycle'],'ذ':['🌽','ذُرَة','corn'],'ر':['🪶','رِيشَة','feather'],'ز':['🫒','زَيْتُون','olive'],'س':['⌚','سَاعَة','watch'],'ش':['☀️','شَمْس','sun'],'ص':['📦','صُنْدُوق','box'],'ض':['💡','ضَوْء','light'],'ط':['✈️','طَائِرَة','plane'],'ظ':['✉️','ظَرْف','envelope'],'ع':['🍇','عِنَب','grapes'],'غ':['☁️','غَيْمَة','cloud'],'ف':['🍓','فَرَاوِلَة','strawberry'],'ق':['🌙','قَمَر','moon'],'ك':['📖','كِتَاب','book'],'ل':['🍋','لَيْمُون','lemon'],'م':['🍌','مَوْز','banana'],'ن':['⭐','نَجْمَة','star'],'ه':['🎁','هَدِيَّة','gift'],'و':['🌹','وَرْدَة','rose'],'ي':['✋','يَد','hand']};
 const DPIC={ad1:'🍽️',ad2:'😋',ad3:'🌅',ad4:'🛏️',ad5:'🚪',ad6:'🧼',ad7:'👟',ad8:'🤧',ad9:'🛡️',ad10:'📖'};
 const DDAY=[['Wake up','🌅','#FFE3B8','#FFC98A',['ad3','ad9']],['Bathroom','🚿','#DDEBFA','#B9D3F0',['ad5','ad6']],['Meal time','🍽️','#E4F3E4','#BFE0BF',['ad1','ad2']],['Going out','🏡','#FCE3EC','#F4C3D4',['ad7']],['Any time','✨','#F1E8FA','#D9C8EE',['ad8']],['Bedtime','🌙','#2B3557','#1C2440',['ad4','ad10']]];
 const AD=[
@@ -1137,6 +1139,8 @@ function connectFirebase(){
   fb.auth.getRedirectResult().catch(()=>{});
 }
 const fbEmail=()=>(fb&&fb.user&&fb.user.email||'').toLowerCase();
+function notifyOwner(name){try{if(!window.LL_NTFY)return;fetch('https://ntfy.sh/'+window.LL_NTFY,{method:'POST',body:name+' asked to join Little Lantern. Open Parents\' corner to approve.',headers:{Title:'New join request',Tags:'lantern',Click:location.href.split('#')[0]}}).catch(()=>{})}catch(e){}}
+function joinBell(){const n=(fb&&isOwner&&isOwner()&&fb.requests||[]).length;return n?`<button class="card mini bell" data-act="parentLogin"><span class="ic">🔔</span><div><b>${n} ${n>1?'people are':'person is'} asking to join</b><small class="muted">Tap to open Parents' corner and approve</small></div></button>`:''}
 function watchOwnRequest(){if(!fb||!fb.user)return;fb.fs.doc('requests/'+fb.user.uid).onSnapshot(s=>{if(s.exists)fb.req='sent';else if(fb.req==='sent')location.reload();soft()},()=>{})}
 const isOwner=()=>OWNERS.includes(fbEmail());
 (async function connect(){
@@ -1205,6 +1209,7 @@ function cover(){
    <div class="brand"><span class="bism">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span><h1>Little Lantern</h1>
     <p class="muted">Learn about Allah, your daily duas and the Arabic letters. Every lesson grows a flower.</p></div>
    ${fbGate()}
+   ${joinBell()}
    ${ids.length?`<h2>Who is learning today?</h2><div class="kids">${ids.map(k=>`<button class="kidtile" data-act="pickKid" data-id="${k}">${symEl(k)}<b>${esc(S.kids[k].name)}</b><span class="stars">${'★'.repeat(Math.min(5,Object.keys(prog(k).done).length))}</span></button>`).join('')}</div>`
    :`<div class="card"><h3>Assalamu alaikum!</h3><p class="muted" style="margin-top:6px">Daddy, set a parent PIN and add the children to get started.</p><div class="row" style="margin-top:14px"><button class="btn rose" data-act="setup">Set up the family</button></div></div>`}
    <div class="spread"><button class="btn ghost sm" data-act="parentLogin">Parents' corner</button>${saveChip()}</div>
@@ -1249,6 +1254,7 @@ function home(){
   return `<div class="topbar"><button class="back" data-act="logout">← Switch</button>${saveChip()}</div>
   <div class="hello2"><button class="avbtn" data-act="avatar" aria-label="Make my avatar">${symEl(k,64)}<span class="avedit">${S.kids[k].av?'Edit':'Make me!'}</span></button>
    <div class="hx"><h1 class="hi">Assalamu alaikum, ${esc(S.kids[k].name)}!</h1><div class="pills"><span class="pill">⭐ ${stars}</span><span class="pill">🔥 ${P.streak||0} day${(P.streak||0)===1?'':'s'}</span><span class="pill">🌸 ${done+deedsOk(k)}</span></div></div></div>
+  ${joinBell()}
   ${whosHere()}
   <div class="garden slim">${gardenSVG(done+deedsOk(k),trees)}</div>
   <section class="sect"><h2 class="h2s">Today's three</h2><div class="today3">${tasks.map(t=>{const W=WORLDS[t.w];return `<button class="t3 ${t.did?'done':''}" ${t.w!=='ar'?`data-act="world" data-w="${t.w}"`:t.nx?`data-act="open" data-id="${t.nx.id}"`:'disabled'}><span class="ic ${t.w==='ar'?'ar':''}">${t.did?'✅':W.icon}</span><b>${short[t.w]}</b><small>${t.w==='aq'&&t.nx?'Stop '+(AQ.indexOf(t.nx)+1)+': '+esc(t.nx.title.replace(/^Allah is /,'')):t.w==='ad'?(t.did?'Done! Pick another':'All '+AD.length+' duas'):t.nx?esc(t.nx.title):(t.did?'Done!':'Waiting for Daddy')}</small></button>`}).join('')}</div></section>
@@ -1670,7 +1676,7 @@ app.addEventListener('click',e=>{
    case 'cover':ui.parent=false;ui.editKid=null;go('cover');break;
    case 'fbSignIn':{const pr=new firebase.auth.GoogleAuthProvider();pr.setCustomParameters({prompt:'select_account'});fb.auth.signInWithPopup(pr).catch(e=>{if(e&&/popup-blocked|operation-not-supported/.test(e.code||''))fb.auth.signInWithRedirect(pr);else if(!/popup-closed|cancelled/.test(e.code||''))toast('Sign-in did not finish. Please try again.')});break;}
    case 'fbSignOut':fb.auth.signOut().then(()=>location.reload());break;
-   case 'fbRequest':{const u=fb.user;fb.fs.doc('requests/'+u.uid).set({email:fbEmail(),name:u.displayName||'',at:Date.now()}).then(()=>{fb.req='sent';render()}).catch(()=>toast('Could not send the request. Please try again.'));break;}
+   case 'fbRequest':{const u=fb.user;fb.fs.doc('requests/'+u.uid).set({email:fbEmail(),name:u.displayName||'',at:Date.now()}).then(()=>{fb.req='sent';notifyOwner(u.displayName||'Someone');render()}).catch(()=>toast('Could not send the request. Please try again.'));break;}
    case 'approveJoin':{const r=(fb.requests||[]).find(x=>x.uid===b.dataset.u);if(!r)break;let w=Promise.resolve();if(!S.access.includes(r.email)&&!OWNERS.includes(r.email)){S.access=[...S.access,r.email];w=put('fam/access',{members:S.access})}w.then(()=>fb.fs.doc('requests/'+r.uid).delete()).catch(()=>{});toast('Approved. Their screen will open in a moment.');break;}
    case 'declineJoin':fb.fs.doc('requests/'+b.dataset.u).delete().catch(()=>{});break;
    case 'addMember':{const v=(document.getElementById('newmember').value||'').trim().toLowerCase();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){toast('Enter a full email address');break}if(OWNERS.includes(v)||S.access.includes(v)){toast('Already on the list');break}S.access=[...S.access,v];put('fam/access',{members:S.access});toast('Added. They can sign in now.');render();break;}
