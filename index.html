@@ -196,9 +196,25 @@ a{color:var(--green)}
 .sdots i{width:8px;height:8px;border-radius:50%;background:var(--line)}
 .sdots i.on{background:var(--rose);width:20px;border-radius:5px}
 .wind{animation:blow 3.2s linear infinite}
+.wave{animation:bob 2.4s ease-in-out infinite alternate}
+@keyframes bob{from{transform:translateX(-6px)}to{transform:translateX(6px)}}
+.flame{transform-box:fill-box;transform-origin:50% 100%;animation:flick .9s ease-in-out infinite alternate}
+@keyframes flick{from{transform:scaleY(.94)}to{transform:scaleY(1.06)}}
 @keyframes blow{from{transform:translateX(-60px)}to{transform:translateX(60px)}}
 .rain{animation:fall 1s linear infinite}
 @keyframes fall{from{transform:translateY(-6px);opacity:.3}to{transform:translateY(10px);opacity:1}}
+/* story room shelf */
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.book{display:flex;flex-direction:column;gap:4px;text-align:left;padding:0 0 12px;border-radius:8px 16px 16px 8px;background:var(--surface);border:1px solid var(--line);border-left:10px solid var(--spine);overflow:hidden;min-width:0}
+.book>*:not(.bcover){margin-inline:12px}
+.bcover{display:block;aspect-ratio:5/3;margin:0 0 6px}
+.bcover svg{display:block;width:100%;height:100%}
+.bnum{font-size:.75rem;font-weight:800;color:var(--muted);letter-spacing:.06em}
+.bname{font-family:var(--f-display);font-weight:600;font-size:1.15rem;line-height:1.1}
+.bar2{font-size:1.2rem;color:var(--green);line-height:1.5}
+.book .chip,.book .stars{align-self:flex-start;margin-top:auto}
+.book.soon{opacity:.6;padding-top:12px;min-height:150px}
+.book.wait{opacity:.85}
 /* score */
 .score{display:grid;gap:14px;justify-items:center;text-align:center}
 .score .pic{width:min(260px,70%);border-radius:24px;overflow:hidden;background:var(--gold-soft)}
@@ -399,23 +415,45 @@ function scene(o){
    <radialGradient id="${id}g"><stop offset="0" stop-color="#FFE9A8" stop-opacity=".95"/><stop offset="1" stop-color="#FFE9A8" stop-opacity="0"/></radialGradient></defs>
    <rect width="${W}" height="${H}" fill="url(#${id}k)"/>`;
   if(o.stars)for(let i=0;i<28;i++)s+=`<circle cx="${(i*67)%400}" cy="${(i*29)%120}" r="${i%3?1:1.6}" fill="#FFF8E1" opacity=".85"/>`;
-  if(o.moon)s+=`<circle cx="330" cy="46" r="18" fill="#FFF3C4"/><circle cx="338" cy="40" r="16" fill="${o.sky[0]}"/>`;
+  if(o.bigstar){const [x,y]=o.bigstar;s+=`<circle cx="${x}" cy="${y}" r="26" fill="url(#${id}g)"/><path d="M${x} ${y-14} L${x+4} ${y-4} L${x+14} ${y} L${x+4} ${y+4} L${x} ${y+14} L${x-4} ${y+4} L${x-14} ${y} L${x-4} ${y-4}Z" fill="#FFF6D2"/>`}
+  if(o.moon){const [x,y,r]=o.moon===true?[330,46,18]:o.moon;s+=`<circle cx="${x}" cy="${y}" r="${r}" fill="#FFF3C4"/><circle cx="${x+r*.45}" cy="${y-r*.35}" r="${r*.9}" fill="${o.sky[0]}"/>`}
+  if(o.fullmoon){const [x,y,r]=o.fullmoon;s+=`<circle cx="${x}" cy="${y}" r="${r*2.2}" fill="url(#${id}g)" opacity=".6"/><circle cx="${x}" cy="${y}" r="${r}" fill="#FFF3C4"/>`}
   if(o.sun)s+=`<circle cx="${o.sun[0]}" cy="${o.sun[1]}" r="${o.sun[2]*2.4}" fill="url(#${id}g)"/><circle cx="${o.sun[0]}" cy="${o.sun[1]}" r="${o.sun[2]}" fill="${o.sunC||'#FFD36E'}"/>`;
   if(o.cloud){const [x,y,sc,c]=o.cloud;s+=`<g transform="translate(${x} ${y}) scale(${sc})" fill="${c}"><circle cx="0" cy="20" r="26"/><circle cx="34" cy="6" r="34"/><circle cx="76" cy="16" r="28"/><circle cx="104" cy="28" r="20"/><rect x="-20" y="22" width="140" height="26" rx="13"/></g>`}
   if(o.rain)for(let i=0;i<16;i++)s+=`<line class="rain" x1="${70+i*14}" y1="${92+(i%3)*6}" x2="${64+i*14}" y2="${112+(i%3)*6}" stroke="#4F8FC0" stroke-width="2.6" stroke-linecap="round"/>`;
+  if(o.mountains){const c=o.mountains.c||'#B9876A',d=o.mountains.d||'#946649';
+    s+=`<path d="M-10 190 L60 90 L110 150 L170 70 L240 160 L300 96 L410 190Z" fill="${c}"/><path d="M60 90 L80 120 L50 140Z M170 70 L196 112 L160 120Z M300 96 L330 130 L290 140Z" fill="${d}" opacity=".6"/>`;
+    if(o.mountains.carved)[[70,140],[160,128],[186,146],[290,140],[318,152]].forEach(([x,y])=>{s+=`<path d="M${x} ${y} v-14 q8 -10 16 0 v14z" fill="#4A3426"/><rect x="${x-3}" y="${y}" width="22" height="3" fill="${d}"/>`})}
+  if(o.peak)s+=`<path d="M60 200 L200 70 L340 200Z" fill="${o.peak}"/><path d="M200 70 L222 96 L178 96Z" fill="#F4F7FA" opacity=".85"/>`;
   if(o.pillars){const base=o.pillars.y||170,col=o.pillars.c||'#D9A36B',top=o.pillars.t||'#B57A45';
     [[40,70],[66,96],[92,120],[118,84],[150,132],[178,104],[206,140],[236,92],[262,118],[290,76],[318,100]].forEach(([x,hgt],i)=>{
-      if(o.pillars.broken&&i%3===1)hgt=hgt*.45;
       s+=`<rect x="${x}" y="${base-hgt}" width="16" height="${hgt}" fill="${col}"/><rect x="${x-3}" y="${base-hgt-6}" width="22" height="7" rx="2" fill="${top}"/><rect x="${x+4}" y="${base-hgt+4}" width="2" height="${hgt-8}" fill="${top}" opacity=".35"/><rect x="${x+10}" y="${base-hgt+4}" width="2" height="${hgt-8}" fill="${top}" opacity=".35"/>`});
     s+=`<rect x="28" y="${base}" width="320" height="8" fill="${top}"/>`}
-  const d=o.dunes||['#E8B877','#D9A05E','#C98B4A'];
-  s+=`<path d="M0 182 Q 90 150 190 176 T 400 168 V240 H0Z" fill="${d[0]}"/><path d="M0 204 Q 120 178 240 200 T 400 196 V240 H0Z" fill="${d[1]}"/><path d="M0 226 Q 140 206 270 224 T 400 220 V240 H0Z" fill="${d[2]}"/>`;
-  if(o.cracks)s+=`<g stroke="#9A6A3A" stroke-width="2" fill="none" opacity=".7"><path d="M40 214 l20 6 l14 -8 l22 10"/><path d="M150 222 l18 -6 l10 10 l26 -4"/><path d="M260 216 l16 8 l22 -6 l18 9"/><path d="M90 232 l12 -6 l16 4"/></g>`;
+  if(o.town){const c=o.town.c||'#D8B892',d=o.town.d||'#B0896A',y=o.town.y||172;[[30,40,34],[66,30,48],[92,46,28],[140,34,40],[178,52,30],[232,36,44],[270,44,30],[316,32,38],[350,40,26]].forEach(([x,w,hh])=>{s+=`<rect x="${x}" y="${y-hh}" width="${w}" height="${hh}" fill="${c}"/><rect x="${x+w/2-4}" y="${y-12}" width="8" height="12" fill="${d}"/><rect x="${x+5}" y="${y-hh+8}" width="6" height="6" fill="${o.town.lit?'#FFD36E':d}"/>`})}
+  if(o.river)s+=`<path d="M0 196 Q 100 184 200 194 T 400 190 V206 Q 300 212 200 204 T 0 210Z" fill="#6FA7C8"/>`;
+  if(o.sea){const c=o.sea;s+=`<rect x="0" y="168" width="400" height="72" fill="${c[1]}"/><path d="M0 168 q 25 -10 50 0 t 50 0 t 50 0 t 50 0 t 50 0 t 50 0 t 50 0 t 50 0 V240 H0Z" fill="${c[0]}"/>`;
+    for(let i=0;i<6;i++)s+=`<path class="wave" style="animation-delay:${i*.3}s" d="M${i*70-20} ${190+(i%2)*18} q 15 -7 30 0 t 30 0" stroke="#F4F7FA" stroke-width="2" fill="none" opacity=".6"/>`}
+  else if(!o.noGround){const d=o.dunes||['#E8B877','#D9A05E','#C98B4A'];
+    s+=`<path d="M0 182 Q 90 150 190 176 T 400 168 V240 H0Z" fill="${d[0]}"/><path d="M0 204 Q 120 178 240 200 T 400 196 V240 H0Z" fill="${d[1]}"/><path d="M0 226 Q 140 206 270 224 T 400 220 V240 H0Z" fill="${d[2]}"/>`}
+  if(o.ark){const [x,y,sc]=o.ark;s+=`<g transform="translate(${x} ${y}) scale(${sc})"><path d="M-90 0 h180 l-26 34 h-128z" fill="#8A5A3B"/><path d="M-90 0 h180 l-6 8 h-168z" fill="#6E4630"/><rect x="-50" y="-30" width="100" height="30" fill="#B07A52"/><path d="M-58 -30 L0 -52 L58 -30Z" fill="#6E4630"/><rect x="-30" y="-20" width="12" height="10" fill="#FFD36E"/><rect x="18" y="-20" width="12" height="10" fill="#FFD36E"/>${[...Array(7)].map((_,i)=>`<line x1="${-80+i*26}" y1="10" x2="${-74+i*24}" y2="30" stroke="#6E4630" stroke-width="2"/>`).join('')}</g>`}
+  if(o.ship){const [x,y,sc]=o.ship;s+=`<g transform="translate(${x} ${y}) scale(${sc})"><path d="M-50 0 h100 l-16 18 h-68z" fill="#7A4E34"/><line x1="0" y1="0" x2="0" y2="-70" stroke="#5C3A27" stroke-width="4"/><path d="M4 -66 Q 44 -38 4 -8Z" fill="#F4EFE4"/><path d="M-4 -60 Q -32 -36 -4 -12Z" fill="#E7DCC8"/></g>`}
+  if(o.blocks){[[60,196,30,24,8],[110,204,26,18,-12],[170,200,34,22,20],[236,206,22,16,-6],[284,198,30,22,14]].forEach(([x,y,w,hh,r])=>{s+=`<rect x="${x}" y="${y-hh}" width="${w}" height="${hh}" rx="3" fill="#9C8F80" transform="rotate(${r} ${x+w/2} ${y-hh/2})"/>`});s+=`<rect x="320" y="118" width="46" height="72" rx="4" fill="#A79A8A"/><rect x="314" y="110" width="58" height="10" rx="3" fill="#8E8172"/><path d="M200 150 l40 -40" stroke="#6E5A46" stroke-width="7" stroke-linecap="round"/><path d="M236 104 l18 -6 l-6 18z" fill="#8F9AA6"/>`}
+  if(o.fire){const cool=o.fire==='cool';const f=cool?['#9ED8E8','#C9EEF5','#E8FAFF']:['#F06A2C','#FF9F2E','#FFD36E'];
+    [[140,1],[200,1.3],[260,1]].forEach(([x,sc])=>{s+=`<g transform="translate(${x} 200) scale(${sc})"><path class="flame" d="M0 0 C-30 -20 -16 -60 0 -86 C16 -60 30 -20 0 0Z" fill="${f[0]}"/><path d="M0 0 C-18 -14 -8 -40 0 -58 C8 -40 18 -14 0 0Z" fill="${f[1]}"/><path d="M0 0 C-8 -8 -4 -22 0 -30 C4 -22 8 -8 0 0Z" fill="${f[2]}"/></g>`});
+    s+=`<rect x="100" y="198" width="200" height="10" rx="5" fill="#6E4630"/>`}
+  if(o.flowers)for(let i=0;i<22;i++){const x=12+i*18,y=212+((i*7)%14);s+=`<circle cx="${x}" cy="${y}" r="4" fill="${['#F2A7C3','#FFD36E','#FFFFFF','#E58CA8'][i%4]}"/><circle cx="${x}" cy="${y}" r="1.6" fill="#C98F22"/>`}
+  if(o.tree){const [x,glow]=o.tree;s+=`${glow?`<circle cx="${x}" cy="110" r="80" fill="url(#${id}g)" opacity=".7"/>`:''}<rect x="${x-8}" y="120" width="16" height="70" rx="4" fill="#8A6A4A"/><circle cx="${x}" cy="104" r="42" fill="${glow?'#4FA06E':'#5E7D63'}"/><circle cx="${x-30}" cy="122" r="26" fill="${glow?'#4FA06E':'#5E7D63'}"/><circle cx="${x+30}" cy="120" r="28" fill="${glow?'#4FA06E':'#5E7D63'}"/>${glow?[[x-14,96],[x+16,108],[x-26,124],[x+28,128],[x+2,82]].map(([a,b])=>`<circle cx="${a}" cy="${b}" r="5" fill="#E8695C"/>`).join(''):''}`}
+  if(o.garden)[[50,.9],[340,1]].forEach(([x,sc])=>{s+=`<g transform="translate(${x} 196) scale(${sc})"><rect x="-6" y="-60" width="12" height="60" fill="#8A6A4A"/><circle cx="0" cy="-70" r="30" fill="#5FAF7A"/><circle cx="-20" cy="-56" r="18" fill="#5FAF7A"/><circle cx="20" cy="-56" r="18" fill="#5FAF7A"/></g>`});
+  if(o.well)s+=`<g transform="translate(300 196)"><ellipse cx="0" cy="-24" rx="34" ry="9" fill="#3E6E8E"/><path d="M-34 -24 v24 h68 v-24" fill="#A99C8C"/><path d="M-34 -10 h68 M-34 -2 h68" stroke="#8E8172" stroke-width="2"/><path d="M-30 -24 v-34 M30 -24 v-34 M-38 -60 h76" stroke="#6E4630" stroke-width="5"/></g>`;
+  if(o.leaves)s+=`<g fill="#5FAF7A"><path d="M120 200 q 10 -70 80 -84 q -10 60 -80 84z"/><path d="M200 200 q 30 -70 100 -60 q -30 54 -100 60z" fill="#4E9A68"/><path d="M160 204 q -40 -50 -110 -40 q 40 50 110 40z" fill="#6CB985"/></g><path d="M200 200 q 20 -40 70 -80" stroke="#3E7A52" stroke-width="3" fill="none"/>`;
   if(o.wind)for(let i=0;i<5;i++){const y=40+i*34;s+=`<path class="wind" style="animation-delay:${i*.35}s" d="M-40 ${y} q 60 -26 120 0 t 120 0 t 120 0 t 120 0 m -70 0 q 22 -22 0 -34 q -26 -6 -26 18" fill="none" stroke="#EADBC3" stroke-width="${4-i%2}" stroke-linecap="round" opacity=".8"/>`}
+  if(o.cracks)s+=`<g stroke="#9A6A3A" stroke-width="2" fill="none" opacity=".7"><path d="M40 214 l20 6 l14 -8 l22 10"/><path d="M150 222 l18 -6 l10 10 l26 -4"/><path d="M260 216 l16 8 l22 -6 l18 9"/><path d="M90 232 l12 -6 l16 4"/></g>`;
   if(o.palms)o.palms.forEach(([x,sc])=>{s+=`<g transform="translate(${x} 188) scale(${sc})"><path d="M0 0 q -4 -40 6 -78" stroke="#8A6A4A" stroke-width="6" fill="none"/><g fill="#3E8E5E"><path d="M6 -78 q -34 -6 -46 18 q 22 -14 46 -18Z"/><path d="M6 -78 q 34 -10 48 14 q -24 -12 -48 -14Z"/><path d="M6 -78 q -16 -26 -42 -26 q 24 8 42 26Z"/><path d="M6 -78 q 18 -26 44 -22 q -26 6 -44 22Z"/></g></g>`});
   if(o.water)s+=`<ellipse cx="200" cy="200" rx="70" ry="12" fill="#6FB7D6" opacity=".9"/><ellipse cx="200" cy="198" rx="48" ry="5" fill="#BFE3F2" opacity=".8"/>`;
   if(o.lantern){const [x,y]=o.lantern;s+=`<circle cx="${x}" cy="${y+26}" r="58" fill="url(#${id}g)"/><g transform="translate(${x-18} ${y})"><rect x="13" y="-10" width="10" height="8" rx="2" fill="#C98F22"/><path d="M4 2 h28 l6 10 v34 l-6 10 h-28 l-6 -10 v-34z" fill="#FFE29A" stroke="#C98F22" stroke-width="3"/><path d="M18 12 v34 M4 28 h28" stroke="#C98F22" stroke-width="2" opacity=".6"/></g>`}
-  if(o.book)s+=`<g transform="translate(150 150)"><path d="M0 10 q 50 -18 100 0 v 46 q -50 -18 -100 0z" fill="#1F5C4A"/><path d="M50 2 v52" stroke="#D9A441" stroke-width="2"/><path d="M8 14 q 20 -8 38 -4 M54 10 q 20 -4 38 4" stroke="#F4EFE4" stroke-width="2" fill="none"/></g>`;
+  if(o.book)s+=`<g transform="translate(${o.book===true?150:o.book} 150)"><path d="M0 10 q 50 -18 100 0 v 46 q -50 -18 -100 0z" fill="#1F5C4A"/><path d="M50 2 v52" stroke="#D9A441" stroke-width="2"/><path d="M8 14 q 20 -8 38 -4 M54 10 q 20 -4 38 4" stroke="#F4EFE4" stroke-width="2" fill="none"/></g>`;
+  if(o.glow){const [x,y]=o.glow;s+=`<circle cx="${x}" cy="${y}" r="40" fill="url(#${id}g)"/><circle cx="${x}" cy="${y}" r="5" fill="#FFF3C4"/>`}
+  if(o.dark)s+=`<rect width="${W}" height="${H}" fill="#0B1020" opacity="${o.dark}"/>`;
   return s+'</svg>';
 }
 const AY={
@@ -426,7 +464,125 @@ const AY={
  cloud:{ar:'قَالُوا هَٰذَا عَارِضٌ مُّمْطِرُنَا',en:'They said: This is a cloud that will bring us rain.',ref:'Surah al-Ahqaf 46:24'},
  saved:{ar:'وَلَمَّا جَاءَ أَمْرُنَا نَجَّيْنَا هُودًا وَالَّذِينَ آمَنُوا مَعَهُ بِرَحْمَةٍ مِّنَّا',en:'When Our command came, We saved Huud and those who believed with him, by mercy from Us.',ref:'Surah Hud 11:58'}
 };
-const STORIES=[
+
+const AY2={
+ khalifah:{ar:'إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً',en:'I am going to place a successor on the earth.',ref:'Surah al-Baqarah 2:30'},
+ names:{ar:'وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا',en:'And He taught Adam the names of all things.',ref:'Surah al-Baqarah 2:31'},
+ sajadu:{ar:'فَسَجَدُوا إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ',en:'They all bowed, except Iblis. He refused and was proud.',ref:'Surah al-Baqarah 2:34'},
+ anakhair:{ar:'أَنَا خَيْرٌ مِّنْهُ خَلَقْتَنِي مِن نَّارٍ وَخَلَقْتَهُ مِن طِينٍ',en:'I am better than him. You created me from fire and created him from clay.',ref:"Surah al-A'raf 7:12"},
+ rabbana:{ar:'رَبَّنَا ظَلَمْنَا أَنفُسَنَا وَإِن لَّمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ',en:'Our Rabb, we have wronged ourselves. If You do not forgive us and have mercy on us, we will surely be among the losers.',ref:"Surah al-A'raf 7:23"},
+ talaqqa:{ar:'فَتَلَقَّىٰ آدَمُ مِن رَّبِّهِ كَلِمَاتٍ فَتَابَ عَلَيْهِ',en:'Then Adam received words from his Rabb, and Allah forgave him.',ref:'Surah al-Baqarah 2:37'},
+ nadhir:{ar:'يَا قَوْمِ إِنِّي لَكُمْ نَذِيرٌ مُّبِينٌ<br>أَنِ اعْبُدُوا اللَّهَ وَاتَّقُوهُ وَأَطِيعُونِ',en:'O my people, I am a clear warner to you: worship Allah, fear Him and obey me.',ref:'Surah Nuh 71:2-3'},
+ alf:{ar:'فَلَبِثَ فِيهِمْ أَلْفَ سَنَةٍ إِلَّا خَمْسِينَ عَامًا',en:'He stayed among them a thousand years less fifty.',ref:"Surah al-'Ankabut 29:14"},
+ ghaffar:{ar:'فَقُلْتُ اسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا',en:'I said: Ask your Rabb to forgive you. He is the Most Forgiving.',ref:'Surah Nuh 71:10'},
+ fulk:{ar:'وَاصْنَعِ الْفُلْكَ بِأَعْيُنِنَا وَوَحْيِنَا',en:'And build the ship under Our eyes and Our guidance.',ref:'Surah Hud 11:37'},
+ sakhiru:{ar:'وَكُلَّمَا مَرَّ عَلَيْهِ مَلَأٌ مِّن قَوْمِهِ سَخِرُوا مِنْهُ',en:'Every time the leaders of his people passed by him, they made fun of him.',ref:'Surah Hud 11:38'},
+ zawjain:{ar:'قُلْنَا احْمِلْ فِيهَا مِن كُلٍّ زَوْجَيْنِ اثْنَيْنِ',en:'We said: Carry in it a pair of every kind.',ref:'Surah Hud 11:40'},
+ majraha:{ar:'بِسْمِ اللَّهِ مَجْرَاهَا وَمُرْسَاهَا',en:'In the name of Allah it sails and it comes to rest.',ref:'Surah Hud 11:41'},
+ laasim:{ar:'لَا عَاصِمَ الْيَوْمَ مِنْ أَمْرِ اللَّهِ إِلَّا مَن رَّحِمَ',en:'Today nothing can protect anyone from the command of Allah, except those He has mercy on.',ref:'Surah Hud 11:43'},
+ judi:{ar:'وَاسْتَوَتْ عَلَى الْجُودِيِّ',en:'And the ship came to rest on al-Judi.',ref:'Surah Hud 11:44'},
+ thamud:{ar:'وَإِلَىٰ ثَمُودَ أَخَاهُمْ صَالِحًا ۗ قَالَ يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ',en:'And to Thamud We sent their brother Saaleh. He said: O my people, worship Allah. You have no god other than Him.',ref:"Surah al-A'raf 7:73"},
+ tanhituna:{ar:'وَتَنْحِتُونَ الْجِبَالَ بُيُوتًا',en:'And you carve houses out of the mountains.',ref:"Surah al-A'raf 7:74"},
+ naqah:{ar:'هَٰذِهِ نَاقَةُ اللَّهِ لَكُمْ آيَةً ۖ فَذَرُوهَا تَأْكُلْ فِي أَرْضِ اللَّهِ وَلَا تَمَسُّوهَا بِسُوءٍ',en:"This is the she-camel of Allah, a sign for you. Let her eat in Allah's land, and do not harm her.",ref:"Surah al-A'raf 7:73"},
+ shirb:{ar:'لَّهَا شِرْبٌ وَلَكُمْ شِرْبُ يَوْمٍ مَّعْلُومٍ',en:'She has her day to drink, and you have your day to drink.',ref:"Surah ash-Shu'ara 26:155"},
+ aqaruha:{ar:'فَكَذَّبُوهُ فَعَقَرُوهَا',en:'But they called him a liar and killed her.',ref:'Surah ash-Shams 91:14'},
+ thalatha:{ar:'تَمَتَّعُوا فِي دَارِكُمْ ثَلَاثَةَ أَيَّامٍ',en:'Enjoy yourselves in your homes for three days.',ref:'Surah Hud 11:65'},
+ savedSaaleh:{ar:'فَلَمَّا جَاءَ أَمْرُنَا نَجَّيْنَا صَالِحًا وَالَّذِينَ آمَنُوا مَعَهُ بِرَحْمَةٍ مِّنَّا',en:'When Our command came, We saved Saaleh and those who believed with him, by mercy from Us.',ref:'Surah Hud 11:66'},
+ afilin:{ar:'لَا أُحِبُّ الْآفِلِينَ',en:'I do not love things that set and disappear.',ref:"Surah al-An'am 6:76"},
+ wajjahtu:{ar:'إِنِّي وَجَّهْتُ وَجْهِيَ لِلَّذِي فَطَرَ السَّمَاوَاتِ وَالْأَرْضَ حَنِيفًا',en:'I have turned my face to the One who created the heavens and the earth, worshipping Him alone.',ref:"Surah al-An'am 6:79"},
+ tamathil:{ar:'مَا هَٰذِهِ التَّمَاثِيلُ الَّتِي أَنتُمْ لَهَا عَاكِفُونَ',en:'What are these statues that you sit and worship?',ref:"Surah al-Anbiya 21:52"},
+ judhadh:{ar:'فَجَعَلَهُمْ جُذَاذًا إِلَّا كَبِيرًا لَّهُمْ',en:'So he broke them into pieces, all except the biggest one.',ref:"Surah al-Anbiya 21:58"},
+ kabiruhum:{ar:'بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ',en:'Rather, this biggest one did it. Ask them, if they can speak!',ref:"Surah al-Anbiya 21:63"},
+ bardan:{ar:'قُلْنَا يَا نَارُ كُونِي بَرْدًا وَسَلَامًا عَلَىٰ إِبْرَاهِيمَ',en:'We said: O fire, be cool and safe for Ibrahim.',ref:"Surah al-Anbiya 21:69"},
+ yunus:{ar:'وَإِنَّ يُونُسَ لَمِنَ الْمُرْسَلِينَ',en:'And Yunus was one of the Messengers.',ref:'Surah as-Saffat 37:139'},
+ mughadiban:{ar:'وَذَا النُّونِ إِذ ذَّهَبَ مُغَاضِبًا',en:'And Dhun-Nun (Yunus), when he went away upset.',ref:"Surah al-Anbiya 21:87"},
+ mashhun:{ar:'إِذْ أَبَقَ إِلَى الْفُلْكِ الْمَشْحُونِ',en:'When he ran away to the fully loaded ship.',ref:'Surah as-Saffat 37:140'},
+ iltaqamahu:{ar:'فَالْتَقَمَهُ الْحُوتُ وَهُوَ مُلِيمٌ',en:'Then the big fish swallowed him, and he blamed himself.',ref:'Surah as-Saffat 37:142'},
+ duaYunus:{ar:'لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ',en:'There is no god but You. Glory be to You. Truly, I have done wrong.',ref:"Surah al-Anbiya 21:87"},
+ istajabna:{ar:'فَاسْتَجَبْنَا لَهُ وَنَجَّيْنَاهُ مِنَ الْغَمِّ ۚ وَكَذَٰلِكَ نُنجِي الْمُؤْمِنِينَ',en:'So We answered him and saved him from his sadness. And this is how We save the believers.',ref:"Surah al-Anbiya 21:88"},
+ yaqtin:{ar:'وَأَنبَتْنَا عَلَيْهِ شَجَرَةً مِّن يَقْطِينٍ',en:'And We made a gourd plant grow over him.',ref:'Surah as-Saffat 37:146'},
+ miah:{ar:'وَأَرْسَلْنَاهُ إِلَىٰ مِائَةِ أَلْفٍ أَوْ يَزِيدُونَ<br>فَآمَنُوا',en:'And We sent him to a hundred thousand people or more, and they believed.',ref:'Surah as-Saffat 37:147-148'}
+};
+const NIGHT=['#1E2A4A','#3D4E7A'],NIGHTD=['#B88A5A','#A67848','#946639'];
+const MORE_STORIES=[
+{id:'st-adam',pid:'adam',title:'Prophet Adam, the first human',ar:'آدَم عَلَيْهِ السَّلَام',sub:'Pride, a mistake, and saying sorry to Allah',slides:[
+ {sc:{label:'A starry sky over the quiet earth',sky:NIGHT,stars:true,fullmoon:[300,60,16],dunes:['#6F8F6A','#5E7D5A','#4E6B4B']},text:"Before there were any people on earth, Allah told the angels something new.",ay:AY2.khalifah},
+ {sc:{label:'Soft clay earth under a dawn sky',sky:['#F3C9A2','#FCE8D4'],sun:[200,150,24],dunes:['#B9876A','#A8775B','#946649']},text:"Allah created Adam, the very first human, from clay. He shaped him and gave him life. Adam is the father of every person in the world."},
+ {sc:{label:'An open book glowing in the night',sky:NIGHT,stars:true,lantern:[90,104],book:true,dunes:NIGHTD},text:"Allah taught Adam the names of all things, things even the angels did not know.",ay:AY2.names},
+ {sc:{label:'Light shining over the earth',sky:['#7FB6E0','#E6F2FA'],glow:[200,70],dunes:['#C9D89A','#AFC97E','#97B868']},text:"Allah commanded the angels to bow to Adam, to honour him. They all obeyed Allah at once, except one: Iblis. (Bowing to Adam was Allah's own command to the angels. For us, sujood is only for Allah.)",ay:AY2.sajadu},
+ {sc:{label:'Dark sky with flickering flames',sky:['#2B1E2E','#5A3A3E'],fire:'hot',noGround:true},text:"Iblis was full of pride. He thought being made of fire made him better. Pride made him disobey Allah.",ay:AY2.anakhair},
+ {sc:{label:'A beautiful garden with one special tree',sky:['#A8D8EE','#E8F6FB'],tree:[200,true],garden:true,flowers:true,dunes:['#A9C98A','#8DB873','#76A35E']},text:"Adam and his wife Hawwa lived in a beautiful garden in Paradise. They could eat from everything there, except one tree."},
+ {sc:{label:'The tree under a grey sky',sky:['#8C93A3','#C7CCD6'],tree:[200,false],dunes:['#8FA889','#7C9677','#6A8466']},text:"Shaytan whispered to them again and again, until they ate from that tree. Straight away, they felt very sorry."},
+ {sc:{label:'A calm night with a soft light',sky:NIGHT,stars:true,glow:[200,90],dunes:NIGHTD},text:"They did not blame anyone else. They turned to Allah and made this dua. We can say it too.",ay:AY2.rabbana},
+ {sc:{label:'Sunrise over green hills',sky:['#F7C9A8','#FDEBD9'],sun:[200,150,26],dunes:['#C9D89A','#AFC97E','#97B868']},text:"Allah forgave them, because Allah loves to forgive. Then He sent them to live on the earth, and from them came all of us.",ay:AY2.talaqqa},
+ {sc:{label:'A glowing lantern beside an open Qur\'an',sky:NIGHT,stars:true,lantern:[90,104],book:true,dunes:NIGHTD},text:"What do we learn? Pride made Iblis lose everything. When we make a mistake, we say sorry to Allah like Adam did, and Allah forgives us."}],
+ quiz:[{q:'What was Adam created from?',o:['Clay','Fire','Light'],why:'Allah created Adam from clay.'},
+  {q:'Who refused to obey Allah and bow?',o:['Iblis','The angels','Hawwa'],why:'Iblis refused because he was proud.'},
+  {q:'What made Iblis disobey?',o:['Pride','Hunger','He was tired'],why:'He thought he was better. That is pride.'},
+  {q:'What did Adam and Hawwa do after their mistake?',o:['They said sorry to Allah','They blamed Shaytan','They hid'],why:'They said: Rabbana zalamna anfusana, and Allah forgave them.'}]},
+{id:'st-nuh',pid:'nuh',title:'Prophet Nuh and the ark',ar:'نُوح عَلَيْهِ السَّلَام',sub:'Patience, and Bismillah when we set off',slides:[
+ {sc:{label:'A quiet town in the evening',sky:['#C7A0B8','#F1D9CF'],town:{},dunes:['#B9A78E','#A8957B','#97836A']},text:"Long after Adam, people slowly forgot Allah. They began worshipping statues instead of Him."},
+ {sc:{label:'A glowing lantern in the night',sky:NIGHT,stars:true,moon:true,lantern:[200,118],dunes:NIGHTD},text:"So Allah sent Prophet Nuh, alayhis salaam, to call them back to Allah.",ay:AY2.nadhir},
+ {sc:{label:'Sun and moon together over the town',sky:['#5E6F9C','#E8B98E'],sun:[300,70,20],moon:[90,60,16],town:{lit:true},dunes:['#B9A78E','#A8957B','#97836A']},text:"Nuh called them by day and by night, quietly and openly, for nine hundred and fifty years!",ay:AY2.alf},
+ {sc:{label:'Rain clouds over green land',sky:['#9CC3DE','#E3F0F7'],cloud:[110,40,1.1,'#F4F7FA'],rain:true,dunes:['#A9C98A','#8DB873','#76A35E']},text:"He told them that Allah would forgive them and send them rain, if only they would ask.",ay:AY2.ghaffar},
+ {sc:{label:'A big wooden ship being built on dry land',sky:['#F3D3A6','#FBEAD2'],sun:[330,60,20],ark:[200,160,1],dunes:['#E4B57B','#D8A464','#C99252']},text:"Only a few people believed. Allah told Nuh to build a huge ship, called the ark, on dry land.",ay:AY2.fulk},
+ {sc:{label:'The ark on dry land under a plain sky',sky:['#C9B79C','#EADFCB'],ark:[200,160,1],dunes:['#D9A05E','#C98B4A','#B87A3D']},text:"Every time the leaders walked past, they laughed at him. Nuh kept building, patient and sure of Allah's promise.",ay:AY2.sakhiru},
+ {sc:{label:'Rain pouring over the ark',sky:['#5E6472','#A3A9B5'],cloud:[60,20,1.6,'#4A4F5C'],rain:true,ark:[200,170,1],dunes:['#8A8F9A','#7A7F8A','#6A6F7A']},text:"Then water came pouring from the sky and gushing from the earth. Allah told Nuh to carry the believers and a pair of every kind of animal.",ay:AY2.zawjain},
+ {sc:{label:'The ark sailing on big waves',sky:['#4E5666','#8E96A6'],ark:[200,168,1],sea:['#3F6E8E','#2F5670'],rain:true,cloud:[200,20,1.2,'#4A4F5C']},text:"As the ark set off, Nuh said: Bismillah. We can say this too when we start a journey.",ay:AY2.majraha},
+ {sc:{label:'Huge waves under a dark sky',sky:['#3B4250','#6E7686'],sea:['#335C78','#244660'],noGround:true},text:"Even one of Nuh's sons refused to come aboard. He thought a mountain would keep him safe. But only Allah's mercy could save anyone that day, and the waves came between them.",ay:AY2.laasim},
+ {sc:{label:'The ark resting on a mountain under a clear sky',sky:['#9FD0EE','#E6F4FB'],sun:[330,50,18],peak:'#7E9A7A',ark:[200,82,.55],sea:['#6FA7C8','#5A92B4']},text:"At last the water went down, and the ark came to rest on the mountain of al-Judi. Nuh and the believers stepped out onto a fresh, clean earth.",ay:AY2.judi},
+ {sc:{label:'A glowing lantern beside an open Qur\'an',sky:NIGHT,stars:true,lantern:[90,104],book:true,dunes:NIGHTD},text:"What do we learn? Keep doing what is right, even when others laugh. Be patient like Nuh. Say Bismillah when you set off. And only Allah can truly keep us safe."}],
+ quiz:[{q:'How long did Nuh call his people to Allah?',o:['950 years','10 years','100 days'],why:'A thousand years less fifty: 950 years.'},
+  {q:'What did Allah tell Nuh to build?',o:['A huge ship, the ark','A tall tower','A big wall'],why:'Allah told him to build the ark.'},
+  {q:'What did Nuh say as the ark set off?',o:['Bismillah','Goodbye','Hurry up'],why:'Bismillahi majraha wa mursaha.'},
+  {q:'Where did the ark come to rest?',o:['On the mountain al-Judi','In the desert','On an island'],why:'It came to rest on al-Judi.'}]},
+{id:'st-saaleh',pid:'saaleh',title:'Prophet Saaleh and the she-camel',ar:'صَالِح عَلَيْهِ السَّلَام',sub:"Allah's signs, and being kind to animals",slides:[
+ {sc:{label:'Rocky mountains under a warm sky',sky:['#F3C9A2','#FCE8D4'],sun:[330,60,20],mountains:{},dunes:['#C9A07E','#B98F6D','#A87E5C']},text:"After the people of 'Aad, there came another people called Thamud. They lived in a rocky land in the north of Arabia."},
+ {sc:{label:'Houses carved into the mountains',sky:['#F3C9A2','#FCE8D4'],sun:[60,70,18],mountains:{carved:true},dunes:['#C9A07E','#B98F6D','#A87E5C']},text:"They were very skilful. They carved whole houses right into the mountains!",ay:AY2.tanhituna},
+ {sc:{label:'A glowing lantern below the mountains at night',sky:NIGHT,stars:true,moon:true,mountains:{c:'#6E5A6E',d:'#4E3E4E'},lantern:[200,128],dunes:NIGHTD},text:"Allah sent them Prophet Saaleh, alayhis salaam, with the same message as every Prophet:",ay:AY2.thamud},
+ {sc:{label:'A stone well in the desert',sky:['#9FD0EE','#E6F4FB'],sun:[80,60,20],well:true,mountains:{carved:true},dunes:['#D9B48E','#C9A27C','#B8906A']},text:"The people asked for a miracle. So Allah sent them a special she-camel as a sign. Saaleh told them:",ay:AY2.naqah},
+ {sc:{label:'The well with water shining',sky:['#9FD0EE','#E6F4FB'],sun:[320,60,20],well:true,dunes:['#D9B48E','#C9A27C','#B8906A']},text:"She would drink from the well on one day, and the people would drink on the next. Allah was testing them.",ay:AY2.shirb},
+ {sc:{label:'The carved mountains under a stormy sky',sky:['#5E6472','#A3A9B5'],mountains:{carved:true,c:'#8E7466',d:'#6E5648'},dunes:['#9C8C7C','#8C7C6C','#7C6C5C']},text:"But the proud ones did not like it. They refused to believe Saaleh, and they hurt the she-camel. Saaleh warned them: you have three days.",ay:AY2.aqaruha},
+ {sc:{label:'Empty carved houses in silence',sky:['#8D8577','#C4B8A2'],mountains:{carved:true,c:'#9C8676',d:'#7C6658'},dunes:['#B8A07E','#A88E6B','#97805E']},text:"Then a mighty blast came, and the people who refused were gone, as if they had never lived in those houses."},
+ {sc:{label:'A calm oasis with palms and water',sky:['#F7C9A8','#FDEBD9'],sun:[80,150,22],palms:[[120,1],[290,.85],[330,1.05]],water:true,dunes:['#C9D89A','#AFC97E','#97B868']},text:"Allah saved Saaleh and the believers with him, by His mercy.",ay:AY2.savedSaaleh},
+ {sc:{label:'A glowing lantern beside an open Qur\'an',sky:NIGHT,stars:true,lantern:[90,104],book:true,dunes:NIGHTD},text:"What do we learn? When Allah shows us His signs, we believe and obey. We keep our promises. And we are always kind to animals, because Allah sees how we treat them."}],
+ quiz:[{q:'What did the people of Thamud carve?',o:['Houses in the mountains','Boats','Statues of animals'],why:'They carved houses into the mountains.'},
+  {q:'What sign did Allah send to Thamud?',o:['A special she-camel','A big ship','A golden tree'],why:'The she-camel of Allah was a sign for them.'},
+  {q:'How did they share the water?',o:['She drank one day, they drank the next','They never shared','Only at night'],why:'She had her day to drink, and they had theirs.'},
+  {q:'Who did Allah save?',o:['Saaleh and the believers','Only the strongest','Nobody'],why:'Allah saved Saaleh and those who believed, by His mercy.'}]},
+{id:'st-ibrahim',pid:'ibrahim',title:'Prophet Ibrahim and the fire',ar:'إِبْرَاهِيم عَلَيْهِ السَّلَام',sub:'Thinking for yourself, and trusting Allah',slides:[
+ {sc:{label:'A town at night with lamps glowing',sky:NIGHT,stars:true,town:{lit:true,c:'#6E6A8A',d:'#4E4A6A'},dunes:NIGHTD},text:"Prophet Ibrahim, alayhis salaam, grew up among people who worshipped statues and stars. Even his own father made statues."},
+ {sc:{label:'One bright star in the night sky',sky:NIGHT,stars:true,bigstar:[260,60],dunes:NIGHTD},text:"One night he saw a bright star. To make his people think, he said: Is this my Rabb? But when the star set and disappeared, he said:",ay:AY2.afilin},
+ {sc:{label:'The moon rising, then the sun',sky:['#5E6F9C','#F3C9A2'],fullmoon:[90,60,18],sun:[310,140,26],dunes:['#C9A07E','#B98F6D','#A87E5C']},text:"Then he saw the moon rising, and then the big shining sun. Both of them set too. Things that disappear cannot be Allah, because Allah is always there."},
+ {sc:{label:'Sunrise over the earth',sky:['#F7C9A8','#FDEBD9'],sun:[200,150,26],dunes:['#C9D89A','#AFC97E','#97B868']},text:"So Ibrahim told them clearly who he worshipped:",ay:AY2.wajjahtu},
+ {sc:{label:'A row of stone blocks in a hall',sky:['#C8B9A6','#E9DFD2'],noGround:true,town:{c:'#B9A78E',d:'#97836A',y:200}},text:"He asked his people:",ay:AY2.tamathil},
+ {sc:{label:'Broken stone pieces and one big block, with an axe',sky:['#C8B9A6','#E9DFD2'],blocks:true,dunes:['#D8CBB8','#C8BBA8','#B8AB98']},text:"One day, when everyone had gone out, Ibrahim broke the statues into pieces, all except the biggest one.",ay:AY2.judhadh},
+ {sc:{label:'The biggest block standing alone',sky:['#B8A890','#E0D4C2'],blocks:true,dunes:['#D8CBB8','#C8BBA8','#B8AB98']},text:"The people were furious. Ibrahim said: Ask the biggest one, if they can speak! He wanted them to think: how can something that cannot speak be a god?",ay:AY2.kabiruhum},
+ {sc:{label:'A huge fire burning',sky:['#2B1E2E','#5A3A3E'],fire:'hot',dunes:['#6E4A3A','#5E3E30','#4E3226']},text:"Instead of thinking, they built a huge fire and threw Ibrahim into it. But Allah said:",ay:AY2.bardan},
+ {sc:{label:'Cool flames and flowers',sky:['#A8D8EE','#E8F6FB'],fire:'cool',flowers:true,dunes:['#A9C98A','#8DB873','#76A35E']},text:"The fire became cool and safe! Ibrahim came out without a single burn, because Allah protects the people who trust Him."},
+ {sc:{label:'A glowing lantern beside an open Qur\'an',sky:NIGHT,stars:true,lantern:[90,104],book:true,dunes:NIGHTD},text:"What do we learn? Use your mind: only the One who created everything deserves worship. Be brave for the truth. And trust Allah, because nothing can harm us unless He allows it."}],
+ quiz:[{q:'Why did Ibrahim say he did not love the star?',o:['Because it set and disappeared','It was too small','It was too bright'],why:'Things that set and disappear cannot be Allah.'},
+  {q:'Which statue did Ibrahim leave unbroken?',o:['The biggest one','The smallest one','None'],why:'He left the biggest one so they would think.'},
+  {q:'What did Allah tell the fire?',o:['Be cool and safe for Ibrahim','Burn brighter','Go out'],why:'Ya naru kuni bardan wa salaman ala Ibrahim.'},
+  {q:'Who protected Ibrahim?',o:['Allah','The statues','His neighbours'],why:'Allah protects those who trust Him.'}]},
+{id:'st-yunus',pid:'yunus',title:'Prophet Yunus in the darkness',ar:'يُونُس عَلَيْهِ السَّلَام',sub:'The dua that Allah answers',slides:[
+ {sc:{label:'A big city beside a river',sky:['#9FD0EE','#E6F4FB'],sun:[330,50,18],town:{},river:true,dunes:['#C9D89A','#AFC97E','#97B868']},text:"Allah sent Prophet Yunus, alayhis salaam, to the people of a big city.",ay:AY2.yunus},
+ {sc:{label:'The city under an evening sky',sky:['#C7A0B8','#F1D9CF'],town:{},river:true,dunes:['#B9A78E','#A8957B','#97836A']},text:"He called them to Allah for a long time, but they would not listen. Yunus became upset and left them, before Allah told him to go.",ay:AY2.mughadiban},
+ {sc:{label:'A sailing ship on the sea',sky:['#9FD0EE','#E6F4FB'],sun:[80,50,18],ship:[220,166,1],sea:['#4F8FB4','#3C7698']},text:"He went down to the sea and boarded a ship full of people.",ay:AY2.mashhun},
+ {sc:{label:'The ship in a stormy sea',sky:['#3B4250','#6E7686'],cloud:[40,10,1.5,'#2F3440'],rain:true,ship:[220,166,1],sea:['#335C78','#244660']},text:"A storm came, and the ship was too heavy. They drew lots to choose who must go into the sea, and the lot fell on Yunus."},
+ {sc:{label:'Deep dark sea at night',sky:['#0E1A2E','#1E3150'],stars:true,sea:['#16324A','#0E2236']},text:"In the sea, by Allah's command, a huge fish swallowed Yunus whole.",ay:AY2.iltaqamahu},
+ {sc:{label:'Complete darkness with one small light',sky:['#050810','#0B1424'],noGround:true,glow:[200,120]},text:"Inside the fish, in the darkness of the night, the sea and the fish, Yunus called on Allah with this dua:",ay:AY2.duaYunus},
+ {sc:{label:'Light breaking over the sea',sky:['#F7C9A8','#FDEBD9'],sun:[200,160,30],sea:['#6FA7C8','#5A92B4']},text:"Allah heard him, even there. He answered Yunus and saved him. And Allah says He saves the believers in the same way.",ay:AY2.istajabna},
+ {sc:{label:'Big green leaves giving shade on the shore',sky:['#9FD0EE','#E6F4FB'],sun:[330,50,18],leaves:true,dunes:['#E8D3A8','#DCC496','#CEB484']},text:"The fish put Yunus out on the shore. He was weak and tired, so Allah made a gourd plant grow over him to give him shade.",ay:AY2.yaqtin},
+ {sc:{label:'The city by the river with lamps glowing',sky:['#F7C9A8','#FDEBD9'],town:{lit:true},river:true,dunes:['#C9D89A','#AFC97E','#97B868']},text:"Then Yunus went back to his city. This time, all of the people believed!",ay:AY2.miah},
+ {sc:{label:'A glowing lantern beside an open Qur\'an',sky:NIGHT,stars:true,lantern:[90,104],book:true,dunes:NIGHTD},text:"What do we learn? Never give up on people. When you are sad or in trouble, say the dua of Yunus. Allah hears us even in the darkest place."}],
+ quiz:[{q:'Where did Yunus go when he left his city?',o:['Onto a ship at sea','To the mountains','Into a forest'],why:'He boarded a fully loaded ship.'},
+  {q:'What happened to Yunus in the sea?',o:['A huge fish swallowed him','He swam home','He found an island'],why:"By Allah's command, a big fish swallowed him."},
+  {q:'What did Yunus say inside the fish?',o:['La ilaha illa anta, subhanaka, inni kuntu minaz-zalimin','Nothing','Help me, fish'],why:'This is the dua of Yunus. Allah answered it.'},
+  {q:'What happened when Yunus went back to his city?',o:['All the people believed','Nobody listened','The city was empty'],why:'A hundred thousand or more believed.'}]}
+];
+
+const STORIES_OLD=[
 {id:'st1',title:'Prophet Huud and the people of \'Aad',ar:'هُود عَلَيْهِ السَّلَام',sub:'A story about thanking Allah and saying Astaghfirullah',slides:[
  {sc:{label:'Sand hills in the desert at sunrise',sky:['#F8C77E','#FBE3B8'],sun:[300,120,26]},text:"Long ago, after the time of Prophet Nuh, there lived a people called 'Aad. Their home was al-Ahqaf, a land of curving sand hills in the south of Arabia."},
  {sc:{label:'A city of very tall pillars under a blue sky',sky:['#7FB6E0','#D6ECF7'],sun:[340,50,18],pillars:{}},text:"Allah gave the people of 'Aad so much: strong bodies, gardens, springs of water, animals and children. They built a great city with very tall pillars.",ay:AY.fajr},
@@ -446,13 +602,16 @@ const STORIES=[
   {q:'What came instead of rain?',o:['A fierce wind for seven nights and eight days','A big flood','Snow'],why:'A freezing wind blew for seven nights and eight days.'},
   {q:'Who did Allah save?',o:['Huud and those who believed with him','Only the strongest people','Nobody'],why:'Allah saved Huud and the believers by His mercy.'}]}
 ];
+STORIES_OLD[0].pid='huud';
+const PROPHETS=[['adam','Adam','آدَم'],['idris','Idris','إِدْرِيس'],['nuh','Nuh','نُوح'],['huud','Huud','هُود'],['saaleh','Saaleh','صَالِح'],['ibrahim','Ibrahim','إِبْرَاهِيم'],['lut','Lut','لُوط'],['ismail',"Isma'il",'إِسْمَاعِيل'],['ishaq','Ishaq','إِسْحَاق'],['yaqub',"Ya'qub",'يَعْقُوب'],['yusuf','Yusuf','يُوسُف'],['ayyub','Ayyub','أَيُّوب'],['shuayb',"Shu'ayb",'شُعَيْب'],['musa','Musa','مُوسَى'],['harun','Harun','هَارُون'],['dhulkifl','Dhul-Kifl','ذُو الْكِفْل'],['dawud','Dawud','دَاوُد'],['sulayman','Sulayman','سُلَيْمَان'],['ilyas','Ilyas','إِلْيَاس'],['alyasa',"Al-Yasa'",'الْيَسَع'],['yunus','Yunus','يُونُس'],['zakariyya','Zakariyya','زَكَرِيَّا'],['yahya','Yahya','يَحْيَى'],['isa',"'Isa",'عِيسَى'],['muhammad','Muhammad ﷺ','مُحَمَّد ﷺ']];
+const STORIES=PROPHETS.map(p=>[...STORIES_OLD,...MORE_STORIES].find(s=>s.pid===p[0])).filter(Boolean);
 STORIES.forEach(st=>{st.world='st';st.steps=[{t:'story',slides:st.slides},{t:'quiz',qs:st.quiz}]});
 
 const WORLDS={
  aq:{name:'Knowing Allah',sub:'Aqeedah island 1',icon:'🌙',cls:'w-aq',lessons:AQ,seq:true},
  ad:{name:'My daily duas',sub:'Adhkar',icon:'🤲',cls:'w-ad',lessons:AD,seq:false},
  ar:{name:'Arabic letters',sub:'Alif to Yaa',icon:'ا',cls:'w-ar',lessons:LV,seq:true},
- st:{name:'Stories of the Prophets',sub:'One story a day',icon:'📜',cls:'w-st',lessons:STORIES,seq:true}
+ st:{name:'The Story Room',sub:'Stories of the Prophets',icon:'📜',cls:'w-st',lessons:STORIES,seq:false}
 };
 const SOON=[['📖',"Qur'an and Hifz",'Juz Amma, surah by surah'],['💧','Wudu and salah','Step by step, the Sunnah way'],['🌷','Akhlaq missions','Good manners you do for real'],['🗣️','Arabic words','Everyday words, Madina style'],['🌙','The Islamic year','Ramadan, Dhul Hijjah, Muharram']];
 const SYMS=['🌙','⭐','🌸','🌷','🌻','🏮','💎','🌈','🍀','📖','🌿','🍉'];
@@ -639,6 +798,7 @@ function home(){
 }
 
 function worldScreen(){
+  if(ui.world==='st')return library();
   const W=WORLDS[ui.world],P=prog(ui.kid);
   return `<div class="topbar"><button class="back" data-act="home">← My garden</button></div>
   <div class="world ${W.cls}" style="min-height:auto"><span class="wicon ${ui.world==='ar'?'ar':''}">${W.icon}</span><h1>${W.name}</h1><p>${W.sub}${ui.world==='aq'?' · from Tawheed for Children, Level One, by Dr. Saleh as-Saleh':''}</p></div>
@@ -767,13 +927,26 @@ function placeRoad(){
 }
 
 function storyCard(){
-  const P=prog(ui.kid),nx=STORIES.find(l=>!P.done[l.id]);
-  let msg,btn='';
-  if(!nx)msg='You have heard every story so far. A new one is coming soon, insha Allah.';
-  else if(!approved(nx))msg='A new story is waiting for Daddy to read first.';
-  else if(!unlocked(nx))msg="One story a day. Come back tomorrow for the next one!";
-  else{msg=esc(nx.title);btn=`<button class="btn" data-act="open" data-id="${nx.id}">Read</button>`}
-  return `<section class="card duelcard"><div class="tx"><h3>📜 Story time</h3><p class="muted">${msg}</p></div>${btn}</section>`;
+  const P=prog(ui.kid),open=STORIES.filter(approved),nx=open.find(l=>!P.done[l.id]);
+  const msg=nx?`Next on the shelf: ${esc(nx.title)}`:open.length?'You have read every open book. Pick a favourite to read again!':'New books are waiting for Daddy to read first.';
+  return `<section class="card duelcard"><div class="tx"><h3>📜 The Story Room</h3><p class="muted">${msg}</p></div><button class="btn" data-act="world" data-w="st">Open</button></section>`;
+}
+function library(){
+  const P=prog(ui.kid);
+  const books=PROPHETS.map((pr,i)=>{
+    const st=STORIES.find(s=>s.pid===pr[0]),hue=['#1F5C4A','#B9587A','#C98F22','#3E6E8E','#7A5A9A'][i%5];
+    const head=`<span class="bnum">${i+1}</span><span class="bname">${esc(pr[1])}</span><span class="bar2 ar">${pr[2]}</span>`;
+    if(!st)return `<div class="book soon" style="--spine:${hue}">${head}<span class="chip plain">Coming soon</span></div>`;
+    const ok=approved(st),d=P.done[st.id];
+    const cover=`<span class="bcover">${scene(st.slides[0].sc)}</span>`;
+    if(!ok)return `<div class="book wait" style="--spine:${hue}">${cover}${head}<span class="chip gold">Waiting for Daddy</span></div>`;
+    return `<button class="book" style="--spine:${hue}" data-act="open" data-id="${st.id}">${cover}${head}${d?`<span class="stars">${starsTxt(d)}</span>`:'<span class="chip rose">Read</span>'}</button>`;
+  }).join('');
+  const n=STORIES.filter(s=>P.done[s.id]).length;
+  return `<div class="topbar"><button class="back" data-act="home">← My garden</button></div>
+  <div class="world w-st" style="min-height:auto"><span class="wicon">📜</span><h1>The Story Room</h1><p>The Prophets in the order Allah sent them, from Adam to Muhammad ﷺ. Tap a book to read it. You have read ${n} of ${STORIES.length}.</p></div>
+  <div class="shelf">${books}</div>
+  <p class="small muted">Stories are told from the Qur'an. Pictures show places, never the Prophets.</p>`;
 }
 /* ---------- duels ---------- */
 function todayTasks(k){const P=prog(k),t=dayKey(),log=(P.log||[]).filter(e=>dayKey(new Date(e.at))===t);
