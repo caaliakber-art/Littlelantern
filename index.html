@@ -216,15 +216,16 @@ a{color:var(--green)}
 .sharebox{max-width:420px;width:100%;max-height:90vh;overflow:auto}
 .sharebox img{width:100%;border-radius:14px}
 /* family online */
-.family{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
-.fam{flex:0 0 108px;display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 6px;border-radius:16px;background:var(--surface);border:2px solid var(--line);text-align:center;min-width:0}
-.fam.sel{border-color:var(--rose)}
-.fam b{font-size:.88rem}
-.fam small{font-size:.7rem;color:var(--muted);line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.fam.on small{color:var(--green);font-weight:700}
-.famav{position:relative;display:inline-block}
-.famav .dot{position:absolute;right:0;bottom:2px;width:14px;height:14px;border-radius:50%;background:#B7ABB4;border:2px solid var(--surface)}
-.fam.on .famav .dot{background:#2EBD6B}
+.family{display:flex;gap:12px;overflow-x:auto;padding:2px 2px 4px;scrollbar-width:none}
+.family::-webkit-scrollbar{display:none}
+.fam{flex:0 0 64px;display:flex;flex-direction:column;align-items:center;gap:3px;padding:0;background:none;border:0;text-align:center;min-width:0;cursor:pointer}
+.fam b{font-size:.72rem;font-weight:700;max-width:64px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.famav{position:relative;display:inline-flex;padding:2.5px;border-radius:50%;background:var(--line)}
+.fam.on .famav{background:conic-gradient(from 210deg,var(--gold),var(--rose),#8E7CC3,var(--gold))}
+.famav .sym{border:2px solid var(--surface);box-sizing:content-box}
+.fam.sel b{color:var(--rose)}
+.famav .dot{position:absolute;right:1px;bottom:1px;width:12px;height:12px;border-radius:50%;background:#2EBD6B;border:2px solid var(--surface);display:none}
+.fam.on .famav .dot{display:block}
 .waveov{position:fixed;left:0;right:0;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:35;display:grid;gap:8px;justify-items:center;padding-inline:max(16px,env(safe-area-inset-left,0px))}
 .wavecard{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:2px solid var(--gold);border-radius:20px;padding:12px 14px;max-width:460px;width:100%;box-shadow:0 12px 30px rgba(43,36,48,.25);animation:pop .35s ease-out}
 .wavecard p{font-size:1.15rem;font-weight:700;margin:2px 0 8px}
@@ -910,9 +911,9 @@ function whosHere(){
   const n=unreadCount();
   return `<section class="sect"><div class="spread"><h2 class="h2s">Family</h2><button class="btn sm ${n?'rose':'ghost'}" data-act="chat">💬 Family chat${n?` · ${n} new`:''}</button></div>
    ${others.length?`<div class="family">${others.map(k=>{const on=isOnline(k),p=(S.presence||{})[k]||{};
-    return `<button class="fam ${on?'on':''} ${ui.waveTo===k?'sel':''}" data-act="waveTo" data-k="${k}"><span class="famav">${symEl(k,48)}<i class="dot"></i></span><b>${esc(S.kids[k].name)}</b><small>${on?esc(p.doing||'Online'):seenAgo(k)}</small></button>`}).join('')}</div>`
+    return `<button class="fam ${on?'on':''} ${ui.waveTo===k?'sel':''}" data-act="waveTo" data-k="${k}" title="${esc(on?(p.doing||'Online'):seenAgo(k))}" aria-label="${esc(S.kids[k].name)}, ${esc(on?(p.doing||'online'):seenAgo(k))}"><span class="famav">${symEl(k,50)}<i class="dot"></i></span><b>${esc(S.kids[k].name)}</b></button>`}).join('')}</div>`
    :`<p class="small muted">No cousins here yet. When a cousin's grown-up joins and adds them in the Parents' corner, they'll show up here.</p>`}
-   ${ui.waveTo&&S.kids[ui.waveTo]?`<div class="card stage wavepick"><p class="small muted">Send ${esc(S.kids[ui.waveTo].name)} a message${isOnline(ui.waveTo)?'':". They'll see it in the family chat"}:</p><div class="row">${WAVES.map(w=>`<button class="btn ghost sm" data-act="sendWave" data-m="${esc(w)}">${esc(w)}</button>`).join('')}</div></div>`:''}</section>`;
+   ${ui.waveTo&&S.kids[ui.waveTo]?`<div class="card stage wavepick"><p class="small muted">${esc(S.kids[ui.waveTo].name)} is ${isOnline(ui.waveTo)?esc(((S.presence||{})[ui.waveTo]||{}).doing||'online').toLowerCase():'away ('+esc(seenAgo(ui.waveTo))+')'}. Send a message${isOnline(ui.waveTo)?'':". They'll see it in the family chat"}:</p><div class="row">${WAVES.map(w=>`<button class="btn ghost sm" data-act="sendWave" data-m="${esc(w)}">${esc(w)}</button>`).join('')}</div></div>`:''}</section>`;
 }
 function sendWave(to,msg){sendChat(msg,to)}
 function sendChat(text,to){
@@ -1193,7 +1194,7 @@ function home(){
    <div class="hx"><h1 class="hi">Assalamu alaikum, ${esc(S.kids[k].name)}!</h1><div class="pills"><span class="pill">⭐ ${stars}</span><span class="pill">🔥 ${P.streak||0} day${(P.streak||0)===1?'':'s'}</span><span class="pill">🌸 ${done+deedsOk(k)}</span></div></div></div>
   ${whosHere()}
   <div class="garden slim">${gardenSVG(done+deedsOk(k),trees)}</div>
-  <section class="sect"><h2 class="h2s">Today's three</h2><div class="today3">${tasks.map(t=>{const W=WORLDS[t.w];return `<button class="t3 ${t.did?'done':''}" ${t.nx?`data-act="open" data-id="${t.nx.id}"`:'disabled'}><span class="ic ${t.w==='ar'?'ar':''}">${t.did?'✅':W.icon}</span><b>${short[t.w]}</b><small>${t.nx?esc(t.nx.title):(t.did?'Done!':'Waiting for Daddy')}</small></button>`}).join('')}</div></section>
+  <section class="sect"><h2 class="h2s">Today's three</h2><div class="today3">${tasks.map(t=>{const W=WORLDS[t.w];return `<button class="t3 ${t.did?'done':''}" ${t.w==='ad'?'data-act="world" data-w="ad"':t.nx?`data-act="open" data-id="${t.nx.id}"`:'disabled'}><span class="ic ${t.w==='ar'?'ar':''}">${t.did?'✅':W.icon}</span><b>${short[t.w]}</b><small>${t.w==='ad'?(t.did?'Done! Pick another':'All '+AD.length+' duas'):t.nx?esc(t.nx.title):(t.did?'Done!':'Waiting for Daddy')}</small></button>`}).join('')}</div></section>
   <section class="sect"><h2 class="h2s">Play and learn</h2><div class="tiles">${['st','sk','aq','ad','ar'].map(tile).join('')}
    <button class="tile w-duel" data-act="${dOpen?'duelPick':'duelUnlock'}"><span class="ic">${dOpen?'⚔️':'🔒'}</span><b>Duel with Daddy</b><small>${dOpen?(D.played?`${D.won} wins`:'Play now'):'After a lesson'}</small></button></div>
    <p class="small muted">Coming soon: ${SOON.map(s=>s[1]).join(', ')}</p></section>
