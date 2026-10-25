@@ -65,6 +65,8 @@ a{color:var(--green)}
 .cover{display:grid;gap:18px}
 .cover-art{border-radius:24px;overflow:hidden;aspect-ratio:16/10;max-width:100%;background:var(--gold-soft)}
 .cover-art img{width:100%;height:100%;object-fit:cover;object-position:50% 70%;display:block}
+.us{width:min(280px,64%);margin:-110px auto 0;border-radius:24px;overflow:hidden;border:5px solid var(--surface);box-shadow:0 12px 30px rgba(43,36,48,.22);position:relative}
+.us img{display:block;width:100%}
 .brand{display:flex;flex-direction:column;gap:4px}
 .brand .bism{font-family:var(--f-ar);font-size:1.5rem;color:var(--green);direction:rtl}
 .kids{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
@@ -448,6 +450,7 @@ function cover(){
   const ids=Object.keys(S.kids);
   return `<div class="cover">
    <div class="cover-art"><img src="img/cover-masjid.jpg" alt="Minarets and a dome at sunset, framed by an arched window with a glowing lantern"></div>
+   <div class="us"><img src="img/back-view.jpg" alt="Daddy and his daughter sitting together, seen from behind, looking at the masjid"></div>
    <div class="brand"><span class="bism">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span><h1>Little Lantern</h1>
     <p class="muted">Learn about Allah, your daily duas and the Arabic letters. Every lesson grows a flower.</p></div>
    ${ids.length?`<h2>Who is learning today?</h2><div class="kids">${ids.map(k=>`<button class="kidtile" data-act="pickKid" data-id="${k}">${symEl(k)}<b>${esc(S.kids[k].name)}</b><span class="stars">${'★'.repeat(Math.min(5,Object.keys(prog(k).done).length))}</span></button>`).join('')}</div>`
