@@ -215,6 +215,12 @@ a{color:var(--green)}
 .shareov{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.55);display:grid;place-items:center;padding:16px}
 .sharebox{max-width:420px;width:100%;max-height:90vh;overflow:auto}
 .sharebox img{width:100%;border-radius:14px}
+/* certificates */
+.certimg img{display:block;width:100%;border-radius:12px;box-shadow:0 8px 24px rgba(43,36,48,.18)}
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.certchip{display:grid;gap:2px;text-align:left;padding:12px;border-radius:14px;background:var(--gold-soft);border:2px solid var(--gold)}
+.certchip b{font-family:var(--f-display);font-weight:600}
+.certnew{text-align:center;justify-items:center;background:var(--gold-soft);border-color:var(--gold)}
 /* stack it */
 .tower{display:grid;gap:6px}
 .tslot{display:flex;align-items:center;gap:10px;min-height:48px;padding:6px 12px;border-radius:14px;border:2px dashed var(--line)}
@@ -719,6 +725,83 @@ function showShare(){let o=document.getElementById('shareov');if(!o){o=document.
   o.innerHTML=`<div class="sharebox card stage"><img src="${ui.sharePic}" alt="Picture to share"><p class="small muted">Long-press the picture and choose Share or Save, then send it to the family group.</p><button class="btn" data-share-close>Close</button></div>`;o.hidden=false;
   o.querySelector('[data-share-close]').onclick=()=>{o.hidden=true}}
 
+
+/* ===================== CERTIFICATES ===================== */
+function certList(k){
+  const P=prog(k),out=[],done=Object.keys(P.done||{}).length,flowers=done+deedsOk(k);
+  if(done>=1)out.push({key:'first',title:'First lesson',line:'finished the very first lesson in Little Lantern'});
+  STORIES.forEach(s=>{if(P.done[s.id])out.push({key:'story-'+s.id,title:'Story read',line:`read the story of ${s.title}`,story:s.id})});
+  if(worldDone('aq',k))out.push({key:'world-aq',title:'Knowing Allah',line:'completed Knowing Allah, the three kinds of Tawheed'});
+  if(worldDone('ad',k))out.push({key:'world-ad',title:'Daily duas',line:'learned all ten daily duas'});
+  if(worldDone('ar',k))out.push({key:'world-ar',title:'Arabic letters',line:'learned all the Arabic letters, from Alif to Yaa'});
+  if(worldDone('sk',k))out.push({key:'world-sk',title:'Stack it champion',line:'stacked the Prophets, their families and the pillars of Islam and Iman'});
+  if((P.streak||0)>=7)out.push({key:'streak7',title:'7-day streak',line:'learned every day for 7 days in a row'});
+  if((P.streak||0)>=30)out.push({key:'streak30',title:'30-day streak',line:'learned every day for 30 days in a row'});
+  if(flowers>=25)out.push({key:'flowers25',title:'Garden of 25',line:'grew 25 flowers in the garden with lessons and good deeds'});
+  if(((P.duels||{}).won||0)>=20)out.push({key:'kerala',title:'Road to Kerala',line:'won 20 letter duels and drove all the way home to Kerala'});
+  return out;
+}
+function checkCerts(k){
+  const P=prog(k);P.certs=P.certs||{};
+  const fresh=certList(k).filter(c=>!P.certs[c.key]);
+  if(fresh.length){fresh.forEach(c=>P.certs[c.key]={at:Date.now()});saveProg(k)}
+  return fresh;
+}
+function myCerts(k){const P=prog(k),all=certList(k);return all.filter(c=>(P.certs||{})[c.key]).sort((a,b)=>P.certs[b.key].at-P.certs[a.key].at)}
+function star8(x,cx,cy,r,fill){x.save();x.translate(cx,cy);x.fillStyle=fill;for(const rot of [0,Math.PI/4]){x.save();x.rotate(rot);x.fillRect(-r,-r,r*2,r*2);x.restore()}x.restore()}
+async function makeCertificate(c){
+  await ready();try{await document.fonts.load('700 120px Fredoka');await document.fonts.load('700 60px Amiri')}catch(e){}
+  const W=1600,H=1130,cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d');
+  const kid=S.kids[ui.kid],P=prog(ui.kid),when=new Date(((P.certs||{})[c.key]||{}).at||Date.now());
+  x.fillStyle='#FFF9F0';x.fillRect(0,0,W,H);
+  const gold=x.createLinearGradient(0,0,W,H);gold.addColorStop(0,'#E9C46A');gold.addColorStop(.5,'#C98F22');gold.addColorStop(1,'#E9C46A');
+  x.strokeStyle=gold;x.lineWidth=28;x.strokeRect(24,24,W-48,H-48);
+  x.strokeStyle='#1F5C4A';x.lineWidth=4;x.strokeRect(58,58,W-116,H-116);
+  x.strokeStyle='#C98F22';x.lineWidth=2;x.strokeRect(70,70,W-140,H-140);
+  // geometric pattern band along top and bottom
+  for(let i=0;i<22;i++){const px=120+i*62;star8(x,px,98,9,'rgba(201,143,34,.35)');star8(x,px,H-98,9,'rgba(201,143,34,.35)')}
+  [[58,58],[W-58,58],[58,H-58],[W-58,H-58]].forEach(([a,b])=>{star8(x,a,b,30,'#1F5C4A');star8(x,a,b,20,'#E9C46A');star8(x,a,b,8,'#1F5C4A')});
+  x.textAlign='center';
+  x.fillStyle='#C98F22';x.font='600 40px Fredoka, Nunito, sans-serif';x.fillText('Little Lantern',W/2,170);
+  x.fillStyle='#1F5C4A';x.font='700 76px Fredoka, Nunito, sans-serif';x.fillText('Certificate of Achievement',W/2,262);
+  x.fillStyle='#C98F22';x.font='700 58px Amiri, serif';x.fillText('مَا شَاءَ اللَّه',W/2,338);
+  x.fillStyle='#6F6370';x.font='600 34px Nunito, sans-serif';x.fillText('This certificate is proudly given to',W/2,412);
+  x.fillStyle='#B9587A';x.font='700 128px Fredoka, Nunito, sans-serif';x.fillText(kid.name,W/2,540);
+  x.strokeStyle='#E9C46A';x.lineWidth=3;x.beginPath();x.moveTo(W/2-320,568);x.lineTo(W/2+320,568);x.stroke();
+  x.fillStyle='#2B2430';x.font='600 46px Nunito, sans-serif';x.font='600 42px Nunito, sans-serif';let y=wrapText(x,'who '+c.line+'.',W/2,632,680,54);
+  // pictures: avatar left, story scene or lantern right
+  const ring=(cx,cy,r)=>{x.save();x.beginPath();x.arc(cx,cy,r+10,0,Math.PI*2);x.fillStyle='#E9C46A';x.fill();x.restore()};
+  ring(260,620,150);
+  const av=await svgImg(kid.av?avatarSVG(kid.av):avatarSVG({},{}));
+  x.save();x.beginPath();x.arc(260,620,150,0,Math.PI*2);x.clip();x.drawImage(av,110,470,300,300);x.restore();
+  let art;const st=c.story&&byId[c.story];
+  if(st)art=scene(st.slides[0].sc).replace('<svg ','<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" ');
+  else art=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="100" fill="#1F5C4A"/><circle cx="100" cy="112" r="70" fill="#FFE29A" opacity=".35"/><g transform="translate(64 40)"><rect x="28" y="0" width="16" height="12" rx="3" fill="#E8B54A"/><path d="M8 14 h56 l12 18 v62 l-12 18 h-56 l-12 -18 v-62z" fill="#FFE29A" stroke="#C98F22" stroke-width="6"/><path d="M36 50 q12 18 0 36 q-12 -18 0 -36z" fill="#FF9F2E"/></g></svg>`;
+  const ai=await svgImg(art);
+  if(st){x.save();x.beginPath();x.roundRect?x.roundRect(1190,520,300,180,22):x.rect(1190,520,300,180);x.clip();x.drawImage(ai,1190,520,300,180);x.restore();x.strokeStyle='#E9C46A';x.lineWidth=8;x.strokeRect(1186,516,308,188)}
+  else{ring(1340,620,150);x.save();x.beginPath();x.arc(1340,620,150,0,Math.PI*2);x.clip();x.drawImage(ai,1190,470,300,300);x.restore()}
+  // seal
+  x.save();x.translate(W/2,y+150);for(let i=0;i<16;i++){x.rotate(Math.PI/8);x.fillStyle=i%2?'#C98F22':'#E9C46A';x.beginPath();x.moveTo(0,-86);x.lineTo(14,-66);x.lineTo(-14,-66);x.fill()}
+  x.beginPath();x.arc(0,0,70,0,Math.PI*2);x.fillStyle='#1F5C4A';x.fill();x.fillStyle='#FFE29A';x.font='700 26px Fredoka, Nunito, sans-serif';x.fillText(c.title.length>14?'MashaAllah':c.title,0,-6);x.font='40px sans-serif';x.fillText('★★★',0,38);x.restore();
+  // date + family line
+  let hijri='';try{hijri=new Intl.DateTimeFormat('en-u-ca-islamic-umalqura',{day:'numeric',month:'long',year:'numeric'}).format(when)}catch(e){}
+  const greg=when.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  x.fillStyle='#6F6370';x.font='600 28px Nunito, sans-serif';x.textAlign='left';x.fillText(greg,140,H-150);if(hijri)x.fillText(hijri,140,H-112);
+  x.textAlign='right';x.fillText('With love from the family',W-140,H-130);
+  return cv;
+}
+function certScreen(){
+  const c=ui.cert;
+  return `<div class="topbar"><button class="back" data-act="${ui.certBack||'home'}">← Back</button></div>
+  <h1>${esc(c.title)}</h1><p class="muted">${esc(kidName())} ${esc(c.line)}. MashaAllah!</p>
+  <div class="certimg" id="certimg"><p class="muted">Preparing your certificate...</p></div>
+  <div class="row"><button class="btn rose" data-act="certShare">Share with the family</button><button class="btn ghost" data-act="home">My garden</button></div>`;
+}
+function certsShelf(){
+  const list=myCerts(ui.kid);if(!list.length)return '';
+  return `<section class="sect"><h2>My certificates</h2><div class="certs">${list.map(c=>`<button class="certchip" data-act="openCert" data-key="${esc(c.key)}"><span>🏅</span><b>${esc(c.title)}</b><span class="small muted">${esc(c.story?byId[c.story].title:c.line)}</span></button>`).join('')}</div></section>`;
+}
+
 /* ===================== STACK IT ===================== */
 const PNAME=Object.fromEntries(PROPHETS.map(p=>[p[0],{t:p[1],ar:p[2]}]));
 const SK=[
@@ -859,10 +942,13 @@ function go(screen,extra){Object.assign(ui,{screen},extra||{});render();window.s
 /* ===================== SCREENS ===================== */
 function render(){
   if(ui.screen==='duel')return;
-  const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen}[ui.screen]||cover;
+  const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen,cert:certScreen}[ui.screen]||cover;
   app.innerHTML=f();
   placeRoad();
+  if(ui.screen==='cert')drawCert();
 }
+let certCanvas=null;
+async function drawCert(){const box=document.getElementById('certimg');if(!box)return;try{certCanvas=await makeCertificate(ui.cert);box.innerHTML=`<img src="${certCanvas.toDataURL('image/png')}" alt="Certificate for ${esc(kidName())}: ${esc(ui.cert.title)}">`}catch(e){box.innerHTML='<p class="muted">Could not draw the certificate. Please try again.</p>'}}
 function saveChip(){if(fb&&fb.state==='in')return '<span class="chip green">Synced with the family</span>';return mode==='db'?'<span class="chip green">Saved to your family space</span>':'<span class="chip plain">Saved on this device</span>'}
 function fbGate(){
   if(!fb||fb.state==='in'||fb.state==='checking')return '';
@@ -925,6 +1011,7 @@ function home(){
   <div class="garden">${gardenSVG(done+deedsOk(k),trees)}<div class="garden-cap">Your garden. Lessons and good deeds grow flowers. Finish a whole world to grow a tree.</div></div>
   <section class="today"><h2>Today's three</h2>${tasks.map(t=>{const W=WORLDS[t.w];return `<button class="task ${t.did?'done':''}" ${t.nx?`data-act="open" data-id="${t.nx.id}"`:'disabled'}><span class="tick">${t.did?'✓':''}</span><span class="tx"><b>${W.name}</b><small>${t.nx?esc(t.nx.title):(t.did?'Done for today':'Waiting for Daddy to unlock')}</small></span><span aria-hidden="true">${W.icon}</span></button>`}).join('')}</section>
   ${storyCard()}
+  ${certsShelf()}
   <section class="card duelcard"><div class="tx"><h3>Duel with Daddy</h3><p class="muted">${dOpen?`Two players, one phone. Letter Slap, Dot Catcher and Tug of War.${D.played?` You have won ${D.won} of ${D.played}.`:''}`:'Finish one lesson today to unlock the games.'}</p></div>
    ${dOpen?'<button class="btn rose" data-act="duelPick">Play</button>':'<button class="btn ghost sm" data-act="duelUnlock">Daddy unlock</button>'}</section>
   <section class="sect"><h2>Your worlds</h2><div class="worlds">
@@ -1021,7 +1108,7 @@ function finishLesson(){
   P.log=[...(P.log||[]),{l:L.id,at:now}].slice(-300);
   saveProg(k);
   const w=byId[L.id].world;
-  ui.result={id:L.id,stars,first:!prev,worldDone:worldDone(w,k),dayDone:!dayBefore&&todayTasks(k).every(t=>t.did||!t.nx)};go('score');
+  ui.result={id:L.id,stars,first:!prev,worldDone:worldDone(w,k),dayDone:!dayBefore&&todayTasks(k).every(t=>t.did||!t.nx),certs:checkCerts(k)};go('score');
 }
 function score(){
   const r=ui.result,l=byId[r.id];
@@ -1033,7 +1120,7 @@ function score(){
    ${r.dayDone?driveStrip('brio-side',"Today's three are done. The Brio is parked for the day!"):''}
    <p class="muted">${esc(l.title)}${r.first?' · A new flower grew in your garden.':' · Great practice!'}${r.worldDone?' A tree grew too!':''}</p>
    <div class="row" style="justify-content:center">${nx&&nx.id!==l.id?`<button class="btn" data-act="open" data-id="${nx.id}">Next: ${esc(nx.title)}</button>`:''}<button class="btn ghost" data-act="home">My garden</button></div>
-   <button class="btn gold" data-act="shareLesson">Share with family</button>
+   ${(r.certs||[]).length?`<div class="card stage certnew"><h3>🏅 You earned ${r.certs.length>1?r.certs.length+' certificates':'a certificate'}!</h3>${r.certs.map(c=>`<button class="btn rose" data-act="openCert" data-key="${esc(c.key)}">${esc(c.title)}</button>`).join('')}</div>`:''}
    ${duelOpen(ui.kid)?'<button class="btn rose" data-act="duelPick">Duel with Daddy</button>':''}
   </div>`;
 }
@@ -1215,7 +1302,7 @@ function tugTap(p,v,b){
 function stopDuel(){if(!G)return;G.over=true;cancelAnimationFrame(G.raf);G.timers.forEach(clearTimeout)}
 function endDuel(w){
   stopDuel();const P=prog(ui.kid);const D=Object.assign({played:0,won:0},P.duels);D.played++;if(w===0)D.won++;P.duels=D;saveProg(ui.kid);
-  ui.duelRes={w,score:G.score.slice(),game:G.game,opp:G.opp};later(()=>go('duelres'),w===-1?0:600);
+  ui.duelRes={w,score:G.score.slice(),game:G.game,opp:G.opp,certs:checkCerts(ui.kid)};later(()=>go('duelres'),w===-1?0:600);
 }
 function duelRes(){
   const r=ui.duelRes,win=r.w===0,draw=r.w===-1;
@@ -1223,7 +1310,7 @@ function duelRes(){
    <h1>${draw?"It's a draw!":win?`${esc(kidName())} wins!`:`${esc(r.opp)} wins this time`}</h1>
    <p class="bigstars" style="font-size:2rem;letter-spacing:0">${r.score[0]} : ${r.score[1]}</p>
    <p class="muted">${GAMES[r.game].name}${!win&&!draw?'. Rematch? Practice makes perfect, insha Allah.':''}</p>
-   <div class="row" style="justify-content:center"><button class="btn rose" data-act="duelGo">Rematch</button><button class="btn ghost" data-act="duelPick">Another game</button><button class="btn ghost" data-act="home">My garden</button></div>${win?'<button class="btn gold" data-act="shareDuel">Share the win</button>':''}</div>`;
+   <div class="row" style="justify-content:center"><button class="btn rose" data-act="duelGo">Rematch</button><button class="btn ghost" data-act="duelPick">Another game</button><button class="btn ghost" data-act="home">My garden</button></div>${(r.certs||[]).length?`<div class="card stage certnew"><h3>🏅 You earned a certificate!</h3>${r.certs.map(c=>`<button class="btn rose" data-act="openCert" data-key="${esc(c.key)}">${esc(c.title)}</button>`).join('')}</div>`:''}</div>`;
 }
 let swX=null;
 app.addEventListener('pointerdown',e=>{if(ui.screen==='play'&&e.target.closest('#story .scene'))swX=e.clientX});
@@ -1306,7 +1393,7 @@ app.addEventListener('click',e=>{
    case 'rmMember':S.access=S.access.filter(x=>x!==b.dataset.e);put('fam/access',{members:S.access});render();break;
    case 'setup':go(S.settings.parentPin?'parents':'setup');break;
    case 'parentLogin':if(!S.settings.parentPin)go('setup');else go('pin',{pin:'',pinFor:'parent'});break;
-   case 'pickKid':if(!S.kids[id].pin){ui.kid=id;go('home')}else go('pin',{pin:'',pinFor:id});break;
+   case 'pickKid':if(!S.kids[id].pin){ui.kid=id;checkCerts(id);go('home')}else go('pin',{pin:'',pinFor:id});break;
    case 'pinBack':go(ui.pinFor==='daddyCheck'?'play':ui.pinFor==='duelUnlock'?'home':'cover');break;
    case 'duelUnlock':go('pin',{pin:'',pinFor:'duelUnlock'});break;
    case 'duelPick':go('duelpick');break;
@@ -1318,7 +1405,7 @@ app.addEventListener('click',e=>{
    case 'duelSay':if(G&&G.target)speak(LBY[G.target][2]);break;
    case 'key':{const k=b.dataset.k;if(k==='⌫')ui.pin=ui.pin.slice(0,-1);else if(ui.pin.length<4)ui.pin+=k;
      if(ui.pin.length===4){const want=['parent','daddyCheck','duelUnlock'].includes(ui.pinFor)?S.settings.parentPin:S.kids[ui.pinFor]?.pin;
-       if(ui.pin===want){if(ui.pinFor==='parent'){ui.parent=true;go('parents')}else if(ui.pinFor==='duelUnlock'){ui.duelUnlocked=true;go('duelpick')}else if(ui.pinFor==='daddyCheck'){toast("Daddy's star!");ui.screen='play';finishLesson()}else{ui.kid=ui.pinFor;go('home')}}
+       if(ui.pin===want){if(ui.pinFor==='parent'){ui.parent=true;go('parents')}else if(ui.pinFor==='duelUnlock'){ui.duelUnlocked=true;go('duelpick')}else if(ui.pinFor==='daddyCheck'){toast("Daddy's star!");ui.screen='play';finishLesson()}else{ui.kid=ui.pinFor;checkCerts(ui.kid);go('home')}}
        else{ui.pin='';render();const p=document.getElementById('pinbox');p&&p.classList.add('shake');toast('Try again')}}
      else render();break;}
    case 'logout':ui.kid=null;go('cover');break;
@@ -1338,11 +1425,11 @@ app.addEventListener('click',e=>{
    case 'qNext':st.q++;st.ans=null;if(st.q>=s.qs.length){if(L.i<L.steps.length-1){L.i++;prepStep()}else{finishLesson();break}}render();break;
    case 'count':st.c++;render();break;
    case 'avatar':ui.avDraft=null;go('avatar');break;
+   case 'openCert':{const c=certList(ui.kid).find(x=>x.key===b.dataset.key);if(!c)break;ui.certBack=ui.screen==='duelres'?'duelPick':'home';go('cert',{cert:c});break;}
+   case 'certShare':if(certCanvas)shareCanvas(certCanvas,'little-lantern-certificate',`${kidName()} ${ui.cert.line}! MashaAllah`);break;
    case 'avSet':{const k=b.dataset.k,v=b.dataset.v;ui.avDraft[k]=k==='head'||k==='holds'?v:k==='glasses'?v==='1':+v;render();break;}
    case 'avSave':{S.kids[ui.kid].av=Object.assign({},ui.avDraft);saveKid(ui.kid);toast('Avatar saved!');go('home');break;}
    case 'avSticker':{if(!S.kids[ui.kid].av){S.kids[ui.kid].av=Object.assign({},ui.avDraft);saveKid(ui.kid)}makeSticker(b.dataset.w).then(c=>shareCanvas(c,'little-lantern-sticker',b.dataset.w));break;}
-   case 'shareLesson':{const r=ui.result,l=byId[r.id];if(!S.kids[ui.kid].av){toast('Make your avatar first!');ui.avDraft=null;go('avatar');break}makeCard(`${kidName()} finished`,l.title,r.stars).then(c=>shareCanvas(c,'little-lantern',`${kidName()} finished ${l.title} in Little Lantern! MashaAllah`));break;}
-   case 'shareDuel':{const r=ui.duelRes;if(!S.kids[ui.kid].av){toast('Make your avatar first!');ui.avDraft=null;go('avatar');break}makeCard(`${kidName()} won!`,`${GAMES[r.game].name} against ${r.opp}, ${r.score[0]} to ${r.score[1]}`,0).then(c=>shareCanvas(c,'little-lantern-win',`${kidName()} won a letter duel in Little Lantern!`));break;}
    case 'stk':{const i=+b.dataset.i;if(i===st.placed.length){st.placed.push(i);render()}else{L.miss++;b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');toast('Not yet. What comes before it?')}break;}
    case 'sNext':if(st.k<s.slides.length-1){st.k++;render()}break;
    case 'sPrev':if(st.k>0){st.k--;render()}break;
