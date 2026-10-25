@@ -83,9 +83,9 @@ a{color:var(--green)}
 
 /* cover */
 .cover{display:grid;gap:18px}
-.cover-art{border-radius:24px;overflow:hidden;aspect-ratio:16/10;max-width:100%;background:var(--gold-soft)}
+.cover-art{border-radius:24px;overflow:hidden;aspect-ratio:2/1;max-width:100%;background:var(--gold-soft)}
 .cover-art img{width:100%;height:100%;object-fit:cover;object-position:50% 70%;display:block}
-.us{width:min(280px,64%);margin:-110px auto 0;border-radius:24px;overflow:hidden;border:5px solid var(--surface);box-shadow:0 12px 30px rgba(43,36,48,.22);position:relative}
+.us{width:min(220px,54%);margin:-90px auto 0;border-radius:24px;overflow:hidden;border:5px solid var(--surface);box-shadow:0 12px 30px rgba(43,36,48,.22);position:relative}
 .us img{display:block;width:100%}
 .brand{display:flex;flex-direction:column;gap:4px}
 .brand .bism{font-family:var(--f-ar);font-size:1.5rem;color:var(--green);direction:rtl}
@@ -215,6 +215,37 @@ a{color:var(--green)}
 .shareov{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.55);display:grid;place-items:center;padding:16px}
 .sharebox{max-width:420px;width:100%;max-height:90vh;overflow:auto}
 .sharebox img{width:100%;border-radius:14px}
+/* compact home */
+.hello2{display:flex;gap:14px;align-items:center}
+.hx{min-width:0}
+.hi{font-size:1.4rem}
+.h2s{font-size:1.1rem}
+.pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.pill{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-weight:800;font-size:.85rem;font-variant-numeric:tabular-nums}
+.garden.slim svg{max-height:96px}
+.today3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.t3{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:10px;border-radius:16px;background:var(--surface);border:2px solid var(--line);text-align:left;min-width:0}
+.t3.done{border-color:var(--green);background:var(--green-soft)}
+.t3 .ic{font-size:1.4rem;line-height:1.3}
+.t3 b{font-size:.92rem}
+.t3 small{font-size:.74rem;color:var(--muted);line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tile{display:flex;flex-direction:column;align-items:center;gap:3px;padding:12px 6px 10px;border-radius:18px;text-align:center;min-width:0}
+.tile .ic{font-size:1.8rem;line-height:1.3}
+.tile b{font-size:.84rem;line-height:1.15;color:var(--ink)}
+.tile small{font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.tile .bar{width:80%;height:6px;border-radius:6px;background:rgba(127,127,127,.18);overflow:hidden;margin-top:2px}
+.tile .bar i{display:block;height:100%;background:currentColor}
+.w-duel{background:var(--rose-soft);color:var(--rose)}
+.certs.strip{display:flex;overflow-x:auto;gap:8px;padding-bottom:4px;scroll-snap-type:x mandatory}
+.certs.strip .certchip{flex:0 0 140px;scroll-snap-align:start;padding:10px}
+.certs.strip .certchip .small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:.76rem}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.card.mini{display:flex;align-items:center;gap:10px;padding:10px 12px;text-align:left}
+.card.mini b{display:block;font-size:.92rem}
+.card.mini small{display:block;font-size:.76rem}
+.deedbtn .ic{font-size:1.6rem}
+#app{gap:14px}
 /* certificates */
 .certimg img{display:block;width:100%;border-radius:12px;box-shadow:0 8px 24px rgba(43,36,48,.18)}
 .certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
@@ -751,43 +782,50 @@ function myCerts(k){const P=prog(k),all=certList(k);return all.filter(c=>(P.cert
 function star8(x,cx,cy,r,fill){x.save();x.translate(cx,cy);x.fillStyle=fill;for(const rot of [0,Math.PI/4]){x.save();x.rotate(rot);x.fillRect(-r,-r,r*2,r*2);x.restore()}x.restore()}
 async function makeCertificate(c){
   await ready();try{await document.fonts.load('700 120px Fredoka');await document.fonts.load('700 60px Amiri')}catch(e){}
-  const W=1600,H=1130,cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d');
+  const W=1080,H=1350,cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d');
   const kid=S.kids[ui.kid],P=prog(ui.kid),when=new Date(((P.certs||{})[c.key]||{}).at||Date.now());
-  x.fillStyle='#FFF9F0';x.fillRect(0,0,W,H);
-  const gold=x.createLinearGradient(0,0,W,H);gold.addColorStop(0,'#E9C46A');gold.addColorStop(.5,'#C98F22');gold.addColorStop(1,'#E9C46A');
-  x.strokeStyle=gold;x.lineWidth=28;x.strokeRect(24,24,W-48,H-48);
-  x.strokeStyle='#1F5C4A';x.lineWidth=4;x.strokeRect(58,58,W-116,H-116);
-  x.strokeStyle='#C98F22';x.lineWidth=2;x.strokeRect(70,70,W-140,H-140);
-  // geometric pattern band along top and bottom
-  for(let i=0;i<22;i++){const px=120+i*62;star8(x,px,98,9,'rgba(201,143,34,.35)');star8(x,px,H-98,9,'rgba(201,143,34,.35)')}
-  [[58,58],[W-58,58],[58,H-58],[W-58,H-58]].forEach(([a,b])=>{star8(x,a,b,30,'#1F5C4A');star8(x,a,b,20,'#E9C46A');star8(x,a,b,8,'#1F5C4A')});
+  const PAL=['#F28DB2','#FFC94D','#7CCBA2','#7EB6F0','#B79CF0','#FF9F6E'];
+  let seed=7;const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
+  // soft background
+  const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#FFE3EE');g.addColorStop(1,'#FFF6E0');x.fillStyle=g;x.fillRect(0,0,W,H);
+  // confetti
+  for(let i=0;i<70;i++){const cx=rnd()*W,cy=rnd()*H,col=PAL[i%PAL.length];x.save();x.translate(cx,cy);x.rotate(rnd()*6);x.fillStyle=col;x.globalAlpha=.75;
+    const t=i%3;if(t===0){x.beginPath();x.arc(0,0,6+rnd()*6,0,Math.PI*2);x.fill()}else if(t===1){x.fillRect(-10,-4,20,8)}else{x.beginPath();for(let k=0;k<10;k++){const r=k%2?6:14,a=k*Math.PI/5;x.lineTo(Math.cos(a)*r,Math.sin(a)*r)}x.closePath();x.fill()}x.restore()}
+  // bunting
+  x.strokeStyle='#C98F22';x.lineWidth=4;x.beginPath();x.moveTo(-10,40);x.quadraticCurveTo(W/2,150,W+10,40);x.stroke();
+  for(let i=0;i<11;i++){const t=(i+.5)/11,px=t*W,py=40+4*t*(1-t)*110-0;x.fillStyle=PAL[i%PAL.length];x.beginPath();x.moveTo(px-34,py);x.lineTo(px+34,py);x.lineTo(px,py+66);x.closePath();x.fill()}
+  // white card
+  const rr=(X,Y,w,hh,r)=>{x.beginPath();x.moveTo(X+r,Y);x.arcTo(X+w,Y,X+w,Y+hh,r);x.arcTo(X+w,Y+hh,X,Y+hh,r);x.arcTo(X,Y+hh,X,Y,r);x.arcTo(X,Y,X+w,Y,r);x.closePath()};
+  x.save();x.shadowColor='rgba(185,88,122,.25)';x.shadowBlur=40;x.shadowOffsetY=12;rr(60,190,W-120,H-250,60);x.fillStyle='#FFFFFF';x.fill();x.restore();
+  x.setLineDash([18,14]);x.strokeStyle='#F6C1D3';x.lineWidth=6;rr(84,214,W-168,H-298,46);x.stroke();x.setLineDash([]);
   x.textAlign='center';
-  x.fillStyle='#C98F22';x.font='600 40px Fredoka, Nunito, sans-serif';x.fillText('Little Lantern',W/2,170);
-  x.fillStyle='#1F5C4A';x.font='700 76px Fredoka, Nunito, sans-serif';x.fillText('Certificate of Achievement',W/2,262);
-  x.fillStyle='#C98F22';x.font='700 58px Amiri, serif';x.fillText('مَا شَاءَ اللَّه',W/2,338);
-  x.fillStyle='#6F6370';x.font='600 34px Nunito, sans-serif';x.fillText('This certificate is proudly given to',W/2,412);
-  x.fillStyle='#B9587A';x.font='700 128px Fredoka, Nunito, sans-serif';x.fillText(kid.name,W/2,540);
-  x.strokeStyle='#E9C46A';x.lineWidth=3;x.beginPath();x.moveTo(W/2-320,568);x.lineTo(W/2+320,568);x.stroke();
-  x.fillStyle='#2B2430';x.font='600 46px Nunito, sans-serif';x.font='600 42px Nunito, sans-serif';let y=wrapText(x,'who '+c.line+'.',W/2,632,680,54);
-  // pictures: avatar left, story scene or lantern right
-  const ring=(cx,cy,r)=>{x.save();x.beginPath();x.arc(cx,cy,r+10,0,Math.PI*2);x.fillStyle='#E9C46A';x.fill();x.restore()};
-  ring(260,620,150);
-  const av=await svgImg(kid.av?avatarSVG(kid.av):avatarSVG({},{}));
-  x.save();x.beginPath();x.arc(260,620,150,0,Math.PI*2);x.clip();x.drawImage(av,110,470,300,300);x.restore();
-  let art;const st=c.story&&byId[c.story];
-  if(st)art=scene(st.slides[0].sc).replace('<svg ','<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" ');
-  else art=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="100" fill="#1F5C4A"/><circle cx="100" cy="112" r="70" fill="#FFE29A" opacity=".35"/><g transform="translate(64 40)"><rect x="28" y="0" width="16" height="12" rx="3" fill="#E8B54A"/><path d="M8 14 h56 l12 18 v62 l-12 18 h-56 l-12 -18 v-62z" fill="#FFE29A" stroke="#C98F22" stroke-width="6"/><path d="M36 50 q12 18 0 36 q-12 -18 0 -36z" fill="#FF9F2E"/></g></svg>`;
-  const ai=await svgImg(art);
-  if(st){x.save();x.beginPath();x.roundRect?x.roundRect(1190,520,300,180,22):x.rect(1190,520,300,180);x.clip();x.drawImage(ai,1190,520,300,180);x.restore();x.strokeStyle='#E9C46A';x.lineWidth=8;x.strokeRect(1186,516,308,188)}
-  else{ring(1340,620,150);x.save();x.beginPath();x.arc(1340,620,150,0,Math.PI*2);x.clip();x.drawImage(ai,1190,470,300,300);x.restore()}
-  // seal
-  x.save();x.translate(W/2,y+150);for(let i=0;i<16;i++){x.rotate(Math.PI/8);x.fillStyle=i%2?'#C98F22':'#E9C46A';x.beginPath();x.moveTo(0,-86);x.lineTo(14,-66);x.lineTo(-14,-66);x.fill()}
-  x.beginPath();x.arc(0,0,70,0,Math.PI*2);x.fillStyle='#1F5C4A';x.fill();x.fillStyle='#FFE29A';x.font='700 26px Fredoka, Nunito, sans-serif';x.fillText(c.title.length>14?'MashaAllah':c.title,0,-6);x.font='40px sans-serif';x.fillText('★★★',0,38);x.restore();
-  // date + family line
+  x.fillStyle='#C98F22';x.font='600 36px Fredoka, Nunito, sans-serif';x.fillText('✦ Little Lantern ✦',W/2,280);
+  // ribbon banner
+  const by=310,bw=640;x.fillStyle='#D0628A';x.beginPath();x.moveTo(W/2-bw/2-60,by+20);x.lineTo(W/2-bw/2,by+20);x.lineTo(W/2-bw/2,by+110);x.lineTo(W/2-bw/2-60,by+110);x.lineTo(W/2-bw/2-30,by+65);x.closePath();x.fill();
+  x.beginPath();x.moveTo(W/2+bw/2+60,by+20);x.lineTo(W/2+bw/2,by+20);x.lineTo(W/2+bw/2,by+110);x.lineTo(W/2+bw/2+60,by+110);x.lineTo(W/2+bw/2+30,by+65);x.closePath();x.fill();
+  x.fillStyle='#F28DB2';rr(W/2-bw/2,by,bw,100,24);x.fill();
+  x.fillStyle='#FFFFFF';x.font='700 70px Fredoka, Nunito, sans-serif';x.fillText('MashaAllah!',W/2,by+74);
+  x.fillStyle='#C98F22';x.font='700 44px Amiri, serif';x.fillText('مَا شَاءَ اللَّه',W/2,by+160);
+  // avatar with halo and sparkles
+  const ay=690,ar=180;const halo=x.createRadialGradient(W/2,ay,ar*.6,W/2,ay,ar*1.5);halo.addColorStop(0,'rgba(255,214,110,.55)');halo.addColorStop(1,'rgba(255,214,110,0)');x.fillStyle=halo;x.fillRect(W/2-ar*1.6,ay-ar*1.6,ar*3.2,ar*3.2);
+  x.beginPath();x.arc(W/2,ay,ar+12,0,Math.PI*2);x.fillStyle='#FFC94D';x.fill();
+  const av=await svgImg(avatarSVG(kid.av||{}));x.save();x.beginPath();x.arc(W/2,ay,ar,0,Math.PI*2);x.clip();x.drawImage(av,W/2-ar,ay-ar,ar*2,ar*2);x.restore();
+  const spark=(sx,sy,s,col)=>{x.save();x.translate(sx,sy);x.fillStyle=col;x.beginPath();x.moveTo(0,-s);x.quadraticCurveTo(0,0,s,0);x.quadraticCurveTo(0,0,0,s);x.quadraticCurveTo(0,0,-s,0);x.quadraticCurveTo(0,0,0,-s);x.fill();x.restore()};
+  spark(W/2-ar-40,ay-ar+10,30,'#FFC94D');spark(W/2+ar+30,ay-60,22,'#F28DB2');spark(W/2-ar-10,ay+ar-20,18,'#7EB6F0');
+  // story polaroid or lantern sticker, tilted, bottom-right of avatar
+  const st=c.story&&byId[c.story];
+  x.save();x.translate(W/2+ar+40,ay+50);x.rotate(.12);x.scale(.88,.88);
+  if(st){x.fillStyle='#FFFFFF';x.shadowColor='rgba(0,0,0,.2)';x.shadowBlur=18;x.fillRect(-125,-100,250,210);x.shadowBlur=0;
+    const art=await svgImg(scene(st.slides[0].sc).replace('<svg ','<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" '));x.drawImage(art,-112,-88,224,134);
+    x.fillStyle='#6F6370';x.font='600 24px Fredoka, Nunito, sans-serif';x.fillText(PNAME[st.pid]?PNAME[st.pid].t:'',0,84)}
+  else{x.fillStyle='#FFFFFF';x.beginPath();x.arc(0,0,92,0,Math.PI*2);x.fill();x.fillStyle='#FFC94D';x.font='700 30px Fredoka, Nunito, sans-serif';x.fillText('★★★',0,-18);x.fillStyle='#D0628A';x.font='700 28px Fredoka, Nunito, sans-serif';wrapText(x,c.title,0,20,160,32)}
+  x.restore();
+  // name and achievement
+  x.lineJoin='round';x.font='700 132px Fredoka, Nunito, sans-serif';x.lineWidth=14;x.strokeStyle='#FFFFFF';x.strokeText(kid.name,W/2,1010);x.fillStyle='#D0628A';x.fillText(kid.name,W/2,1010);
+  x.fillStyle='#3A2F3F';x.font='600 46px Fredoka, Nunito, sans-serif';const ln=c.line.charAt(0).toUpperCase()+c.line.slice(1)+'!';wrapText(x,ln,W/2,1085,800,56);
   let hijri='';try{hijri=new Intl.DateTimeFormat('en-u-ca-islamic-umalqura',{day:'numeric',month:'long',year:'numeric'}).format(when)}catch(e){}
-  const greg=when.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-  x.fillStyle='#6F6370';x.font='600 28px Nunito, sans-serif';x.textAlign='left';x.fillText(greg,140,H-150);if(hijri)x.fillText(hijri,140,H-112);
-  x.textAlign='right';x.fillText('With love from the family',W-140,H-130);
+  x.fillStyle='#9A8C98';x.font='600 26px Nunito, sans-serif';x.fillText(when.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})+(hijri?'  ·  '+hijri:''),W/2,1196);
+  x.fillText('With love from the family 💛',W/2,1234);
   return cv;
 }
 function certScreen(){
@@ -799,7 +837,7 @@ function certScreen(){
 }
 function certsShelf(){
   const list=myCerts(ui.kid);if(!list.length)return '';
-  return `<section class="sect"><h2>My certificates</h2><div class="certs">${list.map(c=>`<button class="certchip" data-act="openCert" data-key="${esc(c.key)}"><span>🏅</span><b>${esc(c.title)}</b><span class="small muted">${esc(c.story?byId[c.story].title:c.line)}</span></button>`).join('')}</div></section>`;
+  return `<section class="sect"><h2 class="h2s">My certificates 🏅</h2><div class="certs strip">${list.map(c=>`<button class="certchip" data-act="openCert" data-key="${esc(c.key)}"><span>🏅</span><b>${esc(c.title)}</b><span class="small muted">${esc(c.story?byId[c.story].title:c.line)}</span></button>`).join('')}</div></section>`;
 }
 
 /* ===================== STACK IT ===================== */
@@ -1002,27 +1040,26 @@ function lanternData(){const ws=weekStart();let c=0;for(const k in S.kids)c+=(pr
 function nextIn(w){return WORLDS[w].lessons.find(l=>approved(l)&&unlocked(l)&&!prog(ui.kid).done[l.id])}
 function home(){
   const k=ui.kid,P=prog(k),done=Object.keys(P.done).length,stars=Object.values(P.done).reduce((a,b)=>a+b,0);
-  const tasks=todayTasks(k),dOpen=duelOpen(k),pool=learned(k),D=P.duels||{played:0,won:0};
+  const tasks=todayTasks(k),dOpen=duelOpen(k),D=P.duels||{played:0,won:0};
   const trees=['aq','ad','ar'].filter(w=>worldDone(w,k)).length,L=lanternData();
   const pend=Object.values(S.deeds).filter(d=>d.kid===k&&d.status==='pending').length;
+  const short={aq:'Knowing Allah',ad:'Duas',ar:'Letters'};
+  const tile=(w)=>{const W=WORLDS[w],n=W.lessons.filter(l=>P.done[l.id]).length;return `<button class="tile ${W.cls}" data-act="world" data-w="${w}"><span class="ic ${w==='ar'?'ar':''}">${W.icon}</span><b>${W.name}</b><span class="bar"><i style="width:${n/W.lessons.length*100}%"></i></span><small>${n}/${W.lessons.length}</small></button>`};
   return `<div class="topbar"><button class="back" data-act="logout">← Switch</button>${saveChip()}</div>
-  <div class="hello"><button class="avbtn" data-act="avatar" aria-label="Make my avatar">${symEl(k,64)}<span class="avedit">${S.kids[k].av?'Edit':'Make me!'}</span></button><div><h1>Assalamu alaikum, ${esc(S.kids[k].name)}!</h1></div></div>
-  <div class="stats"><div class="stat"><b>${stars}</b><span>STARS</span></div><div class="stat"><b>${P.streak||0}</b><span>DAY STREAK</span></div><div class="stat"><b>${done+deedsOk(k)}</b><span>FLOWERS</span></div></div>
-  <div class="garden">${gardenSVG(done+deedsOk(k),trees)}<div class="garden-cap">Your garden. Lessons and good deeds grow flowers. Finish a whole world to grow a tree.</div></div>
-  <section class="today"><h2>Today's three</h2>${tasks.map(t=>{const W=WORLDS[t.w];return `<button class="task ${t.did?'done':''}" ${t.nx?`data-act="open" data-id="${t.nx.id}"`:'disabled'}><span class="tick">${t.did?'✓':''}</span><span class="tx"><b>${W.name}</b><small>${t.nx?esc(t.nx.title):(t.did?'Done for today':'Waiting for Daddy to unlock')}</small></span><span aria-hidden="true">${W.icon}</span></button>`}).join('')}</section>
-  ${storyCard()}
+  <div class="hello2"><button class="avbtn" data-act="avatar" aria-label="Make my avatar">${symEl(k,64)}<span class="avedit">${S.kids[k].av?'Edit':'Make me!'}</span></button>
+   <div class="hx"><h1 class="hi">Assalamu alaikum, ${esc(S.kids[k].name)}!</h1><div class="pills"><span class="pill">⭐ ${stars}</span><span class="pill">🔥 ${P.streak||0} day${(P.streak||0)===1?'':'s'}</span><span class="pill">🌸 ${done+deedsOk(k)}</span></div></div></div>
+  <div class="garden slim">${gardenSVG(done+deedsOk(k),trees)}</div>
+  <section class="sect"><h2 class="h2s">Today's three</h2><div class="today3">${tasks.map(t=>{const W=WORLDS[t.w];return `<button class="t3 ${t.did?'done':''}" ${t.nx?`data-act="open" data-id="${t.nx.id}"`:'disabled'}><span class="ic ${t.w==='ar'?'ar':''}">${t.did?'✅':W.icon}</span><b>${short[t.w]}</b><small>${t.nx?esc(t.nx.title):(t.did?'Done!':'Waiting for Daddy')}</small></button>`}).join('')}</div></section>
+  <section class="sect"><h2 class="h2s">Play and learn</h2><div class="tiles">${['st','sk','aq','ad','ar'].map(tile).join('')}
+   <button class="tile w-duel" data-act="${dOpen?'duelPick':'duelUnlock'}"><span class="ic">${dOpen?'⚔️':'🔒'}</span><b>Duel with Daddy</b><small>${dOpen?(D.played?`${D.won} wins`:'Play now'):'After a lesson'}</small></button></div>
+   <p class="small muted">Coming soon: ${SOON.map(s=>s[1]).join(', ')}</p></section>
   ${certsShelf()}
-  <section class="card duelcard"><div class="tx"><h3>Duel with Daddy</h3><p class="muted">${dOpen?`Two players, one phone. Letter Slap, Dot Catcher and Tug of War.${D.played?` You have won ${D.won} of ${D.played}.`:''}`:'Finish one lesson today to unlock the games.'}</p></div>
-   ${dOpen?'<button class="btn rose" data-act="duelPick">Play</button>':'<button class="btn ghost sm" data-act="duelUnlock">Daddy unlock</button>'}</section>
-  <section class="sect"><h2>Your worlds</h2><div class="worlds">
-   ${Object.entries(WORLDS).map(([w,W])=>{const n=W.lessons.filter(l=>P.done[l.id]).length;return `<button class="world ${W.cls}" data-act="world" data-w="${w}"><span class="wicon ${w==='ar'?'ar':''}">${W.icon}</span><h3>${W.name}</h3><p>${W.sub} · ${n} of ${W.lessons.length} done</p><span class="bar"><i style="width:${n/W.lessons.length*100}%"></i></span></button>`}).join('')}
-   ${SOON.map(s=>`<div class="world locked"><span class="wicon">${s[0]}</span><h3>${s[1]}</h3><p class="muted">${s[2]}</p><span class="chip plain" style="margin-top:auto;align-self:flex-start">Coming soon</span></div>`).join('')}
-  </div></section>
-  <section class="card lantern">${lanternSVG(L.p)}<div><h3>Family lantern</h3><p class="muted">This week the whole family finished ${L.c} of ${L.goal} lessons. Fill it together!</p></div></section>
-  <section class="card"><h3>Did a good deed today?</h3><p class="muted" style="margin:4px 0 12px">Tell Daddy. When he says yes, a flower grows.${pend?` <b>${pend} waiting for Daddy.</b>`:''}</p>
-   <div class="row">${DEEDS.map(d=>`<button class="btn ghost sm" data-act="deed" data-t="${esc(d)}">${esc(d)}</button>`).join('')}</div></section>`;
+  <div class="duo">
+   <section class="card mini">${lanternSVG(L.p).replace('width="64" height="96"','width="36" height="54"')}<div><b>Family lantern</b><small class="muted">${L.c} of ${L.goal} this week</small></div></section>
+   <button class="card mini deedbtn" data-act="deedOpen"><span class="ic">🌷</span><div><b>Good deed</b><small class="muted">${pend?pend+' waiting for Daddy':'Tell Daddy'}</small></div></button>
+  </div>
+  ${ui.deedOpen?`<section class="card"><p class="muted small">What good deed did you do? When Daddy says yes, a flower grows.</p><div class="row" style="margin-top:8px">${DEEDS.map(d=>`<button class="btn ghost sm" data-act="deed" data-t="${esc(d)}">${esc(d)}</button>`).join('')}</div></section>`:''}`;
 }
-
 function worldScreen(){
   if(ui.world==='st')return library();
   const W=WORLDS[ui.world],P=prog(ui.kid);
@@ -1435,7 +1472,8 @@ app.addEventListener('click',e=>{
    case 'sPrev':if(st.k>0){st.k--;render()}break;
    case 'chunk':{const i=+b.dataset.i;if(i===st.placed.length)st.placed.push(i);else{L.miss+=0;toast('Which piece comes first?');b.classList.add('shake');break}render();break;}
    case 'daddyCheck':go('pin',{pin:'',pinFor:'daddyCheck'});break;
-   case 'deed':{const k=uid();S.deeds[k]={kid:ui.kid,text:b.dataset.t,status:'pending',at:Date.now()};saveDeed(k);toast('Sent to Daddy');render();break;}
+   case 'deedOpen':ui.deedOpen=!ui.deedOpen;render();break;
+   case 'deed':{ui.deedOpen=false;const k=uid();S.deeds[k]={kid:ui.kid,text:b.dataset.t,status:'pending',at:Date.now()};saveDeed(k);toast('Sent to Daddy');render();break;}
    case 'savePin':{const v=document.getElementById('ppin').value.trim();if(!/^\d{4}$/.test(v)){toast('Use exactly 4 numbers');break}S.settings.parentPin=v;saveSettings();ui.parent=true;ui.editKid='new';go('parents');break;}
    case 'changePin':{const v=document.getElementById('ppin2').value.trim();if(!/^\d{4}$/.test(v)){toast('Use exactly 4 numbers');break}S.settings.parentPin=v;saveSettings();toast('PIN updated');render();break;}
    case 'editKid':ui.editKid=id||null;ui.sym=null;render();break;
