@@ -421,13 +421,15 @@ function connectFirebase(){
   fb.auth.onAuthStateChanged(u=>{
     fb.user=u;
     if(u){fb.state='in';db=fs;mode='db';
-      subscribeAll(e=>{if(e&&e.code==='permission-denied'){fb.state='denied';mode='local';db=null;soft()}});}
+      subscribeAll(e=>{if(e&&e.code==='permission-denied'&&fb.state!=='denied'){fb.state='denied';mode='local';db=null;watchOwnRequest();soft()}});
+      if(isOwner())fs.collection('requests').onSnapshot(s=>{fb.requests=s.docs.map(d=>Object.assign({uid:d.id},d.data()));soft()},()=>{});}
     else{fb.state='out';mode='local';db=null}
     soft();
   });
   fb.auth.getRedirectResult().catch(()=>{});
 }
 const fbEmail=()=>(fb&&fb.user&&fb.user.email||'').toLowerCase();
+function watchOwnRequest(){if(!fb||!fb.user)return;fb.fs.doc('requests/'+fb.user.uid).onSnapshot(s=>{if(s.exists)fb.req='sent';else if(fb.req==='sent')location.reload();soft()},()=>{})}
 const isOwner=()=>OWNERS.includes(fbEmail());
 (async function connect(){
   try{
@@ -474,7 +476,9 @@ function render(){
 function saveChip(){if(fb&&fb.state==='in')return '<span class="chip green">Synced with the family</span>';return mode==='db'?'<span class="chip green">Saved to your family space</span>':'<span class="chip plain">Saved on this device</span>'}
 function fbGate(){
   if(!fb||fb.state==='in'||fb.state==='checking')return '';
-  if(fb.state==='denied')return `<div class="card stage"><h3>This account isn't on the family list yet</h3><p class="muted">${esc(fbEmail())} is signed in, but Daddy hasn't added it. Ask him to add this email in the Parents' corner under Family access, then reopen the game.</p><div class="row"><button class="btn ghost sm" data-act="fbSignOut">Use a different account</button></div></div>`;
+  if(fb.state==='denied')return fb.req==='sent'
+    ?`<div class="card stage"><h3>Request sent</h3><p class="muted">The family owner will see ${esc(fbEmail())} in the Parents' corner. As soon as they approve, this screen opens up by itself. You can keep this page open or come back later.</p><div class="row"><button class="btn ghost sm" data-act="fbSignOut">Use a different account</button></div></div>`
+    :`<div class="card stage"><h3>Ask to join the family</h3><p class="muted">You're signed in as ${esc(fbEmail())}. Send a request, and once the family owner approves it, your children can play and everyone's progress stays in sync.</p><div class="row"><button class="btn rose" data-act="fbRequest">Ask to join</button><button class="btn ghost sm" data-act="fbSignOut">Use a different account</button></div></div>`;
   return `<div class="card stage"><h3>A grown-up signs in once</h3><p class="muted">Sign in with Google on this device so everyone's gardens, stars and duel wins stay in sync across the family. Children never need to sign in.</p><div class="row"><button class="btn rose" data-act="fbSignIn">Sign in with Google</button></div><p class="small muted">You can still play without signing in. Progress then stays on this device only.</p></div>`;
 }
 function symEl(k,size=64){const kid=S.kids[k];const i=Object.keys(S.kids).indexOf(k);return `<span class="sym" style="width:${size}px;height:${size}px;font-size:${size/2}px;background:${SYMBG[i%4]}">${esc(kid.symbol||'🌙')}</span>`}
@@ -851,6 +855,7 @@ function parents(){
 
   ${fb&&fb.state==='in'?`<section class="sect"><h2>Family access</h2><p class="muted small">Signed in as ${esc(fbEmail())}. Grown-ups on this list can sign in with Google on their own devices and see everyone's progress.</p>
    <div class="list">${OWNERS.map(e=>`<div class="li"><span class="tx">${esc(e)}</span><span class="chip gold">Owner</span></div>`).join('')}${(S.access||[]).map(e=>`<div class="li"><span class="tx">${esc(e)}</span>${isOwner()?`<button class="btn ghost sm" data-act="rmMember" data-e="${esc(e)}">Remove</button>`:''}</div>`).join('')}</div>
+   ${isOwner()&&(fb.requests||[]).length?`<div class="card stage"><h3>Waiting to join</h3><div class="list">${fb.requests.map(r=>`<div class="li"><span class="tx"><b>${esc(r.name||'Someone')}</b><span class="small muted" style="display:block">${esc(r.email)}</span></span><button class="btn sm" data-act="approveJoin" data-u="${esc(r.uid)}">Approve</button><button class="btn ghost sm" data-act="declineJoin" data-u="${esc(r.uid)}">Decline</button></div>`).join('')}</div></div>`:''}
    ${isOwner()?`<div class="card stage"><div class="field"><label for="newmember">Add a parent's Google email</label><input id="newmember" type="email" autocomplete="off" placeholder="name@gmail.com"></div><div class="row"><button class="btn sm" data-act="addMember">Add to family</button></div></div>`:''}
    <div class="row"><button class="btn ghost sm" data-act="fbSignOut">Sign out of Google on this device</button></div></section>`:''}
   <section class="sect"><h2>Settings</h2><div class="card stage"><div class="field"><label for="ppin2">Change parent PIN</label><input id="ppin2" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="New 4-number PIN"></div><div class="row"><button class="btn ghost sm" data-act="changePin">Update PIN</button></div>
@@ -870,6 +875,9 @@ app.addEventListener('click',e=>{
    case 'cover':ui.parent=false;ui.editKid=null;go('cover');break;
    case 'fbSignIn':{const pr=new firebase.auth.GoogleAuthProvider();pr.setCustomParameters({prompt:'select_account'});fb.auth.signInWithPopup(pr).catch(e=>{if(e&&/popup-blocked|operation-not-supported/.test(e.code||''))fb.auth.signInWithRedirect(pr);else if(!/popup-closed|cancelled/.test(e.code||''))toast('Sign-in did not finish. Please try again.')});break;}
    case 'fbSignOut':fb.auth.signOut().then(()=>location.reload());break;
+   case 'fbRequest':{const u=fb.user;fb.fs.doc('requests/'+u.uid).set({email:fbEmail(),name:u.displayName||'',at:Date.now()}).then(()=>{fb.req='sent';render()}).catch(()=>toast('Could not send the request. Please try again.'));break;}
+   case 'approveJoin':{const r=(fb.requests||[]).find(x=>x.uid===b.dataset.u);if(!r)break;let w=Promise.resolve();if(!S.access.includes(r.email)&&!OWNERS.includes(r.email)){S.access=[...S.access,r.email];w=put('fam/access',{members:S.access})}w.then(()=>fb.fs.doc('requests/'+r.uid).delete()).catch(()=>{});toast('Approved. Their screen will open in a moment.');break;}
+   case 'declineJoin':fb.fs.doc('requests/'+b.dataset.u).delete().catch(()=>{});break;
    case 'addMember':{const v=(document.getElementById('newmember').value||'').trim().toLowerCase();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){toast('Enter a full email address');break}if(OWNERS.includes(v)||S.access.includes(v)){toast('Already on the list');break}S.access=[...S.access,v];put('fam/access',{members:S.access});toast('Added. They can sign in now.');render();break;}
    case 'rmMember':S.access=S.access.filter(x=>x!==b.dataset.e);put('fam/access',{members:S.access});render();break;
    case 'setup':go(S.settings.parentPin?'parents':'setup');break;

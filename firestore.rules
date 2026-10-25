@@ -1,6 +1,6 @@
 rules_version = '2';
 
-// Little Lantern: only the owners and the parents they add can read or write anything.
+// Little Lantern: only the owners and the parents they approve can read or write the game data.
 // Paste this into Firebase console > Firestore Database > Rules, then click Publish.
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -9,28 +9,47 @@ service cloud.firestore {
       return request.auth != null && request.auth.token.email_verified == true;
     }
 
+    function myEmail() {
+      return request.auth.token.email.lower();
+    }
+
     function isOwner() {
-      return signedIn() && request.auth.token.email.lower() in ['ali.rgnprice@gmail.com', 'ca.aliakber@gmail.com'];
+      return signedIn() && myEmail() in ['ali.rgnprice@gmail.com', 'ca.aliakber@gmail.com'];
     }
 
     function isMember() {
       return isOwner()
         || (signedIn()
             && exists(/databases/$(database)/documents/fam/access)
-            && request.auth.token.email.lower() in get(/databases/$(database)/documents/fam/access).data.members);
+            && myEmail() in get(/databases/$(database)/documents/fam/access).data.members);
     }
 
-    // The family access list: every member can read it, only owners change it.
-    match /fam/access {
+    // Family settings, lesson approvals and the access list.
+    // Members read all of it; only owners change the access list.
+    match /fam/{doc} {
       allow read: if isMember();
-      allow write: if isOwner();
+      allow write: if (doc == 'access' && isOwner()) || (doc != 'access' && isMember());
     }
 
-    // Game data: settings, approvals, children, progress and good deeds.
-    match /{collection}/{doc} {
-      allow read, write: if isMember()
-        && collection in ['fam', 'kids', 'progress', 'deeds']
-        && !(collection == 'fam' && doc == 'access');
+    match /kids/{doc} {
+      allow read, write: if isMember();
+    }
+
+    match /progress/{doc} {
+      allow read, write: if isMember();
+    }
+
+    match /deeds/{doc} {
+      allow read, write: if isMember();
+    }
+
+    // Join requests: anyone signed in can ask to join with their own email.
+    // Owners see and clear requests; a person can see and cancel only their own.
+    match /requests/{uid} {
+      allow read, delete: if isOwner() || (signedIn() && request.auth.uid == uid);
+      allow create, update: if signedIn()
+        && request.auth.uid == uid
+        && request.resource.data.email == myEmail();
     }
   }
 }
