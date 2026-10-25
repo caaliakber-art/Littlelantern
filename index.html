@@ -126,7 +126,7 @@ a{color:var(--green)}
 .world h3{font-size:1.2rem}
 .world .bar{height:8px;border-radius:9px;background:rgba(127,127,127,.18);overflow:hidden;margin-top:auto}
 .world .bar i{display:block;height:100%;background:currentColor}
-.w-aq{background:var(--green-soft);color:var(--green)} .w-st{background:var(--sky);color:var(--ink)} .w-ad{background:var(--rose-soft);color:var(--rose)} .w-ar{background:var(--gold-soft);color:var(--gold)}
+.w-aq{background:var(--green-soft);color:var(--green)} .w-sk{background:var(--gold-soft);color:var(--ink)} .w-st{background:var(--sky);color:var(--ink)} .w-ad{background:var(--rose-soft);color:var(--rose)} .w-ar{background:var(--gold-soft);color:var(--gold)}
 .world p{color:var(--ink);font-size:.92rem}
 .world.locked{background:var(--surface);border:2px dashed var(--line);color:var(--muted);cursor:default}
 .lantern{display:flex;gap:16px;align-items:center}
@@ -203,6 +203,26 @@ a{color:var(--green)}
 @keyframes blow{from{transform:translateX(-60px)}to{transform:translateX(60px)}}
 .rain{animation:fall 1s linear infinite}
 @keyframes fall{from{transform:translateY(-6px);opacity:.3}to{transform:translateY(10px);opacity:1}}
+/* avatars + sharing */
+.sym.av{overflow:hidden;padding:0;background:none}
+.sym.av svg{width:100%;height:100%;display:block}
+.avbtn{position:relative;flex:none}
+.avedit{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);background:var(--rose);color:var(--bg);font-size:.7rem;font-weight:800;padding:1px 8px;border-radius:999px;white-space:nowrap}
+.avprev{width:min(240px,70%);margin:0 auto}
+.avprev svg{display:block;width:100%;height:auto}
+.swatch{width:40px;height:40px;border-radius:50%;border:3px solid var(--line)}
+.swatch.on{border-color:var(--ink);box-shadow:0 0 0 3px var(--gold)}
+.shareov{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.55);display:grid;place-items:center;padding:16px}
+.sharebox{max-width:420px;width:100%;max-height:90vh;overflow:auto}
+.sharebox img{width:100%;border-radius:14px}
+/* stack it */
+.tower{display:grid;gap:6px}
+.tslot{display:flex;align-items:center;gap:10px;min-height:48px;padding:6px 12px;border-radius:14px;border:2px dashed var(--line)}
+.tslot.on{border-style:solid;border-color:var(--green);background:var(--green-soft)}
+.tslot .tn{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--surface);font-weight:800;font-size:.85rem;flex:none}
+.tslot .ar,.tcard .ar{font-size:1.1rem;color:var(--green);margin-left:auto}
+.tpool{display:flex;flex-wrap:wrap;gap:8px}
+.tcard{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:14px;background:var(--surface);border:2px solid var(--gold);font-size:1rem;min-height:48px}
 /* story room shelf */
 .shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
 .book{display:flex;flex-direction:column;gap:4px;text-align:left;padding:0 0 12px;border-radius:8px 16px 16px 8px;background:var(--surface);border:1px solid var(--line);border-left:10px solid var(--spine);overflow:hidden;min-width:0}
@@ -607,17 +627,136 @@ const PROPHETS=[['adam','Adam','آدَم'],['idris','Idris','إِدْرِيس'],
 const STORIES=PROPHETS.map(p=>[...STORIES_OLD,...MORE_STORIES].find(s=>s.pid===p[0])).filter(Boolean);
 STORIES.forEach(st=>{st.world='st';st.steps=[{t:'story',slides:st.slides},{t:'quiz',qs:st.quiz}]});
 
+
+
+/* ===================== AVATARS + SHARING ===================== */
+const AVO={
+ skin:['#F8D9BE','#EDBE98','#D49A70','#A8734F','#73503A'],
+ head:[['hijab','Hijab'],['kufi','Kufi cap'],['curly','Curly hair'],['straight','Straight hair']],
+ hcol:['#D97A9B','#B9587A','#9B7BC4','#5FA3D3','#2F7A5E','#E3B341','#2C3A63','#F4F1EA','#2A2326'],
+ hair:['#2A2326','#4A3426','#7A5236','#B07A4A'],
+ outfit:['#F4F1EA','#F6DCE4','#DCEDE5','#E3E8F7','#FBEFD3','#2F7A5E','#2C3A63'],
+ holds:[['none','Nothing'],['lantern','Lantern'],['book',"Qur'an"],['star','Star']],
+ bg:['#FBEFD3','#F6DFE7','#DCEDE5','#E3EDF8','#EDE4F7']
+};
+const AVDEF={skin:1,head:'hijab',hcol:0,hair:0,outfit:0,glasses:false,holds:'lantern',bg:0};
+function avatarSVG(a,opt){a=Object.assign({},AVDEF,a||{});opt=opt||{};
+  const sk=AVO.skin[a.skin],hc=AVO.hcol[a.hcol],hr=AVO.hair[a.hair],of=AVO.outfit[a.outfit],bg=AVO.bg[a.bg];
+  const dark=c=>c==='#F4F1EA'?'#D9D2C4':c;
+  let s=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">`;
+  if(!opt.noBg)s+=`<circle cx="100" cy="100" r="100" fill="${bg}"/>`;
+  // body
+  s+=`<path d="M38 200 C40 150 64 134 100 134 C136 134 160 150 162 200Z" fill="${of}" stroke="${dark(of)}" stroke-width="2"/>`;
+  if(a.head==='hijab')s+=`<path d="M100 26 C52 26 40 66 42 98 C44 128 56 150 74 158 L126 158 C144 150 156 128 158 98 C160 66 148 26 100 26Z" fill="${hc}"/><path d="M56 150 C70 170 130 170 144 150 L150 176 C120 192 80 192 50 176Z" fill="${hc}"/>`;
+  // neck + face
+  s+=`<rect x="88" y="120" width="24" height="18" rx="8" fill="${sk}"/>`;
+  if(a.head==='hijab')s+=`<ellipse cx="100" cy="96" rx="40" ry="42" fill="${sk}"/><path d="M60 92 C62 60 80 50 100 50 C120 50 138 60 140 92 C132 70 118 64 100 64 C82 64 68 70 60 92Z" fill="${hc}"/>`;
+  else{
+    s+=`<circle cx="100" cy="94" r="46" fill="${sk}"/><circle cx="55" cy="98" r="8" fill="${sk}"/><circle cx="145" cy="98" r="8" fill="${sk}"/>`;
+    if(a.head==='curly'){for(let i=0;i<11;i++){const ang=Math.PI*(1.05+i*0.09),x=100+Math.cos(ang)*48,y=92+Math.sin(ang)*48;s+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="15" fill="${hr}"/>`}s+=`<circle cx="100" cy="52" r="20" fill="${hr}"/>`}
+    if(a.head==='straight')s+=`<path d="M52 96 C48 52 76 38 100 38 C126 38 154 52 148 96 C144 76 132 66 120 64 C112 74 92 76 76 70 C64 74 56 84 52 96Z" fill="${hr}"/>`;
+    if(a.head==='kufi')s+=`<path d="M58 80 C60 50 80 40 100 40 C120 40 140 50 142 80 Z" fill="${hc}"/><path d="M58 80 h84" stroke="${dark(hc)}" stroke-width="4"/><path d="M70 60 h60 M66 70 h68" stroke="#FFFFFF" stroke-width="2" opacity=".5"/><path d="M56 96 C54 86 56 82 60 82 M144 96 C146 86 144 82 140 82" stroke="${hr}" stroke-width="6" fill="none" stroke-linecap="round"/>`;
+  }
+  // happy face: closed smiling eyes, blush, smile
+  s+=`<path d="M78 98 q8 -9 16 0 M106 98 q8 -9 16 0" stroke="#3A2A2A" stroke-width="3.5" fill="none" stroke-linecap="round"/><circle cx="76" cy="110" r="7" fill="#F2A0A8" opacity=".55"/><circle cx="124" cy="110" r="7" fill="#F2A0A8" opacity=".55"/><path d="M90 114 q10 10 20 0" stroke="#3A2A2A" stroke-width="3" fill="#E9787F" stroke-linecap="round"/>`;
+  if(a.glasses)s+=`<g fill="none" stroke="#C9B8C4" stroke-width="3"><circle cx="86" cy="98" r="12"/><circle cx="114" cy="98" r="12"/><path d="M98 98 h4"/></g><g fill="#FFFFFF" opacity=".25"><circle cx="86" cy="98" r="11"/><circle cx="114" cy="98" r="11"/></g>`;
+  if(a.holds==='lantern')s+=`<g transform="translate(130 140)"><circle cx="16" cy="26" r="26" fill="#FFE29A" opacity=".45"/><rect x="11" y="0" width="10" height="6" rx="2" fill="#C98F22"/><path d="M4 6 h24 l5 8 v24 l-5 8 h-24 l-5 -8 v-24z" fill="#FFE29A" stroke="#C98F22" stroke-width="3"/><path d="M16 14 q5 8 0 16 q-5 -8 0 -16z" fill="#FF9F2E"/></g>`;
+  if(a.holds==='book')s+=`<g transform="translate(70 150)"><path d="M0 6 q30 -12 60 0 v30 q-30 -12 -60 0z" fill="#1F5C4A"/><path d="M30 0 v32" stroke="#D9A441" stroke-width="2"/><circle cx="30" cy="16" r="6" fill="none" stroke="#D9A441" stroke-width="2"/></g>`;
+  if(a.holds==='star')s+=`<g transform="translate(150 132)"><path d="M14 0 L18 10 L28 11 L20 18 L23 28 L14 22 L5 28 L8 18 L0 11 L10 10Z" fill="#FFD36E" stroke="#C98F22" stroke-width="2"/></g>`;
+  return s+'</svg>';
+}
+function avatarScreen(){
+  const k=ui.kid,a=Object.assign({},AVDEF,ui.avDraft||S.kids[k].av||{});ui.avDraft=a;
+  const sw=(key,list,isCol)=>list.map((v,i)=>{const val=isCol?i:v[0],on=a[key]===val;return isCol?`<button class="swatch ${on?'on':''}" style="background:${v}" data-act="avSet" data-k="${key}" data-v="${i}" aria-label="${key} ${i+1}"></button>`:`<button class="btn sm ${on?'rose':'ghost'}" data-act="avSet" data-k="${key}" data-v="${v[0]}">${v[1]}</button>`}).join('');
+  const isHair=a.head==='curly'||a.head==='straight';
+  return `<div class="topbar"><button class="back" data-act="home">← My garden</button></div>
+  <h1>Make my avatar</h1>
+  <div class="avprev">${avatarSVG(a)}</div>
+  <section class="sect"><h3>On my head</h3><div class="row">${sw('head',AVO.head)}</div>
+   <div class="row">${isHair?sw('hair',AVO.hair,true):sw('hcol',AVO.hcol,true)}</div>
+   ${a.head==='kufi'?`<p class="small muted">Hair colour</p><div class="row">${sw('hair',AVO.hair,true)}</div>`:''}</section>
+  <section class="sect"><h3>Skin</h3><div class="row">${sw('skin',AVO.skin,true)}</div></section>
+  <section class="sect"><h3>Clothes</h3><div class="row">${sw('outfit',AVO.outfit,true)}</div></section>
+  <section class="sect"><h3>Glasses</h3><div class="row"><button class="btn sm ${a.glasses?'rose':'ghost'}" data-act="avSet" data-k="glasses" data-v="1">Glasses on</button><button class="btn sm ${!a.glasses?'rose':'ghost'}" data-act="avSet" data-k="glasses" data-v="0">No glasses</button></div></section>
+  <section class="sect"><h3>Holding</h3><div class="row">${sw('holds',AVO.holds)}</div></section>
+  <section class="sect"><h3>Background</h3><div class="row">${sw('bg',AVO.bg,true)}</div></section>
+  <div class="row"><button class="btn rose" data-act="avSave">Save my avatar</button></div>
+  <section class="card sect"><h3>Make a sticker</h3><p class="muted small">Pick words, then share it to the family WhatsApp group.</p>
+   <div class="row">${STICKER_WORDS.map(w=>`<button class="btn ghost sm" data-act="avSticker" data-w="${esc(w)}">${esc(w)}</button>`).join('')}</div></section>`;
+}
+const STICKER_WORDS=['MashaAllah!','Alhamdulillah','Assalamu alaikum','Jazakallahu khair','InshaAllah','I finished!','Duel time!','Ameen'];
+function svgImg(svg){return new Promise((res,rej)=>{const im=new Image();im.onload=()=>res(im);im.onerror=rej;im.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg)})}
+async function ready(){try{await document.fonts.ready}catch(e){}}
+function wrapText(c,text,x,y,maxW,lh){const words=text.split(' ');let line='',yy=y;for(const w of words){const t=line?line+' '+w:w;if(c.measureText(t).width>maxW&&line){c.fillText(line,x,yy);line=w;yy+=lh}else line=t}c.fillText(line,x,yy);return yy}
+async function makeCard(title,line,stars){
+  await ready();const W=1080,H=1350,c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');
+  const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#1F5C4A');g.addColorStop(1,'#B9587A');x.fillStyle=g;x.fillRect(0,0,W,H);
+  const glow=x.createRadialGradient(W/2,560,40,W/2,560,520);glow.addColorStop(0,'rgba(255,226,154,.55)');glow.addColorStop(1,'rgba(255,226,154,0)');x.fillStyle=glow;x.fillRect(0,0,W,H);
+  x.fillStyle='#F6D98A';x.font='600 46px Fredoka, Nunito, sans-serif';x.textAlign='center';x.fillText('Little Lantern',W/2,110);
+  const av=await svgImg(avatarSVG(S.kids[ui.kid].av));x.drawImage(av,W/2-300,170,600,600);
+  x.fillStyle='#FFFFFF';x.font='700 76px Fredoka, Nunito, sans-serif';let y=wrapText(x,title,W/2,880,960,86);
+  x.fillStyle='#FBEFD3';x.font='600 50px Nunito, sans-serif';y=wrapText(x,line,W/2,y+80,940,62);
+  if(stars){x.fillStyle='#FFD36E';x.font='72px sans-serif';x.fillText('★'.repeat(stars)+'☆'.repeat(3-stars),W/2,y+110)}
+  x.fillStyle='rgba(255,255,255,.75)';x.font='600 34px Nunito, sans-serif';x.fillText('MashaAllah, keep shining!',W/2,H-70);
+  return c;
+}
+async function makeSticker(words){
+  await ready();const W=512,c=document.createElement('canvas');c.width=W;c.height=W;const x=c.getContext('2d');
+  const av=await svgImg(avatarSVG(S.kids[ui.kid].av));
+  x.save();x.beginPath();x.arc(W/2,220,200,0,Math.PI*2);x.fillStyle='#FFFFFF';x.fill();x.restore();
+  x.drawImage(av,W/2-188,32,376,376);
+  x.font='700 64px Fredoka, Nunito, sans-serif';x.textAlign='center';x.lineJoin='round';
+  x.lineWidth=16;x.strokeStyle='#FFFFFF';x.strokeText(words,W/2,476);x.fillStyle='#B9587A';x.fillText(words,W/2,476);
+  return c;
+}
+async function shareCanvas(c,name,text){
+  const blob=await new Promise(r=>c.toBlob(r,'image/png'));
+  const file=new File([blob],name+'.png',{type:'image/png'});
+  try{if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],text});return}}catch(e){if(e&&e.name==='AbortError')return}
+  ui.sharePic=c.toDataURL('image/png');ui.shareText=text;showShare();
+}
+function showShare(){let o=document.getElementById('shareov');if(!o){o=document.createElement('div');o.id='shareov';o.className='shareov';document.body.appendChild(o)}
+  o.innerHTML=`<div class="sharebox card stage"><img src="${ui.sharePic}" alt="Picture to share"><p class="small muted">Long-press the picture and choose Share or Save, then send it to the family group.</p><button class="btn" data-share-close>Close</button></div>`;o.hidden=false;
+  o.querySelector('[data-share-close]').onclick=()=>{o.hidden=true}}
+
+/* ===================== STACK IT ===================== */
+const PNAME=Object.fromEntries(PROPHETS.map(p=>[p[0],{t:p[1],ar:p[2]}]));
+const SK=[
+{id:'sk1',world:'sk',auto:true,gen:true,title:'Prophets in order',ar:'',sub:'Stack the Prophets in the order Allah sent them',make(){
+  const read=PROPHETS.filter(p=>{const s=STORIES.find(x=>x.pid===p[0]);return s&&prog(ui.kid).done[s.id]});
+  const pick=read.length>=4?read.slice(0,8):PROPHETS.slice(0,5);
+  const all=PROPHETS.slice(0,10);
+  return [{t:'say',text:`Can you remember who came first, {name}? Tap the Prophets in the order Allah sent them, starting with the very first.`},
+   {t:'stack',prompt:'Who came first?',items:pick.map(p=>({t:p[1],ar:p[2]})),done:'MashaAllah! That is the right order.'},
+   {t:'stack',prompt:'Now a longer stack!',items:all.map(p=>({t:p[1],ar:p[2]})),done:'Ten Prophets in order. Amazing!'}]}},
+{id:'sk2',world:'sk',auto:true,title:'Prophet families',ar:'',sub:'Who is whose father?',steps:[
+ {t:'say',text:"Some Prophets were the children and grandchildren of other Prophets. Let's build their families, from grandfather down to grandson."},
+ {t:'stack',prompt:'The family of Ibrahim',hint:'Start with the grandfather, end with the great-grandson.',items:[PNAME.ibrahim,PNAME.ishaq,PNAME.yaqub,PNAME.yusuf],done:"Yusuf said he follows the way of his fathers Ibrahim, Ishaq and Ya'qub. (Surah Yusuf 12:38)"},
+ {t:'stack',prompt:'The family of Imran',hint:'Grandfather first.',items:[{t:"'Imran",ar:'عِمْرَان'},{t:'Maryam',ar:'مَرْيَم'},PNAME.isa],done:"Maryam was the daughter of 'Imran, and 'Isa was the son of Maryam. (Surah at-Tahrim 66:12)"},
+ {t:'match',prompt:'Match each father to his son',pairs:[['دَاوُد','Dawud','Sulayman'],['زَكَرِيَّا','Zakariyya','Yahya'],['إِبْرَاهِيم','Ibrahim',"Isma'il"],['يَعْقُوب',"Ya'qub",'Yusuf']]},
+ {t:'key',text:"Prophet Muhammad ﷺ comes from the family of Ibrahim too, through his son Isma'il, many, many generations later."}]},
+{id:'sk3',world:'sk',auto:true,title:'Pillars of Islam',ar:'أَرْكَانُ الْإِسْلَام',sub:'Five pillars, first to last',steps:[
+ {t:'say',text:"Islam is built on five pillars, like a house built on strong columns. Stack them in order, first to last."},
+ {t:'stack',prompt:'The 5 pillars of Islam',items:[{t:'Shahadah',ar:'الشَّهَادَتَان'},{t:'Salah',ar:'الصَّلَاة'},{t:'Zakah',ar:'الزَّكَاة'},{t:'Fasting in Ramadan',ar:'صَوْمُ رَمَضَان'},{t:'Hajj',ar:'الْحَجّ'}],done:'MashaAllah! All five pillars standing strong.'},
+ {t:'match',prompt:'Match each pillar to what it means',pairs:[['','Shahadah','La ilaha illallah, Muhammadur Rasulullah'],['','Salah','Praying five times every day'],['','Zakah','Giving charity to the poor'],['','Fasting','No food or drink in Ramadan days'],['','Hajj',"Visiting the Ka'bah once, if able"]]}]},
+{id:'sk4',world:'sk',auto:true,title:'Pillars of Iman',ar:'أَرْكَانُ الْإِيمَان',sub:'Six things we believe in',steps:[
+ {t:'say',text:"Iman means believing in six things. Jibril asked the Prophet ﷺ about them, and he answered in this order. Can you stack them?"},
+ {t:'stack',prompt:'The 6 pillars of Iman',items:[{t:'Allah',ar:'اللَّه'},{t:'His angels',ar:'الْمَلَائِكَة'},{t:'His books',ar:'الْكُتُب'},{t:'His messengers',ar:'الرُّسُل'},{t:'The Last Day',ar:'الْيَوْمُ الْآخِر'},{t:'Al-Qadr',ar:'الْقَدَر'}],done:'MashaAllah! These six make our Iman strong.'},
+ {t:'match',prompt:'Match each one to its clue',pairs:[['','Allah','The One we worship alone'],['','Angels','Made from light, always obey'],['','Books','Like the Qur\'an, Allah\'s words'],['','Messengers','Sent by Allah to teach people'],['','The Last Day','Everyone is brought back to life'],['','Al-Qadr','Allah knows and wrote everything']]}]}
+];
+
 const WORLDS={
  aq:{name:'Knowing Allah',sub:'Aqeedah island 1',icon:'🌙',cls:'w-aq',lessons:AQ,seq:true},
  ad:{name:'My daily duas',sub:'Adhkar',icon:'🤲',cls:'w-ad',lessons:AD,seq:false},
  ar:{name:'Arabic letters',sub:'Alif to Yaa',icon:'ا',cls:'w-ar',lessons:LV,seq:true},
- st:{name:'The Story Room',sub:'Stories of the Prophets',icon:'📜',cls:'w-st',lessons:STORIES,seq:false}
+ st:{name:'The Story Room',sub:'Stories of the Prophets',icon:'📜',cls:'w-st',lessons:STORIES,seq:false},
+ sk:{name:'Stack it',sub:'Put things in the right order',icon:'🧩',cls:'w-sk',lessons:SK,seq:false}
 };
 const SOON=[['📖',"Qur'an and Hifz",'Juz Amma, surah by surah'],['💧','Wudu and salah','Step by step, the Sunnah way'],['🌷','Akhlaq missions','Good manners you do for real'],['🗣️','Arabic words','Everyday words, Madina style'],['🌙','The Islamic year','Ramadan, Dhul Hijjah, Muharram']];
 const SYMS=['🌙','⭐','🌸','🌷','🌻','🏮','💎','🌈','🍀','📖','🌿','🍉'];
 const SYMBG=['var(--rose-soft)','var(--green-soft)','var(--gold-soft)','var(--sky)'];
 const DEEDS=['I helped Ummi','I helped Daddy','I said salam first','I shared with someone','I told the truth','I said Bismillah before eating','I was kind to my cousin','I said sorry'];
-const ALL=[...AQ,...AD,...LV,...STORIES];
+const ALL=[...AQ,...AD,...LV,...STORIES,...SK];
 const byId=Object.fromEntries(ALL.map(l=>[l.id,l]));
 
 /* ===================== STATE + STORAGE ===================== */
@@ -720,7 +859,7 @@ function go(screen,extra){Object.assign(ui,{screen},extra||{});render();window.s
 /* ===================== SCREENS ===================== */
 function render(){
   if(ui.screen==='duel')return;
-  const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes}[ui.screen]||cover;
+  const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen}[ui.screen]||cover;
   app.innerHTML=f();
   placeRoad();
 }
@@ -732,7 +871,7 @@ function fbGate(){
     :`<div class="card stage"><h3>Ask to join the family</h3><p class="muted">You're signed in as ${esc(fbEmail())}. Send a request, and once the family owner approves it, your children can play and everyone's progress stays in sync.</p><div class="row"><button class="btn rose" data-act="fbRequest">Ask to join</button><button class="btn ghost sm" data-act="fbSignOut">Use a different account</button></div></div>`;
   return `<div class="card stage"><h3>A grown-up signs in once</h3><p class="muted">Sign in with Google on this device so everyone's gardens, stars and duel wins stay in sync across the family. Children never need to sign in.</p><div class="row"><button class="btn rose" data-act="fbSignIn">Sign in with Google</button></div><p class="small muted">You can still play without signing in. Progress then stays on this device only.</p></div>`;
 }
-function symEl(k,size=64){const kid=S.kids[k];const i=Object.keys(S.kids).indexOf(k);return `<span class="sym" style="width:${size}px;height:${size}px;font-size:${size/2}px;background:${SYMBG[i%4]}">${esc(kid.symbol||'🌙')}</span>`}
+function symEl(k,size=64){const kid=S.kids[k];const i=Object.keys(S.kids).indexOf(k);if(kid.av)return `<span class="sym av" style="width:${size}px;height:${size}px">${avatarSVG(kid.av)}</span>`;return `<span class="sym" style="width:${size}px;height:${size}px;font-size:${size/2}px;background:${SYMBG[i%4]}">${esc(kid.symbol||'🌙')}</span>`}
 
 function cover(){
   const ids=Object.keys(S.kids);
@@ -781,7 +920,7 @@ function home(){
   const trees=['aq','ad','ar'].filter(w=>worldDone(w,k)).length,L=lanternData();
   const pend=Object.values(S.deeds).filter(d=>d.kid===k&&d.status==='pending').length;
   return `<div class="topbar"><button class="back" data-act="logout">← Switch</button>${saveChip()}</div>
-  <div class="hello">${symEl(k,56)}<div><h1>Assalamu alaikum, ${esc(S.kids[k].name)}!</h1></div></div>
+  <div class="hello"><button class="avbtn" data-act="avatar" aria-label="Make my avatar">${symEl(k,64)}<span class="avedit">${S.kids[k].av?'Edit':'Make me!'}</span></button><div><h1>Assalamu alaikum, ${esc(S.kids[k].name)}!</h1></div></div>
   <div class="stats"><div class="stat"><b>${stars}</b><span>STARS</span></div><div class="stat"><b>${P.streak||0}</b><span>DAY STREAK</span></div><div class="stat"><b>${done+deedsOk(k)}</b><span>FLOWERS</span></div></div>
   <div class="garden">${gardenSVG(done+deedsOk(k),trees)}<div class="garden-cap">Your garden. Lessons and good deeds grow flowers. Finish a whole world to grow a tree.</div></div>
   <section class="today"><h2>Today's three</h2>${tasks.map(t=>{const W=WORLDS[t.w];return `<button class="task ${t.did?'done':''}" ${t.nx?`data-act="open" data-id="${t.nx.id}"`:'disabled'}><span class="tick">${t.did?'✓':''}</span><span class="tx"><b>${W.name}</b><small>${t.nx?esc(t.nx.title):(t.did?'Done for today':'Waiting for Daddy to unlock')}</small></span><span aria-hidden="true">${W.icon}</span></button>`}).join('')}</section>
@@ -812,7 +951,7 @@ function worldScreen(){
 /* ---------- lesson player ---------- */
 function startLesson(id){
   const l=byId[id];let steps=l.steps;
-  if(l.gen)steps=letterSteps(l);
+  if(l.gen)steps=l.make?l.make():letterSteps(l);
   ui.L={id,steps,i:0,miss:0,quick:false,st:{}};prepStep();go('play');
 }
 function letterSteps(l){
@@ -831,6 +970,7 @@ function prepStep(){const s=curStep();const st={};
   if(s.t==='match'){st.left=shuffle(s.pairs.map((p,i)=>i));st.right=shuffle(s.pairs.map((p,i)=>i));st.sel=null;st.done={}}
   if(s.t==='count')st.c=0;
   if(s.t==='story')st.k=0;
+  if(s.t==='stack'){st.pool=shuffle(s.items.map((x,i)=>i));st.placed=[]}
   if(s.t==='order'){st.pool=shuffle(s.chunks.map((c,i)=>i));st.placed=[]}
   ui.L.st=st;}
 function canNext(){const s=curStep(),st=ui.L.st;
@@ -838,6 +978,7 @@ function canNext(){const s=curStep(),st=ui.L.st;
   if(s.t==='letters')return Object.keys(st.open).length===s.set.length;
   if(s.t==='count')return st.c>=s.n;
   if(s.t==='story')return st.k>=s.slides.length-1;
+  if(s.t==='stack')return st.placed.length===s.items.length;
   if(s.t==='order')return st.placed.length===s.chunks.length;
   if(s.t==='match')return Object.keys(st.done).length===s.pairs.length;
   if(s.t==='sort')return st.k>=s.items.length;
@@ -850,6 +991,7 @@ function play(){
   const daddy='<div class="daddy">'+lanternMini()+'Daddy says</div>';
   if(s.t==='say')body=`<div class="card stage">${daddy}<p class="say">${fill(s.text)}</p>${s.ar?`<div class="bigar">${s.ar}</div><p class="tr">${esc(s.tr)}</p><p class="tr" style="font-style:normal">${esc(s.mean)}</p>`:''}</div>`;
   else if(s.t==='story'){const sl=s.slides[st.k];body=`<div class="story" id="story"><div class="scene">${scene(sl.sc)}</div><div class="card stage"><p class="say">${fill(sl.text)}</p>${sl.ay?`<div class="ayah"><div class="ar">${sl.ay.ar}</div><p>${esc(sl.ay.en)}</p><span class="src">${esc(sl.ay.ref)}</span></div>`:''}</div><div class="spread"><button class="btn ghost sm" data-act="sPrev" ${st.k?'':'disabled'}>← Back</button><span class="sdots" aria-label="Page ${st.k+1} of ${s.slides.length}">${s.slides.map((x,i)=>`<i class="${i===st.k?'on':''}"></i>`).join('')}</span><button class="btn sm" data-act="sNext" ${st.k<s.slides.length-1?'':'disabled'}>Next →</button></div><p class="small muted" style="text-align:center">Swipe the picture or tap Next</p></div>`;}
+  else if(s.t==='stack'){const it=s.items;body=`<h2>${esc(s.prompt)}</h2><p class="muted small">${esc(s.hint||'Tap them in the right order, first to last.')}</p><div class="tower">${it.map((x,i)=>`<div class="tslot ${i<st.placed.length?'on':''}"><span class="tn">${i+1}</span>${i<st.placed.length?`<b>${esc(x.t)}</b>${x.ar?`<span class="ar">${x.ar}</span>`:''}`:''}</div>`).join('')}</div><div class="tpool">${st.pool.filter(i=>!st.placed.includes(i)).map(i=>`<button class="tcard" data-act="stk" data-i="${i}"><b>${esc(it[i].t)}</b>${it[i].ar?`<span class="ar">${it[i].ar}</span>`:''}</button>`).join('')}</div>${st.placed.length===it.length?`<div class="fb ok">${esc(s.done||'MashaAllah, perfect!')}</div>`:''}`;}
   else if(s.t==='key')body=`<div class="key"><span class="lbl">Remember this</span><p>${fill(s.text)}</p></div>`;
   else if(s.t==='tap')body=`<h2>${esc(s.prompt)}</h2><div class="taps">${s.items.map((it,i)=>`<button class="tapit ${st.open[i]?'open':''}" data-act="tap" data-i="${i}"><span class="ic" aria-hidden="true">${it[0]}</span><b>${esc(it[1])}</b>${st.open[i]?`<span class="rev">${esc(s.reveal)}</span>`:''}</button>`).join('')}</div>`;
   else if(s.t==='letters')body=`<div class="letters">${s.set.map((x,i)=>`<button class="letter ${st.open[i]?'open':''}" data-act="letter" data-i="${i}"><span class="g">${x[0]}</span><b>${x[1]}${arVoice?' 🔊':''}</b>${st.open[i]?`<span class="small">${x[2]} · sounds like <b>${esc(x[3])}</b></span>`:'<span class="small muted">Tap me</span>'}</button>`).join('')}</div>`;
@@ -863,7 +1005,7 @@ function play(){
   else if(s.t==='daddy'){body=`<div class="card stage">${daddy}<p class="say">${fill(s.text)}</p><div class="row"><button class="btn gold" data-act="daddyCheck">Daddy's PIN</button></div><p class="small muted">Daddy not here? Come back later. Your answers are kept.</p></div>`;}
   const isLast=L.i===L.steps.length-1;
   return `<div class="topbar"><button class="back" data-act="quit" aria-label="Leave lesson">✕</button><div class="prog"><i style="width:${pct}%"></i></div></div>
-  <div class="spread"><h3>${esc(l.title)}</h3>${l.world!=='ad'&&l.world!=='st'&&L.i===0&&WORLDS[l.world].seq&&!L.quick?`<button class="btn ghost sm" data-act="quick">I know this</button>`:''}</div>
+  <div class="spread"><h3>${esc(l.title)}</h3>${l.world!=='ad'&&l.world!=='st'&&l.world!=='sk'&&L.i===0&&WORLDS[l.world].seq&&!L.quick?`<button class="btn ghost sm" data-act="quick">I know this</button>`:''}</div>
   <div class="stage">${body}</div>
   ${s.t==='daddy'||(s.t==='sort'&&st.ans!=null)||(s.t==='quiz'&&st.ans!=null)?'':`<div class="row" style="justify-content:flex-end"><button class="btn ${isLast?'rose':''}" data-act="next" ${canNext()?'':'disabled'}>${isLast?'Finish':'Next'}</button></div>`}`;
 }
@@ -891,6 +1033,7 @@ function score(){
    ${r.dayDone?driveStrip('brio-side',"Today's three are done. The Brio is parked for the day!"):''}
    <p class="muted">${esc(l.title)}${r.first?' · A new flower grew in your garden.':' · Great practice!'}${r.worldDone?' A tree grew too!':''}</p>
    <div class="row" style="justify-content:center">${nx&&nx.id!==l.id?`<button class="btn" data-act="open" data-id="${nx.id}">Next: ${esc(nx.title)}</button>`:''}<button class="btn ghost" data-act="home">My garden</button></div>
+   <button class="btn gold" data-act="shareLesson">Share with family</button>
    ${duelOpen(ui.kid)?'<button class="btn rose" data-act="duelPick">Duel with Daddy</button>':''}
   </div>`;
 }
@@ -1080,7 +1223,7 @@ function duelRes(){
    <h1>${draw?"It's a draw!":win?`${esc(kidName())} wins!`:`${esc(r.opp)} wins this time`}</h1>
    <p class="bigstars" style="font-size:2rem;letter-spacing:0">${r.score[0]} : ${r.score[1]}</p>
    <p class="muted">${GAMES[r.game].name}${!win&&!draw?'. Rematch? Practice makes perfect, insha Allah.':''}</p>
-   <div class="row" style="justify-content:center"><button class="btn rose" data-act="duelGo">Rematch</button><button class="btn ghost" data-act="duelPick">Another game</button><button class="btn ghost" data-act="home">My garden</button></div></div>`;
+   <div class="row" style="justify-content:center"><button class="btn rose" data-act="duelGo">Rematch</button><button class="btn ghost" data-act="duelPick">Another game</button><button class="btn ghost" data-act="home">My garden</button></div>${win?'<button class="btn gold" data-act="shareDuel">Share the win</button>':''}</div>`;
 }
 let swX=null;
 app.addEventListener('pointerdown',e=>{if(ui.screen==='play'&&e.target.closest('#story .scene'))swX=e.clientX});
@@ -1194,6 +1337,13 @@ app.addEventListener('click',e=>{
    case 'ans':{const q=s.qs[st.q];st.ans=b.dataset.v;if(st.ans!==q.o[0])L.miss++;else if(q.big||q.glyph){const x=LETTERS.find(y=>y[1]===q.o[0]||y[0]===q.o[0]);x&&speak(x[2])}render();break;}
    case 'qNext':st.q++;st.ans=null;if(st.q>=s.qs.length){if(L.i<L.steps.length-1){L.i++;prepStep()}else{finishLesson();break}}render();break;
    case 'count':st.c++;render();break;
+   case 'avatar':ui.avDraft=null;go('avatar');break;
+   case 'avSet':{const k=b.dataset.k,v=b.dataset.v;ui.avDraft[k]=k==='head'||k==='holds'?v:k==='glasses'?v==='1':+v;render();break;}
+   case 'avSave':{S.kids[ui.kid].av=Object.assign({},ui.avDraft);saveKid(ui.kid);toast('Avatar saved!');go('home');break;}
+   case 'avSticker':{if(!S.kids[ui.kid].av){S.kids[ui.kid].av=Object.assign({},ui.avDraft);saveKid(ui.kid)}makeSticker(b.dataset.w).then(c=>shareCanvas(c,'little-lantern-sticker',b.dataset.w));break;}
+   case 'shareLesson':{const r=ui.result,l=byId[r.id];if(!S.kids[ui.kid].av){toast('Make your avatar first!');ui.avDraft=null;go('avatar');break}makeCard(`${kidName()} finished`,l.title,r.stars).then(c=>shareCanvas(c,'little-lantern',`${kidName()} finished ${l.title} in Little Lantern! MashaAllah`));break;}
+   case 'shareDuel':{const r=ui.duelRes;if(!S.kids[ui.kid].av){toast('Make your avatar first!');ui.avDraft=null;go('avatar');break}makeCard(`${kidName()} won!`,`${GAMES[r.game].name} against ${r.opp}, ${r.score[0]} to ${r.score[1]}`,0).then(c=>shareCanvas(c,'little-lantern-win',`${kidName()} won a letter duel in Little Lantern!`));break;}
+   case 'stk':{const i=+b.dataset.i;if(i===st.placed.length){st.placed.push(i);render()}else{L.miss++;b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');toast('Not yet. What comes before it?')}break;}
    case 'sNext':if(st.k<s.slides.length-1){st.k++;render()}break;
    case 'sPrev':if(st.k>0){st.k--;render()}break;
    case 'chunk':{const i=+b.dataset.i;if(i===st.placed.length)st.placed.push(i);else{L.miss+=0;toast('Which piece comes first?');b.classList.add('shake');break}render();break;}
