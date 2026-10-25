@@ -25,8 +25,8 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>window.LL_FB={apiKey:"AIzaSyAIZ4JyxxZPBcPD5OHjQ-hpofP-KJwHtzE",authDomain:"little-lantern-b8a7b.firebaseapp.com",projectId:"little-lantern-b8a7b",storageBucket:"little-lantern-b8a7b.firebasestorage.app",messagingSenderId:"598122924180",appId:"1:598122924180:web:2bf132131983ea04d74c81"};</script>
-<meta name="ll-build" content="202610251531">
-<script>window.LL_BUILD="202610251531";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
+<meta name="ll-build" content="202610251537">
+<script>window.LL_BUILD="202610251537";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
 </head>
 <body>
 <title>Little Lantern</title>
@@ -131,6 +131,31 @@ a{color:var(--green)}
 @keyframes glow{from{box-shadow:0 0 0 5px rgba(251,239,211,.25),0 0 10px 2px rgba(246,213,142,.4)}to{box-shadow:0 0 0 9px rgba(251,239,211,.35),0 0 28px 8px rgba(246,213,142,.75)}}
 @keyframes hop{from{transform:translateY(0)}to{transform:translateY(-6px)}}
 @media (prefers-reduced-motion:reduce){.stop.now .orb,.stop .me{animation:none}}
+.letter .pw{display:flex;align-items:center;gap:6px;margin-top:2px}
+.letter .pe{font-size:1.8rem;line-height:1}
+.letter .pa{font-family:var(--f-ar);font-size:1.3rem;color:var(--ink)}
+.dban{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:18px;background:var(--rose-soft);color:var(--ink)}
+.dban .dbe{font-size:2.6rem;line-height:1}
+.dban b{font-family:var(--f-display);font-weight:600;font-size:1.05rem}
+.dday{display:flex;flex-direction:column;gap:12px}
+.dsec{border-radius:22px;padding:12px;background:linear-gradient(135deg,var(--c1),var(--c2))}
+.dsec .dh{display:flex;align-items:center;gap:8px;font-size:1.2rem;color:#2B2430;margin:0 0 10px 4px}
+.dsec .dh span{font-size:1.6rem}
+.dsec.night .dh{color:#FBEFD3}
+.dgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.dcard{display:flex;flex-direction:column;align-items:center;gap:3px;padding:12px 8px;border-radius:18px;background:#fff;border:0;color:#2B2430;font:inherit;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.08);cursor:pointer}
+.dcard .dpic{font-size:2.8rem;line-height:1.1}
+.dcard b{font-family:var(--f-display);font-weight:600;font-size:.98rem;line-height:1.15}
+.dcard .dar{font-family:var(--f-ar);font-size:1.15rem;color:#B9587A;direction:rtl;line-height:1.5}
+.lland{display:flex;flex-direction:column;gap:12px}
+.lset{display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:20px;background:var(--surface);border:2px solid var(--line);border-left:8px solid var(--h);font:inherit;color:var(--ink);text-align:left;cursor:pointer}
+.lset.off{opacity:.55;cursor:default}
+.lsn{font-family:var(--f-display);font-weight:600;color:var(--h)}
+.lrow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;direction:rtl}
+.lt{display:flex;flex-direction:column;align-items:center;padding:6px 2px;border-radius:14px;background:color-mix(in srgb,var(--h) 10%,var(--surface))}
+.lt .lg{font-family:var(--f-ar);font-size:2.2rem;line-height:1.35;color:var(--h)}
+.lt .le{font-size:1.5rem;line-height:1}
+.lt small{font-size:.72rem;color:var(--muted);direction:ltr}
 @keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
 
 /* kid home */
@@ -494,6 +519,9 @@ const AQ=[
 ];
 AQ.forEach(l=>l.world='aq');
 
+const PICW={'ا':['🦁','أَسَد','lion'],'ب':['🏠','بَيْت','house'],'ت':['🍎','تُفَّاح','apple'],'ث':['❄️','ثَلْج','snow'],'ج':['🐪','جَمَل','camel'],'ح':['🥛','حَلِيب','milk'],'خ':['🍞','خُبْز','bread'],'د':['🐻','دُبّ','bear'],'ذ':['🌽','ذُرَة','corn'],'ر':['🪶','رِيشَة','feather'],'ز':['🫒','زَيْتُون','olive'],'س':['🐟','سَمَك','fish'],'ش':['☀️','شَمْس','sun'],'ص':['📦','صُنْدُوق','box'],'ض':['🐸','ضِفْدَع','frog'],'ط':['✈️','طَائِرَة','plane'],'ظ':['✉️','ظَرْف','envelope'],'ع':['🍇','عِنَب','grapes'],'غ':['☁️','غَيْمَة','cloud'],'ف':['🐘','فِيل','elephant'],'ق':['🌙','قَمَر','moon'],'ك':['📖','كِتَاب','book'],'ل':['🍋','لَيْمُون','lemon'],'م':['🍌','مَوْز','banana'],'ن':['🐝','نَحْلَة','bee'],'ه':['🎁','هَدِيَّة','gift'],'و':['🌹','وَرْدَة','rose'],'ي':['✋','يَد','hand']};
+const DPIC={ad1:'🍽️',ad2:'😋',ad3:'🌅',ad4:'🛏️',ad5:'🚪',ad6:'🧼',ad7:'👟',ad8:'🤧',ad9:'🛡️',ad10:'📖'};
+const DDAY=[['Wake up','🌅','#FFE3B8','#FFC98A',['ad3','ad9']],['Bathroom','🚿','#DDEBFA','#B9D3F0',['ad5','ad6']],['Meal time','🍽️','#E4F3E4','#BFE0BF',['ad1','ad2']],['Going out','🏡','#FCE3EC','#F4C3D4',['ad7']],['Any time','✨','#F1E8FA','#D9C8EE',['ad8']],['Bedtime','🌙','#2B3557','#1C2440',['ad4','ad10']]];
 const AD=[
 {id:'ad1',title:'Before eating',ar:'بِسْمِ اللَّهِ',when:'Before you start eating or drinking',tr:'Bismillah',mean:'In the name of Allah.',extra:{ar:'بِسْمِ اللَّهِ فِي أَوَّلِهِ وَآخِرِهِ',tr:'Bismillahi fi awwalihi wa akhirihi',mean:'If you forgot at the start, say: In the name of Allah, at its beginning and its end.'},chunks:['بِسْمِ اللَّهِ','فِي أَوَّلِهِ','وَآخِرِهِ'],src:'Abu Dawud, at-Tirmidhi'},
 {id:'ad2',title:'After eating',ar:'الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنِي هَذَا وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ',when:'When you finish eating',tr:"Alhamdu lillahil-ladhi at'amani hadha, wa razaqanihi, min ghayri hawlin minni wa la quwwah",mean:'All praise is for Allah who fed me this and gave it to me, without any power or strength from me.',chunks:['الْحَمْدُ لِلَّهِ','الَّذِي أَطْعَمَنِي هَذَا','وَرَزَقَنِيهِ','مِنْ غَيْرِ حَوْلٍ مِنِّي','وَلَا قُوَّةٍ'],src:'Abu Dawud, at-Tirmidhi, Ibn Majah'},
@@ -508,11 +536,11 @@ const AD=[
 ];
 AD.forEach(d=>{d.world='ad';d.auto=true;d.sub=d.when;d.steps=adhkarSteps(d)});
 function adhkarSteps(d){
-  const others=['Before you start eating','When you wake up','When you lie down to sleep','When you go out of the house','When you finish eating','When you come out of the toilet','When you sneeze','Every morning and evening'];
+  const others=['🍽️ Before you start eating','🌅 When you wake up','🛏️ When you lie down to sleep','👟 When you go out of the house','😋 When you finish eating','🧼 When you come out of the toilet','🤧 When you sneeze','🛡️ Every morning and evening'];
   const st=[{t:'say',text:`Here is a dua for: ${d.when.toLowerCase()}. Listen to Daddy say it, then say it with him.`},
     {t:'dhikr'},{t:'count',n:d.count||3}];
   if(d.chunks) st.push({t:'order',chunks:d.chunks});
-  st.push({t:'quiz',qs:[{q:'When do we say this dua?',o:[d.when.split('.')[0],...shuffle(others.filter(x=>!d.when.toLowerCase().startsWith(x.toLowerCase().slice(0,12)))).slice(0,2)],why:d.when},
+  st.push({t:'quiz',qs:[{q:'When do we say this dua?',o:[DPIC[d.id]+' '+d.when.split('.')[0],...shuffle(others.filter(x=>!x.startsWith(DPIC[d.id])&&!d.when.toLowerCase().startsWith(x.slice(x.indexOf(' ')+1).toLowerCase().slice(0,12)))).slice(0,2)],why:d.when},
     {q:'What does it mean?',o:[d.mean,...shuffle(AD.filter(x=>x.id!==d.id).map(x=>x.mean)).slice(0,2)],why:d.mean}]});
   return st;
 }
@@ -1258,9 +1286,26 @@ function aqIsland(){
    <p class="isl-foot">Already know a stop? Open it and tap "I know this" for a quick check.</p>
   </section>`;
 }
+function duaDay(){
+  const P=prog(ui.kid),n=AD.filter(l=>P.done[l.id]).length;
+  const card=id=>{const l=byId[id],d=P.done[id],short=l.ar.length<=26?l.ar:l.chunks?l.chunks[0]:l.ar.split('<br>')[0];
+    return `<button class="dcard" data-act="open" data-id="${id}" aria-label="${esc(l.title)}${d?', done':''}"><span class="dpic">${DPIC[id]}</span><b>${esc(l.title)}</b><span class="dar">${short.length>26?short.split(' ').slice(0,3).join(' ')+' …':short}</span>${d?`<span class="stars">${starsTxt(d)}</span>`:'<span class="chip rose">Start</span>'}</button>`};
+  return `<div class="topbar"><button class="back" data-act="home">← My garden</button></div>
+  <div class="world w-ad" style="min-height:auto"><span class="wicon">🤲</span><h1>My daily duas</h1><p>A dua for every part of your day. You know ${n} of ${AD.length}.</p></div>
+  <div class="dday">${DDAY.map(([name,ic,c1,c2,ids],i)=>`<section class="dsec ${i===DDAY.length-1?'night':''}" style="--c1:${c1};--c2:${c2}"><h2 class="dh"><span>${ic}</span>${name}</h2><div class="dgrid">${ids.map(card).join('')}</div></section>`).join('')}</div>`;
+}
+function letterLand(){
+  const P=prog(ui.kid),n=LV.filter(l=>P.done[l.id]).length,hues=['#1F5C4A','#B9587A','#C98F22','#3E6E8E','#7A5A9A','#2E8B7A','#C0613F'];
+  return `<div class="topbar"><button class="back" data-act="home">← My garden</button></div>
+  <div class="world w-ar" style="min-height:auto"><span class="wicon ar">ا</span><h1>Arabic letters</h1><p>Every letter has a picture friend. ${n} of ${LV.length} sets done.</p></div>
+  <div class="lland">${LV.map((l,i)=>{const ok=approved(l),un=unlocked(l),d=P.done[l.id],can=ok&&un;
+    return `<button class="lset ${can?'':'off'}" style="--h:${hues[i%7]}" ${can?`data-act="open" data-id="${l.id}"`:'disabled'}><div class="spread"><b class="lsn">Set ${i+1}</b>${d?`<span class="stars">${starsTxt(d)}</span>`:can?'<span class="chip rose">Start</span>':'<span class="chip plain">🔒 Locked</span>'}</div><div class="lrow">${l.set.map(x=>`<span class="lt"><span class="lg">${x[0]}</span><span class="le">${(PICW[x[0]]||['·'])[0]}</span><small>${x[1]}</small></span>`).join('')}</div></button>`}).join('')}</div>`;
+}
 function worldScreen(){
   if(ui.world==='st')return library();
   if(ui.world==='aq')return aqIsland();
+  if(ui.world==='ad')return duaDay();
+  if(ui.world==='ar')return letterLand();
   const W=WORLDS[ui.world],P=prog(ui.kid);
   return `<div class="topbar"><button class="back" data-act="home">← My garden</button></div>
   <div class="world ${W.cls}" style="min-height:auto"><span class="wicon ${ui.world==='ar'?'ar':''}">${W.icon}</span><h1>${W.name}</h1><p>${W.sub}${ui.world==='aq'?' · from Tawheed for Children, Level One, by Dr. Saleh as-Saleh':''}</p></div>
@@ -1281,7 +1326,8 @@ function letterSteps(l){
   const pool=LETTERS.slice(0,LV.indexOf(l)*4+4);
   const qs=shuffle(l.set.flatMap(x=>[
     {q:`Which letter is ${x[1]}?`,o:[x[0],...shuffle(pool.filter(y=>y!==x)).slice(0,3).map(y=>y[0])],glyph:true,why:`${x[1]} looks like this: ${x[0]}`},
-    {q:'What is the name of this letter?',big:x[0],o:[x[1],...shuffle(pool.filter(y=>y!==x)).slice(0,3).map(y=>y[1])],why:`${x[0]} is ${x[1]}. It sounds like ${x[3]}.`}]));
+    {q:'What is the name of this letter?',big:x[0],o:[x[1],...shuffle(pool.filter(y=>y!==x)).slice(0,3).map(y=>y[1])],why:`${x[0]} is ${x[1]}. It sounds like ${x[3]}.`},
+    ...(PICW[x[0]]?[{q:`${PICW[x[0]][2][0].toUpperCase()+PICW[x[0]][2].slice(1)} is ${PICW[x[0]][1]}. Which letter does it start with?`,big:PICW[x[0]][0],o:[x[0],...shuffle(pool.filter(y=>y!==x)).slice(0,3).map(y=>y[0])],glyph:true,why:`${PICW[x[0]][1]} (${PICW[x[0]][2]}) starts with ${x[1]}: ${x[0]}`}]:[])]));
   return [{t:'say',text:`New letters today, {name}! Tap each letter to hear its name and see its sound.`},{t:'letters',set:l.set},{t:'quiz',qs,grid:true}];
 }
 function curStep(){return ui.L.steps[ui.L.i]}
@@ -1312,24 +1358,25 @@ function play(){
   const L=ui.L,l=byId[L.id],s=curStep(),st=L.st,pct=Math.round(L.i/L.steps.length*100);
   let body='';
   const daddy='<div class="daddy">'+lanternMini()+'Daddy says</div>';
+  const dban=l.world==='ad'&&s.t!=='quiz'?`<div class="dban"><span class="dbe">${DPIC[l.id]||'🤲'}</span><b>${esc(l.when.split('.')[0])}</b></div>`:'';
   if(s.t==='say')body=`<div class="card stage">${daddy}<p class="say">${fill(s.text)}</p>${s.ar?`<div class="bigar">${s.ar}</div><p class="tr">${esc(s.tr)}</p><p class="tr" style="font-style:normal">${esc(s.mean)}</p>`:''}</div>`;
   else if(s.t==='story'){const sl=s.slides[st.k];body=`<div class="story" id="story"><div class="scene">${scene(sl.sc)}</div><div class="card stage"><p class="say">${fill(sl.text)}</p>${sl.ay?`<div class="ayah"><div class="ar">${sl.ay.ar}</div><p>${esc(sl.ay.en)}</p><span class="src">${esc(sl.ay.ref)}</span></div>`:''}</div><div class="spread"><button class="btn ghost sm" data-act="sPrev" ${st.k?'':'disabled'}>← Back</button><span class="sdots" aria-label="Page ${st.k+1} of ${s.slides.length}">${s.slides.map((x,i)=>`<i class="${i===st.k?'on':''}"></i>`).join('')}</span><button class="btn sm" data-act="sNext" ${st.k<s.slides.length-1?'':'disabled'}>Next →</button></div><p class="small muted" style="text-align:center">Swipe the picture or tap Next</p></div>`;}
   else if(s.t==='stack'){const it=s.items;body=`<h2>${esc(s.prompt)}</h2><p class="muted small">${esc(s.hint||'Tap them in the right order, first to last.')}</p><div class="tower">${it.map((x,i)=>`<div class="tslot ${i<st.placed.length?'on':''}"><span class="tn">${i+1}</span>${i<st.placed.length?`<b>${esc(x.t)}</b>${x.ar?`<span class="ar">${x.ar}</span>`:''}`:''}</div>`).join('')}</div><div class="tpool">${st.pool.filter(i=>!st.placed.includes(i)).map(i=>`<button class="tcard" data-act="stk" data-i="${i}"><b>${esc(it[i].t)}</b>${it[i].ar?`<span class="ar">${it[i].ar}</span>`:''}</button>`).join('')}</div>${st.placed.length===it.length?`<div class="fb ok">${esc(s.done||'MashaAllah, perfect!')}</div>`:''}`;}
   else if(s.t==='key')body=`<div class="key"><span class="lbl">Remember this</span><p>${fill(s.text)}</p></div>`;
   else if(s.t==='tap')body=`<h2>${esc(s.prompt)}</h2><div class="taps">${s.items.map((it,i)=>`<button class="tapit ${st.open[i]?'open':''}" data-act="tap" data-i="${i}"><span class="ic" aria-hidden="true">${it[0]}</span><b>${esc(it[1])}</b>${st.open[i]?`<span class="rev">${esc(s.reveal)}</span>`:''}</button>`).join('')}</div>`;
-  else if(s.t==='letters')body=`<div class="letters">${s.set.map((x,i)=>`<button class="letter ${st.open[i]?'open':''}" data-act="letter" data-i="${i}"><span class="g">${x[0]}</span><b>${x[1]}${arVoice?' 🔊':''}</b>${st.open[i]?`<span class="small">${x[2]} · sounds like <b>${esc(x[3])}</b></span>`:'<span class="small muted">Tap me</span>'}</button>`).join('')}</div>`;
+  else if(s.t==='letters')body=`<div class="letters">${s.set.map((x,i)=>`<button class="letter ${st.open[i]?'open':''}" data-act="letter" data-i="${i}"><span class="g">${x[0]}</span><b>${x[1]}${arVoice?' 🔊':''}</b>${PICW[x[0]]?`<span class="pw"><span class="pe">${PICW[x[0]][0]}</span><span class="pa">${PICW[x[0]][1]}</span></span>`:''}${st.open[i]?`<span class="small">${x[2]} · sounds like <b>${esc(x[3])}</b>${PICW[x[0]]?` · ${PICW[x[0]][2]}`:''}</span>`:'<span class="small muted">Tap me</span>'}</button>`).join('')}</div>`;
   else if(s.t==='sort'){const it=st.items[st.k];body=`<h2>${esc(s.prompt)}</h2>${it?`<div class="card sortcard">${esc(it[0])}</div>${st.ans==null?`<div class="row" style="justify-content:center"><button class="btn" data-act="sort" data-v="1">✓ ${esc(s.yes)}</button><button class="btn rose" data-act="sort" data-v="0">✗ ${esc(s.no)}</button></div>`:`<div class="fb ${st.ans?'ok':'no'}">${st.ans?'Yes! ':'Not quite. '}${it[1]?'Allah loves this.':'We keep away from this. It is only for Allah or it is wrong.'}</div><button class="btn" data-act="sortNext">Next</button>`}`:'<div class="fb ok">All sorted. MashaAllah!</div>'}`;}
   else if(s.t==='match'){body=`<h2>${esc(s.prompt)}</h2><div class="match"><div class="col">${st.left.map(i=>{const p=s.pairs[i];return `<button class="mi ${st.sel===i?'sel':''} ${st.done[i]?'done':''}" data-act="mL" data-i="${i}" ${st.done[i]?'disabled':''}>${p[0]?`<span class="ar">${p[0]}</span>`:''}${esc(p[1])}</button>`}).join('')}</div><div class="col">${st.right.map(i=>`<button class="mi ${st.done[i]?'done':''}" data-act="mR" data-i="${i}" ${st.done[i]?'disabled':''}>${esc(s.pairs[i][2])}</button>`).join('')}</div></div>`;}
   else if(s.t==='quiz'){const q=s.qs[st.q];
     body=q?`<p class="muted small">Question ${st.q+1} of ${s.qs.length}</p><h2>${esc(q.q)}</h2>${q.big?`<div class="bigar" style="font-size:4rem">${q.big}</div>`:''}<div class="opts ${q.glyph||s.grid?'grid4':''}">${st.order[st.q].map(o=>{let c='';if(st.ans!=null){if(o===q.o[0])c='right';else if(o===st.ans)c='wrong'}return `<button class="opt ${q.glyph?'glyph':''} ${c}" data-act="ans" data-v="${esc(o)}" ${st.ans!=null?'disabled':''}>${esc(o)}</button>`}).join('')}</div>${st.ans!=null?`<div class="fb ${st.ans===q.o[0]?'ok':'no'}">${st.ans===q.o[0]?'MashaAllah, correct! ':'Not quite. '}${esc(q.why)}</div><button class="btn" data-act="qNext">Next</button>`:''}`:'<div class="fb ok">Quiz finished!</div>';}
-  else if(s.t==='dhikr'){body=`<div class="card stage"><span class="chip rose" style="justify-self:start">${esc(l.when)}</span><div class="bigar">${l.ar}</div><p class="tr">${esc(l.tr)}</p><p style="font-weight:700;text-align:center">${esc(l.mean)}</p>${l.extra?`<hr style="border:0;border-top:1px solid var(--line);width:100%"><div class="bigar" style="font-size:1.7rem">${l.extra.ar}</div><p class="tr">${esc(l.extra.tr)}</p><p class="small" style="text-align:center">${esc(l.extra.mean)}</p>`:''}<p class="src">Source: ${esc(l.src)}</p></div>`;}
+  else if(s.t==='dhikr'){body=`<div class="card stage"><div class="bigar">${l.ar}</div><p class="tr">${esc(l.tr)}</p><p style="font-weight:700;text-align:center">${esc(l.mean)}</p>${l.extra?`<hr style="border:0;border-top:1px solid var(--line);width:100%"><div class="bigar" style="font-size:1.7rem">${l.extra.ar}</div><p class="tr">${esc(l.extra.tr)}</p><p class="small" style="text-align:center">${esc(l.extra.mean)}</p>`:''}<p class="src">Source: ${esc(l.src)}</p></div>`;}
   else if(s.t==='count'){body=`<div class="card stage" style="text-align:center"><h2>Say it with Daddy ${s.n} times</h2><div class="bigar" style="font-size:1.8rem">${l.ar}</div><div class="counter"><button data-act="count" aria-label="Count one">${st.c}</button><p class="muted">Tap after each time you say it</p></div></div>`;}
   else if(s.t==='order'){body=`<h2>Build the dua in the right order</h2><p class="muted small">Tap the pieces from first to last. Arabic reads from right to left.</p><div class="built">${st.placed.map(i=>`<span class="chunk placed">${s.chunks[i]}</span>`).join('')}</div><div class="chunks">${st.pool.filter(i=>!st.placed.includes(i)).map(i=>`<button class="chunk" data-act="chunk" data-i="${i}">${s.chunks[i]}</button>`).join('')}</div>${st.placed.length===s.chunks.length?'<div class="fb ok">MashaAllah, perfect!</div>':''}`;}
   else if(s.t==='daddy'){body=`<div class="card stage">${daddy}<p class="say">${fill(s.text)}</p><div class="row"><button class="btn gold" data-act="daddyCheck">Daddy's PIN</button></div><p class="small muted">Daddy not here? Come back later. Your answers are kept.</p></div>`;}
   const isLast=L.i===L.steps.length-1;
   return `<div class="topbar"><button class="back" data-act="quit" aria-label="Leave lesson">✕</button><div class="prog"><i style="width:${pct}%"></i></div></div>
   <div class="spread"><h3>${esc(l.title)}</h3>${l.world!=='ad'&&l.world!=='st'&&l.world!=='sk'&&L.i===0&&WORLDS[l.world].seq&&!L.quick?`<button class="btn ghost sm" data-act="quick">I know this</button>`:''}</div>
-  <div class="stage">${body}</div>
+  <div class="stage">${dban}${body}</div>
   ${s.t==='daddy'||(s.t==='sort'&&st.ans!=null)||(s.t==='quiz'&&st.ans!=null)?'':`<div class="row" style="justify-content:flex-end"><button class="btn ${isLast?'rose':''}" data-act="next" ${canNext()?'':'disabled'}>${isLast?'Finish':'Next'}</button></div>`}`;
 }
 function lanternMini(){return `<svg width="18" height="26" viewBox="0 0 64 96" aria-hidden="true"><path d="M14 16h36l6 10v52l-6 10H14l-6-10V26z" fill="var(--gold)"/></svg>`}
