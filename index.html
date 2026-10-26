@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#1F5C4A">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png?v=2">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=2">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Little Lantern">
@@ -25,8 +25,8 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>window.LL_FB={apiKey:"AIzaSyAIZ4JyxxZPBcPD5OHjQ-hpofP-KJwHtzE",authDomain:"little-lantern-b8a7b.firebaseapp.com",projectId:"little-lantern-b8a7b",storageBucket:"little-lantern-b8a7b.firebasestorage.app",messagingSenderId:"598122924180",appId:"1:598122924180:web:2bf132131983ea04d74c81"};window.LL_NTFY="little-lantern-17b8f6b09be7";</script>
-<meta name="ll-build" content="202610260531">
-<script>window.LL_BUILD="202610260531";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
+<meta name="ll-build" content="202610260719">
+<script>window.LL_BUILD="202610260719";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
 </head>
 <body>
 <title>Little Lantern</title>
@@ -542,6 +542,28 @@ th{font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:var(--mu
 <div id="app" aria-live="polite"></div>
 
 <script>
+let FAN_N=0;
+function fanous(o){o=o||{};const m=o.metal||'#C98F22',gl=o.glass||'#FFE29A',fl=o.flame||'#F59E2B',id=o.id||('f'+(++FAN_N));
+ const win='M16.2 45 V30.5 Q20 23.5 23.8 30.5 V45 Z';
+ const wl='M10.6 43 V32 Q12.3 27.6 14 32 V43 Z',wr='M26 43 V32 Q27.7 27.6 29.4 32 V43 Z';
+ const fill=o.fill==null?1:o.fill,top=46-25*fill;
+ return `<g>
+ <circle cx="20" cy="3.2" r="2.4" fill="none" stroke="${m}" stroke-width="1.6"/>
+ <path d="M20 5.6 V8.4" stroke="${m}" stroke-width="1.6"/>
+ <path d="M11 17 C11.5 12 15.5 9.6 20 8.2 C24.5 9.6 28.5 12 29 17 Z" fill="${m}"/>
+ <rect x="8" y="16.4" width="24" height="3.2" rx="1.6" fill="${m}"/>
+ <path d="M9 19.6 H31 L33.4 34 L29 50 H11 L6.6 34 Z" fill="${m}"/>
+ <path d="M10.4 21.2 H29.6 L31.6 34 L27.8 48.4 H12.2 L8.4 34 Z" fill="${o.body||'#8A5E12'}" opacity=".35"/>
+ <defs><clipPath id="${id}c"><rect x="0" y="${top}" width="40" height="40"/></clipPath></defs>
+ <g fill="${o.dim||'#F3E6C4'}"><path d="${win}"/><path d="${wl}"/><path d="${wr}"/></g>
+ <g fill="${gl}" clip-path="url(#${id}c)"><path d="${win}"/><path d="${wl}"/><path d="${wr}"/></g>
+ ${fill>0.15?`<path d="M20 34.5 C21.8 37 22 39.2 20 41.2 C18 39.2 18.2 37 20 34.5 Z" fill="${fl}"/>`:''}
+ <rect x="10.5" y="50" width="19" height="3" rx="1.5" fill="${m}"/>
+ <path d="M14.5 53 H25.5 L20 58.6 Z" fill="${m}"/>
+ <circle cx="20" cy="60.8" r="1.5" fill="${m}"/>
+ </g>`}
+function lanternIcon(px){return `<svg class="lanic" viewBox="0 0 40 64" width="${Math.round(px*.62)}" height="${px}" aria-hidden="true" style="vertical-align:middle">${fanous()}</svg>`}
+
 /* ===================== CONTENT ===================== */
 const AQ=[
 {id:'aq1',title:'Allah is Ar-Rabb',ar:'الرَّبّ',sub:'The One who creates, takes care of and owns everything',steps:[
@@ -711,7 +733,7 @@ function scene(o){
   if(o.cracks)s+=`<g stroke="#9A6A3A" stroke-width="2" fill="none" opacity=".7"><path d="M40 214 l20 6 l14 -8 l22 10"/><path d="M150 222 l18 -6 l10 10 l26 -4"/><path d="M260 216 l16 8 l22 -6 l18 9"/><path d="M90 232 l12 -6 l16 4"/></g>`;
   if(o.palms)o.palms.forEach(([x,sc])=>{s+=`<g transform="translate(${x} 188) scale(${sc})"><path d="M0 0 q -4 -40 6 -78" stroke="#8A6A4A" stroke-width="6" fill="none"/><g fill="#3E8E5E"><path d="M6 -78 q -34 -6 -46 18 q 22 -14 46 -18Z"/><path d="M6 -78 q 34 -10 48 14 q -24 -12 -48 -14Z"/><path d="M6 -78 q -16 -26 -42 -26 q 24 8 42 26Z"/><path d="M6 -78 q 18 -26 44 -22 q -26 6 -44 22Z"/></g></g>`});
   if(o.water)s+=`<ellipse cx="200" cy="200" rx="70" ry="12" fill="#6FB7D6" opacity=".9"/><ellipse cx="200" cy="198" rx="48" ry="5" fill="#BFE3F2" opacity=".8"/>`;
-  if(o.lantern){const [x,y]=o.lantern;s+=`<circle cx="${x}" cy="${y+26}" r="58" fill="url(#${id}g)"/><g transform="translate(${x-18} ${y})"><rect x="13" y="-10" width="10" height="8" rx="2" fill="#C98F22"/><path d="M4 2 h28 l6 10 v34 l-6 10 h-28 l-6 -10 v-34z" fill="#FFE29A" stroke="#C98F22" stroke-width="3"/><path d="M18 12 v34 M4 28 h28" stroke="#C98F22" stroke-width="2" opacity=".6"/></g>`}
+  if(o.lantern){const [x,y]=o.lantern;s+=`<circle cx="${x}" cy="${y+26}" r="58" fill="url(#${id}g)"/><g transform="translate(${x-18} ${y-10}) scale(.9)">${fanous({id:id+'L'})}</g>`}
   if(o.book)s+=`<g transform="translate(${o.book===true?150:o.book} 150)"><path d="M0 10 q 50 -18 100 0 v 46 q -50 -18 -100 0z" fill="#1F5C4A"/><path d="M50 2 v52" stroke="#D9A441" stroke-width="2"/><path d="M8 14 q 20 -8 38 -4 M54 10 q 20 -4 38 4" stroke="#F4EFE4" stroke-width="2" fill="none"/></g>`;
   if(o.glow){const [x,y]=o.glow;s+=`<circle cx="${x}" cy="${y}" r="40" fill="url(#${id}g)"/><circle cx="${x}" cy="${y}" r="5" fill="#FFF3C4"/>`}
   if(o.dark)s+=`<rect width="${W}" height="${H}" fill="#0B1020" opacity="${o.dark}"/>`;
@@ -1047,7 +1069,7 @@ function certsShelf(){
 
 /* ===================== WHO'S HERE + SALAM ===================== */
 const ONLINE_MS=75000;
-const WAVES=['Assalamu alaikum! 👋','Come and play! 🏮',"Let's read a story! 📜",'MashaAllah! 🌟'];
+const WAVES=['Assalamu alaikum! 👋','Come and play! 🌙',"Let's read a story! 📜",'MashaAllah! 🌟'];
 const REPLIES=['Wa alaikum assalam! 😊','Coming! 🏃','Jazakallahu khair! 💛'];
 let lastBeat=0,lastDoing='';
 function doingNow(){
@@ -1097,11 +1119,11 @@ function sendChat(text,to){
   const doc=ui.chatAs?{name:ui.chatAs.name,parent:true,text,at:Date.now()}:{from:ui.kid,to:to||null,text,at:Date.now()};
   S.chat=S.chat||{};S.chat[id]=doc;put('fam/'+id,doc);
 }
-const CHAT_EMOJI=['😊','😂','❤️','👍','🌟','🎉','🤲','🏮','📜','🌸'];
-const CHAT_QUICK=['Assalamu alaikum! 👋','MashaAllah! 🌟','Alhamdulillah 🤲','Jazakallahu khair! 💛','Come and play! 🏮',"Let's read a story! 📜",'I finished a lesson! 🎉','InshaAllah tomorrow!'];
+const CHAT_EMOJI=['😊','😂','❤️','👍','🌟','🎉','🤲','🌙','📜','🌸'];
+const CHAT_QUICK=['Assalamu alaikum! 👋','MashaAllah! 🌟','Alhamdulillah 🤲','Jazakallahu khair! 💛','Come and play! 🌙',"Let's read a story! 📜",'I finished a lesson! 🎉','InshaAllah tomorrow!'];
 function chatScreen(){
   const list=chatList(),typing=S.settings.chatTyping!==false,me=ui.kid;
-  const who=c=>c.parent?{name:c.name||'Grown-up',av:'<span class="sym" style="width:36px;height:36px;font-size:18px;background:var(--gold-soft)">🏮</span>'}:{name:S.kids[c.from]?.name||'Someone',av:S.kids[c.from]?symEl(c.from,36):''};
+  const who=c=>c.parent?{name:c.name||'Grown-up',av:'<span class="sym" style="width:36px;height:36px;font-size:18px;background:var(--gold-soft)">${lanternIcon(26)}</span>'}:{name:S.kids[c.from]?.name||'Someone',av:S.kids[c.from]?symEl(c.from,36):''};
   const mine=c=>ui.chatAs?c.parent&&c.name===ui.chatAs.name:c.from===me;
   return `<div class="topbar"><button class="back" data-act="${ui.chatAs?'chatBackParent':'home'}">← Back</button><span class="chip plain">Family only</span></div>
   <h1>Family chat</h1>
@@ -1175,7 +1197,7 @@ const WORLDS={
  sk:{name:'Stack it',sub:'Put things in the right order',icon:'🧩',cls:'w-sk',lessons:SK,seq:false}
 };
 const SOON=[['📖',"Qur'an and Hifz",'Juz Amma, surah by surah'],['💧','Wudu and salah','Step by step, the Sunnah way'],['🌷','Akhlaq missions','Good manners you do for real'],['🗣️','Arabic words','Everyday words, Madina style'],['🌙','The Islamic year','Ramadan, Dhul Hijjah, Muharram']];
-const SYMS=['🌙','⭐','🌸','🌷','🌻','🏮','💎','🌈','🍀','📖','🌿','🍉'];
+const SYMS=['🌙','⭐','🌸','🌷','🌻','🕌','💎','🌈','🍀','📖','🌿','🍉'];
 const SYMBG=['var(--rose-soft)','var(--green-soft)','var(--gold-soft)','var(--sky)'];
 const DEEDS=['I helped Ummi','I helped Daddy','I said salam first','I shared with someone','I told the truth','I said Bismillah before eating','I was kind to my cousin','I said sorry'];
 const ALL=[...AQ,...AD,...LV,...STORIES,...SK];
@@ -1317,7 +1339,7 @@ function fbGate(){
     :`<div class="card stage"><h3>Ask to join the family</h3><p class="muted">You're signed in as ${esc(fbEmail())}. Send a request, and once the family owner approves it, your children can play and everyone's progress stays in sync.</p><div class="row"><button class="btn rose" data-act="fbRequest">Ask to join</button><button class="btn ghost sm" data-act="fbSignOut">Use a different account</button></div></div>`;
   return `<div class="card stage"><h3>A grown-up signs in once</h3><p class="muted">Sign in with Google on this device so everyone's gardens, stars and duel wins stay in sync across the family. Children never need to sign in.</p><div class="row"><button class="btn rose" data-act="fbSignIn">Sign in with Google</button></div><p class="small muted">You can still play without signing in. Progress then stays on this device only.</p></div>`;
 }
-function symEl(k,size=64){const kid=S.kids[k];const i=Object.keys(S.kids).indexOf(k);if(kid.av)return `<span class="sym av" style="width:${size}px;height:${size}px">${avatarSVG(kid.av)}</span>`;return `<span class="sym" style="width:${size}px;height:${size}px;font-size:${size/2}px;background:${SYMBG[i%4]}">${esc(kid.symbol||'🌙')}</span>`}
+function symEl(k,size=64){const kid=S.kids[k];const i=Object.keys(S.kids).indexOf(k);if(kid.av)return `<span class="sym av" style="width:${size}px;height:${size}px">${avatarSVG(kid.av)}</span>`;return `<span class="sym" style="width:${size}px;height:${size}px;font-size:${size/2}px;background:${SYMBG[i%4]}">${kid.symbol==='🏮'?lanternIcon(size*.6):esc(kid.symbol||'🌙')}</span>`}
 
 function cover(){
   const ids=Object.keys(S.kids);
@@ -1359,7 +1381,7 @@ function gardenSVG(n,trees){
 }
 function deedsOk(k){return Object.values(S.deeds).filter(d=>d.kid===k&&d.status==='ok').length}
 function worldDone(w,k){return WORLDS[w].lessons.every(l=>prog(k).done[l.id])}
-function lanternSVG(p){const h=Math.round(56*p);return `<svg width="64" height="96" viewBox="0 0 64 96" aria-hidden="true"><path d="M26 4h12v8H26z" fill="var(--gold)"/><path d="M14 16h36l6 10v52l-6 10H14l-6-10V26z" fill="var(--gold-soft)" stroke="var(--gold)" stroke-width="3"/><clipPath id="lc"><path d="M14 16h36l6 10v52l-6 10H14l-6-10V26z"/></clipPath><rect x="0" y="${84-h}" width="64" height="${h}" fill="var(--gold)" opacity=".75" clip-path="url(#lc)"/><path d="M32 28v48M18 40h28M18 64h28" stroke="var(--gold)" stroke-width="2" opacity=".6"/></svg>`}
+function lanternSVG(p){return `<svg width="64" height="96" viewBox="0 0 40 64" aria-hidden="true">${fanous({fill:Math.max(.08,p),dim:'#F1E3C2'})}</svg>`}
 function lanternData(){const ws=weekStart();let c=0;for(const k in S.kids)c+=(prog(k).log||[]).filter(e=>e.at>=ws).length;const goal=Math.max(5,Object.keys(S.kids).length*5);return{c,goal,p:Math.min(1,c/goal)}}
 function nextIn(w){return WORLDS[w].lessons.find(l=>approved(l)&&unlocked(l)&&!prog(ui.kid).done[l.id])}
 function home(){
@@ -1392,7 +1414,7 @@ function gardenPane(){
    <button class="tile w-duel" data-act="${dOpen?'duelPick':'duelUnlock'}"><span class="ic">${dOpen?'⚔️':'🔒'}</span><b>Duel with Daddy</b><small>${dOpen?(D.played?`${D.won} wins`:'Play now'):'After a lesson'}</small></button></div>
    <p class="small muted">Coming soon: ${SOON.map(s=>s[1]).join(', ')}</p></section>
   <div class="duo">
-   <section class="card mini">${lanternSVG(L.p).replace('width="64" height="96"','width="36" height="54"')}<div><b>Family lantern</b><small class="muted">${L.c} of ${L.goal} this week</small></div></section>
+   <section class="card mini">${lanternSVG(L.p).replace('width="64" height="96"','width="34" height="54"')}<div><b>Family lantern</b><small class="muted">${L.c} of ${L.goal} this week</small></div></section>
    <button class="card mini deedbtn" data-act="deedOpen"><span class="ic">🌷</span><div><b>Good deed</b><small class="muted">${pend?pend+' waiting for Daddy':'Tell Daddy'}</small></div></button>
   </div>
   ${ui.deedOpen?`<section class="card"><p class="muted small">What good deed did you do? When Daddy says yes, a flower grows.</p><div class="row" style="margin-top:8px">${DEEDS.map(d=>`<button class="btn ghost sm" data-act="deed" data-t="${esc(d)}">${esc(d)}</button>`).join('')}</div></section>`:''}
@@ -1417,7 +1439,7 @@ function aqIsland(){
    <div class="isl-map" style="height:${H}px">
     <svg class="trail" viewBox="0 0 100 ${H}" preserveAspectRatio="none" style="height:${H}px" aria-hidden="true"><path d="${d}" fill="none" stroke="#F6D58E" stroke-opacity=".55" stroke-width="5" stroke-dasharray="2 12" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
     ${stops}
-    <div class="stop ${all?'done':'lock'}" style="left:${fx}%;top:${fy}px;cursor:default"><span class="orb">🏮</span><span class="txt"><span class="lab">${all?'You lit the lantern!':'Light the lantern'}</span>${all?'<span class="arl">مَا شَاءَ اللَّه</span>':''}</span></div>
+    <div class="stop ${all?'done':'lock'}" style="left:${fx}%;top:${fy}px;cursor:default"><span class="orb">${lanternIcon(58)}</span><span class="txt"><span class="lab">${all?'You lit the lantern!':'Light the lantern'}</span>${all?'<span class="arl">مَا شَاءَ اللَّه</span>':''}</span></div>
    </div>
    <p class="isl-foot">Already know a stop? Open it and tap "I know this" for a quick check.</p>
   </section>`;
@@ -1515,7 +1537,7 @@ function play(){
   <div class="stage">${dban}${body}</div>
   ${s.t==='daddy'||(s.t==='sort'&&st.ans!=null)||(s.t==='quiz'&&st.ans!=null)?'':`<div class="row" style="justify-content:flex-end"><button class="btn ${isLast?'rose':''}" data-act="next" ${canNext()?'':'disabled'}>${isLast?'Finish':'Next'}</button></div>`}`;
 }
-function lanternMini(){return `<svg width="18" height="26" viewBox="0 0 64 96" aria-hidden="true"><path d="M14 16h36l6 10v52l-6 10H14l-6-10V26z" fill="var(--gold)"/></svg>`}
+function lanternMini(){return `<svg width="16" height="26" viewBox="0 0 40 64" aria-hidden="true">${fanous()}</svg>`}
 
 function finishLesson(){
   const L=ui.L,k=ui.kid,P=prog(k);
@@ -1997,7 +2019,7 @@ function chatSuggest(){
   const cheers=others.map(c=>cheerFor(c)[0]).filter(Boolean).slice(0,3);
   return [...cheers,...myBrag(k),reminderNow(),"Let's both finish today's three! 💪",'Did you read a story today? 📜','Keep going, you can do it! 🌱','Assalamu alaikum! 👋','MashaAllah! 🌟','Jazakallahu khair! 💛'].slice(0,10);
 }
-function wavesFor(c){return [...cheerFor(c).slice(0,1),'Assalamu alaikum! 👋',"Let's learn together! 🏮","Did you read today's story? 📜",'MashaAllah, keep going! 🌟']}
+function wavesFor(c){return [...cheerFor(c).slice(0,1),'Assalamu alaikum! 👋',"Let's learn together! 🌙","Did you read today's story? 📜",'MashaAllah, keep going! 🌟']}
 
 /* ===================== FLASHCARDS ===================== */
 const FLASH_INT=[0,1,3,7,30];
