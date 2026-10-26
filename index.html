@@ -25,8 +25,8 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>window.LL_FB={apiKey:"AIzaSyAIZ4JyxxZPBcPD5OHjQ-hpofP-KJwHtzE",authDomain:"little-lantern-b8a7b.firebaseapp.com",projectId:"little-lantern-b8a7b",storageBucket:"little-lantern-b8a7b.firebasestorage.app",messagingSenderId:"598122924180",appId:"1:598122924180:web:2bf132131983ea04d74c81"};window.LL_NTFY="little-lantern-17b8f6b09be7";</script>
-<meta name="ll-build" content="202610260518">
-<script>window.LL_BUILD="202610260518";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
+<meta name="ll-build" content="202610260531">
+<script>window.LL_BUILD="202610260531";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
 </head>
 <body>
 <title>Little Lantern</title>
@@ -227,6 +227,51 @@ a{color:var(--green)}
 .nic{font-size:2.2rem}
 .feedend{display:flex;flex-direction:column;align-items:center;gap:2px;padding:26px 16px;border-radius:24px;background:linear-gradient(180deg,#1C2440,#2B3557);color:#FBEFD3;text-align:center}
 .feedend span{font-size:2.4rem}.feedend small{color:#CFE0E6}
+body.igon #app{padding-top:0;padding-bottom:calc(84px + env(safe-area-inset-bottom,0px));gap:10px}
+.igtop{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;margin-inline:-16px;padding:10px 16px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.igme{border:0;background:none;padding:0;cursor:pointer;border-radius:50%;line-height:0}
+.iglogo{flex:1;font:700 1.45rem var(--f-display);letter-spacing:-.01em;background:linear-gradient(90deg,#C98F22,#B9587A 60%,#7A5A9A);-webkit-background-clip:text;background-clip:text;color:transparent}
+.igico{display:flex;gap:6px}
+.igico button{position:relative;width:42px;height:42px;border:0;background:none;font-size:1.45rem;cursor:pointer;border-radius:50%}
+.igico i{position:absolute;top:2px;right:0;min-width:18px;height:18px;padding:0 4px;border-radius:999px;background:#E0445E;color:#fff;font:800 .68rem/18px var(--f-body);font-style:normal;border:2px solid var(--bg)}
+.ignav{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:repeat(3,1fr);padding:6px max(16px,env(safe-area-inset-left,0px)) calc(6px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--line)}
+.ignav button{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:1px;padding:4px 0;cursor:pointer;color:var(--muted);font:inherit}
+.ignav span{font-size:1.55rem;line-height:1.1;filter:grayscale(1);opacity:.55;transition:transform .2s,filter .2s,opacity .2s}
+.ignav small{font-size:.68rem;font-weight:800}
+.ignav button.on{color:var(--ink)}.ignav button.on span{filter:none;opacity:1;transform:scale(1.12)}
+.igview{overflow-x:clip;overflow-y:visible;margin-inline:-16px}
+.igtrack{display:flex;align-items:flex-start;will-change:transform}
+.igpane{flex:0 0 100%;min-width:0;padding-inline:16px;box-sizing:border-box;padding-top:8px}
+.igpane:not(.act){max-height:100svh;overflow:hidden}
+.ring{display:inline-flex;padding:3px;border-radius:50%;background:conic-gradient(from 210deg,#F6C453,#E0445E,#B9587A,#7A5A9A,#F6C453)}
+.ring .sym{border:3px solid var(--bg);box-sizing:content-box}
+.ggrid{gap:2px;margin-inline:-16px}
+.gtile{border-radius:0}
+.gtile .hpop,.reel .hpop{position:absolute;left:50%;top:50%;font-size:5rem;transform:translate(-50%,-50%) scale(0);animation:hpop .8s ease-out forwards;pointer-events:none;z-index:3;filter:drop-shadow(0 4px 12px rgba(0,0,0,.25))}
+@keyframes hpop{0%{transform:translate(-50%,-50%) scale(0);opacity:0}15%{transform:translate(-50%,-50%) scale(1.2);opacity:1}30%{transform:translate(-50%,-50%) scale(.95)}45%{transform:translate(-50%,-50%) scale(1)}80%{opacity:1}100%{transform:translate(-50%,-60%) scale(1);opacity:0}}
+html.snapy{scroll-snap-type:y mandatory}
+.feed{display:flex;flex-direction:column;gap:10px}
+.reel{position:relative;scroll-snap-align:start;scroll-snap-stop:always;scroll-margin-top:70px;min-height:calc(100svh - 70px - 84px - 10px);box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:28px 22px;border-radius:26px;text-align:center;overflow:hidden}
+.reel.gem{background:linear-gradient(160deg,var(--g1),var(--g2));color:#2B2430;padding-right:74px;padding-left:22px}
+.reel .gpic{font-size:5.5rem}
+.reel .gtx{font-size:1.45rem}
+.reel .gar{font-size:2rem}
+.rside{position:absolute;right:10px;bottom:24px;display:flex;flex-direction:column;gap:14px}
+.rside button{display:flex;flex-direction:column;align-items:center;gap:2px;border:0;background:rgba(255,255,255,.75);width:54px;padding:8px 0;border-radius:18px;font-size:1.6rem;cursor:pointer;color:#2B2430}
+.rside small{font:800 .66rem var(--f-body)}
+.swipeup{position:absolute;bottom:10px;left:0;right:0;font-size:.8rem;font-weight:800;color:#6F6370;animation:bobup 1.4s ease-in-out infinite}
+@keyframes bobup{50%{transform:translateY(-6px)}}
+.reel.win{background:linear-gradient(170deg,#FFF6E0,#FCE3EC);color:#2B2430;border:0}
+.reel.win p{font:600 1.4rem/1.35 var(--f-display);margin:0;max-width:20em}
+.ring.big .sym{border-width:5px}
+.wbadge{font-size:2.4rem;margin-top:-34px;z-index:1}
+.reel.nudge{background:linear-gradient(170deg,#FBEFD3,#FFE6D9);border:0;flex-wrap:nowrap}
+.reel.nudge .nic{font-size:5rem}
+.reel.nudge p{font:600 1.4rem/1.35 var(--f-display);flex:none;min-width:0;margin:0}
+.reel.feedend{background:linear-gradient(180deg,#1C2440,#2B3557);color:#FBEFD3}
+.reel.feedend span{font-size:4rem}.reel.feedend b{font:600 1.5rem var(--f-display)}.reel.feedend small{color:#CFE0E6;font-size:1rem}
+.reel.feedend .btn.ghost{background:transparent;color:#FBEFD3;border-color:rgba(251,239,211,.5)}
+@media (prefers-reduced-motion:reduce){.swipeup{animation:none}html.snapy{scroll-snap-type:none}}
 @keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
 
 /* kid home */
@@ -1256,6 +1301,7 @@ function render(){
   if(ui.screen==='duel')return;
   const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen,cert:certScreen,chat:chatScreen,bell:bellScreen,flash:flashScreen}[ui.screen]||cover;
   app.innerHTML=f();
+  const igOn=ui.screen==='home';document.body.classList.toggle('igon',igOn);document.documentElement.classList.toggle('snapy',igOn&&ui.page===2);
   placeRoad();
   beat(false);
   if(ui.screen==='cert')drawCert();
@@ -1323,9 +1369,18 @@ function home(){
   const pend=Object.values(S.deeds).filter(d=>d.kid===k&&d.status==='pending').length;
   const short={aq:'Knowing Allah',ad:'Duas',ar:'Letters'};
   const tile=(w)=>{const W=WORLDS[w],n=W.lessons.filter(l=>P.done[l.id]).length;return `<button class="tile ${W.cls}" data-act="world" data-w="${w}"><span class="ic ${w==='ar'?'ar':''}">${W.icon}</span><b>${W.name}</b><span class="bar"><i style="width:${n/W.lessons.length*100}%"></i></span><small>${n}/${W.lessons.length}</small></button>`};
-  if(ui.page===1)return galleryPage();
-  if(ui.page===2)return feedPage();
-  return `${pager()}<div class="pgwrap ${ui.slide||''}">
+  const pg=ui.page||0;
+  const panes=[()=>gardenPane(),()=>galleryPage(),()=>feedPage(pg===2)];
+  return `${igTop()}<div class="igview"><div class="igtrack" id="igtrack" style="transform:translateX(${-pg*100}%)">${panes.map((f,i)=>`<section class="igpane ${i===pg?'act':''}" ${i===pg?'':'inert aria-hidden="true"'}>${f()}</section>`).join('')}</div></div>${igNav()}`;
+}
+function gardenPane(){
+  const k=ui.kid,P=prog(k),done=Object.keys(P.done).length,stars=Object.values(P.done).reduce((a,b)=>a+b,0);
+  const tasks=todayTasks(k),dOpen=duelOpen(k),D=P.duels||{played:0,won:0};
+  const trees=['aq','ad','ar'].filter(w=>worldDone(w,k)).length,L=lanternData();
+  const pend=Object.values(S.deeds).filter(d=>d.kid===k&&d.status==='pending').length;
+  const short={aq:'Knowing Allah',ad:'Duas',ar:'Letters'};
+  const tile=(w)=>{const W=WORLDS[w],n=W.lessons.filter(l=>P.done[l.id]).length;return `<button class="tile ${W.cls}" data-act="world" data-w="${w}"><span class="ic ${w==='ar'?'ar':''}">${W.icon}</span><b>${W.name}</b><span class="bar"><i style="width:${n/W.lessons.length*100}%"></i></span><small>${n}/${W.lessons.length}</small></button>`};
+  return `<div class="pgwrap">
   <div class="hello2"><button class="avbtn" data-act="avatar" aria-label="Make my avatar">${symEl(k,64)}<span class="avedit">${S.kids[k].av?'Edit':'Make me!'}</span></button>
    <div class="hx"><h1 class="hi">Assalamu alaikum, ${esc(S.kids[k].name)}!</h1><div class="pills"><span class="pill">⭐ ${stars}</span><span class="pill">🔥 ${P.streak||0} day${(P.streak||0)===1?'':'s'}</span><span class="pill">🌸 ${done+deedsOk(k)+(P.flashDays||0)}</span></div></div></div>
   ${joinBell()}
@@ -1341,7 +1396,7 @@ function home(){
    <button class="card mini deedbtn" data-act="deedOpen"><span class="ic">🌷</span><div><b>Good deed</b><small class="muted">${pend?pend+' waiting for Daddy':'Tell Daddy'}</small></div></button>
   </div>
   ${ui.deedOpen?`<section class="card"><p class="muted small">What good deed did you do? When Daddy says yes, a flower grows.</p><div class="row" style="margin-top:8px">${DEEDS.map(d=>`<button class="btn ghost sm" data-act="deed" data-t="${esc(d)}">${esc(d)}</button>`).join('')}</div></section>`:''}
-  <p class="small muted" style="text-align:center">Swipe ← to see your gallery and today's gems</p></div>`;
+  <p class="small muted" style="text-align:center">Swipe ← for your gallery and today's gems</p></div>`;
 }
 const AQICON={aq1:'🌍',aq2:'🌸',aq3:'🍎',aq4:'💛',aq5:'✨',aq6:'🎯'};
 function aqIsland(){
@@ -1817,16 +1872,41 @@ const GEMS=[
 
 /* ===================== PAGES: GARDEN · GALLERY · GEMS ===================== */
 const PAGES=[['🌸','Garden'],['🏅','Gallery'],['✨','Gems']];
-function pager(){
-  const n=bellUnseen(ui.kid);
-  return `<div class="topbar"><button class="back" data-act="logout">← Switch</button><button class="bellbtn" data-act="bell" aria-label="Notifications${n?', '+n+' new':''}">🔔${n?`<i>${n>9?'9+':n}</i>`:''}</button></div>
-  <nav class="pager" aria-label="Pages">${PAGES.map(([ic,t],i)=>`<button class="${(ui.page||0)===i?'on':''}" data-act="page" data-p="${i}">${ic} ${t}</button>`).join('')}</nav>`;
+function igTop(){
+  const n=bellUnseen(ui.kid),c=mode==='db'?unreadCount():0;
+  return `<header class="igtop"><button class="igme" data-act="logout" aria-label="Switch player">${symEl(ui.kid,32)}</button><b class="iglogo">Little Lantern</b><span class="igico"><button data-act="bell" aria-label="Notifications${n?', '+n+' new':''}">🔔${n?`<i>${n>9?'9+':n}</i>`:''}</button>${mode==='db'?`<button data-act="chat" aria-label="Family chat${c?', '+c+' new':''}">💬${c?`<i>${c>9?'9+':c}</i>`:''}</button>`:''}</span></header>`;
 }
-function setPage(p){p=Math.max(0,Math.min(PAGES.length-1,p));if(p===(ui.page||0))return;ui.slide=p>(ui.page||0)?'sl':'sr';ui.page=p;if(p===1)ui.galKid=ui.galKid||ui.kid;render();window.scrollTo({top:0,behavior:'instant'});ui.slide=''}
-(function(){let sx=0,sy=0,ok=false;
-  app.addEventListener('touchstart',e=>{ok=ui.screen==='home'&&!e.target.closest('.family,.strip,.certs,.galfam,input,textarea');const t=e.touches[0];sx=t.clientX;sy=t.clientY},{passive:true});
-  app.addEventListener('touchend',e=>{if(!ok)return;const t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(Math.abs(dx)>70&&Math.abs(dy)<60)setPage((ui.page||0)+(dx<0?1:-1))},{passive:true});
+function igNav(){return `<nav class="ignav" aria-label="Pages">${PAGES.map(([ic,t],i)=>`<button class="${(ui.page||0)===i?'on':''}" data-act="page" data-p="${i}" aria-label="${t}"${(ui.page||0)===i?' aria-current="page"':''}><span>${ic}</span><small>${t}</small></button>`).join('')}</nav>`}
+function pinNeighbours(){const y=window.scrollY;document.querySelectorAll('.igpane:not(.act)').forEach(el=>el.style.transform=`translateY(${y}px)`)}
+function setPage(p){
+  p=Math.max(0,Math.min(PAGES.length-1,p));
+  if(p===(ui.page||0)){window.scrollTo({top:0,behavior:'smooth'});return}
+  ui.page=p;if(p===1)ui.galKid=ui.galKid||ui.kid;
+  const tr=document.getElementById('igtrack');
+  if(!tr||matchMedia('(prefers-reduced-motion: reduce)').matches){render();window.scrollTo({top:0,behavior:'instant'});return}
+  pinNeighbours();tr.style.transition='transform .34s cubic-bezier(.2,.8,.2,1)';tr.style.transform=`translateX(${-p*100}%)`;
+  document.querySelectorAll('.ignav button').forEach((b,i)=>b.classList.toggle('on',i===p));
+  setTimeout(()=>{window.scrollTo({top:0,behavior:'instant'});render()},340);
+}
+(function(){let sx=0,sy=0,on=false,lock=0,dx=0,t0=0,W=1;
+  app.addEventListener('touchstart',e=>{on=ui.screen==='home'&&!e.target.closest('.family,.strip,.certs,.galfam,input,textarea,.ignav');if(!on)return;const t=e.touches[0];sx=t.clientX;sy=t.clientY;lock=0;dx=0;t0=Date.now();W=app.clientWidth||innerWidth},{passive:true});
+  app.addEventListener('touchmove',e=>{if(!on)return;const t=e.touches[0],x=t.clientX-sx,y=t.clientY-sy;
+    if(!lock){if(Math.abs(x)<8&&Math.abs(y)<8)return;lock=Math.abs(x)>Math.abs(y)*1.2?1:2;if(lock===1)pinNeighbours()}
+    if(lock!==1)return;e.preventDefault();const pg=ui.page||0;dx=x;if((pg===0&&x>0)||(pg===PAGES.length-1&&x<0))dx=x*.3;
+    const tr=document.getElementById('igtrack');if(tr){tr.style.transition='none';tr.style.transform=`translateX(calc(${-pg*100}% + ${dx}px))`}},{passive:false});
+  app.addEventListener('touchend',()=>{if(!on||lock!==1)return;const pg=ui.page||0,v=Math.abs(dx)/Math.max(1,Date.now()-t0),go2=Math.abs(dx)>W*.22||v>.5?pg+(dx<0?1:-1):pg;
+    const np=Math.max(0,Math.min(PAGES.length-1,go2));
+    if(np===pg){const tr=document.getElementById('igtrack');if(tr){tr.style.transition='transform .3s cubic-bezier(.2,.8,.2,1)';tr.style.transform=`translateX(${-pg*100}%)`;setTimeout(()=>document.querySelectorAll('.igpane:not(.act)').forEach(el=>el.style.transform=''),300)}}
+    else setPage(np)},{passive:true});
 })();
+/* double tap to heart */
+let lastTap={t:0,el:null};
+app.addEventListener('click',e=>{const el=e.target.closest('[data-dbl]');if(!el||e.target.closest('button'))return;const now=Date.now();
+  if(lastTap.el===el&&now-lastTap.t<350){lastTap={t:0,el:null};heartPop(el);const [kind,a1,a2]=el.dataset.dbl.split('|');
+    if(kind==='gem'){const P=prog(ui.kid);P.gemHearts=P.gemHearts||{};if(!P.gemHearts[a1]){P.gemHearts[a1]=Date.now();saveProg(ui.kid);setTimeout(render,650)}}
+    else if(kind==='cert'&&a1!==ui.kid&&!heartsOn(a1,a2).some(h=>h.from===ui.kid))setTimeout(()=>toggleHeart(a1,a2),650)}
+  else lastTap={t:now,el}});
+function heartPop(el){const h=document.createElement('span');h.className='hpop';h.textContent='❤️';el.appendChild(h);setTimeout(()=>h.remove(),800)}
 
 /* ---------- hearts ---------- */
 function heartKey(from,kid,key){return 'h-'+from+'-'+kid+'-'+String(key).replace(/[^a-zA-Z0-9]/g,'').slice(0,40)}
@@ -1849,13 +1929,12 @@ function galleryPage(){
   const stars=Object.values(P.done||{}).reduce((a,b)=>a+b,0),hearts=list.reduce((a,c)=>a+heartsOn(g,c.key).length,0);
   const kids=Object.keys(S.kids);
   const saved=mine?GEMS.filter(x=>(P.gemHearts||{})[x.id]):[];
-  return `${pager()}
-  <div class="pgwrap ${ui.slide||''}">
+  return `<div class="pgwrap">
   ${kids.length>1?`<div class="galfam">${kids.map(k=>`<button class="${k===g?'on':''}" data-act="galOf" data-k="${k}">${symEl(k,40)}<small>${k===ui.kid?'Me':esc(S.kids[k].name)}</small></button>`).join('')}</div>`:''}
-  <section class="prof">${symEl(g,78)}<div class="pst"><div><b>${list.length}</b><small>certificates</small></div><div><b>${stars}</b><small>stars</small></div><div><b>${hearts}</b><small>hearts</small></div></div></section>
+  <section class="prof"><span class="ring">${symEl(g,80)}</span><div class="pst"><div><b>${list.length}</b><small>certificates</small></div><div><b>${stars}</b><small>stars</small></div><div><b>${hearts}</b><small>hearts</small></div></div></section>
   <h1 class="pname">${esc(S.kids[g].name)}${mine?'':`'s gallery`}</h1>
   ${list.length?`<div class="ggrid">${list.map((c,i)=>{const hs=heartsOn(g,c.key),me=hs.some(h=>h.from===ui.kid);
-    return `<div class="gtile"><button class="gopen" data-act="galCert" data-k="${g}" data-key="${esc(c.key)}" aria-label="${esc(c.title)}">${certThumb(c,i)}<span class="gcap">${esc(c.story?(byId[c.story].title.replace(/^Prophet /,'')):c.title)}</span></button>${mine?(hs.length?`<span class="ghc">❤️ ${hs.length}</span>`:''):`<button class="ghb ${me?'on':''}" data-act="heart" data-k="${g}" data-key="${esc(c.key)}" aria-label="${me?'Remove heart':'Give a heart'}">${me?'❤️':'🤍'} ${hs.length||''}</button>`}</div>`}).join('')}</div>`
+    return `<div class="gtile" data-dbl="cert|${g}|${esc(c.key)}"><button class="gopen" data-act="galCert" data-k="${g}" data-key="${esc(c.key)}" aria-label="${esc(c.title)}">${certThumb(c,i)}<span class="gcap">${esc(c.story?(byId[c.story].title.replace(/^Prophet /,'')):c.title)}</span></button>${mine?(hs.length?`<span class="ghc">❤️ ${hs.length}</span>`:''):`<button class="ghb ${me?'on':''}" data-act="heart" data-k="${g}" data-key="${esc(c.key)}" aria-label="${me?'Remove heart':'Give a heart'}">${me?'❤️':'🤍'} ${hs.length||''}</button>`}</div>`}).join('')}</div>`
   :`<div class="card stage" style="text-align:center"><p class="muted">${mine?'No certificates yet. Finish your first lesson and your first one appears here!':`${esc(S.kids[g].name)} has no certificates yet.`}</p></div>`}
   ${saved.length?`<section class="sect"><h2 class="h2s">Gems I saved ❤️</h2><div class="saved">${saved.map(x=>`<div class="gsave" style="--g1:${x.c1};--g2:${x.c2}"><span class="gpe">${x.pic}</span><p>${esc(x.text)}</p><small>${esc(x.src)}</small></div>`).join('')}</div></section>`:''}
   </div>`;
@@ -1993,21 +2072,18 @@ function nudges(k){
   const fd=flashDue(k);if(fd)out.push({icon:'🃏',text:`${fd} flashcards are waiting for you. Quick round?`,act:'flash',arg:''});
   const n=dayNum();return out.length?[out[n%out.length],out[(n+1)%out.length]].filter((x,i,a)=>a.indexOf(x)===i):[];
 }
-function feedPage(){
-  const k=ui.kid,P=prog(k);if(P.feedOpened!==dayKey()){P.feedOpened=dayKey();saveProg(k)}
+function feedPage(active){
+  const k=ui.kid,P=prog(k);if(active&&P.feedOpened!==dayKey()){P.feedOpened=dayKey();saveProg(k)}
   const gems=todaysGems(k),wins=familyWins(k,3).slice(0,3),nd=nudges(k),items=[];
   const g=[...gems],w=[...wins],n=[...nd];
   while(g.length||w.length||n.length){if(g.length)items.push(['g',g.shift()]);if(w.length)items.push(['w',w.shift()]);if(g.length)items.push(['g',g.shift()]);if(n.length)items.push(['n',n.shift()])}
-  const card=([t,x])=>{
-    if(t==='g'){const h=(P.gemHearts||{})[x.id];return `<article class="gem" style="--g1:${x.c1};--g2:${x.c2}"><span class="gkind">${esc(x.kind)}</span><span class="gpic">${x.pic}</span>${x.ar?`<p class="gar">${x.ar}</p>`:''}<p class="gtx">${esc(x.text)}</p><span class="gsrc">${esc(x.src)}</span><div class="gact"><button class="${h?'on':''}" data-act="gemHeart" data-id="${x.id}" aria-label="${h?'Unsave':'Save with a heart'}">${h?'❤️':'🤍'}</button><button data-act="gemSend" data-id="${x.id}" aria-label="Send to family chat">💬 Send to family</button></div></article>`}
-    if(t==='w')return `<article class="win"><span class="bav">${symEl(x.kid,52)}<i>${x.icon}</i></span><div><p>${esc(x.text)}</p><button class="btn sm" data-act="cheer" data-k="${x.kid}">Say MashaAllah 🌟</button></div></article>`;
-    return `<article class="nudge"><span class="nic">${x.icon}</span><p>${esc(x.text)}</p><button class="btn rose sm" data-act="bellGo" data-a="${x.act}" data-arg="${esc(x.arg)}">Let's go →</button></article>`;
+  const card=([t,x],i)=>{
+    if(t==='g'){const h=(P.gemHearts||{})[x.id];return `<article class="reel gem" data-dbl="gem|${x.id}" style="--g1:${x.c1};--g2:${x.c2}"><span class="gkind">${esc(x.kind)}</span><span class="gpic">${x.pic}</span>${x.ar?`<p class="gar">${x.ar}</p>`:''}<p class="gtx">${esc(x.text)}</p><span class="gsrc">${esc(x.src)}</span><div class="rside"><button class="${h?'on':''}" data-act="gemHeart" data-id="${x.id}" aria-label="${h?'Unsave':'Save with a heart'}">${h?'❤️':'🤍'}<small>${h?'Saved':'Save'}</small></button><button data-act="gemSend" data-id="${x.id}" aria-label="Send to family chat">💬<small>Send</small></button></div>${i===0?'<span class="swipeup">Swipe up ↑</span>':''}</article>`}
+    if(t==='w')return `<article class="reel win"><span class="ring big">${symEl(x.kid,120)}</span><span class="wbadge">${x.icon}</span><p>${esc(x.text)}</p><button class="btn" data-act="cheer" data-k="${x.kid}">Say MashaAllah 🌟</button>${i===0?'<span class="swipeup">Swipe up ↑</span>':''}</article>`;
+    return `<article class="reel nudge"><span class="nic">${x.icon}</span><p>${esc(x.text)}</p><button class="btn rose" data-act="bellGo" data-a="${x.act}" data-arg="${esc(x.arg)}">Let's go →</button>${i===0?'<span class="swipeup">Swipe up ↑</span>':''}</article>`;
   };
-  return `${pager()}<div class="pgwrap ${ui.slide||''}">
-   <h1 class="feedh">Today's gems ✨</h1>
-   ${items.length?`<div class="feed">${items.map(card).join('')}</div>`:''}
-   <div class="feedend"><span>🌙</span><b>That's all for today</b><small>Come back tomorrow for new gems, inshaAllah.</small></div>
-  </div>`;
+  return `<div class="feed">${items.map(card).join('')}
+   <article class="reel feedend"><span>🌙</span><b>That's all for today</b><small>Come back tomorrow for new gems, inshaAllah.</small><button class="btn ghost" data-act="page" data-p="0">Back to my garden</button></article></div>`;
 }
 
 /* ===================== EVENTS ===================== */
