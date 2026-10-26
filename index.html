@@ -25,8 +25,8 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>window.LL_FB={apiKey:"AIzaSyAIZ4JyxxZPBcPD5OHjQ-hpofP-KJwHtzE",authDomain:"little-lantern-b8a7b.firebaseapp.com",projectId:"little-lantern-b8a7b",storageBucket:"little-lantern-b8a7b.firebasestorage.app",messagingSenderId:"598122924180",appId:"1:598122924180:web:2bf132131983ea04d74c81"};window.LL_NTFY="little-lantern-17b8f6b09be7";</script>
-<meta name="ll-build" content="202610260517">
-<script>window.LL_BUILD="202610260517";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
+<meta name="ll-build" content="202610260518">
+<script>window.LL_BUILD="202610260518";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
 </head>
 <body>
 <title>Little Lantern</title>
@@ -1742,7 +1742,7 @@ function previewHTML(l){
   return `<div class="preview">${l.steps.map(s=>s.t==='say'||s.t==='key'||s.t==='daddy'?`<div>${s.t==='key'?'<b>Remember:</b> ':''}${esc(s.text)}</div>`:s.t==='quiz'?s.qs.map(q=>`<div class="small">Q: ${esc(q.q)} <b>${esc(q.o[0])}</b></div>`).join(''):s.t==='sort'?`<div class="small">Sort: ${s.items.map(i=>esc(i[0])+(i[1]?' ✓':' ✗')).join(' · ')}</div>`:s.t==='match'?`<div class="small">Match: ${s.pairs.map(p=>esc(p[1])+' = '+esc(p[2])).join(' · ')}</div>`:s.t==='tap'?`<div class="small">Tap game: ${s.items.map(i=>esc(i[1])).join(', ')}</div>`:s.t==='story'?s.slides.map((x,i)=>`<div><b>${i+1}.</b> ${esc(x.text)}${x.ay?` <span class="small muted">[${esc(x.ay.ref)}: ${esc(x.ay.en)}]</span>`:''}</div>`).join(''):'').join('')}</div>`;
 }
 
-const GEM_OK=false; // switch to true once Daddy has checked every card
+const GEM_OK=true; // approved by Daddy on 26 Oct 2026
 const GEMC=[['#FFF1D1','#FCE3EC'],['#E3ECFA','#EEE5FA'],['#DCEDE5','#FFF1D1'],['#FCE3EC','#EEE5FA'],['#E3F4F1','#E3ECFA'],['#FFE6D9','#FFF1D1']];
 const GEMS=[
 // Ayat
