@@ -25,8 +25,8 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>window.LL_FB={apiKey:"AIzaSyAIZ4JyxxZPBcPD5OHjQ-hpofP-KJwHtzE",authDomain:"little-lantern-b8a7b.firebaseapp.com",projectId:"little-lantern-b8a7b",storageBucket:"little-lantern-b8a7b.firebasestorage.app",messagingSenderId:"598122924180",appId:"1:598122924180:web:2bf132131983ea04d74c81"};window.LL_NTFY="little-lantern-17b8f6b09be7";</script>
-<meta name="ll-build" content="202610251609">
-<script>window.LL_BUILD="202610251609";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
+<meta name="ll-build" content="202610260517">
+<script>window.LL_BUILD="202610260517";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
 </head>
 <body>
 <title>Little Lantern</title>
@@ -158,6 +158,75 @@ a{color:var(--green)}
 .lt small{font-size:.72rem;color:var(--muted);direction:ltr}
 .bell{display:flex;align-items:center;gap:12px;text-align:left;border:2px solid var(--gold);background:var(--gold-soft);color:var(--ink);font:inherit;cursor:pointer;width:100%}
 .bell .ic{font-size:1.8rem}
+.bellbtn{position:relative;width:44px;height:44px;border-radius:50%;border:2px solid var(--line);background:var(--surface);font-size:1.3rem;display:grid;place-items:center;cursor:pointer}
+.bellbtn i{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:#E0445E;color:#fff;font:800 .72rem/20px var(--f-body);font-style:normal;border:2px solid var(--bg)}
+.pager{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:4px;border-radius:999px;background:var(--surface);border:2px solid var(--line);position:sticky;top:6px;z-index:5}
+.pager button{border:0;background:none;border-radius:999px;padding:8px 4px;font:700 .9rem var(--f-body);color:var(--muted);cursor:pointer}
+.pager button.on{background:var(--rose);color:#fff}
+.pgwrap{display:flex;flex-direction:column;gap:18px}
+.pgwrap.sl{animation:slL .28s ease-out}.pgwrap.sr{animation:slR .28s ease-out}
+@keyframes slL{from{transform:translateX(40px);opacity:0}to{transform:none;opacity:1}}
+@keyframes slR{from{transform:translateX(-40px);opacity:0}to{transform:none;opacity:1}}
+.w-fl{background:var(--sky);color:var(--ink)}
+.galfam{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none}
+.galfam::-webkit-scrollbar{display:none}
+.galfam button{flex:none;display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;padding:0;cursor:pointer;opacity:.6;font:inherit;color:var(--ink)}
+.galfam button.on{opacity:1}.galfam button.on .sym{box-shadow:0 0 0 3px var(--rose)}
+.galfam small{font-size:.72rem;font-weight:700}
+.prof{display:flex;align-items:center;gap:18px}
+.pst{flex:1;display:grid;grid-template-columns:repeat(3,1fr);text-align:center}
+.pst b{display:block;font:700 1.4rem var(--f-display)}.pst small{font-size:.75rem;color:var(--muted)}
+.pname{font-size:1.4rem;margin-top:-8px}
+.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.gtile{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden}
+.gopen{position:absolute;inset:0;border:0;padding:0;background:none;cursor:pointer;display:block;font:inherit;color:inherit}
+.gthumb{position:absolute;inset:0;display:grid;place-items:center;font-size:2.6rem}
+.gthumb .ar{font-family:var(--f-ar);color:var(--gold)}
+.gthumb.scene svg{width:100%;height:100%;object-fit:cover;display:block}
+.gthumb.scene svg{transform:scale(1.7)}
+.gcap{position:absolute;left:0;right:0;bottom:0;padding:14px 6px 5px;font:700 .7rem/1.15 var(--f-body);color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.6));text-align:left}
+.ghc,.ghb{position:absolute;top:5px;right:5px;padding:2px 7px;border-radius:999px;background:rgba(255,255,255,.9);font:800 .72rem var(--f-body);color:#2B2430;border:0}
+.ghb{cursor:pointer;font-size:.8rem}
+.saved{display:grid;gap:10px}
+.gsave{padding:12px 14px;border-radius:18px;background:linear-gradient(135deg,var(--g1),var(--g2));color:#2B2430}
+.gsave .gpe{font-size:1.6rem}.gsave p{margin:4px 0;font-weight:700}.gsave small{opacity:.7}
+.belllist{display:flex;flex-direction:column;gap:8px}
+.bitem{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:16px;background:var(--surface);border:2px solid var(--line);font:inherit;color:var(--ink);text-align:left;cursor:pointer}
+.bitem.new{border-color:var(--rose);background:var(--rose-soft)}
+.bav{position:relative;flex:none}.bav i{position:absolute;right:-6px;bottom:-4px;font-style:normal;font-size:1.05rem}
+.bic{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:1.4rem;background:var(--gold-soft)}
+.btx{display:flex;flex-direction:column;font-weight:700;font-size:.95rem;line-height:1.3}.btx small{font-weight:600;color:var(--muted);font-size:.75rem}
+.fprog{display:flex;gap:4px}.fprog i{flex:1;height:6px;border-radius:3px;background:var(--line)}.fprog i.d{background:var(--green)}.fprog i.n{background:var(--rose)}
+.fcard{display:block;width:100%;min-height:380px;border:0;padding:0;background:none;perspective:1200px;cursor:pointer;font:inherit;color:var(--ink)}
+.fin{position:relative;display:block;width:100%;min-height:380px;transition:transform .5s;transform-style:preserve-3d}
+.fcard.flip .fin{transform:rotateY(180deg)}
+.ff{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;border-radius:26px;backface-visibility:hidden;-webkit-backface-visibility:hidden;text-align:center;box-shadow:0 10px 24px rgba(0,0,0,.12)}
+.ff.front{background:linear-gradient(160deg,#FFF6E0,#FCE3EC);color:#2B2430}
+.ff.back{background:linear-gradient(160deg,#DCEDE5,#E3ECFA);color:#2B2430;transform:rotateY(180deg)}
+.fpic{font-size:4.5rem;line-height:1}.fbig{font-family:var(--f-ar);font-size:3.6rem;line-height:1.5;color:var(--green)}
+.fq{font:600 1.35rem/1.3 var(--f-display)}.fhint{font-size:.85rem;color:#6F6370}
+.flab{font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#1F5C4A}
+.fa{font:700 1.5rem/1.3 var(--f-display)}.far{font-family:var(--f-ar);font-size:2rem;line-height:1.7;color:#1F5C4A;direction:rtl}
+.fbtns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.flashdone{text-align:center;justify-items:center}.flashdone .big{font-size:4rem}
+.feedh{font-size:1.5rem}
+.feed{display:flex;flex-direction:column;gap:14px}
+.gem{display:flex;flex-direction:column;align-items:center;gap:8px;padding:22px 18px 14px;border-radius:26px;background:linear-gradient(160deg,var(--g1),var(--g2));color:#2B2430;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.gkind{align-self:flex-start;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.7)}
+.gpic{font-size:4rem;line-height:1.1}
+.gar{font-family:var(--f-ar);font-size:1.6rem;line-height:1.8;margin:0;color:#1F5C4A;direction:rtl}
+.gtx{font:600 1.2rem/1.4 var(--f-display);margin:0}
+.gsrc{font-size:.8rem;color:#6F6370}
+.gact{display:flex;gap:8px;justify-content:center;width:100%;margin-top:4px}
+.gact button{border:0;border-radius:999px;padding:8px 14px;background:rgba(255,255,255,.85);font:700 .9rem var(--f-body);color:#2B2430;cursor:pointer}
+.gact button:first-child{font-size:1.2rem;padding:6px 14px}
+.win,.nudge{display:flex;align-items:center;gap:14px;padding:14px;border-radius:20px;background:var(--surface);border:2px solid var(--line)}
+.win p,.nudge p{margin:0 0 6px;font-weight:700}
+.nudge{border-color:var(--gold);background:var(--gold-soft);flex-wrap:wrap}
+.nudge p{flex:1;margin:0;min-width:160px}
+.nic{font-size:2.2rem}
+.feedend{display:flex;flex-direction:column;align-items:center;gap:2px;padding:26px 16px;border-radius:24px;background:linear-gradient(180deg,#1C2440,#2B3557);color:#FBEFD3;text-align:center}
+.feedend span{font-size:2.4rem}.feedend small{color:#CFE0E6}
 @keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
 
 /* kid home */
@@ -298,8 +367,8 @@ a{color:var(--green)}
 .mtime{display:block;font-size:.66rem;color:var(--muted);text-align:right}
 .mdel{width:28px;height:28px;border-radius:50%;background:var(--bad-soft);color:var(--bad);font-weight:800;flex:none}
 .composer{display:grid;gap:8px;padding:12px}
-.composer .quick{flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px}
-.composer .quick .btn{flex:none}
+.composer .quick{flex-wrap:wrap;max-height:250px;overflow-y:auto}
+.composer .quick .btn{white-space:normal;text-align:left;line-height:1.25;height:auto;padding-block:7px}
 .emobtn{font-size:1.5rem;width:40px;height:40px;border-radius:12px;background:var(--bg)}
 #chatform input{flex:1;min-width:0}
 /* compact home */
@@ -873,7 +942,7 @@ function star8(x,cx,cy,r,fill){x.save();x.translate(cx,cy);x.fillStyle=fill;for(
 async function makeCertificate(c){
   await ready();try{await document.fonts.load('700 120px Fredoka');await document.fonts.load('700 60px Amiri')}catch(e){}
   const W=1080,H=1350,cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d');
-  const kid=S.kids[ui.kid],P=prog(ui.kid),when=new Date(((P.certs||{})[c.key]||{}).at||Date.now());
+  const ck=c.kid||ui.kid,kid=S.kids[ck],P=prog(ck),when=new Date(((P.certs||{})[c.key]||{}).at||Date.now());
   const PAL=['#F28DB2','#FFC94D','#7CCBA2','#7EB6F0','#B79CF0','#FF9F6E'];
   let seed=7;const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
   // soft background
@@ -921,9 +990,9 @@ async function makeCertificate(c){
 function certScreen(){
   const c=ui.cert;
   return `<div class="topbar"><button class="back" data-act="${ui.certBack||'home'}">← Back</button></div>
-  <h1>${esc(c.title)}</h1><p class="muted">${esc(kidName())} ${esc(c.line)}. MashaAllah!</p>
+  <h1>${esc(c.title)}</h1><p class="muted">${esc(S.kids[c.kid||ui.kid].name)} ${esc(c.line)}. MashaAllah!</p>
   <div class="certimg" id="certimg"><p class="muted">Preparing your certificate...</p></div>
-  <div class="row"><button class="btn rose" data-act="certShare">Share with the family</button><button class="btn ghost" data-act="home">My garden</button></div>`;
+  <div class="row"><button class="btn rose" data-act="certShare">Share with the family</button>${c.kid&&c.kid!==ui.kid?(()=>{const me=heartsOn(c.kid,c.key).some(h=>h.from===ui.kid);return `<button class="btn ghost" data-act="heart" data-k="${c.kid}" data-key="${esc(c.key)}">${me?'❤️ Hearted':'🤍 Give a heart'}</button>`})():''}<button class="btn ghost" data-act="home">My garden</button></div>`;
 }
 function certsShelf(){
   const list=myCerts(ui.kid);if(!list.length)return '';
@@ -943,6 +1012,9 @@ function doingNow(){
   if(s==='world')return `In ${WORLDS[ui.world]?.name||'the game'}`;
   if(s==='avatar')return 'Making an avatar';
   if(s==='cert')return 'Looking at a certificate';
+  if(s==='flash')return 'Doing flashcards';
+  if(s==='home'&&ui.page===1)return 'In the gallery';
+  if(s==='home'&&ui.page===2)return "Reading today's gems";
   return 'In the garden';
 }
 function beat(force){
@@ -971,7 +1043,7 @@ function whosHere(){
    ${others.length?`<div class="family">${others.map(k=>{const on=isOnline(k),p=(S.presence||{})[k]||{};
     return `<button class="fam ${on?'on':''} ${ui.waveTo===k?'sel':''}" data-act="waveTo" data-k="${k}" title="${esc(on?(p.doing||'Online'):seenAgo(k))}" aria-label="${esc(S.kids[k].name)}, ${esc(on?(p.doing||'online'):seenAgo(k))}"><span class="famav">${symEl(k,50)}<i class="dot"></i></span><b>${esc(S.kids[k].name)}</b></button>`}).join('')}</div>`
    :`<p class="small muted">No cousins here yet. When a cousin's grown-up joins and adds them in the Parents' corner, they'll show up here.</p>`}
-   ${ui.waveTo&&S.kids[ui.waveTo]?`<div class="card stage wavepick"><p class="small muted">${esc(S.kids[ui.waveTo].name)} is ${isOnline(ui.waveTo)?esc(((S.presence||{})[ui.waveTo]||{}).doing||'online').toLowerCase():'away ('+esc(seenAgo(ui.waveTo))+')'}. Send a message${isOnline(ui.waveTo)?'':". They'll see it in the family chat"}:</p><div class="row">${WAVES.map(w=>`<button class="btn ghost sm" data-act="sendWave" data-m="${esc(w)}">${esc(w)}</button>`).join('')}</div></div>`:''}</section>`;
+   ${ui.waveTo&&S.kids[ui.waveTo]?`<div class="card stage wavepick"><p class="small muted">${esc(S.kids[ui.waveTo].name)} is ${isOnline(ui.waveTo)?esc(((S.presence||{})[ui.waveTo]||{}).doing||'online').toLowerCase():'away ('+esc(seenAgo(ui.waveTo))+')'}. Send a message${isOnline(ui.waveTo)?'':". They'll see it in the family chat"}:</p><div class="row">${wavesFor(ui.waveTo).map(w=>`<button class="btn ghost sm" data-act="sendWave" data-m="${esc(w)}">${esc(w)}</button>`).join('')}</div></div>`:''}</section>`;
 }
 function sendWave(to,msg){sendChat(msg,to)}
 function sendChat(text,to){
@@ -990,7 +1062,7 @@ function chatScreen(){
   <h1>Family chat</h1>
   <div class="chatlist" id="chatlist">${list.length?list.map(c=>{const w=who(c),m=mine(c);return `<div class="msg ${m?'me':''}">${m?'':`<span class="mav">${w.av}</span>`}<div class="bub"><span class="mname">${esc(w.name)}${c.to&&S.kids[c.to]?` → ${esc(S.kids[c.to].name)}`:''}</span><p>${esc(c.text)}</p><span class="mtime">${new Date(c.at).toLocaleString([], {weekday:'short',hour:'numeric',minute:'2-digit'})}</span></div>${ui.chatAs?`<button class="mdel" data-act="chatDel" data-id="${c.id}" aria-label="Remove message">✕</button>`:''}</div>`}).join(''):'<p class="muted">No messages yet. Say salam to the family!</p>'}</div>
   <div class="composer card">
-   <div class="row quick">${CHAT_QUICK.map(q=>`<button class="btn ghost sm" data-act="chatSend" data-t="${esc(q)}">${esc(q)}</button>`).join('')}</div>
+   <div class="row quick">${(ui.chatAs?CHAT_QUICK:chatSuggest()).map(q=>`<button class="btn ghost sm" data-act="chatSend" data-t="${esc(q)}">${esc(q)}</button>`).join('')}</div>
    <div class="row emo">${CHAT_EMOJI.map(e=>`<button class="emobtn" data-act="chatSend" data-t="${e}" aria-label="Send ${e}">${e}</button>`).join('')}</div>
    ${typing||ui.chatAs?`<form class="row" id="chatform"><input id="chattext" maxlength="120" autocomplete="off" placeholder="Write a message"><button class="btn sm" type="submit">Send</button></form>`:''}
   </div>`;
@@ -1110,11 +1182,11 @@ function subscribeAll(onErr){
         for(const k in S.deeds)await put('deeds/'+k,S.deeds[k]);
         return;}}
     S.presence={};S.waves={};
-    S.chat={};
-    for(const id in m){if(id.startsWith('p-'))S.presence[id.slice(2)]=m[id];else if(id.startsWith('w-'))S.waves[id]=m[id];else if(id.startsWith('c-'))S.chat[id]=m[id]}
+    S.chat={};S.hearts={};
+    for(const id in m){if(id.startsWith('p-'))S.presence[id.slice(2)]=m[id];else if(id.startsWith('w-'))S.waves[id]=m[id];else if(id.startsWith('c-'))S.chat[id]=m[id];else if(id.startsWith('h-'))S.hearts[id]=m[id]}
     handleWaves();handleChat();
     const ch=s.docChanges?s.docChanges():[];
-    if(!wasFirst&&ch.length&&ch.every(c=>/^[pwc]-/.test(c.doc.id))){if(ui.screen==='home'||ui.screen==='chat')soft();return}
+    if(!wasFirst&&ch.length&&ch.every(c=>/^[pwch]-/.test(c.doc.id))){if(ui.screen==='home'||ui.screen==='chat'||ui.screen==='bell')soft();return}
     S.settings=Object.assign({},m.settings||{});S.approvals=Object.assign({},m.approvals||{});
     S.access=(m.access&&m.access.members)||[];
     dbReady=true;saveLocal();soft();
@@ -1182,7 +1254,7 @@ function go(screen,extra){Object.assign(ui,{screen},extra||{});render();window.s
 /* ===================== SCREENS ===================== */
 function render(){
   if(ui.screen==='duel')return;
-  const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen,cert:certScreen,chat:chatScreen}[ui.screen]||cover;
+  const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen,cert:certScreen,chat:chatScreen,bell:bellScreen,flash:flashScreen}[ui.screen]||cover;
   app.innerHTML=f();
   placeRoad();
   beat(false);
@@ -1251,22 +1323,25 @@ function home(){
   const pend=Object.values(S.deeds).filter(d=>d.kid===k&&d.status==='pending').length;
   const short={aq:'Knowing Allah',ad:'Duas',ar:'Letters'};
   const tile=(w)=>{const W=WORLDS[w],n=W.lessons.filter(l=>P.done[l.id]).length;return `<button class="tile ${W.cls}" data-act="world" data-w="${w}"><span class="ic ${w==='ar'?'ar':''}">${W.icon}</span><b>${W.name}</b><span class="bar"><i style="width:${n/W.lessons.length*100}%"></i></span><small>${n}/${W.lessons.length}</small></button>`};
-  return `<div class="topbar"><button class="back" data-act="logout">← Switch</button>${saveChip()}</div>
+  if(ui.page===1)return galleryPage();
+  if(ui.page===2)return feedPage();
+  return `${pager()}<div class="pgwrap ${ui.slide||''}">
   <div class="hello2"><button class="avbtn" data-act="avatar" aria-label="Make my avatar">${symEl(k,64)}<span class="avedit">${S.kids[k].av?'Edit':'Make me!'}</span></button>
-   <div class="hx"><h1 class="hi">Assalamu alaikum, ${esc(S.kids[k].name)}!</h1><div class="pills"><span class="pill">⭐ ${stars}</span><span class="pill">🔥 ${P.streak||0} day${(P.streak||0)===1?'':'s'}</span><span class="pill">🌸 ${done+deedsOk(k)}</span></div></div></div>
+   <div class="hx"><h1 class="hi">Assalamu alaikum, ${esc(S.kids[k].name)}!</h1><div class="pills"><span class="pill">⭐ ${stars}</span><span class="pill">🔥 ${P.streak||0} day${(P.streak||0)===1?'':'s'}</span><span class="pill">🌸 ${done+deedsOk(k)+(P.flashDays||0)}</span></div></div></div>
   ${joinBell()}
   ${whosHere()}
-  <div class="garden slim">${gardenSVG(done+deedsOk(k),trees)}</div>
+  <div class="garden slim">${gardenSVG(done+deedsOk(k)+(P.flashDays||0),trees)}</div>
   <section class="sect"><h2 class="h2s">Today's three</h2><div class="today3">${tasks.map(t=>{const W=WORLDS[t.w];return `<button class="t3 ${t.did?'done':''}" ${t.w!=='ar'?`data-act="world" data-w="${t.w}"`:t.nx?`data-act="open" data-id="${t.nx.id}"`:'disabled'}><span class="ic ${t.w==='ar'?'ar':''}">${t.did?'✅':W.icon}</span><b>${short[t.w]}</b><small>${t.w==='aq'&&t.nx?'Stop '+(AQ.indexOf(t.nx)+1)+': '+esc(t.nx.title.replace(/^Allah is /,'')):t.w==='ad'?(t.did?'Done! Pick another':'All '+AD.length+' duas'):t.nx?esc(t.nx.title):(t.did?'Done!':'Waiting for Daddy')}</small></button>`}).join('')}</div></section>
   <section class="sect"><h2 class="h2s">Play and learn</h2><div class="tiles">${['st','sk','aq','ad','ar'].map(tile).join('')}
+   <button class="tile w-fl" data-act="flash"><span class="ic">🃏</span><b>Flashcards</b><small>${(()=>{const n=flashDue(k);return n?n+' ready':flashDeck(k).length?'Done today ✅':'After a lesson'})()}</small></button>
    <button class="tile w-duel" data-act="${dOpen?'duelPick':'duelUnlock'}"><span class="ic">${dOpen?'⚔️':'🔒'}</span><b>Duel with Daddy</b><small>${dOpen?(D.played?`${D.won} wins`:'Play now'):'After a lesson'}</small></button></div>
    <p class="small muted">Coming soon: ${SOON.map(s=>s[1]).join(', ')}</p></section>
-  ${certsShelf()}
   <div class="duo">
    <section class="card mini">${lanternSVG(L.p).replace('width="64" height="96"','width="36" height="54"')}<div><b>Family lantern</b><small class="muted">${L.c} of ${L.goal} this week</small></div></section>
    <button class="card mini deedbtn" data-act="deedOpen"><span class="ic">🌷</span><div><b>Good deed</b><small class="muted">${pend?pend+' waiting for Daddy':'Tell Daddy'}</small></div></button>
   </div>
-  ${ui.deedOpen?`<section class="card"><p class="muted small">What good deed did you do? When Daddy says yes, a flower grows.</p><div class="row" style="margin-top:8px">${DEEDS.map(d=>`<button class="btn ghost sm" data-act="deed" data-t="${esc(d)}">${esc(d)}</button>`).join('')}</div></section>`:''}`;
+  ${ui.deedOpen?`<section class="card"><p class="muted small">What good deed did you do? When Daddy says yes, a flower grows.</p><div class="row" style="margin-top:8px">${DEEDS.map(d=>`<button class="btn ghost sm" data-act="deed" data-t="${esc(d)}">${esc(d)}</button>`).join('')}</div></section>`:''}
+  <p class="small muted" style="text-align:center">Swipe ← to see your gallery and today's gems</p></div>`;
 }
 const AQICON={aq1:'🌍',aq2:'🌸',aq3:'🍎',aq4:'💛',aq5:'✨',aq6:'🎯'};
 function aqIsland(){
@@ -1667,6 +1742,274 @@ function previewHTML(l){
   return `<div class="preview">${l.steps.map(s=>s.t==='say'||s.t==='key'||s.t==='daddy'?`<div>${s.t==='key'?'<b>Remember:</b> ':''}${esc(s.text)}</div>`:s.t==='quiz'?s.qs.map(q=>`<div class="small">Q: ${esc(q.q)} <b>${esc(q.o[0])}</b></div>`).join(''):s.t==='sort'?`<div class="small">Sort: ${s.items.map(i=>esc(i[0])+(i[1]?' ✓':' ✗')).join(' · ')}</div>`:s.t==='match'?`<div class="small">Match: ${s.pairs.map(p=>esc(p[1])+' = '+esc(p[2])).join(' · ')}</div>`:s.t==='tap'?`<div class="small">Tap game: ${s.items.map(i=>esc(i[1])).join(', ')}</div>`:s.t==='story'?s.slides.map((x,i)=>`<div><b>${i+1}.</b> ${esc(x.text)}${x.ay?` <span class="small muted">[${esc(x.ay.ref)}: ${esc(x.ay.en)}]</span>`:''}</div>`).join(''):'').join('')}</div>`;
 }
 
+const GEM_OK=false; // switch to true once Daddy has checked every card
+const GEMC=[['#FFF1D1','#FCE3EC'],['#E3ECFA','#EEE5FA'],['#DCEDE5','#FFF1D1'],['#FCE3EC','#EEE5FA'],['#E3F4F1','#E3ECFA'],['#FFE6D9','#FFF1D1']];
+const GEMS=[
+// Ayat
+['a1','Ayah','💭','فَاذْكُرُونِي أَذْكُرْكُمْ','Allah says: Remember Me, and I will remember you.','Surah al-Baqarah 2:152'],
+['a2','Ayah','🌈','فَإِنَّ مَعَ الْعُسْرِ يُسْرًا','Allah promises: with every hard thing comes ease.','Surah ash-Sharh 94:5'],
+['a3','Ayah','🤲','فَإِنِّي قَرِيبٌ','Allah is close to us. He hears when we make dua and He answers.','Surah al-Baqarah 2:186'],
+['a4','Ayah','🎁','لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ','Allah says: If you are thankful, I will give you more.','Surah Ibrahim 14:7'],
+['a5','Ayah','👨‍👩‍👧','وَبِالْوَالِدَيْنِ إِحْسَانًا','Allah tells us to be good and kind to our parents.','Surah al-Isra 17:23'],
+['a6','Ayah','🤝','إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ','All the believers are brothers and sisters.','Surah al-Hujurat 49:10'],
+['a7','Ayah','😌','أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ','Remembering Allah makes our hearts calm and happy.','Surah ar-Ra\'d 13:28'],
+['a8','Ayah','📚','رَّبِّ زِدْنِي عِلْمًا','A dua from the Qur\'an: My Lord, give me more knowledge.','Surah Ta-Ha 20:114'],
+['a9','Ayah','☝️','قُلْ هُوَ اللَّهُ أَحَدٌ','Say: He is Allah, the One.','Surah al-Ikhlas 112:1'],
+['a10','Ayah','🌙','لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ','Allah never gets sleepy and never sleeps. He always takes care of us.','Ayat al-Kursi, Surah al-Baqarah 2:255'],
+['a11','Ayah','🌱','إِنَّ اللَّهَ مَعَ الصَّابِرِينَ','Allah is with those who are patient.','Surah al-Baqarah 2:153'],
+['a12','Ayah','🛡️','وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ','Whoever trusts Allah, Allah is enough for him.','Surah at-Talaq 65:3'],
+['a13','Ayah','🍃','وَمَا تَسْقُطُ مِن وَرَقَةٍ إِلَّا يَعْلَمُهَا','Not even one leaf falls from a tree without Allah knowing it.','Surah al-An\'am 6:59'],
+['a14','Ayah','⚖️','فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ','Even the tiniest good deed, as small as a speck of dust, will be seen on the Last Day.','Surah az-Zalzalah 99:7'],
+['a15','Ayah','💬','وَقُولُوا لِلنَّاسِ حُسْنًا','Speak kindly to people.','Surah al-Baqarah 2:83'],
+['a16','Ayah','🌺','فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ','Which of the blessings of your Lord will you deny? Count them today!','Surah ar-Rahman 55:13'],
+['a17','Ayah','🙂','وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ','Allah loves those who hold back their anger and forgive people.','Surah Al \'Imran 3:134'],
+['a18','Ayah','🚶','وَلَا تَمْشِ فِي الْأَرْضِ مَرَحًا','Luqman told his son: do not walk around showing off.','Surah Luqman 31:18'],
+['a19','Ayah','🔉','وَاغْضُضْ مِن صَوْتِكَ','Luqman told his son: speak gently and keep your voice low.','Surah Luqman 31:19'],
+['a20','Ayah','👋','فَحَيُّوا بِأَحْسَنَ مِنْهَا أَوْ رُدُّوهَا','When someone greets you, greet them back with something even better.','Surah an-Nisa 4:86'],
+// Hadith (Sahih al-Bukhari and Sahih Muslim)
+['h1','Hadith','📖','خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ','The best of you are those who learn the Qur\'an and teach it.','Sahih al-Bukhari 5027'],
+['h2','Hadith','💞','','None of you truly believes until he loves for his brother what he loves for himself.','Sahih al-Bukhari 13, Sahih Muslim 45'],
+['h3','Hadith','🌷','الْكَلِمَةُ الطَّيِّبَةُ صَدَقَةٌ','A kind word is a charity.','Sahih al-Bukhari 2989, Sahih Muslim 1009'],
+['h4','Hadith','🤐','','Whoever believes in Allah and the Last Day should say something good, or stay quiet.','Sahih al-Bukhari 6018, Sahih Muslim 47'],
+['h5','Hadith','🕊️','','Allah is Kind, and He loves kindness in everything.','Sahih al-Bukhari 6927, Sahih Muslim 2593'],
+['h6','Hadith','💪','','The strong person is not the one who wins a wrestle. The strong one controls himself when he is angry.','Sahih al-Bukhari 6114, Sahih Muslim 2609'],
+['h7','Hadith','🧊','لَا تَغْضَبْ','A man asked the Prophet ﷺ for advice. He said: Do not get angry. He said it again and again.','Sahih al-Bukhari 6116'],
+['h8','Hadith','👋','أَفْشُوا السَّلَامَ بَيْنَكُمْ','Spread salam to each other, and you will love one another.','Sahih Muslim 54'],
+['h9','Hadith','🐢','','The deeds Allah loves most are the ones we keep doing every day, even if they are small.','Sahih al-Bukhari 6464, Sahih Muslim 783'],
+['h10','Hadith','💗','','Whoever is not merciful to people, Allah will not be merciful to him.','Sahih al-Bukhari 7376, Sahih Muslim 2319'],
+['h11','Hadith','😊','يَسِّرُوا وَلَا تُعَسِّرُوا','Make things easy for people, not hard. Give good news and don\'t push people away.','Sahih al-Bukhari 69, Sahih Muslim 1734'],
+['h12','Hadith','✨','كُلُّ مَعْرُوفٍ صَدَقَةٌ','Every good deed is a charity.','Sahih al-Bukhari 6021, Sahih Muslim 1005'],
+['h13','Hadith','⚖️','','Two short phrases are heavy on the Scale and loved by Ar-Rahman: SubhanAllahi wa bihamdihi, SubhanAllahil-Adheem.','Sahih al-Bukhari 6406, Sahih Muslim 2694'],
+['h14','Hadith','🍽️','','The Prophet ﷺ told a boy: Say Bismillah, eat with your right hand, and eat from what is in front of you.','Sahih al-Bukhari 5376, Sahih Muslim 2022'],
+['h15','Hadith','🥘','','The Prophet ﷺ never complained about food. If he liked it, he ate it. If not, he left it.','Sahih al-Bukhari 5409, Sahih Muslim 2064'],
+['h16','Hadith','👩','','A man asked who deserves his kindness most. The Prophet ﷺ said: Your mother. Then your mother. Then your mother. Then your father.','Sahih al-Bukhari 5971, Sahih Muslim 2548'],
+['h17','Hadith','🤧','','When you sneeze, say Alhamdulillah. Whoever hears it says Yarhamuk-Allah.','Sahih al-Bukhari 6224'],
+['h18','Hadith','🎁','','The giving hand is better than the taking hand.','Sahih al-Bukhari 1429, Sahih Muslim 1033'],
+['h19','Hadith','🫶','','A Muslim is someone whose words and hands never hurt other Muslims.','Sahih al-Bukhari 10, Sahih Muslim 41'],
+['h20','Hadith','❤️','','Allah does not look at how we look or what we own. He looks at our hearts and our deeds.','Sahih Muslim 2564'],
+['h21','Hadith','👉','','Whoever shows someone the way to do a good deed gets the same reward as the one who does it.','Sahih Muslim 1893'],
+['h22','Hadith','🌟','','Telling the truth leads to goodness, and goodness leads to Jannah.','Sahih al-Bukhari 6094, Sahih Muslim 2607'],
+// Prophets
+['p1','Prophets','🏷️','','Allah taught Prophet Adam the names of all things, even more than the angels knew.','Surah al-Baqarah 2:31'],
+['p2','Prophets','🚢','','Prophet Nuh invited his people to Allah for 950 years. That is very, very patient!','Surah al-\'Ankabut 29:14'],
+['p3','Prophets','🔥','يَا نَارُ كُونِي بَرْدًا وَسَلَامًا','Allah told the fire: Be cool and safe for Ibrahim. And it was!','Surah al-Anbiya 21:69'],
+['p4','Prophets','🕋','','Prophet Ibrahim and his son Isma\'il built the Ka\'bah together, and made dua while they worked.','Surah al-Baqarah 2:127'],
+['p5','Prophets','⭐','','Young Yusuf dreamed that eleven stars, the sun and the moon bowed down to him.','Surah Yusuf 12:4'],
+['p6','Prophets','🌊','','Allah split the sea for Prophet Musa when he struck it with his stick, and his people walked across.','Surah ash-Shu\'ara 26:63'],
+['p7','Prophets','🐜','','Prophet Sulayman heard an ant tell the other ants to hurry home, and he smiled.','Surah an-Naml 27:18-19'],
+['p8','Prophets','⚒️','','Allah made iron soft in the hands of Prophet Dawud, so he could make armour.','Surah Saba 34:10'],
+['p9','Prophets','👶','','Prophet \'Isa spoke as a tiny baby and said: I am a servant of Allah.','Surah Maryam 19:30'],
+['p10','Prophets','🐋','لَا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ','Inside the big fish, Prophet Yunus made dua, and Allah saved him.','Surah al-Anbiya 21:87-88'],
+['p11','Prophets','🌿','نِعْمَ الْعَبْدُ','Prophet Ayyub was so patient when he was sick that Allah called him an excellent servant.','Surah Sad 38:44'],
+['p12','Prophets','💚','وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ','Allah sent Prophet Muhammad ﷺ as a mercy to the whole world.','Surah al-Anbiya 21:107'],
+// Did you know (Allah's creation)
+['d1','Did you know?','💧','وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ','Allah made every living thing from water.','Surah al-Anbiya 21:30'],
+['d2','Did you know?','🍯','','Allah taught the bee how to make honey, and honey has healing in it.','Surah an-Nahl 16:68-69'],
+['d3','Did you know?','🪐','كُلٌّ فِي فَلَكٍ يَسْبَحُونَ','The sun and the moon each swim in their own path in the sky.','Surah Ya-Sin 36:40'],
+['d4','Did you know?','🧦','','Allah created everything in pairs.','Surah adh-Dhariyat 51:49'],
+['d5','Did you know?','🌳','','Everything in the heavens and the earth says SubhanAllah, even if we cannot hear it.','Surah al-Isra 17:44'],
+['d6','Did you know?','🐦','مَا يُمْسِكُهُنَّ إِلَّا الرَّحْمَٰنُ','When birds spread their wings in the sky, only Ar-Rahman holds them up.','Surah al-Mulk 67:19'],
+['d7','Did you know?','🐠','','Animals and birds live in communities, just like people do.','Surah al-An\'am 6:38'],
+['d8','Did you know?','🐚','','Allah made the sea give us fresh fish to eat and pearls to wear.','Surah an-Nahl 16:14'],
+['d9','Did you know?','☀️','الشَّمْسُ وَالْقَمَرُ بِحُسْبَانٍ','The sun and the moon move on an exact timetable that Allah set.','Surah ar-Rahman 55:5'],
+['d10','Did you know?','🌧️','','Allah sends down rain from the sky and brings the dry land back to life.','Surah al-Hajj 22:63'],
+].map((g,i)=>({id:g[0],kind:g[1],pic:g[2],ar:g[3],text:g[4],src:g[5],c1:GEMC[i%GEMC.length][0],c2:GEMC[i%GEMC.length][1],ok:GEM_OK}));
+
+/* ===================== PAGES: GARDEN · GALLERY · GEMS ===================== */
+const PAGES=[['🌸','Garden'],['🏅','Gallery'],['✨','Gems']];
+function pager(){
+  const n=bellUnseen(ui.kid);
+  return `<div class="topbar"><button class="back" data-act="logout">← Switch</button><button class="bellbtn" data-act="bell" aria-label="Notifications${n?', '+n+' new':''}">🔔${n?`<i>${n>9?'9+':n}</i>`:''}</button></div>
+  <nav class="pager" aria-label="Pages">${PAGES.map(([ic,t],i)=>`<button class="${(ui.page||0)===i?'on':''}" data-act="page" data-p="${i}">${ic} ${t}</button>`).join('')}</nav>`;
+}
+function setPage(p){p=Math.max(0,Math.min(PAGES.length-1,p));if(p===(ui.page||0))return;ui.slide=p>(ui.page||0)?'sl':'sr';ui.page=p;if(p===1)ui.galKid=ui.galKid||ui.kid;render();window.scrollTo({top:0,behavior:'instant'});ui.slide=''}
+(function(){let sx=0,sy=0,ok=false;
+  app.addEventListener('touchstart',e=>{ok=ui.screen==='home'&&!e.target.closest('.family,.strip,.certs,.galfam,input,textarea');const t=e.touches[0];sx=t.clientX;sy=t.clientY},{passive:true});
+  app.addEventListener('touchend',e=>{if(!ok)return;const t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(Math.abs(dx)>70&&Math.abs(dy)<60)setPage((ui.page||0)+(dx<0?1:-1))},{passive:true});
+})();
+
+/* ---------- hearts ---------- */
+function heartKey(from,kid,key){return 'h-'+from+'-'+kid+'-'+String(key).replace(/[^a-zA-Z0-9]/g,'').slice(0,40)}
+function heartsOn(kid,key){return Object.values(S.hearts||{}).filter(h=>h&&h.kid===kid&&h.key===key)}
+function toggleHeart(kid,key){
+  const id=heartKey(ui.kid,kid,key);S.hearts=S.hearts||{};
+  if(S.hearts[id]){delete S.hearts[id];del('fam/'+id)}else{const doc={from:ui.kid,kid,key,at:Date.now()};S.hearts[id]=doc;put('fam/'+id,doc)}
+  render();
+}
+
+/* ---------- gallery ---------- */
+const CERTPIC={first:'🌱','world-aq':'🌙','world-ad':'🤲','world-ar':'ا','world-sk':'🧩',streak7:'🔥',streak30:'🏆',flowers25:'🌸',kerala:'🚗'};
+const TILEBG=['#FCE3EC','#FFF1D1','#DCEDE5','#E3ECFA','#EEE5FA','#FFE6D9'];
+function certThumb(c,i){
+  if(c.story&&byId[c.story])return `<span class="gthumb scene">${scene(byId[c.story].slides[0].sc)}</span>`;
+  const p=CERTPIC[c.key]||'🏅';return `<span class="gthumb" style="background:${TILEBG[i%TILEBG.length]}"><span class="${p==='ا'?'ar':''}">${p}</span></span>`;
+}
+function galleryPage(){
+  const g=S.kids[ui.galKid]?ui.galKid:ui.kid,P=prog(g),list=myCerts(g),mine=g===ui.kid;
+  const stars=Object.values(P.done||{}).reduce((a,b)=>a+b,0),hearts=list.reduce((a,c)=>a+heartsOn(g,c.key).length,0);
+  const kids=Object.keys(S.kids);
+  const saved=mine?GEMS.filter(x=>(P.gemHearts||{})[x.id]):[];
+  return `${pager()}
+  <div class="pgwrap ${ui.slide||''}">
+  ${kids.length>1?`<div class="galfam">${kids.map(k=>`<button class="${k===g?'on':''}" data-act="galOf" data-k="${k}">${symEl(k,40)}<small>${k===ui.kid?'Me':esc(S.kids[k].name)}</small></button>`).join('')}</div>`:''}
+  <section class="prof">${symEl(g,78)}<div class="pst"><div><b>${list.length}</b><small>certificates</small></div><div><b>${stars}</b><small>stars</small></div><div><b>${hearts}</b><small>hearts</small></div></div></section>
+  <h1 class="pname">${esc(S.kids[g].name)}${mine?'':`'s gallery`}</h1>
+  ${list.length?`<div class="ggrid">${list.map((c,i)=>{const hs=heartsOn(g,c.key),me=hs.some(h=>h.from===ui.kid);
+    return `<div class="gtile"><button class="gopen" data-act="galCert" data-k="${g}" data-key="${esc(c.key)}" aria-label="${esc(c.title)}">${certThumb(c,i)}<span class="gcap">${esc(c.story?(byId[c.story].title.replace(/^Prophet /,'')):c.title)}</span></button>${mine?(hs.length?`<span class="ghc">❤️ ${hs.length}</span>`:''):`<button class="ghb ${me?'on':''}" data-act="heart" data-k="${g}" data-key="${esc(c.key)}" aria-label="${me?'Remove heart':'Give a heart'}">${me?'❤️':'🤍'} ${hs.length||''}</button>`}</div>`}).join('')}</div>`
+  :`<div class="card stage" style="text-align:center"><p class="muted">${mine?'No certificates yet. Finish your first lesson and your first one appears here!':`${esc(S.kids[g].name)} has no certificates yet.`}</p></div>`}
+  ${saved.length?`<section class="sect"><h2 class="h2s">Gems I saved ❤️</h2><div class="saved">${saved.map(x=>`<div class="gsave" style="--g1:${x.c1};--g2:${x.c2}"><span class="gpe">${x.pic}</span><p>${esc(x.text)}</p><small>${esc(x.src)}</small></div>`).join('')}</div></section>`:''}
+  </div>`;
+}
+
+/* ---------- notification bell ---------- */
+function bellSeen(k){try{return +localStorage.getItem('ll-bell-'+k)||0}catch(e){return 0}}
+function markBell(k){try{localStorage.setItem('ll-bell-'+k,String(Date.now()))}catch(e){}}
+function dayWord(at){const d=dayKey(new Date(at));if(d===dayKey())return 'today';if(d===dayKey(new Date(Date.now()-864e5)))return 'yesterday';return 'on '+new Date(at).toLocaleDateString([], {weekday:'long'})}
+function familyWins(k,days){
+  const out=[],since=Date.now()-days*864e5;
+  for(const c in S.kids){if(c===k)continue;const P=prog(c),name=S.kids[c].name;
+    const cl=certList(c);for(const key in (P.certs||{})){const at=P.certs[key].at;if(at<since)continue;const ct=cl.find(x=>x.key===key);if(ct)out.push({at,kid:c,icon:'🏅',kind:'cert',key,text:`${name} earned a certificate: ${ct.story?byId[ct.story].title:ct.title}`})}
+    const by={};(P.log||[]).filter(e=>e.at>=since&&byId[e.l]).forEach(e=>{const d=dayKey(new Date(e.at));(by[d]=by[d]||[]).push(e)});
+    for(const d in by){const es=by[d],last=es[es.length-1],l=byId[last.l];
+      out.push({at:last.at,kid:c,icon:'🌸',kind:'lessons',text:es.length>1?`${name} did ${es.length} lessons ${dayWord(last.at)}`:`${name} finished ${l.world==='ar'?'Arabic letters '+l.title.replace('Letters ',''):l.title} ${dayWord(last.at)}`})}
+  }
+  return out.sort((a,b)=>b.at-a.at);
+}
+function bellEvents(k){
+  if(!k||!S.kids[k])return [];
+  const ev=familyWins(k,14).map(e=>Object.assign(e,{act:'galOf',arg:e.kid}));
+  const mc=certList(k);
+  Object.values(S.hearts||{}).forEach(h=>{if(h&&h.kid===k&&h.from!==k&&S.kids[h.from]){const c=mc.find(x=>x.key===h.key);if(c)ev.push({at:h.at,icon:'❤️',text:`${S.kids[h.from].name} gave a heart to your certificate: ${c.story?byId[c.story].title:c.title}`,act:'galOf',arg:k})}});
+  const t0=new Date();t0.setHours(0,0,0,0);
+  const due=flashDue(k);if(due)ev.push({at:t0.getTime(),icon:'🃏',text:`${due} flashcard${due>1?'s are':' is'} ready for you`,act:'flash'});
+  if(gemsLive().length&&(prog(k).feedOpened||'')!==dayKey())ev.push({at:t0.getTime()+1,icon:'✨',text:'New gems are ready for today',act:'page',arg:2});
+  return ev.sort((a,b)=>b.at-a.at).slice(0,40);
+}
+function bellUnseen(k){const s=bellSeen(k);return bellEvents(k).filter(e=>e.at>s).length}
+function bellScreen(){
+  const ev=bellEvents(ui.kid),s=ui.bellWas||0;
+  return `<div class="topbar"><button class="back" data-act="home">← Back</button></div>
+  <h1>What's new 🔔</h1>
+  ${ev.length?`<div class="belllist">${ev.map(e=>`<button class="bitem ${e.at>s?'new':''}" data-act="bellGo" data-a="${e.act}" data-arg="${esc(e.arg??'')}">${e.kid?`<span class="bav">${symEl(e.kid,40)}<i>${e.icon}</i></span>`:`<span class="bic">${e.icon}</span>`}<span class="btx">${esc(e.text)}<small>${timeAgo(e.at)}</small></span></button>`).join('')}</div>`
+  :'<div class="card stage"><p class="muted">Nothing new yet. When your cousins earn certificates or finish lessons, you will see it here.</p></div>'}`;
+}
+function timeAgo(at){const m=Math.round((Date.now()-at)/60000);if(m<1)return 'just now';if(m<60)return m+' min ago';const h=Math.round(m/60);if(h<24)return h+' hour'+(h>1?'s':'')+' ago';const d=Math.round(h/24);return d+' day'+(d>1?'s':'')+' ago'}
+
+/* ---------- encouraging chat messages ---------- */
+function cheerFor(c){
+  const P=prog(c),name=S.kids[c].name,out=[],since=Date.now()-3*864e5,cl=certList(c);
+  for(const key in (P.certs||{}))if(P.certs[key].at>=since){const ct=cl.find(x=>x.key===key);if(ct)out.push(`MashaAllah ${name}, you got the ${ct.story?byId[ct.story].title:ct.title} certificate! 🏅`)}
+  (P.log||[]).filter(e=>e.at>=since&&byId[e.l]&&P.done[e.l]===3).slice(-2).forEach(e=>out.push(`MashaAllah ${name}, 3 stars on ${byId[e.l].title}! ⭐`));
+  return out;
+}
+function myBrag(k){
+  const P=prog(k),t=dayKey(),last=(P.log||[]).filter(e=>dayKey(new Date(e.at))===t&&byId[e.l]).slice(-1)[0];if(!last)return [];
+  const l=byId[last.l];
+  if(l.world==='st')return [`I read the story of ${l.title.replace(/,.*$/,'')} today! 📜 Did you?`];
+  if(l.world==='ar'){const x=l.set[Math.floor(Math.random()*l.set.length)],p=PICW[x[0]];return p?[`I learnt \u2068${p[1]}\u2069 (${p[2]}) starts with \u2068${x[0]}\u2069 ${p[0]}. Did you?`]:[]}
+  if(l.world==='ad')return [`I learnt the dua for ${l.title.toLowerCase()} 🤲`];
+  if(l.world==='aq')return [`I learnt "${l.title}" today 🌙`];
+  if(l.world==='sk')return [`I finished the ${l.title} game! 🧩`];
+  return [];
+}
+function reminderNow(){const h=new Date().getHours();return h<11?'Remember the morning dua today! 🛡️':h<15?'Say Bismillah before lunch! 🍽️':h<20?'Time for the evening dua! 🛡️':"Don't forget the dua before sleeping! 🛏️"}
+function chatSuggest(){
+  const k=ui.kid,others=Object.keys(S.kids).filter(c=>c!==k);
+  const cheers=others.map(c=>cheerFor(c)[0]).filter(Boolean).slice(0,3);
+  return [...cheers,...myBrag(k),reminderNow(),"Let's both finish today's three! 💪",'Did you read a story today? 📜','Keep going, you can do it! 🌱','Assalamu alaikum! 👋','MashaAllah! 🌟','Jazakallahu khair! 💛'].slice(0,10);
+}
+function wavesFor(c){return [...cheerFor(c).slice(0,1),'Assalamu alaikum! 👋',"Let's learn together! 🏮","Did you read today's story? 📜",'MashaAllah, keep going! 🌟']}
+
+/* ===================== FLASHCARDS ===================== */
+const FLASH_INT=[0,1,3,7,30];
+const PCLUE={'st-adam':['🌍','Who was the very first human, made by Allah from clay?'],'st-nuh':['🚢','Which Prophet built a big ship (the Ark) by Allah\'s command?'],'st1':['🌬️',"Which Prophet was sent to the people of 'Aad, who built tall buildings?"],'st-saaleh':['🐪','Which Prophet was sent to Thamud, with a special she-camel from Allah?'],'st-ibrahim':['🔥','Which Prophet broke the idols and was kept safe in the fire?'],'st-yunus':['🐋','Which Prophet was swallowed by a big fish?']};
+function flashDeck(k){
+  const P=prog(k),d=P.done||{},cards=[];
+  STORIES.forEach(s=>{if(d[s.id]&&PCLUE[s.id]){const pr=PROPHETS.find(p=>p[0]===s.pid)||(s.id==='st1'?PROPHETS.find(p=>p[0]==='huud'):null);
+    cards.push({id:'fp-'+s.id,deck:'Prophets',pic:PCLUE[s.id][0],q:PCLUE[s.id][1],a:pr?'Prophet '+pr[1]:s.title,ar:pr?pr[2]+' عَلَيْهِ السَّلَام':''})}});
+  if(d['st-yunus'])cards.push({id:'fp-yunus-dua',deck:'Prophets',pic:'🐋',q:'What did Prophet Yunus say inside the big fish?',a:'There is no god but You, glory be to You. I was one of the wrongdoers.',ar:'لَا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ'});
+  if(d.sk1)PROPHETS.slice(0,9).forEach((p,i)=>cards.push({id:'fo-'+p[0],deck:'Prophets',pic:'🧩',q:`Which Prophet came after Prophet ${p[1]}?`,a:'Prophet '+PROPHETS[i+1][1],ar:PROPHETS[i+1][2]}));
+  const NM={aq1:['👑','Which name of Allah means the Lord, who creates, takes care of and owns everything?','Ar-Rabb'],aq2:['🌸','Which name of Allah means the Creator of all things?','Al-Khaliq'],aq3:['🍎','Which name of Allah means the One who gives us food and everything we need?','Ar-Razzaaq']};
+  for(const id in NM)if(d[id]){const l=byId[id];cards.push({id:'fn-'+id,deck:"Allah's names",pic:NM[id][0],q:NM[id][1],a:NM[id][2],ar:l.ar});cards.push({id:'fr-'+id,deck:"Allah's names",pic:'',big:l.ar,q:'What does this name of Allah mean?',a:l.sub,ar:''})}
+  if(d.aq4)cards.push({id:'fn-aq4',deck:"Allah's names",pic:'💛',q:'Who do we worship?',a:'Allah alone, with no partner',ar:'لَا إِلَٰهَ إِلَّا اللَّه'});
+  AD.forEach(l=>{if(d[l.id]){cards.push({id:'fd-'+l.id,deck:'Duas',pic:DPIC[l.id],q:`What do we say: ${l.when.split('.')[0].toLowerCase()}?`,a:l.tr,ar:l.ar});cards.push({id:'fw-'+l.id,deck:'Duas',pic:'',big:l.chunks?l.chunks[0]:l.ar,q:'When do we say this dua?',a:DPIC[l.id]+' '+l.when.split('.')[0],ar:''})}});
+  LV.forEach(l=>{if(d[l.id])l.set.forEach(x=>{const p=PICW[x[0]];if(p)cards.push({id:'fl-'+x[1],deck:'Letters',pic:p[0],q:`${p[2][0].toUpperCase()+p[2].slice(1)} is ${p[1]}. Which letter does it start with?`,a:x[1],ar:x[0]});cards.push({id:'fg-'+x[1],deck:'Letters',pic:'',big:x[0],q:'What is the name of this letter?',a:x[1]+', sounds like '+x[3],ar:''})})});
+  if(d.sk3){[['1st','Shahadah'],['2nd','Salah'],['3rd','Zakah'],['4th','Fasting in Ramadan'],['5th','Hajj']].forEach(([n,a],i)=>cards.push({id:'fi-'+i,deck:'Pillars',pic:'🕌',q:`What is the ${n} pillar of Islam?`,a,ar:''}))}
+  if(d.sk4)cards.push({id:'fm-all',deck:'Pillars',pic:'💚',q:'What are the 6 pillars of Iman?',a:'Allah, His angels, His books, His messengers, the Last Day, and al-Qadr',ar:''});
+  return cards;
+}
+function dayNum(){const d=new Date();d.setHours(0,0,0,0);return Math.round(d.getTime()/864e5)}
+function flashDue(k){const P=prog(k),f=P.flash||{},t=dayNum();if((P.flashDay||0)===t)return 0;return Math.min(10,flashDeck(k).filter(c=>!f[c.id]||f[c.id].due<=t).length)}
+function startFlash(){
+  const k=ui.kid,P=prog(k),f=P.flash||{},t=dayNum(),deck=flashDeck(k);
+  const due=deck.filter(c=>f[c.id]&&f[c.id].due<=t).sort((a,b)=>f[a.id].due-f[b.id].due);
+  const fresh=shuffle(deck.filter(c=>!f[c.id]));
+  let q=[...due,...fresh].slice(0,10);
+  if(!q.length&&deck.length)q=shuffle(deck).slice(0,Math.min(10,deck.length));
+  ui.F={q,i:0,flip:false,knew:0,total:q.length,again:{}};go('flash');
+}
+function flashScreen(){
+  const F=ui.F;
+  if(!F||!F.total)return `<div class="topbar"><button class="back" data-act="home">← Back</button></div><h1>Flashcards 🃏</h1><div class="card stage"><p class="muted">Finish a lesson first. Cards about what you learnt will appear here, and they come back until you know them by heart.</p></div>`;
+  if(F.i>=F.q.length)return `<div class="topbar"><button class="back" data-act="home">← My garden</button></div><div class="flashdone card stage"><div class="big">🌸</div><h1>MashaAllah!</h1><p>You knew ${F.knew} of ${F.total} cards today.</p><p class="muted">${F.flower?'A new flower grew in your garden. ':''}The ones you are still learning will come back tomorrow.</p><button class="btn rose" data-act="home">My garden</button></div>`;
+  const c=F.q[F.i];
+  return `<div class="topbar"><button class="back" data-act="home">✕</button><span class="chip plain">${c.deck}</span></div>
+  <div class="fprog">${F.q.map((_,i)=>`<i class="${i<F.i?'d':i===F.i?'n':''}"></i>`).join('')}</div>
+  <button class="fcard ${F.flip?'flip':''}" data-act="flip" aria-label="${F.flip?'Answer showing':'Tap to see the answer'}">
+   <span class="fin">
+    <span class="ff front">${c.pic?`<span class="fpic">${c.pic}</span>`:''}${c.big?`<span class="fbig">${c.big}</span>`:''}<span class="fq">${esc(c.q)}</span><span class="fhint">Say your answer out loud, then tap to flip</span></span>
+    <span class="ff back"><span class="flab">Answer</span><span class="fa">${esc(c.a)}</span>${c.ar?`<span class="far">${c.ar}</span>`:''}</span>
+   </span>
+  </button>
+  ${F.flip?`<div class="fbtns"><button class="btn rose" data-act="fNo">🔁 Not yet</button><button class="btn" data-act="fYes">✅ I knew it</button></div>`:`<p class="small muted" style="text-align:center">Card ${F.i+1} of ${F.q.length}</p>`}`;
+}
+function flashMark(knew){
+  const F=ui.F,k=ui.kid,P=prog(k),c=F.q[F.i],t=dayNum();P.flash=P.flash||{};
+  const cur=P.flash[c.id]||{b:0,due:t};
+  if(knew){if(!F.again[c.id]){cur.b=Math.min(4,cur.b+1);cur.due=t+FLASH_INT[cur.b]}F.knew+=F.again[c.id]?0:1}
+  else{cur.b=0;cur.due=t+1;if(!F.again[c.id]){F.again[c.id]=1;F.q.push(c)}}
+  P.flash[c.id]=cur;F.i++;F.flip=false;
+  if(F.i>=F.q.length){if((P.flashDay||0)!==t){P.flashDay=t;P.flashDays=(P.flashDays||0)+1;F.flower=true;const y=dayKey(new Date(Date.now()-864e5)),td=dayKey();if(P.lastDay!==td){P.streak=P.lastDay===y?(P.streak||0)+1:1;P.lastDay=td}}}
+  saveProg(k);render();
+}
+
+/* ===================== DAILY FEED ===================== */
+function gemsLive(){return GEMS.filter(g=>g.ok)}
+function todaysGems(k){
+  const P=prog(k),t=dayKey(),live=gemsLive();if(!live.length)return [];
+  if(P.feed&&P.feed.day===t)return P.feed.gems.map(id=>live.find(g=>g.id===id)).filter(Boolean);
+  const seen=P.gemSeen||{},kinds=[...new Set(live.map(g=>g.kind))],cols=kinds.map(k2=>live.filter(g=>g.kind===k2)),mix=[];for(let i=0;cols.some(c=>c[i]);i++)cols.forEach(c=>c[i]&&mix.push(c[i]));let pick=mix.filter(g=>!seen[g.id]).slice(0,3);
+  if(pick.length<3)pick=pick.concat(live.filter(g=>seen[g.id]&&!pick.includes(g)).sort((a,b)=>seen[a.id]-seen[b.id]).slice(0,3-pick.length));
+  P.feed={day:t,gems:pick.map(g=>g.id)};P.gemSeen=Object.assign({},seen);pick.forEach(g=>P.gemSeen[g.id]=Date.now());saveProg(k);
+  return pick;
+}
+function nudges(k){
+  const P=prog(k),d=P.done||{},out=[];
+  const aq=nextIn('aq');if(aq)out.push({icon:AQICON[aq.id]||'🌙',text:`Your next stop on the island is ${aq.title.replace(/^Allah is /,'')}. Ready?`,act:'open',arg:aq.id});
+  const st=STORIES.find(s=>approved(s)&&!d[s.id]);if(st)out.push({icon:'📜',text:`Have you read the story of ${st.title.replace(/,.*$/,'')}?`,act:'open',arg:st.id});
+  const ad=AD.find(l=>!d[l.id]);if(ad)out.push({icon:DPIC[ad.id],text:`Learn the dua for ${ad.title.toLowerCase()} today?`,act:'open',arg:ad.id});
+  const ar=nextIn('ar');if(ar)out.push({icon:(PICW[ar.set[0][0]]||['ا'])[0],text:`New letters are waiting: ${ar.set.map(x=>x[0]).join(' ')}`,act:'open',arg:ar.id});
+  const sk=SK.find(l=>!d[l.id]);if(sk)out.push({icon:'🧩',text:`Can you do the ${sk.title} game?`,act:'open',arg:sk.id});
+  const fd=flashDue(k);if(fd)out.push({icon:'🃏',text:`${fd} flashcards are waiting for you. Quick round?`,act:'flash',arg:''});
+  const n=dayNum();return out.length?[out[n%out.length],out[(n+1)%out.length]].filter((x,i,a)=>a.indexOf(x)===i):[];
+}
+function feedPage(){
+  const k=ui.kid,P=prog(k);if(P.feedOpened!==dayKey()){P.feedOpened=dayKey();saveProg(k)}
+  const gems=todaysGems(k),wins=familyWins(k,3).slice(0,3),nd=nudges(k),items=[];
+  const g=[...gems],w=[...wins],n=[...nd];
+  while(g.length||w.length||n.length){if(g.length)items.push(['g',g.shift()]);if(w.length)items.push(['w',w.shift()]);if(g.length)items.push(['g',g.shift()]);if(n.length)items.push(['n',n.shift()])}
+  const card=([t,x])=>{
+    if(t==='g'){const h=(P.gemHearts||{})[x.id];return `<article class="gem" style="--g1:${x.c1};--g2:${x.c2}"><span class="gkind">${esc(x.kind)}</span><span class="gpic">${x.pic}</span>${x.ar?`<p class="gar">${x.ar}</p>`:''}<p class="gtx">${esc(x.text)}</p><span class="gsrc">${esc(x.src)}</span><div class="gact"><button class="${h?'on':''}" data-act="gemHeart" data-id="${x.id}" aria-label="${h?'Unsave':'Save with a heart'}">${h?'❤️':'🤍'}</button><button data-act="gemSend" data-id="${x.id}" aria-label="Send to family chat">💬 Send to family</button></div></article>`}
+    if(t==='w')return `<article class="win"><span class="bav">${symEl(x.kid,52)}<i>${x.icon}</i></span><div><p>${esc(x.text)}</p><button class="btn sm" data-act="cheer" data-k="${x.kid}">Say MashaAllah 🌟</button></div></article>`;
+    return `<article class="nudge"><span class="nic">${x.icon}</span><p>${esc(x.text)}</p><button class="btn rose sm" data-act="bellGo" data-a="${x.act}" data-arg="${esc(x.arg)}">Let's go →</button></article>`;
+  };
+  return `${pager()}<div class="pgwrap ${ui.slide||''}">
+   <h1 class="feedh">Today's gems ✨</h1>
+   ${items.length?`<div class="feed">${items.map(card).join('')}</div>`:''}
+   <div class="feedend"><span>🌙</span><b>That's all for today</b><small>Come back tomorrow for new gems, inshaAllah.</small></div>
+  </div>`;
+}
+
 /* ===================== EVENTS ===================== */
 app.addEventListener('click',e=>{
   const b=e.target.closest('[data-act]');if(!b||b.disabled)return;
@@ -1683,7 +2026,7 @@ app.addEventListener('click',e=>{
    case 'rmMember':S.access=S.access.filter(x=>x!==b.dataset.e);put('fam/access',{members:S.access});render();break;
    case 'setup':go(S.settings.parentPin?'parents':'setup');break;
    case 'parentLogin':if(!S.settings.parentPin)go('setup');else go('pin',{pin:'',pinFor:'parent'});break;
-   case 'pickKid':if(!S.kids[id].pin){ui.kid=id;checkCerts(id);go('home')}else go('pin',{pin:'',pinFor:id});break;
+   case 'pickKid':ui.page=0;ui.galKid=null;if(!S.kids[id].pin){ui.kid=id;checkCerts(id);go('home')}else go('pin',{pin:'',pinFor:id});break;
    case 'pinBack':go(ui.pinFor==='daddyCheck'?'play':ui.pinFor==='duelUnlock'?'home':'cover');break;
    case 'duelUnlock':go('pin',{pin:'',pinFor:'duelUnlock'});break;
    case 'duelPick':go('duelpick');break;
@@ -1695,11 +2038,24 @@ app.addEventListener('click',e=>{
    case 'duelSay':if(G&&G.target)speak(LBY[G.target][2]);break;
    case 'key':{const k=b.dataset.k;if(k==='⌫')ui.pin=ui.pin.slice(0,-1);else if(ui.pin.length<4)ui.pin+=k;
      if(ui.pin.length===4){const want=['parent','daddyCheck','duelUnlock'].includes(ui.pinFor)?S.settings.parentPin:S.kids[ui.pinFor]?.pin;
-       if(ui.pin===want){if(ui.pinFor==='parent'){ui.parent=true;go('parents')}else if(ui.pinFor==='duelUnlock'){ui.duelUnlocked=true;go('duelpick')}else if(ui.pinFor==='daddyCheck'){toast("Daddy's star!");ui.screen='play';finishLesson()}else{ui.kid=ui.pinFor;checkCerts(ui.kid);go('home')}}
+       if(ui.pin===want){if(ui.pinFor==='parent'){ui.parent=true;go('parents')}else if(ui.pinFor==='duelUnlock'){ui.duelUnlocked=true;go('duelpick')}else if(ui.pinFor==='daddyCheck'){toast("Daddy's star!");ui.screen='play';finishLesson()}else{ui.kid=ui.pinFor;ui.page=0;ui.galKid=null;checkCerts(ui.kid);go('home')}}
        else{ui.pin='';render();const p=document.getElementById('pinbox');p&&p.classList.add('shake');toast('Try again')}}
      else render();break;}
    case 'logout':goOffline(ui.kid);ui.kid=null;ui.waveTo=null;go('cover');break;
    case 'home':go('home');break;
+   case 'page':setPage(+b.dataset.p);break;
+   case 'bell':ui.bellWas=bellSeen(ui.kid);markBell(ui.kid);go('bell');break;
+   case 'bellGo':{const a2=b.dataset.a,arg=b.dataset.arg;if(a2==='galOf'){ui.galKid=arg;ui.page=1;go('home')}else if(a2==='page'){ui.page=+arg;go('home')}else if(a2==='flash')startFlash();else if(a2==='open')startLesson(arg);break;}
+   case 'galOf':ui.galKid=b.dataset.k;render();break;
+   case 'galCert':{const g=b.dataset.k,c=certList(g).find(x=>x.key===b.dataset.key);if(!c)break;ui.certBack='home';go('cert',{cert:Object.assign({kid:g},c)});break;}
+   case 'heart':toggleHeart(b.dataset.k,b.dataset.key);break;
+   case 'flash':startFlash();break;
+   case 'flip':if(ui.F){ui.F.flip=!ui.F.flip;render()}break;
+   case 'fYes':flashMark(true);break;
+   case 'fNo':flashMark(false);break;
+   case 'gemHeart':{const P=prog(ui.kid);P.gemHearts=P.gemHearts||{};if(P.gemHearts[id])delete P.gemHearts[id];else P.gemHearts[id]=Date.now();saveProg(ui.kid);render();break;}
+   case 'gemSend':{const g=GEMS.find(x=>x.id===id);if(!g)break;if(mode!=='db'){toast('The family chat works once a grown-up signs in.');break}sendChat(('✨ '+g.text+' ('+g.src+')').slice(0,200));toast('Sent to the family chat 💬');break;}
+   case 'cheer':{const c=b.dataset.k;if(mode!=='db'){toast('The family chat works once a grown-up signs in.');break}sendChat('MashaAllah '+S.kids[c].name+'! 🌟',c);toast('Sent!');b.disabled=true;b.textContent='Sent 🌟';break;}
    case 'world':go('world',{world:b.dataset.w});break;
    case 'open':startLesson(id);break;
    case 'quit':go(ui.world?'world':'home');break;
@@ -1716,7 +2072,7 @@ app.addEventListener('click',e=>{
    case 'count':st.c++;render();break;
    case 'avatar':ui.avDraft=null;go('avatar');break;
    case 'openCert':{const c=certList(ui.kid).find(x=>x.key===b.dataset.key);if(!c)break;ui.certBack=ui.screen==='duelres'?'duelPick':'home';go('cert',{cert:c});break;}
-   case 'certShare':if(certCanvas)shareCanvas(certCanvas,'little-lantern-certificate',`${kidName()} ${ui.cert.line}! MashaAllah`);break;
+   case 'certShare':if(certCanvas)shareCanvas(certCanvas,'little-lantern-certificate',`${S.kids[ui.cert.kid||ui.kid].name} ${ui.cert.line}! MashaAllah`);break;
    case 'avSet':{const k=b.dataset.k,v=b.dataset.v;ui.avDraft[k]=k==='head'||k==='holds'?v:k==='glasses'?v==='1':+v;render();break;}
    case 'avSave':{S.kids[ui.kid].av=Object.assign({},ui.avDraft);saveKid(ui.kid);toast('Avatar saved!');go('home');break;}
    case 'avSticker':{if(!S.kids[ui.kid].av){S.kids[ui.kid].av=Object.assign({},ui.avDraft);saveKid(ui.kid)}makeSticker(b.dataset.w).then(c=>shareCanvas(c,'little-lantern-sticker',b.dataset.w));break;}
