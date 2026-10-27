@@ -25,8 +25,8 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>window.LL_FB={apiKey:"AIzaSyAIZ4JyxxZPBcPD5OHjQ-hpofP-KJwHtzE",authDomain:"little-lantern-b8a7b.firebaseapp.com",projectId:"little-lantern-b8a7b",storageBucket:"little-lantern-b8a7b.firebasestorage.app",messagingSenderId:"598122924180",appId:"1:598122924180:web:2bf132131983ea04d74c81"};window.LL_NTFY="little-lantern-17b8f6b09be7";</script>
-<meta name="ll-build" content="202610260719">
-<script>window.LL_BUILD="202610260719";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
+<meta name="ll-build" content="202610271351">
+<script>window.LL_BUILD="202610271351";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
 </head>
 <body>
 <title>Little Lantern</title>
@@ -272,6 +272,15 @@ html.snapy{scroll-snap-type:y mandatory}
 .reel.feedend span{font-size:4rem}.reel.feedend b{font:600 1.5rem var(--f-display)}.reel.feedend small{color:#CFE0E6;font-size:1rem}
 .reel.feedend .btn.ghost{background:transparent;color:#FBEFD3;border-color:rgba(251,239,211,.5)}
 @media (prefers-reduced-motion:reduce){.swipeup{animation:none}html.snapy{scroll-snap-type:none}}
+.sod{display:flex;align-items:stretch;gap:0;border:0;padding:0;border-radius:22px;overflow:hidden;background:var(--surface);box-shadow:0 6px 18px rgba(0,0,0,.08);text-align:left;font:inherit;color:var(--ink);cursor:pointer;width:100%}
+.sodpic{flex:0 0 42%;display:block;min-height:110px}.sodpic svg{width:100%;height:100%;display:block;object-fit:cover}
+.sodtx{display:flex;flex-direction:column;justify-content:center;gap:3px;padding:12px 14px}
+.sodtx small{font-weight:800;color:var(--rose);font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+.sodtx b{font:600 1.1rem/1.2 var(--f-display)}.sodtx span{font-size:.8rem;color:var(--muted)}
+.w-wq{background:var(--green-soft);color:var(--green)}
+.book.today{box-shadow:0 0 0 3px var(--gold)}
+.wqdone{text-align:center;justify-items:center}.wqdone .big{font-size:4rem}
+details{padding:6px 0}summary{cursor:pointer}
 @keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
 
 /* kid home */
@@ -995,6 +1004,7 @@ function certList(k){
   if((P.streak||0)>=7)out.push({key:'streak7',title:'7-day streak',line:'learned every day for 7 days in a row'});
   if((P.streak||0)>=30)out.push({key:'streak30',title:'30-day streak',line:'learned every day for 30 days in a row'});
   if(flowers>=25)out.push({key:'flowers25',title:'Garden of 25',line:'grew 25 flowers in the garden with lessons and good deeds'});
+  for(const wid in (P.wq||{})){const r=P.wq[wid];if(r.first>=Math.ceil(r.n*.8))out.push({key:wid,title:"Jumu'ah quiz star",line:`scored ${r.first} out of ${r.n} in the Jumu'ah quiz`})}
   if(((P.duels||{}).won||0)>=20)out.push({key:'kerala',title:'Road to Kerala',line:'won 20 letter duels and drove all the way home to Kerala'});
   return out;
 }
@@ -1080,6 +1090,7 @@ function doingNow(){
   if(s==='avatar')return 'Making an avatar';
   if(s==='cert')return 'Looking at a certificate';
   if(s==='flash')return 'Doing flashcards';
+  if(s==='wquiz')return "Doing the Jumu'ah quiz";
   if(s==='home'&&ui.page===1)return 'In the gallery';
   if(s==='home'&&ui.page===2)return "Reading today's gems";
   return 'In the garden';
@@ -1303,7 +1314,7 @@ const fill=t=>esc(t).replace('{name}',esc(kidName()));
 function prog(id){return S.progress[id]||(S.progress[id]={done:{},log:[],streak:0,lastDay:''})}
 const approved=l=>l.auto||!!S.approvals[l.id];
 function doneDay(id){const e=(prog(ui.kid).log||[]).find(x=>x.l===id);return e?dayKey(new Date(e.at)):''}
-function unlocked(l){const w=WORLDS[l.world];if(!w.seq)return true;const i=w.lessons.indexOf(l);if(i===0)return true;const prev=w.lessons[i-1];if(!prog(ui.kid).done[prev.id])return false;if(l.world==='st')return doneDay(prev.id)!==dayKey();return true}
+function unlocked(l){if(l.world==='st')return storyOpen(l);const w=WORLDS[l.world];if(!w.seq)return true;const i=w.lessons.indexOf(l);if(i===0)return true;const prev=w.lessons[i-1];if(!prog(ui.kid).done[prev.id])return false;if(l.world==='st')return doneDay(prev.id)!==dayKey();return true}
 function starsTxt(n){return '★'.repeat(n)+'☆'.repeat(3-n)}
 let toastT;function toast(m){let t=document.querySelector('.toast');if(!t){t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t)}t.textContent=m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,2600)}
 let arVoice=null;function loadVoices(){try{arVoice=speechSynthesis.getVoices().find(v=>/^ar/i.test(v.lang))||null}catch(e){}}
@@ -1321,7 +1332,7 @@ function go(screen,extra){Object.assign(ui,{screen},extra||{});render();window.s
 /* ===================== SCREENS ===================== */
 function render(){
   if(ui.screen==='duel')return;
-  const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen,cert:certScreen,chat:chatScreen,bell:bellScreen,flash:flashScreen}[ui.screen]||cover;
+  const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen,cert:certScreen,chat:chatScreen,bell:bellScreen,flash:flashScreen,wquiz:wquizScreen}[ui.screen]||cover;
   app.innerHTML=f();
   const igOn=ui.screen==='home';document.body.classList.toggle('igon',igOn);document.documentElement.classList.toggle('snapy',igOn&&ui.page===2);
   placeRoad();
@@ -1406,10 +1417,12 @@ function gardenPane(){
   <div class="hello2"><button class="avbtn" data-act="avatar" aria-label="Make my avatar">${symEl(k,64)}<span class="avedit">${S.kids[k].av?'Edit':'Make me!'}</span></button>
    <div class="hx"><h1 class="hi">Assalamu alaikum, ${esc(S.kids[k].name)}!</h1><div class="pills"><span class="pill">⭐ ${stars}</span><span class="pill">🔥 ${P.streak||0} day${(P.streak||0)===1?'':'s'}</span><span class="pill">🌸 ${done+deedsOk(k)+(P.flashDays||0)}</span></div></div></div>
   ${joinBell()}
+  ${sodCard(k)}
   ${whosHere()}
   <div class="garden slim">${gardenSVG(done+deedsOk(k)+(P.flashDays||0),trees)}</div>
   <section class="sect"><h2 class="h2s">Today's three</h2><div class="today3">${tasks.map(t=>{const W=WORLDS[t.w];return `<button class="t3 ${t.did?'done':''}" ${t.w!=='ar'?`data-act="world" data-w="${t.w}"`:t.nx?`data-act="open" data-id="${t.nx.id}"`:'disabled'}><span class="ic ${t.w==='ar'?'ar':''}">${t.did?'✅':W.icon}</span><b>${short[t.w]}</b><small>${t.w==='aq'&&t.nx?'Stop '+(AQ.indexOf(t.nx)+1)+': '+esc(t.nx.title.replace(/^Allah is /,'')):t.w==='ad'?(t.did?'Done! Pick another':'All '+AD.length+' duas'):t.nx?esc(t.nx.title):(t.did?'Done!':'Waiting for Daddy')}</small></button>`}).join('')}</div></section>
   <section class="sect"><h2 class="h2s">Play and learn</h2><div class="tiles">${['st','sk','aq','ad','ar'].map(tile).join('')}
+   ${wqTile(k)}
    <button class="tile w-fl" data-act="flash"><span class="ic">🃏</span><b>Flashcards</b><small>${(()=>{const n=flashDue(k);return n?n+' ready':flashDeck(k).length?'Done today ✅':'After a lesson'})()}</small></button>
    <button class="tile w-duel" data-act="${dOpen?'duelPick':'duelUnlock'}"><span class="ic">${dOpen?'⚔️':'🔒'}</span><b>Duel with Daddy</b><small>${dOpen?(D.played?`${D.won} wins`:'Play now'):'After a lesson'}</small></button></div>
    <p class="small muted">Coming soon: ${SOON.map(s=>s[1]).join(', ')}</p></section>
@@ -1611,11 +1624,13 @@ function library(){
     const ok=approved(st),d=P.done[st.id];
     const cover=`<span class="bcover">${scene(st.slides[0].sc)}</span>`;
     if(!ok)return `<div class="book wait" style="--spine:${hue}">${cover}${head}<span class="chip gold">Waiting for Daddy</span></div>`;
-    return `<button class="book" style="--spine:${hue}" data-act="open" data-id="${st.id}">${cover}${head}${d?`<span class="stars">${starsTxt(d)}</span>`:'<span class="chip rose">Read</span>'}</button>`;
+    const today=(storyOfDay(ui.kid)||{}).id===st.id;
+    if(!d&&!today)return `<div class="book wait" style="--spine:${hue}">${cover}${head}<span class="chip plain">🌅 Opens on a coming morning</span></div>`;
+    return `<button class="book ${today?'today':''}" style="--spine:${hue}" data-act="open" data-id="${st.id}">${cover}${head}${d?`<span class="stars">${starsTxt(d)}</span>`:'<span class="chip rose">✨ Today\'s story</span>'}</button>`;
   }).join('');
   const n=STORIES.filter(s=>P.done[s.id]).length;
   return `<div class="topbar"><button class="back" data-act="home">← My garden</button></div>
-  <div class="world w-st" style="min-height:auto"><span class="wicon">📜</span><h1>The Story Room</h1><p>The Prophets in the order Allah sent them, from Adam to Muhammad ﷺ. Tap a book to read it. You have read ${n} of ${STORIES.length}.</p></div>
+  <div class="world w-st" style="min-height:auto"><span class="wicon">📜</span><h1>The Story Room</h1><p>The Prophets in the order Allah sent them, from Adam to Muhammad ﷺ. A new story opens every morning at 6. You have read ${n} of ${STORIES.length}.</p></div>
   <div class="shelf">${books}</div>
   <p class="small muted">Stories are told from the Qur'an. Pictures show places, never the Prophets.</p>`;
 }
@@ -1786,6 +1801,7 @@ function parents(){
    <div class="list">${ids.length?ids.map(k=>`<div class="li">${symEl(k,40)}<span class="tx"><b>${esc(S.kids[k].name)}</b><span class="small muted" style="display:block">${S.kids[k].pin?'Has a PIN':'No PIN'}</span></span><button class="btn ghost sm" data-act="editKid" data-id="${k}">Edit</button></div>`).join(''):'<p class="muted">No children yet. Add the first one.</p>'}</div>
   </section>
 
+  ${bundlesSection()}
   <section class="sect"><h2>Waiting for your OK</h2><p class="muted small">Read each lesson before your children see it. Arabic letters are open already.</p>
    ${worlds.map(({w,list})=>{const pend=list.filter(l=>!approved(l));return `<div class="card stage"><div class="spread"><h3>${WORLDS[w].name}</h3>${pend.length?`<button class="btn sm" data-act="apprAll" data-w="${w}">Approve all ${pend.length}</button>`:'<span class="chip green">All approved</span>'}</div>
     <div class="list">${list.map(l=>`<div class="li"><span class="tx"><b>${esc(l.title)}</b></span>${approved(l)?'<span class="chip green">Approved</span>':`<button class="btn sm" data-act="appr" data-id="${l.id}">Approve</button>`}<button class="btn ghost sm" data-act="prev" data-id="${l.id}">${ui.openPrev===l.id?'Hide':'Read'}</button>${ui.openPrev===l.id?previewHTML(l):''}</div>`).join('')}</div></div>`}).join('')}
@@ -1982,6 +1998,9 @@ function bellEvents(k){
   const mc=certList(k);
   Object.values(S.hearts||{}).forEach(h=>{if(h&&h.kid===k&&h.from!==k&&S.kids[h.from]){const c=mc.find(x=>x.key===h.key);if(c)ev.push({at:h.at,icon:'❤️',text:`${S.kids[h.from].name} gave a heart to your certificate: ${c.story?byId[c.story].title:c.title}`,act:'galOf',arg:k})}});
   const t0=new Date();t0.setHours(0,0,0,0);
+  const sod=storyOfDay(k);if(sod&&!prog(k).done[sod.id])ev.push({at:at6(),icon:'📜',text:`Today's story is ready: ${sod.title}`,act:'open',arg:sod.id});
+  const wf=weekStart6().getTime();if(!wqState(k)&&Date.now()-wf<4*864e5&&quizPool(k).length>=5)ev.push({at:wf,icon:'🕌',text:"This week's Jumu'ah quiz is ready!",act:'wq'});
+  for(const c in S.kids){if(c===k)continue;const r=(prog(c).wq||{})[weekId()];if(r)ev.push({at:r.at,kid:c,icon:'🕌',text:`${S.kids[c].name} scored ${r.first}/${r.n} in the Jumu'ah quiz. MashaAllah!`,act:'galOf',arg:c})}
   const due=flashDue(k);if(due)ev.push({at:t0.getTime(),icon:'🃏',text:`${due} flashcard${due>1?'s are':' is'} ready for you`,act:'flash'});
   if(gemsLive().length&&(prog(k).feedOpened||'')!==dayKey())ev.push({at:t0.getTime()+1,icon:'✨',text:'New gems are ready for today',act:'page',arg:2});
   return ev.sort((a,b)=>b.at-a.at).slice(0,40);
@@ -2075,7 +2094,7 @@ function flashMark(knew){
 }
 
 /* ===================== DAILY FEED ===================== */
-function gemsLive(){return GEMS.filter(g=>g.ok)}
+function gemsLive(){return GEMS.filter(g=>g.ok||(g.bundle&&S.approvals[g.bundle]))}
 function todaysGems(k){
   const P=prog(k),t=dayKey(),live=gemsLive();if(!live.length)return [];
   if(P.feed&&P.feed.day===t)return P.feed.gems.map(id=>live.find(g=>g.id===id)).filter(Boolean);
@@ -2087,7 +2106,7 @@ function todaysGems(k){
 function nudges(k){
   const P=prog(k),d=P.done||{},out=[];
   const aq=nextIn('aq');if(aq)out.push({icon:AQICON[aq.id]||'🌙',text:`Your next stop on the island is ${aq.title.replace(/^Allah is /,'')}. Ready?`,act:'open',arg:aq.id});
-  const st=STORIES.find(s=>approved(s)&&!d[s.id]);if(st)out.push({icon:'📜',text:`Have you read the story of ${st.title.replace(/,.*$/,'')}?`,act:'open',arg:st.id});
+  const st=storyOfDay(k);if(st&&!d[st.id])out.unshift({icon:'📜',text:`Today's story: ${st.title}. Ready to read?`,act:'open',arg:st.id});if(!wqState(k)&&quizPool(k).length>=5)out.push({icon:'🕌',text:"Have you done this week's Jumu'ah quiz?",act:'wq',arg:''});
   const ad=AD.find(l=>!d[l.id]);if(ad)out.push({icon:DPIC[ad.id],text:`Learn the dua for ${ad.title.toLowerCase()} today?`,act:'open',arg:ad.id});
   const ar=nextIn('ar');if(ar)out.push({icon:(PICW[ar.set[0][0]]||['ا'])[0],text:`New letters are waiting: ${ar.set.map(x=>x[0]).join(' ')}`,act:'open',arg:ar.id});
   const sk=SK.find(l=>!d[l.id]);if(sk)out.push({icon:'🧩',text:`Can you do the ${sk.title} game?`,act:'open',arg:sk.id});
@@ -2106,6 +2125,93 @@ function feedPage(active){
   };
   return `<div class="feed">${items.map(card).join('')}
    <article class="reel feedend"><span>🌙</span><b>That's all for today</b><small>Come back tomorrow for new gems, inshaAllah.</small><button class="btn ghost" data-act="page" data-p="0">Back to my garden</button></article></div>`;
+}
+
+/* ===================== STORY OF THE DAY (opens 6 am) ===================== */
+const OPEN_HOUR=6;
+function day6(){return dayKey(new Date(Date.now()-OPEN_HOUR*3600e3))}
+function at6(){const d=new Date(Date.now()-OPEN_HOUR*3600e3);d.setHours(OPEN_HOUR,0,0,0);return d.getTime()}
+function storyOfDay(k){
+  if(!k||!S.kids[k])return null;const P=prog(k),t=day6();
+  if(P.sod&&P.sod.day===t&&byId[P.sod.id])return byId[P.sod.id];
+  const ready=STORIES.filter(s=>approved(s));if(!ready.length)return null;
+  let s=ready.find(x=>!P.done[x.id]),again=false;
+  if(!s){again=true;const n=Math.round(new Date(t).getTime()/864e5);s=ready[n%ready.length]}
+  P.sod={day:t,id:s.id,again};saveProg(k);return s;
+}
+function storyOpen(l,k){k=k||ui.kid;if(!k||!S.kids[k])return true;const P=prog(k);return !!P.done[l.id]||(storyOfDay(k)||{}).id===l.id}
+function sodCard(k){
+  const s=storyOfDay(k);if(!s)return '';const P=prog(k),d=P.done[s.id],again=P.sod&&P.sod.again;
+  return `<button class="sod" data-act="open" data-id="${s.id}"><span class="sodpic">${scene(s.slides[0].sc)}</span><span class="sodtx"><small>${again?'Read again today':'Today\'s story ✨'}</small><b>${esc(s.title)}</b><span>${d?starsTxt(d)+' · tap to read again':'A new story every morning at 6'}</span></span></button>`;
+}
+
+/* ===================== JUMU'AH QUIZ (Friday 6 am) ===================== */
+function weekStart6(){const d=new Date(Date.now()-OPEN_HOUR*3600e3);const back=(d.getDay()-5+7)%7;d.setDate(d.getDate()-back);d.setHours(OPEN_HOUR,0,0,0);return d}
+function weekId(){return 'wq-'+dayKey(weekStart6())}
+function rng(seed){let h=2166136261;for(const c of seed)h=Math.imul(h^c.charCodeAt(0),16777619);return()=>{h+=0x6D2B79F5;let t=h;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296}}
+function sshuffle(a,r){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function quizPool(k){
+  const P=prog(k),d=P.done||{},ws=weekStart6().getTime(),recent=new Set((P.log||[]).filter(e=>e.at>=ws-7*864e5).map(e=>e.l)),out=[];
+  const add=(q,id)=>{if(q&&q.o&&q.o.length>=2)out.push(Object.assign({src:id,recent:recent.has(id)},q))};
+  [...AQ,...AD,...STORIES,...SK].forEach(l=>{if(!d[l.id]||!approved(l))return;(l.steps||[]).forEach(s=>{if(s.t==='quiz')(s.qs||[]).forEach(q=>add(q,l.id))})});
+  LV.forEach(l=>{if(d[l.id])l.set.forEach(x=>{const p=PICW[x[0]],pool=LETTERS.filter(y=>y!==x);add({q:p?`${p[0]} ${p[2]} (\u2068${p[1]}\u2069) starts with which letter?`:`Which letter is ${x[1]}?`,o:[x[0],...(i=>[pool[(i*7)%27],pool[(i*7+9)%27],pool[(i*7+18)%27]])(LETTERS.indexOf(x)).map(y=>y[0])],glyph:true,why:`${x[1]}: ${x[0]}`},l.id)})});
+  EXTRA_Q.filter(q=>S.approvals[q.bundle]).forEach(q=>add(q,q.bundle));
+  return out;
+}
+function weeklyQs(k){
+  const wid=weekId(),r=rng(wid+k),pool=quizPool(k);
+  const a=sshuffle(pool.filter(q=>q.recent),r),b=sshuffle(pool.filter(q=>!q.recent),r);
+  return [...a.slice(0,6),...b,...a.slice(6)].slice(0,10).map(q=>Object.assign({},q,{opts:sshuffle(q.o,r)}));
+}
+function wqState(k){const P=prog(k);return (P.wq||{})[weekId()]}
+function startWQ(){const qs=weeklyQs(ui.kid);ui.W={qs,i:0,ans:null,right:0};go('wquiz')}
+function wquizScreen(){
+  const W=ui.W,k=ui.kid,st=wqState(k);
+  if(!W||W.qs.length<5)return `<div class="topbar"><button class="back" data-act="home">← Back</button></div><h1>Jumu'ah quiz 🕌</h1><div class="card stage"><p class="muted">Finish a few lessons or stories first. Every Friday morning, a quiz is made from what you learnt.</p></div>`;
+  if(W.i>=W.qs.length){const n=W.qs.length,sc=Math.round(W.right/n*10);
+    return `<div class="topbar"><button class="back" data-act="home">← My garden</button></div><div class="card stage wqdone"><span class="big">${sc>=8?'🏆':sc>=5?'🌟':'🌱'}</span><h1>${W.right} out of ${n}</h1><p>${sc>=8?'MashaAllah! You earned the Jumu\'ah quiz certificate.':sc>=5?'Well done! Keep learning and try again next Friday.':'Good try! Every Friday is a new chance.'}</p>${st?`<p class="muted small">Your first try this week: ${st.first}/${st.n}. Best: ${st.best}/${st.n}.</p>`:''}<div class="row" style="justify-content:center"><button class="btn ghost" data-act="wqGo">Try again</button><button class="btn rose" data-act="home">My garden</button></div></div>`}
+  const q=W.qs[W.i];
+  return `<div class="topbar"><button class="back" data-act="home">✕</button><span class="chip plain">Jumu'ah quiz 🕌</span></div>
+  <div class="fprog">${W.qs.map((_,i)=>`<i class="${i<W.i?'d':i===W.i?'n':''}"></i>`).join('')}</div>
+  <p class="muted small">Question ${W.i+1} of ${W.qs.length}</p><h2>${esc(q.q)}</h2>${q.big?`<div class="bigar" style="font-size:4rem">${q.big}</div>`:''}
+  <div class="opts ${q.glyph?'grid4':''}">${q.opts.map(o=>{let c='';if(W.ans!=null){if(o===q.o[0])c='right';else if(o===W.ans)c='wrong'}return `<button class="opt ${q.glyph?'glyph':''} ${c}" data-act="wqAns" data-v="${esc(o)}" ${W.ans!=null?'disabled':''}>${esc(o)}</button>`}).join('')}</div>
+  ${W.ans!=null?`<div class="fb ${W.ans===q.o[0]?'ok':'no'}">${W.ans===q.o[0]?'MashaAllah, correct! ':'Not quite. '}${esc(q.why||'')}</div><div class="row" style="justify-content:flex-end"><button class="btn" data-act="wqNext">${W.i===W.qs.length-1?'See my score':'Next'}</button></div>`:''}`;
+}
+function wqFinish(){
+  const W=ui.W,k=ui.kid,P=prog(k),wid=weekId(),n=W.qs.length;P.wq=P.wq||{};
+  const cur=P.wq[wid];if(!cur)P.wq[wid]={first:W.right,best:W.right,n,at:Date.now()};else cur.best=Math.max(cur.best,W.right);
+  const td=dayKey(),y=dayKey(new Date(Date.now()-864e5));if(P.lastDay!==td){P.streak=P.lastDay===y?(P.streak||0)+1:1;P.lastDay=td}
+  saveProg(k);checkCerts(k);
+}
+function wqTile(k){const st=wqState(k);return `<button class="tile w-wq" data-act="wqGo"><span class="ic">🕌</span><b>Jumu'ah quiz</b><small>${st?`${st.best}/${st.n} this week`:'New every Friday'}</small></button>`}
+
+/* ===================== WEEKLY CONTENT (added by the scheduled task, opened by Daddy) ===================== */
+const EXTRA_Q=[];let BUNDLES=[];
+function mergeBundle(b){
+  if(!b||!b.id||BUNDLES.some(x=>x.id===b.id))return;BUNDLES.push(b);
+  (b.stories||[]).forEach(st=>{if(!st.id||byId[st.id]||!PROPHETS.some(p=>p[0]===st.pid)||STORIES.some(s=>s.pid===st.pid))return;
+    st.world='st';st.bundle=b.id;st.steps=[{t:'story',slides:st.slides},{t:'quiz',qs:st.quiz||[]}];STORIES.push(st);byId[st.id]=st});
+  STORIES.sort((a,b2)=>PROPHETS.findIndex(p=>p[0]===a.pid)-PROPHETS.findIndex(p=>p[0]===b2.pid));
+  (b.gems||[]).forEach((g,i)=>{if(!g.id||GEMS.some(x=>x.id===g.id))return;const c=GEMC[(GEMS.length+i)%GEMC.length];GEMS.push(Object.assign({c1:c[0],c2:c[1],ar:'',ok:false,bundle:b.id},g))});
+  (b.quiz||[]).forEach(q=>EXTRA_Q.push(Object.assign({bundle:b.id},q)));
+}
+async function loadBundles(){
+  try{const r=await fetch('content/index.json',{cache:'no-store'});if(!r.ok)return;const idx=await r.json();
+    for(const f of (idx.bundles||[])){try{const b=await (await fetch('content/'+f,{cache:'no-store'})).json();mergeBundle(b)}catch(e){}}
+    soft();
+  }catch(e){}
+}
+function bundleOK(b){return !!S.approvals[b.id]}
+function approveBundle(id){const b=BUNDLES.find(x=>x.id===id);if(!b)return;S.approvals[id]=true;(b.stories||[]).forEach(s=>S.approvals[s.id]=true);saveApprovals();toast('Approved. The children can see it now.');render()}
+function bundlesSection(){
+  const pend=BUNDLES.filter(b=>!bundleOK(b));if(!BUNDLES.length)return '';
+  return `<section class="sect"><h2>New this week</h2><p class="muted small">Added by the weekly helper. Nothing here reaches the children until you approve it.</p>
+  ${BUNDLES.slice().reverse().map(b=>`<div class="card stage"><div class="spread"><h3>${esc(b.title||b.id)}</h3>${bundleOK(b)?'<span class="chip green">Approved</span>':`<button class="btn sm rose" data-act="bundleOK" data-id="${esc(b.id)}">Approve all</button>`}</div>
+   ${(b.stories||[]).map(s=>`<details><summary><b>Story:</b> ${esc(s.title)}</summary>${previewHTML(byId[s.id]||s)}</details>`).join('')}
+   ${(b.gems||[]).length?`<details><summary><b>${b.gems.length} gems</b></summary><ol class="small">${b.gems.map(g=>`<li>${esc(g.text)} <span class="muted">(${esc(g.src)})</span></li>`).join('')}</ol></details>`:''}
+   ${(b.quiz||[]).length?`<details><summary><b>${b.quiz.length} quiz questions</b></summary><ol class="small">${b.quiz.map(q=>`<li>${esc(q.q)} <b>${esc(q.o[0])}</b></li>`).join('')}</ol></details>`:''}
+   ${b.notes?`<p class="small muted">${esc(b.notes)}</p>`:''}</div>`).join('')}
+  ${pend.length?'':''}</section>`;
 }
 
 /* ===================== EVENTS ===================== */
@@ -2142,8 +2248,13 @@ app.addEventListener('click',e=>{
    case 'logout':goOffline(ui.kid);ui.kid=null;ui.waveTo=null;go('cover');break;
    case 'home':go('home');break;
    case 'page':setPage(+b.dataset.p);break;
+   case 'wqGo':startWQ();break;
+   case 'wqAns':{const W=ui.W,q=W.qs[W.i];W.ans=b.dataset.v;if(W.ans===q.o[0])W.right++;render();break;}
+   case 'wqNext':{const W=ui.W;W.i++;W.ans=null;if(W.i>=W.qs.length)wqFinish();render();window.scrollTo({top:0});break;}
+   case 'bundleOK':approveBundle(id);break;
+
    case 'bell':ui.bellWas=bellSeen(ui.kid);markBell(ui.kid);go('bell');break;
-   case 'bellGo':{const a2=b.dataset.a,arg=b.dataset.arg;if(a2==='galOf'){ui.galKid=arg;ui.page=1;go('home')}else if(a2==='page'){ui.page=+arg;go('home')}else if(a2==='flash')startFlash();else if(a2==='open')startLesson(arg);break;}
+   case 'bellGo':{const a2=b.dataset.a,arg=b.dataset.arg;if(a2==='galOf'){ui.galKid=arg;ui.page=1;go('home')}else if(a2==='page'){ui.page=+arg;go('home')}else if(a2==='flash')startFlash();else if(a2==='wq')startWQ();else if(a2==='open')startLesson(arg);break;}
    case 'galOf':ui.galKid=b.dataset.k;render();break;
    case 'galCert':{const g=b.dataset.k,c=certList(g).find(x=>x.key===b.dataset.key);if(!c)break;ui.certBack='home';go('cert',{cert:Object.assign({kid:g},c)});break;}
    case 'heart':toggleHeart(b.dataset.k,b.dataset.key);break;
@@ -2205,6 +2316,8 @@ app.addEventListener('click',e=>{
   }
 });
 render();
+
+loadBundles();
 </script>
 
 </body>
