@@ -1,0 +1,517 @@
+{
+ "id": "w-2026-10-30",
+ "title": "Week of 30 October 2026",
+ "notes": "New: the story of Prophet Idris, alayhis salaam, plus 21 gems on truthfulness and patience and 10 Jumu'ah quiz questions. Sources: the Qur'an (wording checked on quran.com), Sahih al-Bukhari 3207 (checked on sunnah.com) and Sahih Muslim 162 (checked through quran.com). abdurrahman.org could not be reached this week, so the story relies on the Qur'an and the two Sahihs only. The Qur'an says very little about Idris, so the story is short on events on purpose, and slide 3 says so. It does not say when he lived, since scholars differ on that. Please check the Arabic on slides 1, 4, 5 and 6 and the hadith numbers on the gems.",
+ "stories": [
+  {
+   "id": "st-idris",
+   "pid": "idris",
+   "title": "Prophet Idris, the truthful one",
+   "ar": "إِدْرِيس عَلَيْهِ السَّلَام",
+   "sub": "Telling the truth, and being patient",
+   "slides": [
+    {
+     "sc": {
+      "label": "A quiet night sky full of stars over the sand",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "moon": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Allah tells us about many Prophets in the Qur'an. One of them is Prophet Idris, alayhis salaam. Allah says:",
+     "ay": {
+      "ar": "وَاذْكُرْ فِي الْكِتَابِ إِدْرِيسَ ۚ إِنَّهُ كَانَ صِدِّيقًا نَّبِيًّا",
+      "en": "And mention Idris in the Book. He was a man of truth and a Prophet.",
+      "ref": "Surah Maryam 19:56"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern on the sand at night",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       200,
+       118
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Allah called Idris siddiq. A siddiq is a person who is very, very truthful. What an amazing thing to be called by Allah!"
+    },
+    {
+     "sc": {
+      "label": "An open book with a soft light beside it",
+      "sky": [
+       "#E9DFD2",
+       "#F7F1E8"
+      ],
+      "glow": [
+       200,
+       90
+      ],
+      "book": true,
+      "dunes": [
+       "#D8CBB8",
+       "#C8BBA8",
+       "#B8AB98"
+      ]
+     },
+     "text": "The Qur'an tells us only a little about Idris. We believe everything Allah and His Messenger ﷺ tell us, and we do not make up stories about what they did not tell us."
+    },
+    {
+     "sc": {
+      "label": "One bright star high in the evening sky",
+      "sky": [
+       "#3D4E7A",
+       "#C7A0B8"
+      ],
+      "stars": true,
+      "bigstar": [
+       200,
+       50
+      ],
+      "dunes": [
+       "#B9A78E",
+       "#A8957B",
+       "#97836A"
+      ]
+     },
+     "text": "Allah honoured Idris and gave him a very special place. Allah says:",
+     "ay": {
+      "ar": "وَرَفَعْنَاهُ مَكَانًا عَلِيًّا",
+      "en": "And We raised him to a high place.",
+      "ref": "Surah Maryam 19:57"
+     }
+    },
+    {
+     "sc": {
+      "label": "A calm desert under a warm sun",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "sun": [
+       300,
+       70,
+       22
+      ],
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "Idris was also very patient. Allah names him together with two other Prophets, and says they were all patient:",
+     "ay": {
+      "ar": "وَإِسْمَاعِيلَ وَإِدْرِيسَ وَذَا الْكِفْلِ ۖ كُلٌّ مِّنَ الصَّابِرِينَ",
+      "en": "And Isma'il, Idris and Dhul-Kifl: all of them were patient.",
+      "ref": "Surah al-Anbiya 21:85"
+     }
+    },
+    {
+     "sc": {
+      "label": "A peaceful garden with flowers in soft light",
+      "sky": [
+       "#A8D8EE",
+       "#E8F6FB"
+      ],
+      "garden": true,
+      "flowers": true,
+      "glow": [
+       200,
+       70
+      ],
+      "dunes": [
+       "#A9C98A",
+       "#8DB873",
+       "#76A35E"
+      ]
+     },
+     "text": "Because of their patience and goodness, Allah gave them His mercy:",
+     "ay": {
+      "ar": "وَأَدْخَلْنَاهُمْ فِي رَحْمَتِنَا ۖ إِنَّهُم مِّنَ الصَّالِحِينَ",
+      "en": "And We entered them into Our mercy. Truly, they were among the righteous.",
+      "ref": "Surah al-Anbiya 21:86"
+     }
+    },
+    {
+     "sc": {
+      "label": "A deep night sky with a path of light going upward",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "glow": [
+       200,
+       60
+      ],
+      "noGround": true
+     },
+     "text": "Long, long after Idris, Allah took Prophet Muhammad ﷺ up through the heavens in one night. This journey is called the Mi'raj."
+    },
+    {
+     "sc": {
+      "label": "A shining sky high above the clouds",
+      "sky": [
+       "#1E3150",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "glow": [
+       200,
+       90
+      ],
+      "cloud": [
+       200,
+       200,
+       1.4,
+       "#8E9AB8"
+      ],
+      "noGround": true
+     },
+     "text": "In the fourth heaven, the Prophet ﷺ met Idris. Idris welcomed him, saying: Welcome, O brother and Prophet. And he made dua for him. (Sahih al-Bukhari 3207, Sahih Muslim 162)"
+    },
+    {
+     "sc": {
+      "label": "Sunrise over green hills",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       26
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "We can try to be truthful like Idris. The Prophet ﷺ taught us that telling the truth leads to goodness, and goodness leads to Jannah. (Sahih al-Bukhari 6094, Sahih Muslim 2607)"
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Always tell the truth, even when it is hard. Be patient. Believe what Allah and His Messenger ﷺ tell us, and don't add made-up stories. And Allah raises up the people who are truthful and patient."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What did Allah call Prophet Idris?",
+     "o": [
+      "Siddiq, very truthful, and a Prophet",
+      "A king",
+      "A sailor"
+     ],
+     "why": "Allah says: He was a man of truth and a Prophet. (Maryam 19:56)"
+    },
+    {
+     "q": "What did Allah do for Idris?",
+     "o": [
+      "Raised him to a high place",
+      "Gave him a ship",
+      "Made him a farmer"
+     ],
+     "why": "And We raised him to a high place. (Maryam 19:57)"
+    },
+    {
+     "q": "Which good quality did Idris share with Isma'il and Dhul-Kifl?",
+     "o": [
+      "They were all patient",
+      "They were all kings",
+      "They all lived by the sea"
+     ],
+     "why": "Allah says: all of them were patient. (al-Anbiya 21:85)"
+    },
+    {
+     "q": "Where did Prophet Muhammad ﷺ meet Idris on the night of the Mi'raj?",
+     "o": [
+      "In the fourth heaven",
+      "In a market",
+      "On a ship"
+     ],
+     "why": "He met Idris in the fourth heaven, and Idris welcomed him."
+    }
+   ]
+  }
+ ],
+ "gems": [
+  {
+   "id": "w-2026-10-30-g1",
+   "kind": "Ayah",
+   "pic": "💬",
+   "text": "O you who believe, be mindful of Allah and say what is true and right.",
+   "src": "Surah al-Ahzab 33:70",
+   "ar": "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَقُولُوا قَوْلًا سَدِيدًا"
+  },
+  {
+   "id": "w-2026-10-30-g2",
+   "kind": "Ayah",
+   "pic": "🤝",
+   "text": "O you who believe, be mindful of Allah and stay with the truthful people.",
+   "src": "Surah at-Tawbah 9:119",
+   "ar": "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَكُونُوا مَعَ الصَّادِقِينَ"
+  },
+  {
+   "id": "w-2026-10-30-g3",
+   "kind": "Ayah",
+   "pic": "🕌",
+   "text": "Ask Allah for help through patience and salah.",
+   "src": "Surah al-Baqarah 2:45",
+   "ar": "وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ"
+  },
+  {
+   "id": "w-2026-10-30-g4",
+   "kind": "Ayah",
+   "pic": "🌱",
+   "text": "Be patient. Allah never lets the reward of good people be lost.",
+   "src": "Surah Hud 11:115",
+   "ar": "وَاصْبِرْ فَإِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ"
+  },
+  {
+   "id": "w-2026-10-30-g5",
+   "kind": "Ayah",
+   "pic": "🎁",
+   "text": "Allah will give the patient people their reward without counting it.",
+   "src": "Surah az-Zumar 39:10"
+  },
+  {
+   "id": "w-2026-10-30-g6",
+   "kind": "Ayah",
+   "pic": "⏳",
+   "text": "By time! People are in loss, except those who believe, do good deeds, and remind each other of the truth and of patience.",
+   "src": "Surah al-'Asr 103:1-3"
+  },
+  {
+   "id": "w-2026-10-30-g7",
+   "kind": "Hadith",
+   "pic": "✨",
+   "text": "Being clean is half of iman, and patience is a shining light.",
+   "src": "Sahih Muslim 223"
+  },
+  {
+   "id": "w-2026-10-30-g8",
+   "kind": "Hadith",
+   "pic": "💎",
+   "text": "How wonderful the believer is! When something good happens, he thanks Allah. When something hard happens, he is patient. Both are good for him.",
+   "src": "Sahih Muslim 2999"
+  },
+  {
+   "id": "w-2026-10-30-g9",
+   "kind": "Hadith",
+   "pic": "🎀",
+   "text": "Whoever tries to be patient, Allah makes him patient. No one is given a better and bigger gift than patience.",
+   "src": "Sahih al-Bukhari 1469, Sahih Muslim 1053"
+  },
+  {
+   "id": "w-2026-10-30-g10",
+   "kind": "Hadith",
+   "pic": "🌞",
+   "text": "Never think any good deed is too small, even meeting your brother with a cheerful face.",
+   "src": "Sahih Muslim 2626"
+  },
+  {
+   "id": "w-2026-10-30-g11",
+   "kind": "Hadith",
+   "pic": "🧱",
+   "text": "A believer to another believer is like a building: each part holds the other up.",
+   "src": "Sahih al-Bukhari 481, Sahih Muslim 2585"
+  },
+  {
+   "id": "w-2026-10-30-g12",
+   "kind": "Hadith",
+   "pic": "📚",
+   "text": "Whoever walks a path looking for knowledge, Allah makes easy for him a path to Jannah.",
+   "src": "Sahih Muslim 2699"
+  },
+  {
+   "id": "w-2026-10-30-g13",
+   "kind": "Hadith",
+   "pic": "💭",
+   "text": "If you plan a good deed and don't manage to do it, Allah still writes one good deed for you. If you do it, He writes ten or more.",
+   "src": "Sahih al-Bukhari 6491, Sahih Muslim 131"
+  },
+  {
+   "id": "w-2026-10-30-g14",
+   "kind": "Prophets",
+   "pic": "⭐",
+   "text": "Allah called two Prophets siddiq, very truthful: Prophet Ibrahim and Prophet Idris.",
+   "src": "Surah Maryam 19:41, Surah Maryam 19:56"
+  },
+  {
+   "id": "w-2026-10-30-g15",
+   "kind": "Prophets",
+   "pic": "✅",
+   "text": "Prophet Isma'il always kept his promises. Allah praised him for it.",
+   "src": "Surah Maryam 19:54"
+  },
+  {
+   "id": "w-2026-10-30-g16",
+   "kind": "Prophets",
+   "pic": "🌄",
+   "text": "Allah said Prophets Isma'il, Idris and Dhul-Kifl were all patient.",
+   "src": "Surah al-Anbiya 21:85"
+  },
+  {
+   "id": "w-2026-10-30-g17",
+   "kind": "Prophets",
+   "pic": "🌌",
+   "text": "On the night of the Mi'raj, Prophet Muhammad ﷺ met Prophet Idris in the fourth heaven.",
+   "src": "Sahih al-Bukhari 3207, Sahih Muslim 162"
+  },
+  {
+   "id": "w-2026-10-30-g18",
+   "kind": "Did you know?",
+   "pic": "🌠",
+   "text": "Allah created seven heavens, one above the other.",
+   "src": "Surah al-Mulk 67:3"
+  },
+  {
+   "id": "w-2026-10-30-g19",
+   "kind": "Did you know?",
+   "pic": "⛰️",
+   "text": "Allah made the mountains like tent pegs that hold the earth steady.",
+   "src": "Surah an-Naba 78:6-7"
+  },
+  {
+   "id": "w-2026-10-30-g20",
+   "kind": "Did you know?",
+   "pic": "🐪",
+   "text": "Allah asks us to look at the camel and think about how wonderfully it was made.",
+   "src": "Surah al-Ghashiyah 88:17"
+  },
+  {
+   "id": "w-2026-10-30-g21",
+   "kind": "Did you know?",
+   "pic": "📖",
+   "text": "The very first words of the Qur'an sent to the Prophet ﷺ were: Read in the name of your Lord who created.",
+   "src": "Surah al-'Alaq 96:1, Sahih al-Bukhari 3, Sahih Muslim 160",
+   "ar": "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "What does siddiq mean?",
+   "o": [
+    "Someone who is very truthful",
+    "Someone who is very rich",
+    "Someone who is very fast"
+   ],
+   "why": "Allah called Idris siddiq: very, very truthful."
+  },
+  {
+   "q": "Which surah tells us that Idris was a man of truth and a Prophet?",
+   "o": [
+    "Surah Maryam",
+    "Surah al-Fil",
+    "Surah an-Nas"
+   ],
+   "why": "Surah Maryam 19:56."
+  },
+  {
+   "q": "Which two Prophets did Allah call siddiq in Surah Maryam?",
+   "o": [
+    "Ibrahim and Idris",
+    "Nuh and Yunus",
+    "Musa and Harun"
+   ],
+   "why": "Ibrahim in 19:41 and Idris in 19:56."
+  },
+  {
+   "q": "What is the night journey up through the heavens called?",
+   "o": [
+    "The Mi'raj",
+    "The Hijrah",
+    "Eid"
+   ],
+   "why": "Allah took the Prophet ﷺ up through the heavens on the night of the Mi'raj."
+  },
+  {
+   "q": "Which Prophet always kept his promises?",
+   "o": [
+    "Isma'il",
+    "Yunus",
+    "Adam"
+   ],
+   "why": "Allah says Isma'il was true to his promise. (Maryam 19:54)"
+  },
+  {
+   "q": "What two things help us, according to Surah al-Baqarah 2:45?",
+   "o": [
+    "Patience and salah",
+    "Toys and games",
+    "Sleeping and eating"
+   ],
+   "why": "Seek help through patience and salah."
+  },
+  {
+   "q": "The Prophet ﷺ said patience is like what?",
+   "o": [
+    "A shining light",
+    "A heavy rock",
+    "A cold wind"
+   ],
+   "why": "Patience is a shining light. (Sahih Muslim 223)"
+  },
+  {
+   "q": "What is a good deed we should never think is too small?",
+   "o": [
+    "Meeting people with a cheerful face",
+    "Shouting loudly",
+    "Hiding from people"
+   ],
+   "why": "Even a cheerful face is a good deed. (Sahih Muslim 2626)"
+  },
+  {
+   "q": "How many heavens did Allah create?",
+   "o": [
+    "Seven",
+    "Two",
+    "Ten"
+   ],
+   "why": "Allah created seven heavens, one above the other. (al-Mulk 67:3)"
+  },
+  {
+   "q": "What were the first words of the Qur'an sent to the Prophet ﷺ?",
+   "o": [
+    "Read in the name of your Lord",
+    "Say: He is Allah, the One",
+    "All praise is for Allah"
+   ],
+   "why": "Iqra bismi rabbika alladhi khalaq. (al-'Alaq 96:1)"
+  }
+ ]
+}
