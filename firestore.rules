@@ -43,6 +43,11 @@ service cloud.firestore {
       allow read, write: if isMember();
     }
 
+    // Family voices: story pages recorded by the grown-ups (read only when a child plays that page).
+    match /audio/{doc} {
+      allow read, write: if isMember();
+    }
+
     // Join requests: anyone signed in can ask to join with their own email.
     // Owners see and clear requests; a person can see and cancel only their own.
     match /requests/{uid} {

@@ -218,6 +218,13 @@ body.igon #app{padding-top:0;padding-bottom:calc(24px + env(safe-area-inset-bott
 .tugban .ti{font-size:2.2rem}.tugban b{display:block;font:600 1.1rem var(--f-display)}.tugban small{color:var(--muted)}
 .tugban.live{background:linear-gradient(120deg,#FFE6D9,#FBEFD3);animation:tugpulse 1.6s ease-in-out infinite}
 @keyframes tugpulse{50%{box-shadow:0 0 0 6px rgba(201,143,34,.18)}}
+.famvoice{display:block;margin:4px auto 2px;border:0;border-radius:999px;background:var(--rose);color:#fff;font:800 .9rem var(--f-body);padding:10px 16px;cursor:pointer;box-shadow:0 4px 12px rgba(185,88,122,.3)}
+.recbar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin:6px 0}
+.recbtn{border:0;border-radius:999px;background:#E0445E;color:#fff;font:800 1.1rem var(--f-body);padding:16px 28px;cursor:pointer;box-shadow:0 6px 16px rgba(224,68,94,.3)}
+.recbtn.on{animation:tugpulse 1.2s ease-in-out infinite}
+.recread .say{font-size:1.15rem}
+.recli{width:100%;text-align:left;font:inherit;cursor:pointer}
+.sdots i.rd{background:var(--green)}
 .tugban.soon{background:linear-gradient(120deg,#FCE3EC,#FFF1D1);animation:tugpulse 1.6s ease-in-out infinite}
 .tugban .tcd{display:block;font:800 .95rem var(--f-body);color:var(--rose);margin-top:2px;font-variant-numeric:tabular-nums}
 .tteams2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -1420,11 +1427,11 @@ function subscribeAll(onErr){
         for(const k in S.deeds)await put('deeds/'+k,S.deeds[k]);
         return;}}
     S.presence={};S.waves={};
-    S.chat={};S.hearts={};S.tug={};S.tugp={};S.reports={};S.tugr={};
-    for(const id in m){if(id.startsWith('p-'))S.presence[id.slice(2)]=m[id];else if(id.startsWith('w-'))S.waves[id]=m[id];else if(id.startsWith('c-'))S.chat[id]=m[id];else if(id.startsWith('h-'))S.hearts[id]=m[id];else if(id.startsWith('t-'))S.tug[id]=m[id];else if(id.startsWith('tp-'))S.tugp[id]=m[id];else if(id.startsWith('r-'))S.reports[id]=m[id];else if(id.startsWith('tr-'))S.tugr[id]=m[id]}
+    S.chat={};S.hearts={};S.tug={};S.tugp={};S.reports={};S.tugr={};S.auidx={};
+    for(const id in m){if(id.startsWith('p-'))S.presence[id.slice(2)]=m[id];else if(id.startsWith('w-'))S.waves[id]=m[id];else if(id.startsWith('c-'))S.chat[id]=m[id];else if(id.startsWith('h-'))S.hearts[id]=m[id];else if(id.startsWith('t-'))S.tug[id]=m[id];else if(id.startsWith('tp-'))S.tugp[id]=m[id];else if(id.startsWith('r-'))S.reports[id]=m[id];else if(id.startsWith('tr-'))S.tugr[id]=m[id];else if(id.startsWith('au-'))S.auidx[id]=m[id]}
     handleWaves();handleChat();
     const ch=s.docChanges?s.docChanges():[];
-    if(!wasFirst&&ch.length&&ch.every(c=>/^(?:[pwchr]|t[pr]?)-/.test(c.doc.id))){if(ui.screen==='tug')tugUpdate();else if(ui.screen==='home'||ui.screen==='tugscore'||ui.screen==='chat'||ui.screen==='bell'||(ui.screen==='parents'&&ch.some(c=>/^t-/.test(c.doc.id))))soft();return}
+    if(!wasFirst&&ch.length&&ch.every(c=>/^(?:[pwchr]|t[pr]?|au)-/.test(c.doc.id))){if(ui.screen==='tug')tugUpdate();else if(ui.screen==='home'||ui.screen==='tugscore'||ui.screen==='chat'||ui.screen==='bell'||(ui.screen==='parents'&&ch.some(c=>/^t-/.test(c.doc.id))))soft();return}
     S.settings=Object.assign({},m.settings||{});S.approvals=Object.assign({},m.approvals||{});
     S.access=(m.access&&m.access.members)||[];
     dbReady=true;saveLocal();soft();
@@ -1484,7 +1491,7 @@ function voiceScore(v){let n=0;const nm=v.name||'';if(/natural|neural|online/i.t
 function loadEn(){try{allVoices=speechSynthesis.getVoices();const pick=(re,pref)=>{const L=allVoices.filter(x=>re.test(x.lang));const want=pref&&L.find(x=>x.name===pref);return want||L.sort((a,b)=>voiceScore(b)-voiceScore(a))[0]||null};
   enVoice=pick(/^en/i,lsGet('ll-voice-en'));mlVoice=pick(/^ml/i,lsGet('ll-voice-ml'))}catch(e){}}
 function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
-document.addEventListener('change',e=>{const c=e.target.dataset&&e.target.dataset.chg;if(c==='voiceEn'||c==='voiceMl'){try{localStorage.setItem(c==='voiceEn'?'ll-voice-en':'ll-voice-ml',e.target.value)}catch(x){}loadEn();sayEn(c==='voiceEn'?'This is how I will read to you.':'ഞാൻ ഇങ്ങനെയാണ് വായിക്കുക.')}});
+document.addEventListener('change',e=>{const c=e.target.dataset&&e.target.dataset.chg;if(c==='recname'){try{localStorage.setItem('ll-recname',e.target.value.trim()||'Daddy')}catch(x){}return}if(c==='voiceEn'||c==='voiceMl'){try{localStorage.setItem(c==='voiceEn'?'ll-voice-en':'ll-voice-ml',e.target.value)}catch(x){}loadEn();sayEn(c==='voiceEn'?'This is how I will read to you.':'ഞാൻ ഇങ്ങനെയാണ് വായിക്കുക.')}});
 try{loadEn();speechSynthesis.addEventListener('voiceschanged',loadEn)}catch(e){}
 function kidLang(){return (S.kids[ui.kid]||{}).lang==='ml'&&mlStoriesOn()?'ml':'en'}
 let mlWarned=false;
@@ -1508,7 +1515,7 @@ function autoRead(force){
   if(!force&&!readOn())return;let key='',txt='';
   if(ui.screen==='play'&&ui.L){const L=ui.L,s=L.steps[L.i],st=L.st||{};if(!s)return;key=L.id+'|'+L.i;
     if(s.t==='say'||s.t==='key'||s.t==='daddy')txt=s.text;
-    else if(s.t==='story'){const sl=s.slides[st.k];key+='|'+st.k;txt=sl?sl.text+(sl.ay?' '+sl.ay.en:''):''}
+    else if(s.t==='story'){const sl=s.slides[st.k];key+='|'+st.k;if(recHas(L.id,st.k,kidLang())){if(force||key!==lastSpoken){lastSpoken=key;setTimeout(()=>recPlay(L.id,st.k,kidLang(),true),250)}return}txt=sl?sl.text+(sl.ay?' '+sl.ay.en:''):''}
     else if(s.t==='quiz'){const q=s.qs[st.q];key+='|q'+st.q+(st.ans!=null?'a':'');if(q)txt=st.ans!=null?(st.ans===q.o[0]?'Yes! ':'Not quite. ')+(q.why||''):q.q+' Is it: '+(st.order&&st.order[st.q]||q.o).join(', or ')+'?'}
     else if(s.t==='tap'||s.t==='stack'||s.t==='match'||s.t==='sort')txt=s.prompt;
     else if(s.t==='hayah')txt='Ayah '+s.a+'. Listen, and say it after the reciter. '+s.en}
@@ -1540,13 +1547,13 @@ function render(){
   if(ui.screen==='duel')return;
   if(!['home','world','score','bell','flash','play'].includes(ui.screen)){const lp=document.querySelector('.lovepop');if(lp)lp.remove()}
   if(ui.screen==='tug'&&document.getElementById('tugwrap')){tugUpdate();return}
-  const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen,cert:certScreen,chat:chatScreen,bell:bellScreen,flash:flashScreen,wquiz:wquizScreen,tug:tugScreen,tugscore:tugScoreScreen}[ui.screen]||cover;
+  const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen,cert:certScreen,chat:chatScreen,bell:bellScreen,flash:flashScreen,wquiz:wquizScreen,tug:tugScreen,tugscore:tugScoreScreen,reclist:recListScreen,rec:recScreen}[ui.screen]||cover;
   app.innerHTML=f();
   const igOn=ui.screen==='home';document.body.classList.toggle('igon',igOn);document.documentElement.classList.toggle('snapy',igOn&&ui.page===2);
   placeRoad();
   beat(false);
   if(ui.screen==='cert')drawCert();
-  if(ui.screen!=='play'&&ui.screen!=='flash'){stopAudio()}
+  if(ui.screen!=='play'&&ui.screen!=='flash'){stopAudio();if(ui.screen!=='rec')recStop()}
   autoRead(false);
   if(ui.screen==='home'||ui.screen==='score')levelCheck(ui.kid);
   if(ui.screen==='chat'){const cl=document.getElementById('chatlist');if(cl)cl.scrollTop=cl.scrollHeight;markRead();const f=document.getElementById('chatform');if(f)f.onsubmit=ev=>{ev.preventDefault();const t=document.getElementById('chattext');const v=(t.value||'').trim().slice(0,120);if(v){sendChat(v);t.value='';render()}}}
@@ -1755,7 +1762,7 @@ function play(){
   const daddy='<div class="daddy">'+lanternMini()+'Daddy says</div>';
   const dban=l.world==='ad'&&s.t!=='quiz'?`<div class="dban"><span class="dbe">${DPIC[l.id]||'🤲'}</span><b>${esc(l.when.split('.')[0])}</b></div>`:'';
   if(s.t==='say')body=`<div class="card stage">${daddy}<p class="say">${fill(s.text)}</p>${s.surah?`<div class="row" style="justify-content:center"><button class="btn gold sm" data-act="ayPlay" data-ref="${s.surah}:1-${s.count}">▶ Play the whole surah</button></div>`:''}${s.ar?`<div class="bigar">${s.ar}</div><p class="tr">${esc(s.tr)}</p><p class="tr" style="font-style:normal">${esc(s.mean)}</p>`:''}</div>`;
-  else if(s.t==='story'){const sl=s.slides[st.k];body=`<div class="story" id="story"><div class="scene">${scene(sl.sc)}</div><div class="card stage"><p class="say">${fill(sl.text)}</p>${sl.ay?`<div class="ayah"><div class="ar">${sl.ay.ar}</div><p>${esc(sl.ay.en)}</p><span class="src">${esc(sl.ay.ref)}</span><button class="aylisten" data-act="ayPlay" data-ref="${esc(sl.ay.ref)}">▶ Listen</button></div>`:''}</div><div class="spread"><button class="btn ghost sm" data-act="sPrev" ${st.k?'':'disabled'}>← Back</button><span class="sdots" aria-label="Page ${st.k+1} of ${s.slides.length}">${s.slides.map((x,i)=>`<i class="${i===st.k?'on':''}"></i>`).join('')}</span><button class="btn sm" data-act="sNext" ${st.k<s.slides.length-1?'':'disabled'}>Next →</button></div><p class="small muted" style="text-align:center">Swipe the picture or tap Next</p></div>`;}
+  else if(s.t==='story'){const sl=s.slides[st.k];body=`<div class="story" id="story"><div class="scene">${scene(sl.sc)}</div><div class="card stage"><p class="say">${fill(sl.text)}</p>${recHas(l.id,st.k,kidLang())?`<button class="famvoice" data-act="famPlay" data-k="${st.k}">▶ Hear ${esc(((recIdx(l.id)[st.k+'-'+kidLang()]||localRec[recKey(l.id,st.k,kidLang())]||{}).by)||'Daddy')}'s voice</button>`:''}${sl.ay?`<div class="ayah"><div class="ar">${sl.ay.ar}</div><p>${esc(sl.ay.en)}</p><span class="src">${esc(sl.ay.ref)}</span><button class="aylisten" data-act="ayPlay" data-ref="${esc(sl.ay.ref)}">▶ Listen</button></div>`:''}</div><div class="spread"><button class="btn ghost sm" data-act="sPrev" ${st.k?'':'disabled'}>← Back</button><span class="sdots" aria-label="Page ${st.k+1} of ${s.slides.length}">${s.slides.map((x,i)=>`<i class="${i===st.k?'on':''}"></i>`).join('')}</span><button class="btn sm" data-act="sNext" ${st.k<s.slides.length-1?'':'disabled'}>Next →</button></div><p class="small muted" style="text-align:center">Swipe the picture or tap Next</p></div>`;}
   else if(s.t==='stack'){const it=s.items;body=`<h2>${esc(s.prompt)}</h2><p class="muted small">${esc(s.hint||'Tap them in the right order, first to last.')}</p><div class="tower">${it.map((x,i)=>`<div class="tslot ${i<st.placed.length?'on':''}"><span class="tn">${i+1}</span>${i<st.placed.length?`<b>${esc(x.t)}</b>${x.ar?`<span class="ar">${x.ar}</span>`:''}`:''}</div>`).join('')}</div><div class="tpool">${st.pool.filter(i=>!st.placed.includes(i)).map(i=>`<button class="tcard" data-act="stk" data-i="${i}"><b>${esc(it[i].t)}</b>${it[i].ar?`<span class="ar">${it[i].ar}</span>`:''}</button>`).join('')}</div>${st.placed.length===it.length?`<div class="fb ok">${esc(s.done||'MashaAllah, perfect!')}</div>`:''}`;}
   else if(s.t==='hayah')body=`<div class="card stage hz"><p class="small muted">Ayah ${s.a}</p><div class="bigar hzar">${s.ar}</div><p class="tr">${esc(s.tr)}</p><p class="small" style="text-align:center">${esc(s.en)}</p><div class="row" style="justify-content:center"><button class="btn gold sm" data-act="ayPlay" data-ref="${s.s}:${s.a}">▶ Listen</button><button class="btn ghost sm" data-act="ayPlay" data-ref="${s.s}:${s.a}" data-rep="3">🔁 Listen 3 times</button></div><div class="counter"><button data-act="count" aria-label="I said it once">${st.c}/${s.n}</button><p class="muted">Say it after the reciter, then tap. ${s.n} times.</p></div></div>`;
   else if(s.t==='key')body=`<div class="key"><span class="lbl">Remember this</span><p>${fill(s.text)}</p></div>`;
@@ -2032,6 +2039,10 @@ function parents(){
   </section>
 
   ${bundlesSection()}
+  <section class="sect"><h2>🎙️ Family voices</h2><p class="muted small">Record the stories in your own voice, page by page. Little ones hear Daddy or Ummi instead of the phone voice. ${(()=>{let n=0;STORIES.forEach(st=>{n+=recCount(st.id,'en')+recCount(st.id,'ml')});return n?n+' pages recorded so far.':''})()}</p><div class="row"><button class="btn rose sm" data-act="recList">Record stories</button></div>
+   ${mode==='db'?`<details><summary class="small">One-time setup so the whole family hears the recordings</summary><p class="small muted">In the Firebase console, open Firestore Database › Rules and add this inside the other "match" blocks, then Publish (it is already in firestore.rules in the project):</p><pre class="small" style="white-space:pre-wrap">match /audio/{doc} {
+  allow read, write: if isMember();
+}</pre></details>`:''}</section>
   ${tugParentSection()}
   <section class="sect"><h2>This week</h2><div class="card stage"><p class="small" style="white-space:pre-line">${esc(weekReport())}</p><p class="small muted">${window.LL_NTFY?'Every Friday evening this summary is sent to your phone through the ntfy app (the same one that tells you about join requests).':'Phone reports work on the GitHub version.'}</p>${window.LL_NTFY?'<div class="row"><button class="btn ghost sm" data-act="repNow">Send it to my phone now</button></div>':''}</div></section>
   <section class="sect"><h2>Waiting for your OK</h2><p class="muted small">Read each lesson before your children see it. Arabic letters are open already.</p>
@@ -2527,6 +2538,75 @@ function tugCancel(id){
   if(e&&e.auto){const doc={at:e.at,skip:true};S.tug=S.tug||{};S.tug[id]=doc;put('fam/'+id,doc)}else{delete (S.tug||{})[id];del('fam/'+id)}
   Object.keys(S.tugp||{}).forEach(k=>{if(S.tugp[k].ev===id){delete S.tugp[k];del('fam/'+k)}});toast(e&&e.auto?'Skipped this week.':'Cancelled.');render();
 }
+
+/* ===================== FAMILY VOICES (grown-ups record the stories) ===================== */
+// Audio lives in Firestore 'audio/{story-slide-lang}' (fetched only when needed), with a small index in fam/au-{story}.
+// Without the family sign-in, recordings stay on this device (IndexedDB).
+const REC_MAX=60e3,recCache={};
+function recKey(id,k,lang){return `${id}-${k}-${lang||'en'}`}
+function recIdx(id){return ((S.auidx||{})['au-'+id]||{}).slides||{}}
+function recHas(id,k,lang){return !!recIdx(id)[k+'-'+(lang||'en')]||!!(localRec[recKey(id,k,lang)])}
+let localRec={};try{localRec=JSON.parse(localStorage.getItem('ll-recidx')||'{}')}catch(e){}
+function idb(){return new Promise((res,rej)=>{try{const r=indexedDB.open('ll-voices',1);r.onupgradeneeded=()=>r.result.createObjectStore('a');r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}catch(e){rej(e)}})}
+async function idbPut(k,v){const d=await idb();return new Promise(r=>{const t=d.transaction('a','readwrite');t.objectStore('a').put(v,k);t.oncomplete=()=>r()})}
+async function idbGet(k){const d=await idb();return new Promise(r=>{const q=d.transaction('a').objectStore('a').get(k);q.onsuccess=()=>r(q.result||null);q.onerror=()=>r(null)})}
+async function idbDel(k){const d=await idb();return new Promise(r=>{const t=d.transaction('a','readwrite');t.objectStore('a').delete(k);t.oncomplete=()=>r()})}
+async function recGet(id,k,lang){const key=recKey(id,k,lang);if(recCache[key])return recCache[key];let v=null;
+  if(mode==='db'&&recIdx(id)[k+'-'+(lang||'en')]){try{const d=await db.doc('audio/'+key).get();if(d.exists)v=d.data()}catch(e){}}
+  if(!v)v=await idbGet(key).catch(()=>null);if(v)recCache[key]=v;return v}
+let recAudio=null;
+async function recPlay(id,k,lang,quiet){const v=await recGet(id,k,lang);if(!v){if(!quiet)toast('No recording for this page yet.');return false}
+  try{speechSynthesis.cancel()}catch(e){}stopAudio();if(recAudio)recAudio.pause();recAudio=new Audio(`data:${v.mime};base64,${v.b64}`);recAudio.play().catch(()=>{});return true}
+function recStop(){if(recAudio){recAudio.pause();recAudio=null}}
+let REC=null;
+async function recStart(){
+  if(!navigator.mediaDevices||!window.MediaRecorder){toast('This browser cannot record. Try Chrome or Safari.');return}
+  let stream;try{stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true}})}catch(e){toast('Please allow the microphone to record.');return}
+  const mime=['audio/mp4','audio/webm;codecs=opus','audio/webm'].find(m=>MediaRecorder.isTypeSupported&&MediaRecorder.isTypeSupported(m))||'';
+  const mr=new MediaRecorder(stream,mime?{mimeType:mime,audioBitsPerSecond:32000}:{audioBitsPerSecond:32000});const chunks=[];
+  REC={mr,stream,chunks,start:Date.now(),mime:mr.mimeType||mime||'audio/webm'};mr.ondataavailable=e=>e.data&&e.data.size&&chunks.push(e.data);
+  mr.onstop=()=>{stream.getTracks().forEach(t=>t.stop());const blob=new Blob(chunks,{type:REC.mime.split(';')[0]});const fr=new FileReader();fr.onload=()=>{REC.b64=String(fr.result).split(',')[1];REC.dur=Date.now()-REC.start;REC.done=true;render()};fr.readAsDataURL(blob)};
+  mr.start();REC.timer=setTimeout(()=>{if(REC&&REC.mr.state==='recording'){REC.mr.stop();toast('One minute is the most for one page.')}},REC_MAX);render();
+  const tick=setInterval(()=>{const el=document.getElementById('rectime');if(!REC||REC.done||!el){clearInterval(tick);return}el.textContent=Math.floor((Date.now()-REC.start)/1000)+'s'},500);
+}
+function recFinish(){if(REC&&REC.mr.state==='recording'){clearTimeout(REC.timer);REC.mr.stop()}}
+async function recSave(){
+  const R=ui.R,st=byId[R.id];if(!REC||!REC.b64)return;const key=recKey(R.id,R.k,R.lang),by=recName();
+  const doc={b64:REC.b64,mime:REC.mime.split(';')[0],by,at:Date.now(),dur:REC.dur};
+  if(doc.b64.length>900000){toast('That recording is too long. Please keep it under a minute.');return}
+  recCache[key]=doc;let ok=false;
+  if(mode==='db'){try{await db.doc('audio/'+key).set(doc);const ix=Object.assign({},recIdx(R.id),{[R.k+'-'+R.lang]:{by,at:doc.at}});S.auidx=S.auidx||{};S.auidx['au-'+R.id]={slides:ix};await db.doc('fam/au-'+R.id).set({slides:ix});ok=true}
+    catch(e){toast(e&&e.code==='permission-denied'?'Saved on this phone only. To share recordings with the family, update the Firebase rules (see Parents\' corner).':'Saved on this phone only.')}}
+  await idbPut(key,doc).catch(()=>{});localRec[key]={by,at:doc.at};try{localStorage.setItem('ll-recidx',JSON.stringify(localRec))}catch(e){}
+  REC=null;if(ok)toast('Saved. The children will hear your voice 💛');else if(mode!=='db')toast('Saved on this phone 💛');
+  if(R.k<st.slides.length-1)R.k++;render();
+}
+async function recDelete(){const R=ui.R,key=recKey(R.id,R.k,R.lang);delete recCache[key];delete localRec[key];try{localStorage.setItem('ll-recidx',JSON.stringify(localRec))}catch(e){}await idbDel(key).catch(()=>{});
+  if(mode==='db'){try{await db.doc('audio/'+key).delete();const ix=Object.assign({},recIdx(R.id));delete ix[R.k+'-'+R.lang];S.auidx['au-'+R.id]={slides:ix};await db.doc('fam/au-'+R.id).set({slides:ix})}catch(e){}}toast('Deleted');render()}
+function recName(){try{return localStorage.getItem('ll-recname')||'Daddy'}catch(e){return 'Daddy'}}
+function recCount(id,lang){const st=byId[id];if(!st)return 0;let n=0;for(let i=0;i<st.slides.length;i++)if(recHas(id,i,lang))n++;return n}
+function recListScreen(){
+  const lang=ui.recLang||'en',ml=mlStoriesOn();
+  return `<div class="topbar"><button class="back" data-act="recBack">← Parents' corner</button></div>
+  <h1>🎙️ Record the stories</h1><p class="muted">Read each page in your own voice. Children hear you instead of the phone voice, on every device in the family.</p>
+  <div class="card stage"><div class="field"><label for="recname">Who is recording?</label><input id="recname" value="${esc(recName())}" data-chg="recname" autocomplete="off"></div>
+   ${ml?`<div class="row">${[['en','English'],['ml','മലയാളം']].map(([v,t])=>`<button class="btn sm ${lang===v?'rose':'ghost'}" data-act="recLang" data-l="${v}">${t}</button>`).join('')}</div>`:''}
+   ${mode!=='db'?'<p class="small muted">You are not signed in, so recordings stay on this phone only.</p>':''}</div>
+  <div class="list">${STORIES.map(st=>{const n=recCount(st.id,lang),t=lang==='ml'&&mlStory(st.id)?mlStory(st.id).title:st.title;return `<button class="li recli" data-act="recOpen" data-id="${st.id}"><span class="tx"><b>${esc(t)}</b><span class="small muted" style="display:block">${n}/${st.slides.length} pages recorded</span></span><span class="chip ${n===st.slides.length?'green':n?'gold':'plain'}">${n===st.slides.length?'Done ✓':n?'Keep going':'Start'}</span></button>`}).join('')}</div>`;
+}
+function recScreen(){
+  const R=ui.R,st=byId[R.id];if(!st)return recListScreen();const lang=R.lang,m=lang==='ml'?mlStory(R.id):null,sl=st.slides[R.k],text=m?m.slides[R.k]:sl.text,has=recHas(R.id,R.k,lang),rec=REC&&!REC.done,done=REC&&REC.done;
+  return `<div class="topbar"><button class="back" data-act="recList">← All stories</button><span class="chip plain">Page ${R.k+1} of ${st.slides.length}</span></div>
+  <h2>${esc(m?m.title:st.title)}</h2>
+  <div class="scene">${scene(sl.sc)}</div>
+  <div class="card stage recread"><p class="say">${esc(text)}</p>${sl.ay?`<p class="small muted">After this, the app shows the ayah in Arabic with the reciter. You can recite it too if you like.</p>`:''}</div>
+  <div class="recbar">
+   ${rec?`<button class="recbtn on" data-act="recStop">⏹ Stop <span id="rectime">0s</span></button>`:done?`<button class="btn ghost" data-act="recHear">▶ Listen</button><button class="btn rose" data-act="recSave">✓ Save${R.k<st.slides.length-1?' and next':''}</button><button class="btn ghost" data-act="recAgain">↺ Again</button>`
+    :`<button class="recbtn" data-act="recGo">🎙️ ${has?'Record again':'Record'}</button>${has?`<button class="btn ghost" data-act="recPlayCur">▶ Hear saved</button><button class="btn ghost sm" data-act="recDel">Delete</button>`:''}`}
+  </div>
+  <div class="spread"><button class="btn ghost sm" data-act="recPrev" ${R.k?'':'disabled'}>← Page</button><span class="sdots">${st.slides.map((x,i)=>`<i class="${i===R.k?'on':recHas(R.id,i,lang)?'rd':''}"></i>`).join('')}</span><button class="btn ghost sm" data-act="recNextP" ${R.k<st.slides.length-1?'':'disabled'}>Page →</button></div>
+  <p class="small muted">Tip: hold the phone about a hand away, in a quiet room, and read slowly and warmly. Up to one minute per page.</p>`;
+}
 /* ===================== FRIDAY REPORT (to Daddy's phone) ===================== */
 function weekReport(){
   const since=Date.now()-7*864e5,lines=[];
@@ -2791,6 +2871,20 @@ app.addEventListener('click',e=>{
    case 'langToggle':{const k=ui.kid;if(S.kids[k]){S.kids[k].lang=S.kids[k].lang==='ml'?'en':'ml';saveKid(k);const L=ui.L;if(L&&byId[L.id].world==='st'){const keep={i:L.i,k:(L.st||{}).k};L.steps=stSteps(byId[L.id]);prepStep();if(L.steps[L.i].t==='story'&&keep.k!=null)L.st.k=keep.k}lastSpoken='';render();toast(S.kids[k].lang==='ml'?'മലയാളത്തിൽ കഥ 📖':'Story in English 📖')}break;}
    case 'vRate':S.settings.voiceRate=+b.dataset.v;saveSettings();render();break;
    case 'vTest':sayEn(b.dataset.l==='ml'?'അസ്സലാമു അലൈക്കും! ഇന്ന് നമുക്ക് യൂസുഫ് നബിയുടെ കഥ കേൾക്കാം.':'Assalamu alaikum! Today we will hear the story of Prophet Yusuf. Are you ready?');break;
+   case 'famPlay':recPlay(ui.L.id,+b.dataset.k,kidLang());break;
+   case 'recList':REC=null;go('reclist');break;
+   case 'recBack':REC=null;go('parents');break;
+   case 'recLang':ui.recLang=b.dataset.l;render();break;
+   case 'recOpen':ui.R={id:b.dataset.id,k:0,lang:ui.recLang||'en'};REC=null;go('rec');break;
+   case 'recGo':recStart();break;
+   case 'recStop':recFinish();break;
+   case 'recAgain':REC=null;recStart();break;
+   case 'recHear':if(REC&&REC.b64){recStop();recAudio=new Audio(`data:${REC.mime.split(';')[0]};base64,${REC.b64}`);recAudio.play().catch(()=>{})}break;
+   case 'recSave':recSave();break;
+   case 'recPlayCur':recPlay(ui.R.id,ui.R.k,ui.R.lang);break;
+   case 'recDel':if(confirm('Delete this recording?'))recDelete();break;
+   case 'recPrev':if(REC&&!REC.done)break;REC=null;ui.R.k--;render();break;
+   case 'recNextP':if(REC&&!REC.done)break;REC=null;ui.R.k++;render();break;
    case 'ayPlay':ayPlay(b.dataset.ref,+b.dataset.rep||1);break;
    case 'readToggle':{const k=ui.kid;if(S.kids[k]){S.kids[k].read=!S.kids[k].read;saveKid(k);toast(S.kids[k].read?'I will read everything to you 🔊':'Reading aloud is off');lastSpoken='';render();if(S.kids[k].read)autoRead(true);else try{speechSynthesis.cancel()}catch(e){}}break;}
    case 'repNow':sendReport(true);break;
