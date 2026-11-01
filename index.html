@@ -25,8 +25,8 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>window.LL_FB={apiKey:"AIzaSyAIZ4JyxxZPBcPD5OHjQ-hpofP-KJwHtzE",authDomain:"little-lantern-b8a7b.firebaseapp.com",projectId:"little-lantern-b8a7b",storageBucket:"little-lantern-b8a7b.firebasestorage.app",messagingSenderId:"598122924180",appId:"1:598122924180:web:2bf132131983ea04d74c81"};window.LL_NTFY="little-lantern-17b8f6b09be7";</script>
-<meta name="ll-build" content="202611010343">
-<script>window.LL_BUILD="202611010343";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
+<meta name="ll-build" content="202611010400">
+<script>window.LL_BUILD="202611010400";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
 </head>
 <body>
 <title>Little Lantern</title>
@@ -257,15 +257,24 @@ body.igon #app{padding-top:0;padding-bottom:calc(24px + env(safe-area-inset-bott
 .topts button.ar{font-family:var(--f-ar);font-size:1.8rem}
 .topts button.hit{background:#DCEDE5;border-color:#1F5C4A}.topts button.miss{background:#FCE3EC;border-color:#E0445E}
 .topts.frozen{opacity:.45;pointer-events:none}
-.lovepop{position:fixed;right:10px;left:10px;top:calc(8px + env(safe-area-inset-top,0px));max-width:560px;margin-inline:auto;transform:translateX(calc(100% + 24px));z-index:40;display:flex;gap:10px;align-items:center;padding:8px 8px 8px 12px;border-radius:999px;background:linear-gradient(90deg,#FFF6E0,#FCE3EC);color:#2B2430;box-shadow:0 8px 22px rgba(0,0,0,.16);transition:transform .5s cubic-bezier(.2,.9,.25,1.1)}
-.lovepop.in{transform:none}
-.lovepop .lic{font-size:1.5rem;flex:none}
+.lovepop{position:fixed;left:8px;right:8px;top:calc(8px + env(safe-area-inset-top,0px));max-width:480px;margin-inline:auto;transform:translateY(calc(-100% - 30px));z-index:40;padding:10px 12px 12px;border-radius:22px;background:color-mix(in srgb,#FFF8EC 92%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:#2B2430;box-shadow:0 14px 34px rgba(0,0,0,.22);transition:transform .55s cubic-bezier(.2,1.1,.3,1)}
+.lovepop.in{transform:none;animation:lwig .7s ease-in-out .6s 1}
+@keyframes lwig{0%,100%{rotate:0deg}20%{rotate:-2deg}40%{rotate:2deg}60%{rotate:-1.2deg}80%{rotate:1deg}}
+.lovepop .lhead{display:flex;align-items:center;gap:6px;font-size:.72rem;color:#6F6370;margin-bottom:6px}
+.lovepop .lhead b{font:800 .72rem var(--f-body);color:#6F6370;text-transform:uppercase;letter-spacing:.05em}
+.lovepop .lhead span:not(.lapp){margin-inline-start:auto}
+.lovepop .lapp{display:inline-flex;width:20px;height:20px;border-radius:6px;background:#1E2A4A;align-items:center;justify-content:center}
+.lovepop .lapp svg{width:10px;height:16px}
+.lovepop .lbody{display:flex;gap:10px;align-items:center}
+.lovepop .lic{font-size:1.9rem;flex:none}
 .lovepop .ltx{flex:1;min-width:0}
-.lovepop b{display:block;font:700 .88rem/1.3 var(--f-body)}
-.lovepop i{display:block;font-style:normal;font-size:.68rem;color:#6F6370}
-.lovepop .ldid{flex:none;border:0;border-radius:999px;background:#B9587A;color:#fff;font:800 .78rem var(--f-body);padding:8px 10px;cursor:pointer;white-space:nowrap}
-.lovepop .lx{flex:none;border:0;background:none;color:#6F6370;font-size:.9rem;cursor:pointer;padding:6px}
-@media (prefers-reduced-motion:reduce){.lovepop{transition:none}}
+.lovepop .ltx b{display:block;font:600 1rem/1.35 var(--f-display)}
+.lovepop .ltx i{display:block;font-style:normal;font-size:.7rem;color:#6F6370;margin-top:2px}
+.lovepop .lbtns{display:grid;grid-template-columns:1.4fr 1fr;gap:8px;margin-top:10px}
+.lovepop .lbtns button{border:0;border-radius:14px;padding:10px;font:800 .9rem var(--f-body);cursor:pointer}
+.lovepop .lyes{background:#B9587A;color:#fff}.lovepop .lno{background:#EFE6EA;color:#2B2430}
+.lovepop .lx{border:0;background:none;color:#6F6370;font-size:.85rem;cursor:pointer;padding:2px 4px}
+@media (prefers-reduced-motion:reduce){.lovepop{transition:none}.lovepop.in{animation:none}}
 .igsticky{position:sticky;top:0;z-index:20;margin-inline:-16px;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .igsticky .igtop{position:static;margin-inline:0;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:0;padding-bottom:4px}
 .igtop{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;margin-inline:-16px;padding:10px 16px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
@@ -1962,8 +1971,8 @@ function parents(){
    ${ids.length?`<div class="card stage"><h3>Add a deed you saw</h3><div class="field"><label for="dkid">Child</label><select id="dkid">${ids.map(k=>`<option value="${k}">${esc(S.kids[k].name)}</option>`).join('')}</select></div><div class="field"><label for="dtext">What did they do?</label><input id="dtext" placeholder="Helped clear the table without being asked" autocomplete="off"></div><div class="row"><button class="btn rose" data-act="addDeed">Add and grow a flower</button></div></div>`:''}
   </section>
 
-  <section class="sect"><h2>Progress</h2>${ids.length?`<div class="card tablewrap"><table><thead><tr><th>Child</th><th>Knowing Allah</th><th>Duas</th><th>Letters</th><th>Stories</th><th>Stars</th><th>Streak</th><th>Last active</th></tr></thead><tbody>
-   ${ids.map(k=>{const P=prog(k);const c=w=>WORLDS[w].lessons.filter(l=>P.done[l.id]).length+'/'+WORLDS[w].lessons.length;const last=(P.log||[]).slice(-1)[0];return `<tr><td><b>${esc(S.kids[k].name)}</b></td><td>${c('aq')}</td><td>${c('ad')}</td><td>${c('ar')}</td><td>${c('st')}</td><td>${Object.values(P.done).reduce((a,b)=>a+b,0)}</td><td>${P.streak||0}</td><td>${last?new Date(last.at).toLocaleDateString():'Not yet'}</td></tr>`}).join('')}</tbody></table></div>`:'<p class="muted">Progress appears once children start.</p>'}</section>
+  <section class="sect"><h2>Progress</h2>${ids.length?`<div class="card tablewrap"><table><thead><tr><th>Child</th><th>Knowing Allah</th><th>Duas</th><th>Letters</th><th>Stories</th><th>Stars</th><th>Streak</th><th>Love notes</th><th>Last active</th></tr></thead><tbody>
+   ${ids.map(k=>{const P=prog(k);const c=w=>WORLDS[w].lessons.filter(l=>P.done[l.id]).length+'/'+WORLDS[w].lessons.length;const last=(P.log||[]).slice(-1)[0];return `<tr><td><b>${esc(S.kids[k].name)}</b></td><td>${c('aq')}</td><td>${c('ad')}</td><td>${c('ar')}</td><td>${c('st')}</td><td>${Object.values(P.done).reduce((a,b)=>a+b,0)}</td><td>${P.streak||0}</td><td>${(st=>st.all?`💛 ${st.y} yes · ${st.n} not yet`:'None yet')(loveStats(k))}</td><td>${last?new Date(last.at).toLocaleDateString():'Not yet'}</td></tr>`}).join('')}</tbody></table></div>`:'<p class="muted">Progress appears once children start.</p>'}</section>
 
   <section class="sect"><h2>For you to read</h2><div class="list">
    <div class="li"><span class="tx"><a href="https://abdurrahman.org/2014/06/04/how-does-a-father-teach-his-children-tawheed-shaykh-muhammad-bin-salih-al-uthaymeen/" target="_blank" rel="noopener">How does a father teach his children Tawheed?</a><span class="small muted" style="display:block">Shaykh al-Uthaymeen</span></span></div>
@@ -1977,7 +1986,7 @@ function parents(){
    ${isOwner()?`<div class="card stage"><div class="field"><label for="newmember">Add a parent's Google email</label><input id="newmember" type="email" autocomplete="off" placeholder="name@gmail.com"></div><div class="row"><button class="btn sm" data-act="addMember">Add to family</button></div></div>`:''}
    <div class="row"><button class="btn ghost sm" data-act="fbSignOut">Sign out of Google on this device</button></div></section>`:''}
   ${mode==='db'?`<section class="sect"><h2>Family chat</h2><p class="muted small">Read what the children send each other, write to them, and remove any message.</p><div class="row"><button class="btn sm" data-act="parentChat">Open family chat</button><button class="btn ghost sm" data-act="chatTyping">${S.settings.chatTyping===false?'Allow typed messages':'Quick phrases only'}</button></div><p class="small muted">Typed messages are ${S.settings.chatTyping===false?'off: children can only send quick phrases and emoji':'on: children can type up to 120 characters'}.</p></section>`:''}
-  <section class="sect"><h2>Settings</h2><div class="card stage"><h3>Little love notes</h3><p class="muted small">Every few minutes a short note slides in asking the child to think of Allah or do something small in their heart, with an "I did it" button. It can appear between lesson pages and stories, but never during quizzes, duels or Tug of War.</p><div class="row"><button class="btn sm ${S.settings.loveMsgs===false?'rose':'ghost'}" data-act="loveMsgs">${S.settings.loveMsgs===false?'Turn love notes on':'Turn love notes off'}</button><button class="btn ghost sm" data-act="loveTest">Show one now</button></div></div><div class="card stage"><div class="field"><label for="ppin2">Change parent PIN</label><input id="ppin2" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="New 4-number PIN"></div><div class="row"><button class="btn ghost sm" data-act="changePin">Update PIN</button></div>
+  <section class="sect"><h2>Settings</h2><div class="card stage"><h3>Little love notes</h3><p class="muted small">Every few minutes a note drops in from the top, like a phone notification, asking the child to think of Allah or do something small in their heart. They answer "Yes, I did it" or "Not yet", and you can see their answers in Progress above. It can appear between lesson pages and stories, but never during quizzes, duels or Tug of War.</p><div class="row"><button class="btn sm ${S.settings.loveMsgs===false?'rose':'ghost'}" data-act="loveMsgs">${S.settings.loveMsgs===false?'Turn love notes on':'Turn love notes off'}</button><button class="btn ghost sm" data-act="loveTest">Show one now</button></div></div><div class="card stage"><div class="field"><label for="ppin2">Change parent PIN</label><input id="ppin2" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="New 4-number PIN"></div><div class="row"><button class="btn ghost sm" data-act="changePin">Update PIN</button></div>
    <p class="small muted">${mode==='db'?(fb?'Progress syncs through the family database, so it follows each child to every device where a family grown-up has signed in.':'Progress is saved to your family space, so it follows each child across devices where a signed-in grown-up opens this page.'):'Progress is saved on this device only. Open this page while signed in to save it to your family space.'}</p></div></section>`;
 }
 function previewHTML(l){
@@ -2417,15 +2426,20 @@ function loveOn(){return S.settings.loveMsgs!==false}
 function lovePop(){
   let i;do{i=Math.floor(Math.random()*LOVE.length)}while(i===loveLast&&LOVE.length>1);loveLast=i;
   const [ic,t,src]=LOVE[i];let el=document.querySelector('.lovepop');if(el)el.remove();
-  el=document.createElement('div');el.className='lovepop';el.setAttribute('role','status');
-  el.innerHTML=`<span class="lic" aria-hidden="true">${ic}</span><span class="ltx"><b>${esc(t)}</b>${src?`<i>${esc(src)}</i>`:''}</span><button class="ldid" aria-label="I did it">I did it 💛</button><button class="lx" aria-label="Close">✕</button>`;
+  el=document.createElement('div');el.className='lovepop';el.setAttribute('role','alertdialog');el.setAttribute('aria-label','A little love note');
+  el.innerHTML=`<div class="lhead"><span class="lapp">${lanternMini()}</span><b>Little Lantern</b><span>now</span><button class="lx" aria-label="Close">✕</button></div>
+   <div class="lbody"><span class="lic" aria-hidden="true">${ic}</span><span class="ltx"><b>${esc(t)}</b>${src?`<i>${esc(src)}</i>`:''}</span></div>
+   <div class="lbtns"><button class="lyes">Yes, I did it 💛</button><button class="lno">Not yet</button></div>`;
   const close=()=>{el.classList.remove('in');setTimeout(()=>el.remove(),450)};
-  el.querySelector('.lx').onclick=close;
-  el.querySelector('.ldid').onclick=()=>{const k=ui.kid;if(k&&S.kids[k]){const P=prog(k);P.loveDone=(P.loveDone||0)+1;saveProg(k)}
-    el.querySelector('.ltx').innerHTML=`<b>MashaAllah! Allah saw that. 💛</b>`;el.querySelector('.ldid').remove();clearTimeout(loveT);loveT=setTimeout(close,1800)};
+  const log=ans=>{const k=ui.kid;if(!k||!S.kids[k])return;const P=prog(k);P.love=[...(P.love||[]),{at:Date.now(),n:i,a:ans}].slice(-200);if(ans)P.loveDone=(P.loveDone||0)+1;saveProg(k)};
+  const reply=(txt)=>{el.querySelector('.lbody').innerHTML=`<span class="lic" aria-hidden="true">${txt[0]}</span><span class="ltx"><b>${txt[1]}</b></span>`;el.querySelector('.lbtns').remove();clearTimeout(loveT);loveT=setTimeout(close,2600)};
+  el.querySelector('.lx').onclick=()=>{log(null);close()};
+  el.querySelector('.lyes').onclick=()=>{log(1);reply(['🌟','MashaAllah! Allah saw that, and He loves it.'])};
+  el.querySelector('.lno').onclick=()=>{log(0);reply(['🌱',"That's okay! Try it when you are ready. Allah loves it when we try."])};
   document.body.appendChild(el);requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('in')));
-  clearTimeout(loveT);loveT=setTimeout(close,14000);
+  clearTimeout(loveT);loveT=setTimeout(close,20000);
 }
+function loveStats(k){const L=prog(k).love||[],y=L.filter(x=>x.a===1).length,n=L.filter(x=>x.a===0).length;return {y,n,skip:L.length-y-n,all:L.length}}
 function loveOK(){if(['home','world','score','bell','flash'].includes(ui.screen))return true;
   if(ui.screen==='play'&&ui.L){const st=ui.L.steps[ui.L.i];return !!st&&['say','key','story','tap','dhikr'].includes(st.t)}return false}
 setInterval(()=>{
