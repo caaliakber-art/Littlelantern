@@ -200,6 +200,7 @@ body.igon #app{padding-top:0;padding-bottom:calc(24px + env(safe-area-inset-bott
 .w-hz{background:#FBEFD3;color:var(--ink)}
 .hzar{font-size:2.3rem!important;line-height:2}
 .aylisten{margin-top:6px;border:0;border-radius:999px;background:var(--gold-soft);color:var(--ink);font:800 .8rem var(--f-body);padding:6px 12px;cursor:pointer}
+.langbtn{border:0;background:var(--surface);border-radius:999px;height:42px;padding:0 12px;font:800 .9rem var(--f-body);cursor:pointer;flex:none;box-shadow:0 2px 8px rgba(0,0,0,.08)}
 .readbtn{border:0;background:var(--surface);border-radius:999px;width:42px;height:42px;font-size:1.3rem;cursor:pointer;flex:none;box-shadow:0 2px 8px rgba(0,0,0,.08)}
 .readbtn.on{background:var(--gold-soft)}
 .fwhy{display:block;font-size:.85rem;color:var(--muted);margin-top:8px}
@@ -217,6 +218,18 @@ body.igon #app{padding-top:0;padding-bottom:calc(24px + env(safe-area-inset-bott
 .tugban .ti{font-size:2.2rem}.tugban b{display:block;font:600 1.1rem var(--f-display)}.tugban small{color:var(--muted)}
 .tugban.live{background:linear-gradient(120deg,#FFE6D9,#FBEFD3);animation:tugpulse 1.6s ease-in-out infinite}
 @keyframes tugpulse{50%{box-shadow:0 0 0 6px rgba(201,143,34,.18)}}
+.tugban.soon{background:linear-gradient(120deg,#FCE3EC,#FFF1D1);animation:tugpulse 1.6s ease-in-out infinite}
+.tugban .tcd{display:block;font:800 .95rem var(--f-body);color:var(--rose);margin-top:2px;font-variant-numeric:tabular-nums}
+.tteams2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tteams2 .tteam{padding:8px 10px;text-align:left}
+.tteams2 .tteam>b{display:flex;justify-content:space-between;font:700 1rem var(--f-display)}
+.tchips{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;min-height:28px}
+.tchip{display:inline-flex;align-items:center;gap:4px;font-size:.78rem;font-weight:700;background:rgba(255,255,255,.7);border-radius:999px;padding:2px 8px 2px 2px}
+.tchip.me{outline:2px solid var(--rose)}
+.tbig{font:700 2.6rem var(--f-display);text-align:center}
+.tlivetop{position:sticky;top:0;z-index:2;background:var(--bg);padding-bottom:6px}
+.tugq{min-height:300px}
+.trope .tend{position:absolute;top:18px;font-size:1.1rem}.trope .tend.a{left:0}.trope .tend.b{right:0}
 .tteams{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .tteam{border-radius:20px;padding:12px;text-align:center}
 .tteam.a{background:#E3ECFA}.tteam.b{background:#FFF1D1}
@@ -568,6 +581,11 @@ th{font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:var(--mu
 .sgrid button.miss{background:var(--bad-soft);border-color:var(--bad)}
 .fall{position:absolute;width:64px;height:64px;margin-left:-32px;border-radius:50%;background:var(--surface);border:2px solid var(--line);font-family:var(--f-ar);font-size:2.2rem;line-height:1;display:grid;place-items:center}
 .half.frozen::after{content:"❄";position:absolute;inset:0;display:grid;place-items:center;background:rgba(127,127,127,.35);font-size:3.5rem;z-index:2}
+.hrope{position:relative;flex:1;height:40px;display:flex;align-items:center}
+.hrope .hl{position:absolute;left:0;right:0;top:50%;height:10px;margin-top:-5px;border-radius:5px;background:repeating-linear-gradient(90deg,#B48A5A 0 10px,#9A7148 10px 20px)}
+.hrope .he{position:relative;z-index:1;font:800 .7rem var(--f-body);padding:2px 8px;border-radius:999px;max-width:30%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hrope .he.a{background:var(--rose-soft);margin-right:auto}.hrope .he.b{background:var(--green-soft);margin-left:auto}
+.hrope .hk{position:absolute;top:0;font-size:1.6rem;transform:translateX(-50%);transition:left .35s cubic-bezier(.2,.8,.2,1);z-index:2}
 .mid{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 10px;background:var(--surface);border-block:2px solid var(--line)}
 .mid button{width:44px;height:44px;border-radius:50%;background:var(--bg);font-size:1.1rem;font-weight:800}
 .mid .info{flex:1;display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-variant-numeric:tabular-nums}
@@ -1402,11 +1420,11 @@ function subscribeAll(onErr){
         for(const k in S.deeds)await put('deeds/'+k,S.deeds[k]);
         return;}}
     S.presence={};S.waves={};
-    S.chat={};S.hearts={};S.tug={};S.tugp={};S.reports={};
-    for(const id in m){if(id.startsWith('p-'))S.presence[id.slice(2)]=m[id];else if(id.startsWith('w-'))S.waves[id]=m[id];else if(id.startsWith('c-'))S.chat[id]=m[id];else if(id.startsWith('h-'))S.hearts[id]=m[id];else if(id.startsWith('t-'))S.tug[id]=m[id];else if(id.startsWith('tp-'))S.tugp[id]=m[id];else if(id.startsWith('r-'))S.reports[id]=m[id]}
+    S.chat={};S.hearts={};S.tug={};S.tugp={};S.reports={};S.tugr={};
+    for(const id in m){if(id.startsWith('p-'))S.presence[id.slice(2)]=m[id];else if(id.startsWith('w-'))S.waves[id]=m[id];else if(id.startsWith('c-'))S.chat[id]=m[id];else if(id.startsWith('h-'))S.hearts[id]=m[id];else if(id.startsWith('t-'))S.tug[id]=m[id];else if(id.startsWith('tp-'))S.tugp[id]=m[id];else if(id.startsWith('r-'))S.reports[id]=m[id];else if(id.startsWith('tr-'))S.tugr[id]=m[id]}
     handleWaves();handleChat();
     const ch=s.docChanges?s.docChanges():[];
-    if(!wasFirst&&ch.length&&ch.every(c=>/^(?:[pwchr]|tp?)-/.test(c.doc.id))){if(ui.screen==='tug')tugUpdate();else if(ui.screen==='home'||ui.screen==='chat'||ui.screen==='bell'||(ui.screen==='parents'&&ch.some(c=>/^t-/.test(c.doc.id))))soft();return}
+    if(!wasFirst&&ch.length&&ch.every(c=>/^(?:[pwchr]|t[pr]?)-/.test(c.doc.id))){if(ui.screen==='tug')tugUpdate();else if(ui.screen==='home'||ui.screen==='tugscore'||ui.screen==='chat'||ui.screen==='bell'||(ui.screen==='parents'&&ch.some(c=>/^t-/.test(c.doc.id))))soft();return}
     S.settings=Object.assign({},m.settings||{});S.approvals=Object.assign({},m.approvals||{});
     S.access=(m.access&&m.access.members)||[];
     dbReady=true;saveLocal();soft();
@@ -1461,10 +1479,22 @@ function starsTxt(n){return '★'.repeat(n)+'☆'.repeat(3-n)}
 let toastT;function toast(m){let t=document.querySelector('.toast');if(!t){t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t)}t.textContent=m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,2600)}
 let arVoice=null;function loadVoices(){try{arVoice=speechSynthesis.getVoices().find(v=>/^ar/i.test(v.lang))||null}catch(e){}}
 try{loadVoices();speechSynthesis.onvoiceschanged=()=>{loadVoices();soft()}}catch(e){}
-let enVoice=null;function loadEn(){try{const v=speechSynthesis.getVoices();enVoice=v.find(x=>/^en[-_](GB|IN|US)/i.test(x.lang)&&/female|samantha|google/i.test(x.name))||v.find(x=>/^en/i.test(x.lang))||null}catch(e){}}
+let enVoice=null,mlVoice=null,allVoices=[];
+function voiceScore(v){let n=0;const nm=v.name||'';if(/natural|neural|online/i.test(nm))n+=50;if(/enhanced|premium|siri/i.test(nm))n+=40;if(/google/i.test(nm))n+=25;if(!v.localService)n+=5;if(/en[-_](GB|IN)/i.test(v.lang))n+=6;if(/female|samantha|serena|libby|sonia|neerja|aria|jenny|kate|martha|moira|karen|tessa/i.test(nm))n+=8;if(/compact|espeak|robot/i.test(nm))n-=40;return n}
+function loadEn(){try{allVoices=speechSynthesis.getVoices();const pick=(re,pref)=>{const L=allVoices.filter(x=>re.test(x.lang));const want=pref&&L.find(x=>x.name===pref);return want||L.sort((a,b)=>voiceScore(b)-voiceScore(a))[0]||null};
+  enVoice=pick(/^en/i,lsGet('ll-voice-en'));mlVoice=pick(/^ml/i,lsGet('ll-voice-ml'))}catch(e){}}
+function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+document.addEventListener('change',e=>{const c=e.target.dataset&&e.target.dataset.chg;if(c==='voiceEn'||c==='voiceMl'){try{localStorage.setItem(c==='voiceEn'?'ll-voice-en':'ll-voice-ml',e.target.value)}catch(x){}loadEn();sayEn(c==='voiceEn'?'This is how I will read to you.':'ഞാൻ ഇങ്ങനെയാണ് വായിക്കുക.')}});
 try{loadEn();speechSynthesis.addEventListener('voiceschanged',loadEn)}catch(e){}
-function readText(t){return String(t||'').replace(/<[^>]+>/g,' ').replace(/\([^)]*\)/g,'').replace(/\{name\}/g,kidName()).replace(/\s*ﷺ/g,', sallallahu alayhi wa sallam,').replace(/[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]+/g,'').replace(/\s+/g,' ').trim()}
-function sayEn(t){try{const x=readText(t);if(!x||!window.speechSynthesis)return;stopAudio();speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(x);if(enVoice){u.voice=enVoice;u.lang=enVoice.lang}else u.lang='en-GB';u.rate=.88;u.pitch=1.05;speechSynthesis.speak(u)}catch(e){}}
+function kidLang(){return (S.kids[ui.kid]||{}).lang==='ml'&&mlStoriesOn()?'ml':'en'}
+let mlWarned=false;
+function readText(t){return String(t||'').replace(/<[^>]+>/g,' ').replace(/\([^)]*(?:Sahih|Surah|\d)[^)]*\)/g,'').replace(/\{name\}/g,kidName()).replace(/\s*ﷺ/g,', sallallahu alayhi wa sallam,').replace(/[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]+/g,'').replace(/\s+/g,' ').trim()}
+function utter(x,lang){const u=new SpeechSynthesisUtterance(x),ml=lang==='ml'||(lang!=='en'&&/[\u0D00-\u0D7F]/.test(x));
+  if(ml){if(mlVoice){u.voice=mlVoice;u.lang=mlVoice.lang}else{u.lang='ml-IN';if(!mlWarned){mlWarned=true;toast('This phone has no Malayalam voice yet. Add one in the phone settings: Text-to-speech.')}}}
+  else{if(enVoice){u.voice=enVoice;u.lang=enVoice.lang}else u.lang='en-GB'}
+  u.rate=(S.settings&&S.settings.voiceRate)||.9;u.pitch=1.05;return u}
+function sayEn(t,queue){try{const x=readText(t);if(!x||!window.speechSynthesis)return;if(!queue){stopAudio();speechSynthesis.cancel()}
+  x.split(/(?<=[.!?:])\s+/).filter(Boolean).forEach(part=>speechSynthesis.speak(utter(part)))}catch(e){}}
 let ayAudio=null;function stopAudio(){if(ayAudio){ayAudio.pause();ayAudio=null}}
 function ayPlay(ref,times){
   const m=String(ref).match(/(\d+):(\d+)(?:-(\d+))?/);if(!m)return;const su=+m[1],a1=+m[2],a2=+(m[3]||m[2]);
@@ -1486,6 +1516,15 @@ function autoRead(force){
   else if(ui.screen==='score'&&ui.result){key='score'+ui.result.id;txt=ui.result.stars===3?'MashaAllah, perfect!':'Well done, '+kidName()+'!'}
   if(!txt||(!force&&key===lastSpoken))return;lastSpoken=key;setTimeout(()=>sayEn(txt),250);
 }
+const LETML={'ا':['അലിഫ്','അനാനാസ്','കൈതച്ചക്ക'],'ب':['ബാ','ബൈത്ത്','വീട്'],'ت':['താ','തുഫ്ഫാഹ്','ആപ്പിൾ'],'ث':['ഥാ','ഥൽജ്','മഞ്ഞ്'],'ج':['ജീം','ജസർ','കാരറ്റ്'],'ح':['ഹാ','ഹലീബ്','പാൽ'],'خ':['ഖാ','ഖുബ്സ്','റൊട്ടി'],'د':['ദാൽ','ദർറാജ','സൈക്കിൾ'],'ذ':['ദാൽ','ദുറ','ചോളം'],'ر':['റാ','രീശ','തൂവൽ'],'ز':['സായ്','സൈതൂൻ','ഒലിവ്'],'س':['സീൻ','സാഅ','വാച്ച്'],'ش':['ശീൻ','ശംസ്','സൂര്യൻ'],'ص':['സ്വാദ്','സ്വുന്ദൂഖ്','പെട്ടി'],'ض':['ളാദ്','ളൗഅ്','വെളിച്ചം'],'ط':['ത്വാ','ത്വാഇറ','വിമാനം'],'ظ':['ള്വാ','ളർഫ്','കവർ'],'ع':['ഐൻ','ഇനബ്','മുന്തിരി'],'غ':['ഗൈൻ','ഗൈമ','മേഘം'],'ف':['ഫാ','ഫറാവില','സ്ട്രോബെറി'],'ق':['ഖാഫ്','ഖമർ','ചന്ദ്രൻ'],'ك':['കാഫ്','കിതാബ്','പുസ്തകം'],'ل':['ലാം','ലൈമൂൻ','നാരങ്ങ'],'م':['മീം','മൗസ്','പഴം'],'ن':['നൂൻ','നജ്മ','നക്ഷത്രം'],'ه':['ഹാ','ഹദിയ്യ','സമ്മാനം'],'و':['വാവ്','വർദ','റോസാപ്പൂ'],'ي':['യാ','യദ്','കൈ']};
+const PICTR={'ا':'ananas','ب':'bayt','ت':'tuffah','ث':'thalj','ج':'jazar','ح':'haleeb','خ':'khubz','د':'darrajah','ذ':'dhurah','ر':'reeshah','ز':'zaytoon','س':"sa'ah",'ش':'shams','ص':'sundooq','ض':"daw'",'ط':"ta'irah",'ظ':'zarf','ع':"'inab",'غ':'ghaymah','ف':'farawlah','ق':'qamar','ك':'kitab','ل':'laymoon','م':'mawz','ن':'najmah','ه':'hadiyyah','و':'wardah','ي':'yad'};
+function explainLetter(x){
+  try{speechSynthesis.cancel()}catch(e){}stopAudio();
+  if(arVoice){const u=new SpeechSynthesisUtterance(x[2]);u.voice=arVoice;u.lang=arVoice.lang;u.rate=.75;speechSynthesis.speak(u)}
+  const p=PICW[x[0]],m=LETML[x[0]];
+  const t=kidLang()==='ml'&&m?`ഇത് ${m[0]}. ${m[1]} എന്നാൽ ${m[2]}.`:`This is ${x[1]}. It sounds like ${x[3]}.${p?` ${PICTR[x[0]]||p[1]} means ${p[2]}.`:''}`;
+  sayEn(t,true);
+}
 function speak(t){try{if(!arVoice)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.voice=arVoice;u.lang=arVoice.lang;u.rate=.8;speechSynthesis.speak(u)}catch(e){}}
 
 /* ===================== UI STATE ===================== */
@@ -1501,7 +1540,7 @@ function render(){
   if(ui.screen==='duel')return;
   if(!['home','world','score','bell','flash','play'].includes(ui.screen)){const lp=document.querySelector('.lovepop');if(lp)lp.remove()}
   if(ui.screen==='tug'&&document.getElementById('tugwrap')){tugUpdate();return}
-  const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen,cert:certScreen,chat:chatScreen,bell:bellScreen,flash:flashScreen,wquiz:wquizScreen,tug:tugScreen}[ui.screen]||cover;
+  const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen,cert:certScreen,chat:chatScreen,bell:bellScreen,flash:flashScreen,wquiz:wquizScreen,tug:tugScreen,tugscore:tugScoreScreen}[ui.screen]||cover;
   app.innerHTML=f();
   const igOn=ui.screen==='home';document.body.classList.toggle('igon',igOn);document.documentElement.classList.toggle('snapy',igOn&&ui.page===2);
   placeRoad();
@@ -1603,7 +1642,8 @@ function gardenPane(){
   <section class="sect"><h2 class="h2s">Play and learn</h2><div class="tiles">${['st','hz','sk','aq','ad','ar','hc'].map(tile).join('')}
    ${wqTile(k)}
    <button class="tile w-fl" data-act="flash"><span class="ic">🃏</span><b>Flashcards</b><small>${(()=>{const n=flashDue(k);return n?n+' ready':flashDeck(k).length?'Done today ✅':'After a lesson'})()}</small></button>
-   <button class="tile w-duel" data-act="${dOpen?'duelPick':'duelUnlock'}"><span class="ic">${dOpen?'⚔️':'🔒'}</span><b>Duel with Daddy</b><small>${dOpen?(D.played?`${D.won} wins`:'Play now'):'After a lesson'}</small></button></div>
+   <button class="tile w-duel" data-act="${dOpen?'duelPick':'duelUnlock'}"><span class="ic">${dOpen?'⚔️':'🔒'}</span><b>Duel with Daddy</b><small>${dOpen?(D.played?`${D.won} wins`:'Play now'):'After a lesson'}</small></button>
+   ${mode==='db'?`<button class="tile w-duel" data-act="tugScore"><span class="ic">🚩</span><b>Team Tug of War</b><small>${(ev=>ev?(Date.now()>=ev.at?'Live now!':'Next: '+tugTime(ev.at).replace('Today ','')):'Scorecard')(tugNext())}</small></button>`:''}</div>
    <p class="small muted">Coming soon: ${SOON.map(s=>s[1]).join(', ')}</p></section>
   <div class="duo">
    <section class="card mini">${lanternSVG(L.p).replace('width="64" height="96"','width="34" height="54"')}<div><b>Family lantern</b><small class="muted">${L.c} of ${L.goal} this week</small></div></section>
@@ -1667,8 +1707,13 @@ function worldScreen(){
 }
 
 /* ---------- lesson player ---------- */
+const MLB=[];
+function mlStoriesOn(){return MLB.some(b=>S.approvals[b.id])}
+function mlStory(id){for(const b of MLB)if(S.approvals[b.id]&&b.ml.stories[id])return b.ml.stories[id];return null}
+function stSteps(l){const m=kidLang()==='ml'?mlStory(l.id):null;if(!m)return l.steps;
+  return [{t:'story',slides:l.slides.map((sl,i)=>Object.assign({},sl,{text:m.slides[i]||sl.text})),ml:true},{t:'quiz',qs:(m.quiz&&m.quiz.length===l.quiz.length?m.quiz:l.quiz)}]}
 function startLesson(id){
-  const l=byId[id];let steps=l.steps;
+  const l=byId[id];let steps=l.world==='st'?stSteps(l):l.steps;
   if(l.gen)steps=l.make?l.make():letterSteps(l);
   ui.L={id,steps,i:0,miss:0,quick:false,st:{}};prepStep();go('play');
 }
@@ -1715,7 +1760,7 @@ function play(){
   else if(s.t==='hayah')body=`<div class="card stage hz"><p class="small muted">Ayah ${s.a}</p><div class="bigar hzar">${s.ar}</div><p class="tr">${esc(s.tr)}</p><p class="small" style="text-align:center">${esc(s.en)}</p><div class="row" style="justify-content:center"><button class="btn gold sm" data-act="ayPlay" data-ref="${s.s}:${s.a}">▶ Listen</button><button class="btn ghost sm" data-act="ayPlay" data-ref="${s.s}:${s.a}" data-rep="3">🔁 Listen 3 times</button></div><div class="counter"><button data-act="count" aria-label="I said it once">${st.c}/${s.n}</button><p class="muted">Say it after the reciter, then tap. ${s.n} times.</p></div></div>`;
   else if(s.t==='key')body=`<div class="key"><span class="lbl">Remember this</span><p>${fill(s.text)}</p></div>`;
   else if(s.t==='tap')body=`<h2>${esc(s.prompt)}</h2><div class="taps">${s.items.map((it,i)=>`<button class="tapit ${st.open[i]?'open':''}" data-act="tap" data-i="${i}"><span class="ic" aria-hidden="true">${it[0]}</span><b>${esc(it[1])}</b>${st.open[i]?`<span class="rev">${esc(s.reveal)}</span>`:''}</button>`).join('')}</div>`;
-  else if(s.t==='letters')body=`<div class="letters">${s.set.map((x,i)=>`<button class="letter ${st.open[i]?'open':''}" data-act="letter" data-i="${i}"><span class="g">${x[0]}</span><b>${x[1]}${arVoice?' 🔊':''}</b>${PICW[x[0]]?`<span class="pw"><span class="pe">${PICW[x[0]][0]}</span><span class="pa">${PICW[x[0]][1]}</span></span>`:''}${st.open[i]?`<span class="small">${x[2]} · sounds like <b>${esc(x[3])}</b>${PICW[x[0]]?` · ${PICW[x[0]][2]}`:''}</span>`:'<span class="small muted">Tap me</span>'}</button>`).join('')}</div>`;
+  else if(s.t==='letters')body=`<div class="letters">${s.set.map((x,i)=>`<button class="letter ${st.open[i]?'open':''}" data-act="letter" data-i="${i}"><span class="g">${x[0]}</span><b>${x[1]}${arVoice?' 🔊':''}</b>${PICW[x[0]]?`<span class="pw"><span class="pe">${PICW[x[0]][0]}</span><span class="pa">${PICW[x[0]][1]}</span></span>`:''}${st.open[i]?`<span class="small">${x[2]} · sounds like <b>${esc(x[3])}</b>${PICW[x[0]]?` · ${PICW[x[0]][2]}`:''}${kidLang()==='ml'&&LETML[x[0]]?`<br>${LETML[x[0]][0]} · ${LETML[x[0]][1]} = ${LETML[x[0]][2]}`:''}</span>`:'<span class="small muted">Tap me</span>'}</button>`).join('')}</div>`;
   else if(s.t==='sort'){const it=st.items[st.k];body=`<h2>${esc(s.prompt)}</h2>${it?`<div class="card sortcard">${esc(it[0])}</div>${st.ans==null?`<div class="row" style="justify-content:center"><button class="btn" data-act="sort" data-v="1">✓ ${esc(s.yes)}</button><button class="btn rose" data-act="sort" data-v="0">✗ ${esc(s.no)}</button></div>`:`<div class="fb ${st.ans?'ok':'no'}">${st.ans?'Yes! ':'Not quite. '}${it[1]?'Allah loves this.':'We keep away from this. It is only for Allah or it is wrong.'}</div><button class="btn" data-act="sortNext">Next</button>`}`:'<div class="fb ok">All sorted. MashaAllah!</div>'}`;}
   else if(s.t==='match'){body=`<h2>${esc(s.prompt)}</h2><div class="match"><div class="col">${st.left.map(i=>{const p=s.pairs[i];return `<button class="mi ${st.sel===i?'sel':''} ${st.done[i]?'done':''}" data-act="mL" data-i="${i}" ${st.done[i]?'disabled':''}>${p[0]?`<span class="ar">${p[0]}</span>`:''}${esc(p[1])}</button>`}).join('')}</div><div class="col">${st.right.map(i=>`<button class="mi ${st.done[i]?'done':''}" data-act="mR" data-i="${i}" ${st.done[i]?'disabled':''}>${esc(s.pairs[i][2])}</button>`).join('')}</div></div>`;}
   else if(s.t==='quiz'){const q=s.qs[st.q];
@@ -1725,8 +1770,8 @@ function play(){
   else if(s.t==='order'){body=`<h2>Build the dua in the right order</h2><p class="muted small">Tap the pieces from first to last. Arabic reads from right to left.</p><div class="built">${st.placed.map(i=>`<span class="chunk placed">${s.chunks[i]}</span>`).join('')}</div><div class="chunks">${st.pool.filter(i=>!st.placed.includes(i)).map(i=>`<button class="chunk" data-act="chunk" data-i="${i}">${s.chunks[i]}</button>`).join('')}</div>${st.placed.length===s.chunks.length?'<div class="fb ok">MashaAllah, perfect!</div>':''}`;}
   else if(s.t==='daddy'){body=`<div class="card stage">${daddy}<p class="say">${fill(s.text)}</p><div class="row"><button class="btn gold" data-act="daddyCheck">Daddy's PIN</button></div><p class="small muted">Daddy not here? Come back later. Your answers are kept.</p></div>`;}
   const isLast=L.i===L.steps.length-1;
-  return `<div class="topbar"><button class="back" data-act="quit" aria-label="Leave lesson">✕</button><div class="prog"><i style="width:${pct}%"></i></div><button class="readbtn ${readOn()?'on':''}" data-act="readToggle" aria-label="${readOn()?'Reading aloud is on':'Read to me'}">${readOn()?'🔊':'🔈'}</button></div>
-  <div class="spread"><h3>${esc(l.title)}</h3>${l.world!=='ad'&&l.world!=='st'&&l.world!=='sk'&&L.i===0&&WORLDS[l.world].seq&&!L.quick?`<button class="btn ghost sm" data-act="quick">I know this</button>`:''}</div>
+  return `<div class="topbar"><button class="back" data-act="quit" aria-label="Leave lesson">✕</button><div class="prog"><i style="width:${pct}%"></i></div>${l.world==='st'&&mlStoriesOn()?`<button class="langbtn" data-act="langToggle" aria-label="Change language">${kidLang()==='ml'?'EN':'മല'}</button>`:''}<button class="readbtn ${readOn()?'on':''}" data-act="readToggle" aria-label="${readOn()?'Reading aloud is on':'Read to me'}">${readOn()?'🔊':'🔈'}</button></div>
+  <div class="spread"><h3>${esc(l.world==='st'&&kidLang()==='ml'&&mlStory(l.id)?mlStory(l.id).title:l.title)}</h3>${l.world!=='ad'&&l.world!=='st'&&l.world!=='sk'&&L.i===0&&WORLDS[l.world].seq&&!L.quick?`<button class="btn ghost sm" data-act="quick">I know this</button>`:''}</div>
   <div class="stage">${dban}${body}</div>
   ${s.t==='daddy'||(s.t==='sort'&&st.ans!=null)||(s.t==='quiz'&&st.ans!=null)?'':`<div class="row" style="justify-content:flex-end"><button class="btn ${isLast?'rose':''}" data-act="next" ${canNext()?'':'disabled'}>${isLast?'Finish':'Next'}</button></div>`}`;
 }
@@ -1920,7 +1965,7 @@ function dotTap(p,v,b){
 /* Tug of War */
 function tugRound(){
   G.lock=false;const tg=pick(G.pool),byName=Math.random()<.5;G.target=tg[0];G.byName=byName;
-  $('mid').innerHTML='<div class="rope"></div>';
+  if(!$('hrope'))$('mid').innerHTML=`<div class="hrope" id="hrope"><span class="he a">${esc(kidName())}</span><span class="hl"></span><span class="hk" id="hknot" style="left:${50-G.rope*8}%">🚩</span><span class="he b">${esc(G.opp)}</span></div>`;
   for(const p of [0,1]){
     const n=p===0?(G.pool.length>=6?4:3):Math.min(4+G.h*2,10);
     $('q'+p).innerHTML=byName?`Which letter is <b>${esc(tg[1])}</b>?`:`What is this letter? <span class="ar">${tg[0]}</span>`;
@@ -1933,7 +1978,7 @@ function tugRound(){
 function tugTap(p,v,b){
   if(G.lock||isFrozen(p))return;
   if(v===G.target){G.lock=true;b.classList.add('hit');G.rope+=p===0?1:-1;G.score[p]++;setScore(p);
-    const r=G.rope;$('dw').style.gridTemplateRows=`${50+r*7}fr auto ${50-r*7}fr`;
+    const r=G.rope,kn=$('hknot');if(kn)kn.style.left=(50-r*8)+'%';
     if(Math.abs(r)>=5)return endDuel(r>0?0:1);later(tugRound,450)}
   else{b.classList.add('miss');freeze(p,1000)}
 }
@@ -1978,6 +2023,7 @@ function parents(){
   <section class="sect"><div class="spread"><h2>Children</h2><button class="btn sm" data-act="editKid" data-id="new">Add a child</button></div>
    ${ek?`<div class="card stage"><h3>${ek==='new'?'Add a child':'Edit '+esc(kid.name)}</h3>
      <div class="field"><label for="kname">Name</label><input id="kname" value="${esc(kid.name)}" autocomplete="off"></div>
+     <div class="field"><label for="klang">Story language</label><select id="klang"><option value="en" ${kid.lang!=='ml'?'selected':''}>English</option><option value="ml" ${kid.lang==='ml'?'selected':''}>Malayalam (മലയാളം), after you approve the Malayalam stories</option></select></div>
      <label class="small" style="display:flex;gap:8px;align-items:center;margin:4px 0 10px"><input type="checkbox" id="kread" ${kid.read?'checked':''}> Read everything aloud (for little ones who cannot read yet)</label>
      <div class="field"><label for="kpin">4-number PIN (leave empty for no PIN)</label><input id="kpin" inputmode="numeric" maxlength="4" value="${esc(kid.pin||'')}" autocomplete="off"></div>
      <div class="field"><label>Symbol</label><div class="syms">${SYMS.map(s=>`<button class="${(ui.sym||kid.symbol)===s?'on':''}" data-act="sym" data-s="${s}" aria-label="Symbol ${s}">${s}</button>`).join('')}</div></div>
@@ -2013,8 +2059,17 @@ function parents(){
    ${isOwner()?`<div class="card stage"><div class="field"><label for="newmember">Add a parent's Google email</label><input id="newmember" type="email" autocomplete="off" placeholder="name@gmail.com"></div><div class="row"><button class="btn sm" data-act="addMember">Add to family</button></div></div>`:''}
    <div class="row"><button class="btn ghost sm" data-act="fbSignOut">Sign out of Google on this device</button></div></section>`:''}
   ${mode==='db'?`<section class="sect"><h2>Family chat</h2><p class="muted small">Read what the children send each other, write to them, and remove any message.</p><div class="row"><button class="btn sm" data-act="parentChat">Open family chat</button><button class="btn ghost sm" data-act="chatTyping">${S.settings.chatTyping===false?'Allow typed messages':'Quick phrases only'}</button></div><p class="small muted">Typed messages are ${S.settings.chatTyping===false?'off: children can only send quick phrases and emoji':'on: children can type up to 120 characters'}.</p></section>`:''}
-  <section class="sect"><h2>Settings</h2><div class="card stage"><h3>Little love notes</h3><p class="muted small">Every few minutes a note drops in from the top, like a phone notification, asking the child to think of Allah or do something small in their heart. They answer "Yes, I did it" or "Not yet", and you can see their answers in Progress above. It can appear between lesson pages and stories, but never during quizzes, duels or Tug of War.</p><div class="row"><button class="btn sm ${S.settings.loveMsgs===false?'rose':'ghost'}" data-act="loveMsgs">${S.settings.loveMsgs===false?'Turn love notes on':'Turn love notes off'}</button><button class="btn ghost sm" data-act="loveTest">Show one now</button></div></div><div class="card stage"><div class="field"><label for="ppin2">Change parent PIN</label><input id="ppin2" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="New 4-number PIN"></div><div class="row"><button class="btn ghost sm" data-act="changePin">Update PIN</button></div>
+  <section class="sect"><h2>Settings</h2><div class="card stage"><h3>Reading voice</h3><p class="muted small">Pick the nicest voice on this phone. Voices called Natural, Enhanced, Premium or Google sound the most human. On iPhone you can download better voices in Settings › Accessibility › Spoken Content › Voices; on Android, install Google Speech Services (it also adds Malayalam).</p>${voicePicker()}</div><div class="card stage"><h3>Little love notes</h3><p class="muted small">Every few minutes a note drops in from the top, like a phone notification, asking the child to think of Allah or do something small in their heart. They answer "Yes, I did it" or "Not yet", and you can see their answers in Progress above. It can appear between lesson pages and stories, but never during quizzes, duels or Tug of War.</p><div class="row"><button class="btn sm ${S.settings.loveMsgs===false?'rose':'ghost'}" data-act="loveMsgs">${S.settings.loveMsgs===false?'Turn love notes on':'Turn love notes off'}</button><button class="btn ghost sm" data-act="loveTest">Show one now</button></div></div><div class="card stage"><div class="field"><label for="ppin2">Change parent PIN</label><input id="ppin2" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="New 4-number PIN"></div><div class="row"><button class="btn ghost sm" data-act="changePin">Update PIN</button></div>
    <p class="small muted">${mode==='db'?(fb?'Progress syncs through the family database, so it follows each child to every device where a family grown-up has signed in.':'Progress is saved to your family space, so it follows each child across devices where a signed-in grown-up opens this page.'):'Progress is saved on this device only. Open this page while signed in to save it to your family space.'}</p></div></section>`;
+}
+function voicePicker(){
+  loadEn();const opt=(re,cur)=>allVoices.filter(v=>re.test(v.lang)).sort((a,b)=>voiceScore(b)-voiceScore(a)).map(v=>`<option value="${esc(v.name)}" ${cur&&cur.name===v.name?'selected':''}>${esc(v.name)} (${esc(v.lang)})${voiceScore(v)>=40?' ★':''}</option>`).join('');
+  const en=opt(/^en/i,enVoice),ml=opt(/^ml/i,mlVoice),r=(S.settings.voiceRate)||.9;
+  return `<div class="field"><label for="vEn">English voice</label>${en?`<select id="vEn" data-chg="voiceEn">${en}</select>`:'<p class="small muted">No English voices found on this device.</p>'}</div>
+   <div class="field"><label for="vMl">Malayalam voice</label>${ml?`<select id="vMl" data-chg="voiceMl">${ml}</select>`:'<p class="small muted">No Malayalam voice on this device yet.</p>'}</div>
+   <div class="field"><label>Speed</label><div class="row">${[[.8,'Slow'],[.9,'Gentle'],[1,'Normal']].map(([v,t])=>`<button class="btn sm ${r===v?'rose':'ghost'}" data-act="vRate" data-v="${v}">${t}</button>`).join('')}</div></div>
+   <div class="row"><button class="btn ghost sm" data-act="vTest" data-l="en">▶ Try English</button>${ml?'<button class="btn ghost sm" data-act="vTest" data-l="ml">▶ Try Malayalam</button>':''}</div>
+   <p class="small muted">The voice choice is saved for this device.</p>`;
 }
 function previewHTML(l){
   if(l.world==='ad')return `<div class="preview"><div class="ar" style="font-size:1.4rem">${l.ar}</div><div><i>${esc(l.tr)}</i></div><div>${esc(l.mean)}</div>${l.extra?`<div class="ar" style="font-size:1.2rem">${l.extra.ar}</div><div>${esc(l.extra.mean)}</div>`:''}<div class="small muted">When: ${esc(l.when)} · Source: ${esc(l.src)}</div></div>`;
@@ -2184,7 +2239,7 @@ function bellEvents(k){
   const sod=storyOfDay(k);if(sod&&!prog(k).done[sod.id])ev.push({at:at6(),icon:'📜',text:`Today's story is ready: ${sod.title}`,act:'open',arg:sod.id});
   const wf=weekStart6().getTime();if(!wqState(k)&&Date.now()-wf<4*864e5&&quizPool(k).length>=5)ev.push({at:wf,icon:'🕌',text:"This week's Jumu'ah quiz is ready!",act:'wq'});
   for(const c in S.kids){if(c===k)continue;const r=(prog(c).wq||{})[weekId()];if(r)ev.push({at:r.at,kid:c,icon:'🕌',text:`${S.kids[c].name} scored ${r.first}/${r.n} in the Jumu'ah quiz. MashaAllah!`,act:'galOf',arg:c})}
-  const te=tugNext();if(te&&Date.now()>=te.at-TUG_EARLY)ev.push({at:te.at-TUG_EARLY,icon:'🚩',text:`Team Tug of War ${Date.now()<te.at?'starts at '+tugTime(te.at)+'. Come and join a team!':'is on now. Jump in!'}`,act:'tug'});
+  const te=tugNext();if(te&&Date.now()>=te.at-TUG_HYPE)ev.push({at:Math.max(te.at-TUG_HYPE,Date.now()-60e3),icon:'🚩',text:`Team Tug of War ${Date.now()<te.at?'starts at '+tugTime(te.at)+'. Come and join a team!':'is on now. Jump in!'}`,act:'tug'});
   const due=flashDue(k);if(due)ev.push({at:t0.getTime(),icon:'🃏',text:`${due} flashcard${due>1?'s are':' is'} ready for you`,act:'flash'});
   if(gemsLive().length&&(prog(k).feedOpened||'')!==dayKey())ev.push({at:t0.getTime()+1,icon:'✨',text:'New gems are ready for today',act:'page',arg:2});
   return ev.sort((a,b)=>b.at-a.at).slice(0,40);
@@ -2320,39 +2375,60 @@ function feedPage(active){
 
 
 /* ===================== TEAM TUG OF WAR (scheduled, online) ===================== */
-const TUG_EARLY=10*60e3,TUG_TEAMS=[['🌙','Moon team','a'],['⭐','Star team','b']];
-function tugTime(t){const d=new Date(t),today=dayKey()===dayKey(d);return (today?'':d.toLocaleDateString([], {weekday:'short',day:'numeric',month:'short'})+', ')+d.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})}
-function tugEvents(){return Object.entries(S.tug||{}).map(([id,e])=>Object.assign({id},e)).filter(e=>e&&e.at).sort((a,b)=>a.at-b.at)}
+const TUG_EARLY=10*60e3,TUG_HYPE=24*3600e3,TUG_TEAMS=[['🌙','Moon team','a'],['⭐','Star team','b']],DOWS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+function tugTime(t){const d=new Date(t),today=dayKey()===dayKey(d);return (today?'Today ':d.toLocaleDateString([], {weekday:'short',day:'numeric',month:'short'})+', ')+d.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})}
+function tugAuto(){ // weekly slots from settings → next occurrences
+  const out=[],now=Date.now();(S.settings.tugWeekly||[]).forEach(w=>{for(let add=-1;add<8;add++){const d=new Date();d.setHours(w.h,w.m||0,0,0);d.setDate(d.getDate()+add);if(d.getDay()!==w.dow)continue;const at=d.getTime(),dur=(w.dur||3)*60e3;if(now<at+dur+5*60e3)out.push({id:'t-auto-'+dayKey(d).replace(/-/g,'')+'-'+String(w.h).padStart(2,'0')+String(w.m||0).padStart(2,'0'),at,dur,auto:true})}});
+  return out}
+function tugEvents(){const real=Object.entries(S.tug||{}).map(([id,e])=>Object.assign({id},e)).filter(e=>e&&e.at);const skip=new Set(real.filter(e=>e.skip).map(e=>e.id));
+  const all=[...real.filter(e=>!e.skip),...tugAuto().filter(e=>!skip.has(e.id)&&!real.some(r=>r.id===e.id))];return all.sort((a,b)=>a.at-b.at)}
+function tugEv(id){return tugEvents().find(e=>e.id===id)||null}
 function tugNext(){const now=Date.now();return tugEvents().find(e=>now<e.at+(e.dur||120e3)+5*60e3)||null}
+function tugTeamOf(k,i){const T=S.settings.tugTeams||{};return T[k]===0||T[k]===1?T[k]:null}
 function tugPlayers(ev){
   const L=Object.values(S.tugp||{}).filter(x=>x&&x.ev===ev.id&&S.kids[x.kid]).sort((a,b)=>(a.joined-b.joined)||(a.kid<b.kid?-1:1));
-  return L.map((x,i)=>Object.assign({},x,{team:i%2}));
+  const cnt=[0,0];L.forEach(x=>{const t=tugTeamOf(x.kid);if(t!=null)cnt[t]++});
+  return L.map(x=>{let t=tugTeamOf(x.kid);if(t==null){t=cnt[0]<=cnt[1]?0:1;cnt[t]++}return Object.assign({},x,{team:t})});
 }
 function tugTotals(pl){const t=[0,0];pl.forEach(x=>t[x.team]+=x.pulls||0);return t}
 function tugWin(pl){return 6+2*pl.length}
 function tugPhase(ev,pl){
-  const now=Date.now(),end=ev.at+(ev.dur||120e3);
-  if(now<ev.at)return 'lobby';
-  const t=tugTotals(pl),d=t[0]-t[1];
-  if(pl.length>=2&&Math.abs(d)>=tugWin(pl))return 'over';
-  if(now>=end)return 'over';
-  return 'live';
+  const now=Date.now(),end=ev.at+(ev.dur||120e3);if(now<ev.at)return 'lobby';
+  const t=tugTotals(pl),d=t[0]-t[1];if(pl.length>=2&&pl.some(x=>x.team===0)&&pl.some(x=>x.team===1)&&Math.abs(d)>=tugWin(pl))return 'over';
+  if(now>=end)return 'over';return 'live';
 }
 function tugWinner(ev,pl){const t=tugTotals(pl);return t[0]===t[1]?-1:t[0]>t[1]?0:1}
+function cdown(ms){ms=Math.max(0,ms);const h=Math.floor(ms/3600e3),m=Math.floor(ms%3600e3/60e3),s2=Math.floor(ms%60e3/1000);return h?`${h}h ${m}m`:m?`${m}m ${String(s2).padStart(2,'0')}s`:`${s2}s`}
 function tugBanner(k){
-  if(mode!=='db')return '';const ev=tugNext();if(!ev)return '';
-  const now=Date.now(),live=now>=ev.at&&now<ev.at+(ev.dur||120e3),soon=now>=ev.at-TUG_EARLY;
-  if(now>=ev.at+(ev.dur||120e3)){const pl=tugPlayers(ev);if(!pl.some(x=>x.kid===k))return '';}
-  return `<button class="tugban ${live?'live':''}" data-act="tugGo"><span class="ti">🚩</span><span><b>Team Tug of War</b><small>${live?'It is on now! Tap to join a team.':soon?'Starts at '+tugTime(ev.at)+'. Tap to wait with your team.':'Coming up: '+tugTime(ev.at)+'. Everyone online joins a team!'}</small></span></button>`;
+  if(mode!=='db')return '';const ev=tugNext();if(!ev)return '';const now=Date.now(),end=ev.at+(ev.dur||120e3);
+  if(now<ev.at-TUG_HYPE)return '';
+  const live=now>=ev.at&&now<end,soon=now>=ev.at-TUG_EARLY,my=tugTeamOf(k);
+  if(now>=end){const pl=tugPlayers(ev);if(!pl.some(x=>x.kid===k))return ''}
+  return `<button class="tugban ${live?'live':soon?'soon':''}" data-act="tugGo"><span class="ti">🚩</span><span><b>${live?'LIVE NOW: ':''}Team Tug of War</b><small>${TUG_TEAMS[0][0]} Moon team vs Star team ${TUG_TEAMS[1][0]}${my!=null?` · you are ${TUG_TEAMS[my][0]}`:''}</small><span class="tcd" data-cd="${ev.at}">${live?'Tap to jump in and pull!':now>=end?'See the result':'Starts in '+cdown(ev.at-now)+(soon?' · tap to get ready':'')}</span></span></button>`;
+}
+setInterval(()=>{document.querySelectorAll('.tcd[data-cd]').forEach(el=>{const at=+el.dataset.cd,now=Date.now();if(now<at)el.textContent='Starts in '+cdown(at-now)+(now>=at-TUG_EARLY?' · tap to get ready':'');else if(!/jump|result/.test(el.textContent)&&ui.screen==='home')soft()})},1000);
+// pop-down announcements (10 minutes before, and when it goes live)
+let tugAnn={};
+setInterval(()=>{if(mode!=='db'||!ui.kid||ui.screen==='tug'||ui.screen==='duel'||document.hidden)return;const ev=tugNext();if(!ev)return;const now=Date.now();
+  const stage=now>=ev.at&&now<ev.at+(ev.dur||120e3)?'live':now>=ev.at-TUG_EARLY&&now<ev.at?'soon':null;if(!stage||tugAnn[ev.id+stage])return;tugAnn[ev.id+stage]=1;tugPop(ev,stage)},5000);
+function tugPop(ev,stage){
+  let el=document.querySelector('.lovepop');if(el)el.remove();const my=tugTeamOf(ui.kid);
+  el=document.createElement('div');el.className='lovepop tugpop';el.setAttribute('role','alertdialog');
+  el.innerHTML=`<div class="lhead"><span class="lapp">${lanternMini()}</span><b>Little Lantern</b><span>now</span><button class="lx" aria-label="Close">✕</button></div>
+   <div class="lbody"><span class="lic">🚩</span><span class="ltx"><b>${stage==='live'?'Team Tug of War is LIVE! Your team needs you!':'Team Tug of War starts in 10 minutes!'}</b><i>🌙 Moon team vs Star team ⭐${my!=null?' · you are '+TUG_TEAMS[my][1]:''}</i></span></div>
+   <div class="lbtns"><button class="lyes">${stage==='live'?'Pull now! 💪':'Get ready 🚩'}</button><button class="lno">Later</button></div>`;
+  const close=()=>{el.classList.remove('in');setTimeout(()=>el.remove(),450)};
+  el.querySelector('.lx').onclick=close;el.querySelector('.lno').onclick=close;el.querySelector('.lyes').onclick=()=>{close();tugGo()};
+  document.body.appendChild(el);requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('in')));setTimeout(close,25000);
 }
 let TG=null;
 function tugGo(){
   if(mode!=='db'){toast('Team Tug of War works when a grown-up has signed in on this device.');return}
-  const ev=tugNext();if(!ev){toast('No Team Tug of War is planned right now.');return}
-  if(Date.now()<ev.at-TUG_EARLY){toast('The team room opens 10 minutes before '+tugTime(ev.at)+'.');return}
+  const ev=tugNext();if(!ev){go('tugscore');return}
+  if(Date.now()<ev.at-TUG_EARLY){go('tugscore');return}
   const k=ui.kid,id=`tp-${ev.id}-${k}`;
-  if(!(S.tugp||{})[id]){const d={kid:k,ev:ev.id,joined:Date.now(),pulls:0,at:Date.now()};S.tugp=S.tugp||{};S.tugp[id]=d;put('fam/'+id,d)}
-  TG={ev:ev.id,id,qs:tugQuestions(k),qi:0,frozen:0,lock:false,done:false};
+  if(!(S.tugp||{})[id]&&Date.now()<ev.at+(ev.dur||120e3)){const d={kid:k,ev:ev.id,joined:Date.now(),pulls:0,at:Date.now()};S.tugp=S.tugp||{};S.tugp[id]=d;put('fam/'+id,d)}
+  TG={ev:ev.id,id,qs:tugQuestions(k),qi:0,frozen:0,lock:false,done:false,ph:null};
   go('tug');tugUpdate();tugTick();
 }
 function tugQuestions(k){
@@ -2363,65 +2439,93 @@ function tugQuestions(k){
 let tugTimer=0;
 function tugTick(){clearInterval(tugTimer);tugTimer=setInterval(()=>{if(ui.screen!=='tug'){clearInterval(tugTimer);return}tugUpdate()},1000)}
 function tugScreen(){
-  const ev=TG&&(S.tug||{})[TG.ev]?Object.assign({id:TG.ev},S.tug[TG.ev]):null;
-  if(!ev)return `<div class="topbar"><button class="back" data-act="tugLeave">← My garden</button></div><h1>Team Tug of War</h1><p class="muted">This game was cancelled.</p>`;
-  return `<div id="tugwrap"><div class="topbar"><button class="back" data-act="tugLeave">← My garden</button><span class="chip plain">🚩 Team Tug of War</span></div><div id="tugbody"></div></div>`;
+  return `<div id="tugwrap"><div class="topbar"><button class="back" data-act="tugLeave">← My garden</button><button class="chip plain" data-act="tugScore">🏆 Scorecard</button></div><div id="tugbody"></div></div>`;
 }
+function tugChips(pl,i,ph){return pl.filter(x=>x.team===i).map(x=>`<span class="tchip ${x.kid===ui.kid?'me':''}">${symEl(x.kid,22)} ${esc(S.kids[x.kid].name)}${ph!=='lobby'?` <b data-pk="${x.kid}">${x.pulls||0}</b>`:''}</span>`).join('')||'<span class="small muted">Waiting…</span>'}
 function tugUpdate(){
   const body=document.getElementById('tugbody');if(!body||!TG)return;
-  const raw=(S.tug||{})[TG.ev];if(!raw){body.innerHTML='<p class="muted">This game was cancelled by a grown-up.</p>';return}
-  const ev=Object.assign({id:TG.ev},raw),pl=tugPlayers(ev),ph=tugPhase(ev,pl),me=pl.find(x=>x.kid===ui.kid),t=tugTotals(pl);
-  const team=i=>`<div class="tteam ${TUG_TEAMS[i][2]}"><h3>${TUG_TEAMS[i][0]} ${TUG_TEAMS[i][1]}</h3>${ph!=='lobby'?`<div class="big">${t[i]}</div>`:''}${pl.filter(x=>x.team===i).map(x=>`<div class="tp ${x.kid===ui.kid?'me':''}">${symEl(x.kid,26)} ${esc(S.kids[x.kid].name)}${ph!=='lobby'?` · ${x.pulls||0}`:''}</div>`).join('')||'<p class="small muted">Waiting for players</p>'}</div>`;
-  const W=tugWin(pl),d=Math.max(-W,Math.min(W,t[0]-t[1])),pos=50-d/W*42;
-  const rope=`<div class="trope" aria-label="Rope: ${TUG_TEAMS[0][1]} ${t[0]}, ${TUG_TEAMS[1][1]} ${t[1]}"><span class="goal" style="left:8%"></span><span class="goal" style="right:8%"></span><div class="line"></div><span class="flag" style="left:${pos}%">🚩</span></div><div class="spread small muted"><span>← ${TUG_TEAMS[0][1]} pulls this way</span><span>${TUG_TEAMS[1][1]} →</span></div>`;
-  const left=Math.max(0,Math.ceil(((ph==='lobby'?ev.at:ev.at+(ev.dur||120e3))-Date.now())/1000)),clock=`${Math.floor(left/60)}:${String(left%60).padStart(2,'0')}`;
-  if(ph==='lobby'){body.innerHTML=`<h1>Get ready!</h1><p class="muted">Everyone who joins is put into a team. When the clock reaches zero, answer questions fast. Every right answer pulls the rope for your team!</p>
-    <div class="tclock" aria-live="polite">Starts in ${clock}</div><div class="tteams">${team(0)}${team(1)}</div>${me?`<p class="small muted" style="text-align:center">You are in the ${TUG_TEAMS[me.team][0]} ${TUG_TEAMS[me.team][1]}. Say Bismillah!</p>`:''}`;TG.shown=null;return}
+  const ev=tugEv(TG.ev);if(!ev){body.innerHTML='<p class="muted">This game was cancelled by a grown-up.</p>';return}
+  const pl=tugPlayers(ev),ph=tugPhase(ev,pl),me=pl.find(x=>x.kid===ui.kid),t=tugTotals(pl),W=tugWin(pl),d=Math.max(-W,Math.min(W,t[0]-t[1])),pos=50-d/W*42;
+  const left=Math.max(0,(ph==='lobby'?ev.at:ev.at+(ev.dur||120e3))-Date.now());
+  const teams=`<div class="tteams2"><div class="tteam a"><b>🌙 Moon <span data-tt="0">${ph!=='lobby'?t[0]:''}</span></b><div class="tchips" data-tc="0">${tugChips(pl,0,ph)}</div></div><div class="tteam b"><b>⭐ Star <span data-tt="1">${ph!=='lobby'?t[1]:''}</span></b><div class="tchips" data-tc="1">${tugChips(pl,1,ph)}</div></div></div>`;
+  const rope=`<div class="trope"><span class="goal" style="left:8%"></span><span class="goal" style="right:8%"></span><div class="line"></div><span class="flag" id="tflag" style="left:${pos}%">🚩</span><span class="tend a">🌙</span><span class="tend b">⭐</span></div>`;
+  if(ph==='lobby'){if(TG.ph!=='lobby'){TG.ph='lobby';body.innerHTML=`<h1>Get ready!</h1><p class="muted">When the clock reaches zero, answer fast. Every right answer pulls the rope for your team!</p><div class="tclock" id="tclock"></div><div id="tteamsbox"></div><p class="small muted" style="text-align:center" id="tmine"></p>`}
+    document.getElementById('tclock').textContent='Starts in '+cdown(left);document.getElementById('tteamsbox').innerHTML=teams;document.getElementById('tmine').textContent=me?`You are in the ${TUG_TEAMS[me.team][0]} ${TUG_TEAMS[me.team][1]}. Say Bismillah!`:'';return}
   if(ph==='over'){
-    const w=pl.length>=2?tugWinner(ev,pl):-1;
-    if(!TG.done&&me){TG.done=true;const P=prog(ui.kid),R=Object.assign({played:0,won:0},P.tugs);if(!(R.seen||{})[ev.id]){R.played++;if(w===me.team)R.won++;R.seen=Object.assign({},R.seen,{[ev.id]:1});P.tugs=R;saveProg(ui.kid)}}
-    body.innerHTML=`<h1>${pl.length<2?'Not enough players this time':w<0?"It's a draw!":`${TUG_TEAMS[w][0]} ${TUG_TEAMS[w][1]} wins!`}</h1>${rope}<div class="tteams">${team(0)}${team(1)}</div>
+    if(TG.ph==='over')return;TG.ph='over';const w=pl.length>=2?tugWinner(ev,pl):-1;
+    if(me&&!TG.done){TG.done=true;const P=prog(ui.kid),R=Object.assign({played:0,won:0},P.tugs);if(!(R.seen||{})[ev.id]){R.played++;if(w===me.team)R.won++;R.seen=Object.assign({},R.seen,{[ev.id]:1});P.tugs=R;saveProg(ui.kid)}}
+    tugRecord(ev,pl);
+    body.innerHTML=`<h1>${pl.length<2?'Not enough players this time':w<0?"It's a draw!":`${TUG_TEAMS[w][0]} ${TUG_TEAMS[w][1]} wins!`}</h1>${rope}${teams}
      <p class="muted" style="text-align:center">${pl.length<2?'Ask a grown-up to plan another game when your cousins are online.':me&&w===me.team?'MashaAllah, great teamwork! Say Alhamdulillah.':'Well played! Winning and losing are both from Allah. Say MashaAllah to the winners.'}</p>
-     <div class="row" style="justify-content:center"><button class="btn" data-act="tugLeave">Back to my garden</button></div>`;TG.shown=null;return}
-  // live
-  if(pl.length<2){body.innerHTML=`<h1>Waiting for one more player</h1><div class="tclock">${clock}</div><div class="tteams">${team(0)}${team(1)}</div><p class="muted" style="text-align:center">The rope needs someone on each team. Send a wave to a cousin who is online!</p>`;TG.shown=null;return}
-  let top=document.getElementById('tuglive');
-  if(!top){body.innerHTML=`<div id="tuglive"></div><div id="tugq"></div>`;top=document.getElementById('tuglive')}
-  top.innerHTML=`<div class="tclock">${clock}</div>${rope}<div class="tteams">${team(0)}${team(1)}</div>`;
+     <div class="row" style="justify-content:center"><button class="btn" data-act="tugScore">🏆 Scorecard</button><button class="btn ghost" data-act="tugLeave">My garden</button></div>`;return}
+  // live: build the frame ONCE, then only update numbers and the flag, so buttons never move
+  if(!pl.some(x=>x.team===0)||!pl.some(x=>x.team===1)){TG.ph='wait';body.innerHTML=`<h1>Waiting for the other team</h1><div class="tclock">${cdown(left)}</div>${teams}<p class="muted" style="text-align:center">The rope needs someone on each team. Send a wave to a cousin who is online!</p>`;return}
+  if(TG.ph!=='live'){TG.ph='live';TG.shown=null;body.innerHTML=`<div class="tlivetop"><div class="tclock" id="tclock"></div>${rope}${teams}</div><div id="tugq" class="tugq"></div>`}
+  document.getElementById('tclock').textContent=cdown(left);
+  const f=document.getElementById('tflag');if(f)f.style.left=pos+'%';
+  [0,1].forEach(i=>{const el=body.querySelector(`[data-tt="${i}"]`);if(el)el.textContent=t[i];const c=body.querySelector(`[data-tc="${i}"]`);if(c){const h=tugChips(pl,i,ph);if(c.dataset.h!==h){c.dataset.h=h;c.innerHTML=h}}});
   if(TG.shown!==TG.qi)tugShowQ();
 }
 function tugShowQ(){
   const box=document.getElementById('tugq');if(!box)return;const q=TG.qs[TG.qi%TG.qs.length];TG.shown=TG.qi;TG.lock=false;
   box.innerHTML=`<p class="tq">${q.glyph&&/^[؀-ۿ]/.test(q.q)?`<span class="ar">${esc(q.q)}</span>`:esc(q.q)}</p><div class="topts ${Date.now()<TG.frozen?'frozen':''}" id="topts">${q.opts.map((o,i)=>`<button data-act="tugQ" data-i="${i}" class="${q.glyph&&/[؀-ۿ]/.test(o.v)?'ar':''}">${esc(o.v)}</button>`).join('')}</div>`;
+  if(readOn())sayEn(q.q+' '+q.opts.map(o=>o.v).join(', or '));
 }
 function tugAnswer(i,b){
   if(!TG||TG.lock||Date.now()<TG.frozen)return;const q=TG.qs[TG.qi%TG.qs.length],o=q.opts[i];if(!o)return;
-  const ev=Object.assign({id:TG.ev},(S.tug||{})[TG.ev]||{}),pl=tugPlayers(ev);if(tugPhase(ev,pl)!=='live')return;
+  const ev=tugEv(TG.ev);if(!ev||tugPhase(ev,tugPlayers(ev))!=='live')return;
   if(o.ok){TG.lock=true;b.classList.add('hit');const d=S.tugp[TG.id];if(d){d.pulls=(d.pulls||0)+1;d.at=Date.now();put('fam/'+TG.id,d)}
     setTimeout(()=>{TG.qi++;tugUpdate()},350)}
-  else{b.classList.add('miss');TG.frozen=Date.now()+1500;const g=document.getElementById('topts');if(g)g.classList.add('frozen');
+  else{b.classList.add('miss');TG.frozen=Date.now()+1500;const g=document.getElementById('topts');if(g)g.classList.add('frozen');missQ({q:q.q,o:q.o,why:''},'tug');
     setTimeout(()=>{TG.qi++;tugUpdate()},1500)}
 }
+function tugRecord(ev,pl){ // one shared result per game, for the scorecard
+  if(mode!=='db'||pl.length<2)return;const id='tr-'+ev.id.replace(/^t-/,'');if((S.tugr||{})[id])return;
+  const t=tugTotals(pl),w=tugWinner(ev,pl),doc={ev:ev.id,at:ev.at,winner:w,totals:t,players:Object.fromEntries(pl.map(x=>[x.kid,{team:x.team,pulls:x.pulls||0}]))};
+  S.tugr=S.tugr||{};S.tugr[id]=doc;put('fam/'+id,doc);
+}
+function tugStats(){
+  const R=Object.values(S.tugr||{}).sort((a,b)=>b.at-a.at),wins=[0,0],draws=R.filter(r=>r.winner<0).length,kid={};
+  R.forEach(r=>{if(r.winner>=0)wins[r.winner]++;for(const k in r.players){const p=r.players[k];const o=kid[k]=kid[k]||{pulls:0,games:0,wins:0};o.pulls+=p.pulls;o.games++;if(r.winner===p.team)o.wins++}});
+  return {R,wins,draws,kid};
+}
+function tugScoreScreen(){
+  const st=tugStats(),ev=tugNext(),now=Date.now(),T=S.settings.tugTeams||{};
+  const tops=Object.entries(st.kid).filter(([k])=>S.kids[k]).sort((a,b)=>b[1].pulls-a[1].pulls);
+  return `<div class="topbar"><button class="back" data-act="tugLeave">← My garden</button></div>
+  <h1>🏆 Tug of War scorecard</h1>
+  ${ev?`<button class="tugban ${now>=ev.at?'live':''}" data-act="tugGo"><span class="ti">🚩</span><span><b>Next game: ${esc(tugTime(ev.at))}</b><small>${(n=>n+' minute'+(n>1?'s':''))(Math.max(1,Math.round((ev.dur||120e3)/60e3)))}${ev.auto?' · every week':''}</small><span class="tcd" data-cd="${ev.at}">${now<ev.at?'Starts in '+cdown(ev.at-now):'Tap to jump in!'}</span></span></button>`:'<p class="muted">No game planned yet. Ask a grown-up to set a weekly time.</p>'}
+  <section class="sect"><h2 class="h2s">Team wins</h2><div class="tteams2 big"><div class="tteam a"><b>🌙 Moon team</b><div class="tbig">${st.wins[0]}</div><div class="tchips">${Object.keys(S.kids).filter(k=>T[k]===0).map(k=>`<span class="tchip">${symEl(k,22)} ${esc(S.kids[k].name)}</span>`).join('')}</div></div><div class="tteam b"><b>⭐ Star team</b><div class="tbig">${st.wins[1]}</div><div class="tchips">${Object.keys(S.kids).filter(k=>T[k]===1).map(k=>`<span class="tchip">${symEl(k,22)} ${esc(S.kids[k].name)}</span>`).join('')}</div></div></div>${st.draws?`<p class="small muted">${st.draws} draw${st.draws>1?'s':''}</p>`:''}</section>
+  <section class="sect"><h2 class="h2s">Strongest pullers 💪</h2>${tops.length?`<div class="list">${tops.map(([k,o],i)=>`<div class="li">${['🥇','🥈','🥉'][i]||'🎗️'} ${symEl(k,32)}<span class="tx"><b>${esc(S.kids[k].name)}</b><span class="small muted" style="display:block">${o.pulls} pulls · ${o.games} game${o.games>1?'s':''} · ${o.wins} won</span></span></div>`).join('')}</div>`:'<p class="muted small">Play a game to get on the board!</p>'}</section>
+  <section class="sect"><h2 class="h2s">Recent games</h2>${st.R.length?`<div class="list">${st.R.slice(0,8).map(r=>`<div class="li"><span class="tx"><b>${r.winner<0?'Draw':TUG_TEAMS[r.winner][0]+' '+TUG_TEAMS[r.winner][1]+' won'}</b><span class="small muted" style="display:block">${esc(tugTime(r.at))} · 🌙 ${r.totals[0]} : ${r.totals[1]} ⭐</span></span></div>`).join('')}</div>`:'<p class="muted small">No games yet.</p>'}</section>`;
+}
 function tugParentSection(){
-  if(mode!=='db')return `<section class="sect"><h2>Team Tug of War</h2><p class="muted small">Sign in with Google (Family access) to plan a live game where every child online joins a team.</p></section>`;
-  const now=Date.now(),list=tugEvents().filter(e=>now<e.at+(e.dur||120e3)+5*60e3);
+  if(mode!=='db')return `<section class="sect"><h2>Team Tug of War</h2><p class="muted small">Sign in with Google (Family access) to plan live games where every child online pulls for their team.</p></section>`;
+  const now=Date.now(),list=tugEvents().filter(e=>now<e.at+(e.dur||120e3)+5*60e3).slice(0,6),W=S.settings.tugWeekly||[],T=S.settings.tugTeams||{};
   const d=new Date(now+60*60e3);d.setMinutes(0,0,0);const v=new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,16);
-  return `<section class="sect"><h2>Team Tug of War</h2><p class="muted small">Pick a time. Each child who is online opens the game, and they are split into the Moon team and the Star team. Right answers pull the rope. Children see it on their home page and in the bell 10 minutes before.</p>
-   <div class="card stage"><div class="field"><label for="tugat">Start time</label><input id="tugat" type="datetime-local" value="${v}"></div>
+  return `<section class="sect"><h2>Team Tug of War</h2><p class="muted small">Children see a countdown on their home page from 24 hours before, and a pop-up 10 minutes before and when it goes live. Results go on the scorecard.</p>
+   <div class="card stage"><h3>Teams</h3><p class="small muted">Keep the same teams week after week, so the scorecard means something. Children not on a team are put on the smaller team when they join.</p>
+    <div class="list">${Object.keys(S.kids).map(k=>`<div class="li">${symEl(k,30)}<span class="tx"><b>${esc(S.kids[k].name)}</b> <span class="small muted">${levelOf(k).icon} ${levelOf(k).name}</span></span>${[0,1].map(t=>`<button class="btn sm ${T[k]===t?'rose':'ghost'}" data-act="tugTeam" data-k="${k}" data-t="${t}">${TUG_TEAMS[t][0]}</button>`).join('')}</div>`).join('')}</div>
+    <div class="row"><button class="btn ghost sm" data-act="tugBalance">Balance teams by level</button></div></div>
+   <div class="card stage"><h3>Every week, automatically</h3>${W.length?`<div class="list">${W.map((w,i)=>`<div class="li"><span class="tx"><b>${DOWS[w.dow]} ${String(w.h).padStart(2,'0')}:${String(w.m||0).padStart(2,'0')}</b><span class="small muted" style="display:block">${w.dur||3} minutes</span></span><button class="btn ghost sm" data-act="tugWkDel" data-i="${i}">Remove</button></div>`).join('')}</div>`:'<p class="small muted">No weekly game yet.</p>'}
+    <div class="row"><select id="twdow">${DOWS.map((n,i)=>`<option value="${i}" ${i===5?'selected':''}>${n}</option>`).join('')}</select><input id="twtime" type="time" value="17:30" style="max-width:8em"><select id="twdur"><option value="2">2 min</option><option value="3" selected>3 min</option><option value="5">5 min</option></select><button class="btn rose sm" data-act="tugWkAdd">Add weekly game</button></div></div>
+   <div class="card stage"><h3>One-off game</h3><div class="field"><label for="tugat">Start time</label><input id="tugat" type="datetime-local" value="${v}"></div>
    <div class="field"><label for="tugdur">How long</label><select id="tugdur"><option value="2">2 minutes</option><option value="3" selected>3 minutes</option><option value="5">5 minutes</option></select></div>
    <div class="row"><button class="btn rose sm" data-act="tugSched" data-m="at">Plan this game</button><button class="btn ghost sm" data-act="tugSched" data-m="soon">Start in 2 minutes</button></div></div>
-   ${list.length?`<div class="list">${list.map(e=>{const n=Object.values(S.tugp||{}).filter(x=>x&&x.ev===e.id).length;return `<div class="li"><span class="tx"><b>${esc(tugTime(e.at))}</b><span class="small muted" style="display:block">${Math.round((e.dur||120e3)/60e3)} minutes · ${n} joined${now>=e.at?' · started':''}</span></span><button class="btn ghost sm" data-act="tugDel" data-id="${e.id}">Cancel</button></div>`}).join('')}</div>`:''}</section>`;
+   ${list.length?`<h3>Coming up</h3><div class="list">${list.map(e=>{const n=Object.values(S.tugp||{}).filter(x=>x&&x.ev===e.id).length;return `<div class="li"><span class="tx"><b>${esc(tugTime(e.at))}</b><span class="small muted" style="display:block">${Math.round((e.dur||120e3)/60e3)} minutes${e.auto?' · weekly':''} · ${n} joined${now>=e.at?' · started':''}</span></span><button class="btn ghost sm" data-act="tugDel" data-id="${e.id}">${e.auto?'Skip this one':'Cancel'}</button></div>`}).join('')}</div>`:''}
+   <div class="row"><button class="btn ghost sm" data-act="tugScore">🏆 See the scorecard</button></div></section>`;
 }
 function tugSchedule(m){
   const dur=(+(document.getElementById('tugdur')||{}).value||3)*60e3;let at;
   if(m==='soon')at=Date.now()+2*60e3;else{const v=(document.getElementById('tugat')||{}).value;at=v?new Date(v).getTime():NaN}
   if(!at||isNaN(at)||at<Date.now()-60e3){toast('Please pick a time in the future.');return}
-  const now=Date.now();tugEvents().filter(e=>now>e.at+(e.dur||120e3)+864e5).forEach(e=>tugCancel(e.id,true));
-  const id='t-'+at.toString(36)+uid().slice(0,4),doc={at,dur,by:(ui.chatAs&&ui.chatAs.name)||'Daddy',created:now};
+  const id='t-'+at.toString(36)+uid().slice(0,4),doc={at,dur,by:'Daddy',created:Date.now()};
   S.tug=S.tug||{};S.tug[id]=doc;put('fam/'+id,doc);toast('Planned for '+tugTime(at)+'.');render();
 }
-function tugCancel(id,quiet){
-  if(!id)return;delete (S.tug||{})[id];del('fam/'+id);Object.keys(S.tugp||{}).forEach(k=>{if(S.tugp[k].ev===id){delete S.tugp[k];del('fam/'+k)}});if(!quiet){toast('Cancelled.');render()}
+function tugCancel(id){
+  if(!id)return;const e=tugEv(id);
+  if(e&&e.auto){const doc={at:e.at,skip:true};S.tug=S.tug||{};S.tug[id]=doc;put('fam/'+id,doc)}else{delete (S.tug||{})[id];del('fam/'+id)}
+  Object.keys(S.tugp||{}).forEach(k=>{if(S.tugp[k].ev===id){delete S.tugp[k];del('fam/'+k)}});toast(e&&e.auto?'Skipped this week.':'Cancelled.');render();
 }
 /* ===================== FRIDAY REPORT (to Daddy's phone) ===================== */
 function weekReport(){
@@ -2569,6 +2673,7 @@ function mergeBundle(b){
   STORIES.sort(storyOrder);
   (b.gems||[]).forEach((g,i)=>{if(!g.id||GEMS.some(x=>x.id===g.id))return;const c=GEMC[(GEMS.length+i)%GEMC.length];GEMS.push(Object.assign({c1:c[0],c2:c[1],ar:'',ok:false,bundle:b.id},g))});
   (b.quiz||[]).forEach(q=>EXTRA_Q.push(Object.assign({bundle:b.id},q)));
+  if(b.ml&&b.ml.stories)MLB.push(b);
 }
 async function loadBundles(){
   try{const r=await fetch('content/index.json',{cache:'no-store'});if(!r.ok)return;const idx=await r.json();
@@ -2585,6 +2690,7 @@ function bundlesSection(){
    ${(b.stories||[]).map(s=>`<details><summary><b>Story:</b> ${esc(s.title)}</summary>${previewHTML(byId[s.id]||s)}</details>`).join('')}
    ${(b.gems||[]).length?`<details><summary><b>${b.gems.length} gems</b></summary><ol class="small">${b.gems.map(g=>`<li>${esc(g.text)} <span class="muted">(${esc(g.src)})</span></li>`).join('')}</ol></details>`:''}
    ${(b.quiz||[]).length?`<details><summary><b>${b.quiz.length} quiz questions</b></summary><ol class="small">${b.quiz.map(q=>`<li>${esc(q.q)} <b>${esc(q.o[0])}</b></li>`).join('')}</ol></details>`:''}
+   ${b.ml&&b.ml.stories?`<details><summary><b>Malayalam: ${Object.keys(b.ml.stories).length} stories</b></summary>${Object.entries(b.ml.stories).map(([id,m])=>`<details><summary>${esc(m.title)}</summary><ol class="small">${m.slides.map(t=>`<li>${esc(t)}</li>`).join('')}</ol></details>`).join('')}</details>`:''}
    ${b.notes?`<p class="small muted">${esc(b.notes)}</p>`:''}</div>`).join('')}
   ${pend.length?'':''}</section>`;
 }
@@ -2646,7 +2752,7 @@ app.addEventListener('click',e=>{
    case 'quick':{const q=L.steps.filter(x=>x.t==='quiz');const extra=L.steps.filter(x=>x.t==='daddy');L.steps=[...q,...extra];L.i=0;L.quick=true;L.miss=0;prepStep();render();break;}
    case 'next':if(L.i<L.steps.length-1){L.i++;prepStep();render();window.scrollTo({top:0})}else finishLesson();break;
    case 'tap':st.open[b.dataset.i]=1;render();break;
-   case 'letter':{st.open[b.dataset.i]=1;const x=s.set[b.dataset.i];speak(x[2]);render();break;}
+   case 'letter':{st.open[b.dataset.i]=1;const x=s.set[b.dataset.i];explainLetter(x);render();break;}
    case 'sort':{const it=st.items[st.k];st.ans=(+b.dataset.v===it[1]);if(!st.ans)L.miss++;render();break;}
    case 'sortNext':st.k++;st.ans=null;render();break;
    case 'mL':st.sel=+b.dataset.i;render();break;
@@ -2677,6 +2783,14 @@ app.addEventListener('click',e=>{
    case 'tugLeave':ui.page=0;go('home');break;
    case 'tugSched':tugSchedule(b.dataset.m);break;
    case 'tugDel':tugCancel(b.dataset.id);break;
+   case 'tugScore':go('tugscore');break;
+   case 'tugTeam':{S.settings.tugTeams=Object.assign({},S.settings.tugTeams,{[b.dataset.k]:+b.dataset.t});saveSettings();render();break;}
+   case 'tugBalance':{const ks=Object.keys(S.kids).sort((a,c)=>points(c)-points(a)),T={},sum=[0,0];ks.forEach(k=>{const t=sum[0]<=sum[1]?0:1;T[k]=t;sum[t]+=points(k)+1});S.settings.tugTeams=T;saveSettings();toast('Teams balanced by level');render();break;}
+   case 'tugWkAdd':{const dow=+document.getElementById('twdow').value,[h,m]=(document.getElementById('twtime').value||'17:30').split(':').map(Number),dur=+document.getElementById('twdur').value||3;S.settings.tugWeekly=[...(S.settings.tugWeekly||[]),{dow,h,m,dur}];saveSettings();toast(`Every ${DOWS[dow]} at ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`);render();break;}
+   case 'tugWkDel':{const W=(S.settings.tugWeekly||[]).slice();W.splice(+b.dataset.i,1);S.settings.tugWeekly=W;saveSettings();render();break;}
+   case 'langToggle':{const k=ui.kid;if(S.kids[k]){S.kids[k].lang=S.kids[k].lang==='ml'?'en':'ml';saveKid(k);const L=ui.L;if(L&&byId[L.id].world==='st'){const keep={i:L.i,k:(L.st||{}).k};L.steps=stSteps(byId[L.id]);prepStep();if(L.steps[L.i].t==='story'&&keep.k!=null)L.st.k=keep.k}lastSpoken='';render();toast(S.kids[k].lang==='ml'?'മലയാളത്തിൽ കഥ 📖':'Story in English 📖')}break;}
+   case 'vRate':S.settings.voiceRate=+b.dataset.v;saveSettings();render();break;
+   case 'vTest':sayEn(b.dataset.l==='ml'?'അസ്സലാമു അലൈക്കും! ഇന്ന് നമുക്ക് യൂസുഫ് നബിയുടെ കഥ കേൾക്കാം.':'Assalamu alaikum! Today we will hear the story of Prophet Yusuf. Are you ready?');break;
    case 'ayPlay':ayPlay(b.dataset.ref,+b.dataset.rep||1);break;
    case 'readToggle':{const k=ui.kid;if(S.kids[k]){S.kids[k].read=!S.kids[k].read;saveKid(k);toast(S.kids[k].read?'I will read everything to you 🔊':'Reading aloud is off');lastSpoken='';render();if(S.kids[k].read)autoRead(true);else try{speechSynthesis.cancel()}catch(e){}}break;}
    case 'repNow':sendReport(true);break;
@@ -2690,7 +2804,7 @@ app.addEventListener('click',e=>{
    case 'editKid':ui.editKid=id||null;ui.sym=null;render();break;
    case 'sym':ui.sym=b.dataset.s;{const n=document.getElementById('kname')?.value,p=document.getElementById('kpin')?.value;render();if(n!=null)document.getElementById('kname').value=n;if(p!=null)document.getElementById('kpin').value=p;}break;
    case 'saveKid':{const n=document.getElementById('kname').value.trim(),p=document.getElementById('kpin').value.trim();if(!n){toast('Add a name');break}if(p&&!/^\d{4}$/.test(p)){toast('PIN must be 4 numbers, or empty');break}
-     const k=ui.editKid==='new'?uid():ui.editKid;S.kids[k]=Object.assign({},S.kids[k]||{},{name:n,pin:p,symbol:ui.sym||S.kids[k]?.symbol||'🌸',read:!!(document.getElementById('kread')||{}).checked});saveKid(k);if(!S.progress[k]){prog(k);saveProg(k)}ui.editKid=null;toast('Saved');render();break;}
+     const k=ui.editKid==='new'?uid():ui.editKid;S.kids[k]=Object.assign({},S.kids[k]||{},{name:n,pin:p,symbol:ui.sym||S.kids[k]?.symbol||'🌸',read:!!(document.getElementById('kread')||{}).checked,lang:(document.getElementById('klang')||{}).value==='ml'?'ml':'en'});saveKid(k);if(!S.progress[k]){prog(k);saveProg(k)}ui.editKid=null;toast('Saved');render();break;}
    case 'delKid':{const k=ui.editKid;delete S.kids[k];del('kids/'+k);ui.editKid=null;toast('Removed');render();break;}
    case 'appr':S.approvals[id]=true;saveApprovals();render();break;
    case 'apprAll':WORLDS[b.dataset.w].lessons.forEach(l=>S.approvals[l.id]=true);saveApprovals();toast('Approved');render();break;
