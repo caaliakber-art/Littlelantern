@@ -25,8 +25,8 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>window.LL_FB={apiKey:"AIzaSyAIZ4JyxxZPBcPD5OHjQ-hpofP-KJwHtzE",authDomain:"little-lantern-b8a7b.firebaseapp.com",projectId:"little-lantern-b8a7b",storageBucket:"little-lantern-b8a7b.firebasestorage.app",messagingSenderId:"598122924180",appId:"1:598122924180:web:2bf132131983ea04d74c81"};window.LL_NTFY="little-lantern-17b8f6b09be7";</script>
-<meta name="ll-build" content="202610271351">
-<script>window.LL_BUILD="202610271351";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
+<meta name="ll-build" content="202611010325">
+<script>window.LL_BUILD="202611010325";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
 </head>
 <body>
 <title>Little Lantern</title>
@@ -227,22 +227,54 @@ a{color:var(--green)}
 .nic{font-size:2.2rem}
 .feedend{display:flex;flex-direction:column;align-items:center;gap:2px;padding:26px 16px;border-radius:24px;background:linear-gradient(180deg,#1C2440,#2B3557);color:#FBEFD3;text-align:center}
 .feedend span{font-size:2.4rem}.feedend small{color:#CFE0E6}
-body.igon #app{padding-top:0;padding-bottom:calc(84px + env(safe-area-inset-bottom,0px));gap:10px}
+body.igon #app{padding-top:0;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px));gap:10px}
+.tugban{display:flex;gap:12px;align-items:center;width:100%;border:0;padding:14px 16px;border-radius:22px;background:linear-gradient(120deg,#E3ECFA,#FCE3EC);color:var(--ink);font:inherit;text-align:left;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.tugban .ti{font-size:2.2rem}.tugban b{display:block;font:600 1.1rem var(--f-display)}.tugban small{color:var(--muted)}
+.tugban.live{background:linear-gradient(120deg,#FFE6D9,#FBEFD3);animation:tugpulse 1.6s ease-in-out infinite}
+@keyframes tugpulse{50%{box-shadow:0 0 0 6px rgba(201,143,34,.18)}}
+.tteams{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tteam{border-radius:20px;padding:12px;text-align:center}
+.tteam.a{background:#E3ECFA}.tteam.b{background:#FFF1D1}
+.tteam h3{margin:0 0 6px;font-size:1.05rem}.tteam .tp{display:flex;align-items:center;gap:6px;justify-content:center;font-weight:700;font-size:.9rem;margin:4px 0}
+.tteam .tp.me{color:var(--rose)}
+.tteam .big{font:700 2rem var(--f-display)}
+.trope{position:relative;height:64px;margin:6px 0 2px}
+.trope .line{position:absolute;left:0;right:0;top:50%;height:12px;margin-top:-6px;border-radius:6px;background:repeating-linear-gradient(90deg,#B48A5A 0 10px,#9A7148 10px 20px)}
+.trope .flag{position:absolute;top:8px;font-size:2rem;transform:translateX(-50%);transition:left .35s cubic-bezier(.2,.8,.2,1)}
+.trope .goal{position:absolute;top:4px;bottom:4px;width:3px;border-radius:2px;background:var(--rose);opacity:.5}
+.tclock{text-align:center;font:700 1.4rem var(--f-display)}
+.tq{font:600 1.25rem/1.35 var(--f-display);text-align:center;margin:6px 0 10px}
+.tq .ar{font-family:var(--f-ar);font-size:2.4rem}
+.topts{display:grid;gap:10px}
+.topts button{min-height:56px;border-radius:18px;border:2px solid var(--line);background:var(--surface);font:700 1.05rem var(--f-body);color:var(--ink);cursor:pointer;padding:8px 12px}
+.topts button.ar{font-family:var(--f-ar);font-size:1.8rem}
+.topts button.hit{background:#DCEDE5;border-color:#1F5C4A}.topts button.miss{background:#FCE3EC;border-color:#E0445E}
+.topts.frozen{opacity:.45;pointer-events:none}
+.lovepop{position:fixed;left:50%;top:calc(12px + env(safe-area-inset-top,0px));transform:translate(-50%,-140%);width:min(92vw,420px);z-index:40;display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:22px;background:linear-gradient(135deg,#FFF6E0,#FCE3EC);color:#2B2430;box-shadow:0 12px 30px rgba(0,0,0,.18);transition:transform .45s cubic-bezier(.2,.9,.25,1.2);cursor:pointer;text-align:left;border:0;font:inherit}
+.lovepop.in{transform:translate(-50%,0)}
+.lovepop .lic{font-size:2rem;flex:none}
+.lovepop small{display:block;font-weight:800;color:#B9587A;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase}
+.lovepop b{display:block;font:600 1.02rem/1.35 var(--f-display)}
+.lovepop i{display:block;font-style:normal;font-size:.72rem;color:#6F6370;margin-top:2px}
+@media (prefers-reduced-motion:reduce){.lovepop{transition:none}}
+.igsticky{position:sticky;top:0;z-index:20;margin-inline:-16px;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.igsticky .igtop{position:static;margin-inline:0;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:0;padding-bottom:4px}
 .igtop{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;margin-inline:-16px;padding:10px 16px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .igme{border:0;background:none;padding:0;cursor:pointer;border-radius:50%;line-height:0}
 .iglogo{flex:1;font:700 1.45rem var(--f-display);letter-spacing:-.01em;background:linear-gradient(90deg,#C98F22,#B9587A 60%,#7A5A9A);-webkit-background-clip:text;background-clip:text;color:transparent}
 .igico{display:flex;gap:6px}
 .igico button{position:relative;width:42px;height:42px;border:0;background:none;font-size:1.45rem;cursor:pointer;border-radius:50%}
 .igico i{position:absolute;top:2px;right:0;min-width:18px;height:18px;padding:0 4px;border-radius:999px;background:#E0445E;color:#fff;font:800 .68rem/18px var(--f-body);font-style:normal;border:2px solid var(--bg)}
-.ignav{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:repeat(3,1fr);padding:6px max(16px,env(safe-area-inset-left,0px)) calc(6px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--line)}
-.ignav button{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:1px;padding:4px 0;cursor:pointer;color:var(--muted);font:inherit}
-.ignav span{font-size:1.55rem;line-height:1.1;filter:grayscale(1);opacity:.55;transition:transform .2s,filter .2s,opacity .2s}
-.ignav small{font-size:.68rem;font-weight:800}
-.ignav button.on{color:var(--ink)}.ignav button.on span{filter:none;opacity:1;transform:scale(1.12)}
-.igview{overflow-x:clip;overflow-y:visible;margin-inline:-16px}
-.igtrack{display:flex;align-items:flex-start;will-change:transform}
-.igpane{flex:0 0 100%;min-width:0;padding-inline:16px;box-sizing:border-box;padding-top:8px}
-.igpane:not(.act){max-height:100svh;overflow:hidden}
+.igtabs{position:relative;display:grid;grid-template-columns:repeat(3,1fr);padding:0 8px}
+.igtabs button{border:0;background:none;display:flex;align-items:center;justify-content:center;gap:6px;padding:8px 0 11px;cursor:pointer;color:var(--muted);font:800 .92rem var(--f-body)}
+.igtabs button span{font-size:1.2rem;filter:grayscale(1);opacity:.6;transition:filter .2s,opacity .2s}
+.igtabs button.on{color:var(--ink)}.igtabs button.on span{filter:none;opacity:1}
+.igline{position:absolute;left:8px;bottom:0;width:calc((100% - 16px)/3);height:3px;display:flex;justify-content:center;pointer-events:none;will-change:transform;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.igline::before{content:"";width:56%;height:100%;border-radius:3px 3px 0 0;background:linear-gradient(90deg,#C98F22,#B9587A)}
+.igview{margin-inline:-16px}
+.igpane{padding-inline:16px;box-sizing:border-box;padding-top:8px;animation:pgin .22s ease-out}
+@keyframes pgin{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.igline{transition:none}.igpane{animation:none}}
 .ring{display:inline-flex;padding:3px;border-radius:50%;background:conic-gradient(from 210deg,#F6C453,#E0445E,#B9587A,#7A5A9A,#F6C453)}
 .ring .sym{border:3px solid var(--bg);box-sizing:content-box}
 .ggrid{gap:2px;margin-inline:-16px}
@@ -251,7 +283,7 @@ body.igon #app{padding-top:0;padding-bottom:calc(84px + env(safe-area-inset-bott
 @keyframes hpop{0%{transform:translate(-50%,-50%) scale(0);opacity:0}15%{transform:translate(-50%,-50%) scale(1.2);opacity:1}30%{transform:translate(-50%,-50%) scale(.95)}45%{transform:translate(-50%,-50%) scale(1)}80%{opacity:1}100%{transform:translate(-50%,-60%) scale(1);opacity:0}}
 html.snapy{scroll-snap-type:y mandatory}
 .feed{display:flex;flex-direction:column;gap:10px}
-.reel{position:relative;scroll-snap-align:start;scroll-snap-stop:always;scroll-margin-top:70px;min-height:calc(100svh - 70px - 84px - 10px);box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:28px 22px;border-radius:26px;text-align:center;overflow:hidden}
+.reel{position:relative;scroll-snap-align:start;scroll-snap-stop:always;scroll-margin-top:118px;min-height:calc(100svh - 118px - 24px);box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:28px 22px;border-radius:26px;text-align:center;overflow:hidden}
 .reel.gem{background:linear-gradient(160deg,var(--g1),var(--g2));color:#2B2430;padding-right:74px;padding-left:22px}
 .reel .gpic{font-size:5.5rem}
 .reel .gtx{font-size:1.45rem}
@@ -1086,6 +1118,7 @@ function doingNow(){
   const s=ui.screen;
   if(s==='play'&&ui.L){const l=byId[ui.L.id];return l.world==='st'?`Reading ${l.title}`:l.world==='sk'?`Playing ${l.title}`:l.world==='ad'?`Learning a dua`:`Learning ${l.title}`}
   if(s==='duel'||s==='duelpick'||s==='duelres')return 'In a letter duel';
+  if(s==='tug')return 'In Team Tug of War';
   if(s==='world')return `In ${WORLDS[ui.world]?.name||'the game'}`;
   if(s==='avatar')return 'Making an avatar';
   if(s==='cert')return 'Looking at a certificate';
@@ -1260,11 +1293,11 @@ function subscribeAll(onErr){
         for(const k in S.deeds)await put('deeds/'+k,S.deeds[k]);
         return;}}
     S.presence={};S.waves={};
-    S.chat={};S.hearts={};
-    for(const id in m){if(id.startsWith('p-'))S.presence[id.slice(2)]=m[id];else if(id.startsWith('w-'))S.waves[id]=m[id];else if(id.startsWith('c-'))S.chat[id]=m[id];else if(id.startsWith('h-'))S.hearts[id]=m[id]}
+    S.chat={};S.hearts={};S.tug={};S.tugp={};
+    for(const id in m){if(id.startsWith('p-'))S.presence[id.slice(2)]=m[id];else if(id.startsWith('w-'))S.waves[id]=m[id];else if(id.startsWith('c-'))S.chat[id]=m[id];else if(id.startsWith('h-'))S.hearts[id]=m[id];else if(id.startsWith('t-'))S.tug[id]=m[id];else if(id.startsWith('tp-'))S.tugp[id]=m[id]}
     handleWaves();handleChat();
     const ch=s.docChanges?s.docChanges():[];
-    if(!wasFirst&&ch.length&&ch.every(c=>/^[pwch]-/.test(c.doc.id))){if(ui.screen==='home'||ui.screen==='chat'||ui.screen==='bell')soft();return}
+    if(!wasFirst&&ch.length&&ch.every(c=>/^(?:[pwch]|tp?)-/.test(c.doc.id))){if(ui.screen==='tug')tugUpdate();else if(ui.screen==='home'||ui.screen==='chat'||ui.screen==='bell'||(ui.screen==='parents'&&ch.some(c=>/^t-/.test(c.doc.id))))soft();return}
     S.settings=Object.assign({},m.settings||{});S.approvals=Object.assign({},m.approvals||{});
     S.access=(m.access&&m.access.members)||[];
     dbReady=true;saveLocal();soft();
@@ -1332,7 +1365,9 @@ function go(screen,extra){Object.assign(ui,{screen},extra||{});render();window.s
 /* ===================== SCREENS ===================== */
 function render(){
   if(ui.screen==='duel')return;
-  const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen,cert:certScreen,chat:chatScreen,bell:bellScreen,flash:flashScreen,wquiz:wquizScreen}[ui.screen]||cover;
+  if(!['home','world','score','bell','flash'].includes(ui.screen)){const lp=document.querySelector('.lovepop');if(lp)lp.remove()}
+  if(ui.screen==='tug'&&document.getElementById('tugwrap')){tugUpdate();return}
+  const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen,cert:certScreen,chat:chatScreen,bell:bellScreen,flash:flashScreen,wquiz:wquizScreen,tug:tugScreen}[ui.screen]||cover;
   app.innerHTML=f();
   const igOn=ui.screen==='home';document.body.classList.toggle('igon',igOn);document.documentElement.classList.toggle('snapy',igOn&&ui.page===2);
   placeRoad();
@@ -1404,7 +1439,7 @@ function home(){
   const tile=(w)=>{const W=WORLDS[w],n=W.lessons.filter(l=>P.done[l.id]).length;return `<button class="tile ${W.cls}" data-act="world" data-w="${w}"><span class="ic ${w==='ar'?'ar':''}">${W.icon}</span><b>${W.name}</b><span class="bar"><i style="width:${n/W.lessons.length*100}%"></i></span><small>${n}/${W.lessons.length}</small></button>`};
   const pg=ui.page||0;
   const panes=[()=>gardenPane(),()=>galleryPage(),()=>feedPage(pg===2)];
-  return `${igTop()}<div class="igview"><div class="igtrack" id="igtrack" style="transform:translateX(${-pg*100}%)">${panes.map((f,i)=>`<section class="igpane ${i===pg?'act':''}" ${i===pg?'':'inert aria-hidden="true"'}>${f()}</section>`).join('')}</div></div>${igNav()}`;
+  return `<div class="igsticky">${igTop()}${igNav()}</div><div class="igview"><section class="igpane act" id="igpane">${panes[pg]()}</section></div>`;
 }
 function gardenPane(){
   const k=ui.kid,P=prog(k),done=Object.keys(P.done).length,stars=Object.values(P.done).reduce((a,b)=>a+b,0);
@@ -1417,6 +1452,7 @@ function gardenPane(){
   <div class="hello2"><button class="avbtn" data-act="avatar" aria-label="Make my avatar">${symEl(k,64)}<span class="avedit">${S.kids[k].av?'Edit':'Make me!'}</span></button>
    <div class="hx"><h1 class="hi">Assalamu alaikum, ${esc(S.kids[k].name)}!</h1><div class="pills"><span class="pill">⭐ ${stars}</span><span class="pill">🔥 ${P.streak||0} day${(P.streak||0)===1?'':'s'}</span><span class="pill">🌸 ${done+deedsOk(k)+(P.flashDays||0)}</span></div></div></div>
   ${joinBell()}
+  ${tugBanner(k)}
   ${sodCard(k)}
   ${whosHere()}
   <div class="garden slim">${gardenSVG(done+deedsOk(k)+(P.flashDays||0),trees)}</div>
@@ -1572,6 +1608,7 @@ function score(){
    <h1>${r.worldDone?'You finished the whole world!':r.stars===3?'MashaAllah, perfect!':'Well done, '+esc(kidName())+'!'}</h1>
    <div class="bigstars" aria-label="${r.stars} of 3 stars">${starsTxt(r.stars)}</div>
    ${r.dayDone?driveStrip('brio-side',"Today's three are done. The Brio is parked for the day!"):''}
+   ${l.world==='st'&&r.first&&nx&&nx.id!==l.id?`<p class="chip rose" style="margin:0 auto">🔓 New story unlocked: ${esc(nx.title)}</p>`:''}
    <p class="muted">${esc(l.title)}${r.first?' · A new flower grew in your garden.':' · Great practice!'}${r.worldDone?' A tree grew too!':''}</p>
    <div class="row" style="justify-content:center">${nx&&nx.id!==l.id?`<button class="btn" data-act="open" data-id="${nx.id}">Next: ${esc(nx.title)}</button>`:''}<button class="btn ghost" data-act="home">My garden</button></div>
    ${(r.certs||[]).length?`<div class="card stage certnew"><h3>🏅 You earned ${r.certs.length>1?r.certs.length+' certificates':'a certificate'}!</h3>${r.certs.map(c=>`<button class="btn rose" data-act="openCert" data-key="${esc(c.key)}">${esc(c.title)}</button>`).join('')}</div>`:''}
@@ -1624,13 +1661,13 @@ function library(){
     const ok=approved(st),d=P.done[st.id];
     const cover=`<span class="bcover">${scene(st.slides[0].sc)}</span>`;
     if(!ok)return `<div class="book wait" style="--spine:${hue}">${cover}${head}<span class="chip gold">Waiting for Daddy</span></div>`;
-    const today=(storyOfDay(ui.kid)||{}).id===st.id;
-    if(!d&&!today)return `<div class="book wait" style="--spine:${hue}">${cover}${head}<span class="chip plain">🌅 Opens on a coming morning</span></div>`;
-    return `<button class="book ${today?'today':''}" style="--spine:${hue}" data-act="open" data-id="${st.id}">${cover}${head}${d?`<span class="stars">${starsTxt(d)}</span>`:'<span class="chip rose">✨ Today\'s story</span>'}</button>`;
+    const today=(storyOfDay(ui.kid)||{}).id===st.id,nx=(nextStory(ui.kid)||{}).id===st.id;
+    if(!d&&!today&&!nx)return `<div class="book wait" style="--spine:${hue}">${cover}${head}<span class="chip plain">🔒 Read the one before to unlock</span></div>`;
+    return `<button class="book ${today||nx?'today':''}" style="--spine:${hue}" data-act="open" data-id="${st.id}">${cover}${head}${d?`<span class="stars">${starsTxt(d)}</span>`:today?'<span class="chip rose">✨ Today\'s story</span>':'<span class="chip rose">🔓 Unlocked!</span>'}</button>`;
   }).join('');
   const n=STORIES.filter(s=>P.done[s.id]).length;
   return `<div class="topbar"><button class="back" data-act="home">← My garden</button></div>
-  <div class="world w-st" style="min-height:auto"><span class="wicon">📜</span><h1>The Story Room</h1><p>The Prophets in the order Allah sent them, from Adam to Muhammad ﷺ. A new story opens every morning at 6. You have read ${n} of ${STORIES.length}.</p></div>
+  <div class="world w-st" style="min-height:auto"><span class="wicon">📜</span><h1>The Story Room</h1><p>The Prophets in the order Allah sent them, from Adam to Muhammad ﷺ. Finish a story and the next one unlocks straight away. You have read ${n} of ${STORIES.length}.</p></div>
   <div class="shelf">${books}</div>
   <p class="small muted">Stories are told from the Qur'an. Pictures show places, never the Prophets.</p>`;
 }
@@ -1802,6 +1839,7 @@ function parents(){
   </section>
 
   ${bundlesSection()}
+  ${tugParentSection()}
   <section class="sect"><h2>Waiting for your OK</h2><p class="muted small">Read each lesson before your children see it. Arabic letters are open already.</p>
    ${worlds.map(({w,list})=>{const pend=list.filter(l=>!approved(l));return `<div class="card stage"><div class="spread"><h3>${WORLDS[w].name}</h3>${pend.length?`<button class="btn sm" data-act="apprAll" data-w="${w}">Approve all ${pend.length}</button>`:'<span class="chip green">All approved</span>'}</div>
     <div class="list">${list.map(l=>`<div class="li"><span class="tx"><b>${esc(l.title)}</b></span>${approved(l)?'<span class="chip green">Approved</span>':`<button class="btn sm" data-act="appr" data-id="${l.id}">Approve</button>`}<button class="btn ghost sm" data-act="prev" data-id="${l.id}">${ui.openPrev===l.id?'Hide':'Read'}</button>${ui.openPrev===l.id?previewHTML(l):''}</div>`).join('')}</div></div>`}).join('')}
@@ -1827,7 +1865,7 @@ function parents(){
    ${isOwner()?`<div class="card stage"><div class="field"><label for="newmember">Add a parent's Google email</label><input id="newmember" type="email" autocomplete="off" placeholder="name@gmail.com"></div><div class="row"><button class="btn sm" data-act="addMember">Add to family</button></div></div>`:''}
    <div class="row"><button class="btn ghost sm" data-act="fbSignOut">Sign out of Google on this device</button></div></section>`:''}
   ${mode==='db'?`<section class="sect"><h2>Family chat</h2><p class="muted small">Read what the children send each other, write to them, and remove any message.</p><div class="row"><button class="btn sm" data-act="parentChat">Open family chat</button><button class="btn ghost sm" data-act="chatTyping">${S.settings.chatTyping===false?'Allow typed messages':'Quick phrases only'}</button></div><p class="small muted">Typed messages are ${S.settings.chatTyping===false?'off: children can only send quick phrases and emoji':'on: children can type up to 120 characters'}.</p></section>`:''}
-  <section class="sect"><h2>Settings</h2><div class="card stage"><div class="field"><label for="ppin2">Change parent PIN</label><input id="ppin2" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="New 4-number PIN"></div><div class="row"><button class="btn ghost sm" data-act="changePin">Update PIN</button></div>
+  <section class="sect"><h2>Settings</h2><div class="card stage"><h3>Little love notes</h3><p class="muted small">Every few minutes a gentle message about Allah pops up while the children are in the app (never during a lesson or game).</p><div class="row"><button class="btn sm ${S.settings.loveMsgs===false?'rose':'ghost'}" data-act="loveMsgs">${S.settings.loveMsgs===false?'Turn love notes on':'Turn love notes off'}</button><button class="btn ghost sm" data-act="loveTest">Show one now</button></div></div><div class="card stage"><div class="field"><label for="ppin2">Change parent PIN</label><input id="ppin2" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="New 4-number PIN"></div><div class="row"><button class="btn ghost sm" data-act="changePin">Update PIN</button></div>
    <p class="small muted">${mode==='db'?(fb?'Progress syncs through the family database, so it follows each child to every device where a family grown-up has signed in.':'Progress is saved to your family space, so it follows each child across devices where a signed-in grown-up opens this page.'):'Progress is saved on this device only. Open this page while signed in to save it to your family space.'}</p></div></section>`;
 }
 function previewHTML(l){
@@ -1914,28 +1952,25 @@ function igTop(){
   const n=bellUnseen(ui.kid),c=mode==='db'?unreadCount():0;
   return `<header class="igtop"><button class="igme" data-act="logout" aria-label="Switch player">${symEl(ui.kid,32)}</button><b class="iglogo">Little Lantern</b><span class="igico"><button data-act="bell" aria-label="Notifications${n?', '+n+' new':''}">🔔${n?`<i>${n>9?'9+':n}</i>`:''}</button>${mode==='db'?`<button data-act="chat" aria-label="Family chat${c?', '+c+' new':''}">💬${c?`<i>${c>9?'9+':c}</i>`:''}</button>`:''}</span></header>`;
 }
-function igNav(){return `<nav class="ignav" aria-label="Pages">${PAGES.map(([ic,t],i)=>`<button class="${(ui.page||0)===i?'on':''}" data-act="page" data-p="${i}" aria-label="${t}"${(ui.page||0)===i?' aria-current="page"':''}><span>${ic}</span><small>${t}</small></button>`).join('')}</nav>`}
-function pinNeighbours(){const y=window.scrollY;document.querySelectorAll('.igpane:not(.act)').forEach(el=>el.style.transform=`translateY(${y}px)`)}
-function setPage(p){
-  p=Math.max(0,Math.min(PAGES.length-1,p));
+function igNav(){const pg=ui.page||0;return `<nav class="igtabs" aria-label="Pages">${PAGES.map(([ic,t],i)=>`<button class="${pg===i?'on':''}" data-act="page" data-p="${i}"${pg===i?' aria-current="page"':''}><span aria-hidden="true">${ic}</span>${t}</button>`).join('')}<i class="igline" id="igline" style="transform:translateX(${pg*100}%)"></i></nav>`}
+function moveLine(pos,anim){const l=document.getElementById('igline');if(!l)return;l.style.transition=anim?'':'none';l.style.transform=`translateX(${pos*100}%)`}
+function setPage(p,from){
+  p=Math.max(0,Math.min(PAGES.length-1,p));if(from==null)from=ui.page||0;
   if(p===(ui.page||0)){window.scrollTo({top:0,behavior:'smooth'});return}
   ui.page=p;if(p===1)ui.galKid=ui.galKid||ui.kid;
-  const tr=document.getElementById('igtrack');
-  if(!tr||matchMedia('(prefers-reduced-motion: reduce)').matches){render();window.scrollTo({top:0,behavior:'instant'});return}
-  pinNeighbours();tr.style.transition='transform .34s cubic-bezier(.2,.8,.2,1)';tr.style.transform=`translateX(${-p*100}%)`;
-  document.querySelectorAll('.ignav button').forEach((b,i)=>b.classList.toggle('on',i===p));
-  setTimeout(()=>{window.scrollTo({top:0,behavior:'instant'});render()},340);
+  window.scrollTo({top:0,behavior:'instant'});render();
+  moveLine(from,false);const l=document.getElementById('igline');if(l)void l.offsetWidth;moveLine(p,true);
 }
 (function(){let sx=0,sy=0,on=false,lock=0,dx=0,t0=0,W=1;
-  app.addEventListener('touchstart',e=>{on=ui.screen==='home'&&!e.target.closest('.family,.strip,.certs,.galfam,input,textarea,.ignav');if(!on)return;const t=e.touches[0];sx=t.clientX;sy=t.clientY;lock=0;dx=0;t0=Date.now();W=app.clientWidth||innerWidth},{passive:true});
+  app.addEventListener('touchstart',e=>{on=ui.screen==='home'&&!e.target.closest('.family,.strip,.certs,.galfam,input,textarea');if(!on)return;const t=e.touches[0];sx=t.clientX;sy=t.clientY;lock=0;dx=0;t0=Date.now();W=app.clientWidth||innerWidth},{passive:true});
   app.addEventListener('touchmove',e=>{if(!on)return;const t=e.touches[0],x=t.clientX-sx,y=t.clientY-sy;
-    if(!lock){if(Math.abs(x)<8&&Math.abs(y)<8)return;lock=Math.abs(x)>Math.abs(y)*1.2?1:2;if(lock===1)pinNeighbours()}
+    if(!lock){if(Math.abs(x)<8&&Math.abs(y)<8)return;lock=Math.abs(x)>Math.abs(y)*1.2?1:2}
     if(lock!==1)return;e.preventDefault();const pg=ui.page||0;dx=x;if((pg===0&&x>0)||(pg===PAGES.length-1&&x<0))dx=x*.3;
-    const tr=document.getElementById('igtrack');if(tr){tr.style.transition='none';tr.style.transform=`translateX(calc(${-pg*100}% + ${dx}px))`}},{passive:false});
+    moveLine(Math.max(-.15,Math.min(PAGES.length-.85,pg-dx/W)),false)},{passive:false});
   app.addEventListener('touchend',()=>{if(!on||lock!==1)return;const pg=ui.page||0,v=Math.abs(dx)/Math.max(1,Date.now()-t0),go2=Math.abs(dx)>W*.22||v>.5?pg+(dx<0?1:-1):pg;
     const np=Math.max(0,Math.min(PAGES.length-1,go2));
-    if(np===pg){const tr=document.getElementById('igtrack');if(tr){tr.style.transition='transform .3s cubic-bezier(.2,.8,.2,1)';tr.style.transform=`translateX(${-pg*100}%)`;setTimeout(()=>document.querySelectorAll('.igpane:not(.act)').forEach(el=>el.style.transform=''),300)}}
-    else setPage(np)},{passive:true});
+    if(np===pg)moveLine(pg,true)
+    else setPage(np,Math.max(0,Math.min(PAGES.length-1,pg-dx/W)))},{passive:true});
 })();
 /* double tap to heart */
 let lastTap={t:0,el:null};
@@ -2001,6 +2036,7 @@ function bellEvents(k){
   const sod=storyOfDay(k);if(sod&&!prog(k).done[sod.id])ev.push({at:at6(),icon:'📜',text:`Today's story is ready: ${sod.title}`,act:'open',arg:sod.id});
   const wf=weekStart6().getTime();if(!wqState(k)&&Date.now()-wf<4*864e5&&quizPool(k).length>=5)ev.push({at:wf,icon:'🕌',text:"This week's Jumu'ah quiz is ready!",act:'wq'});
   for(const c in S.kids){if(c===k)continue;const r=(prog(c).wq||{})[weekId()];if(r)ev.push({at:r.at,kid:c,icon:'🕌',text:`${S.kids[c].name} scored ${r.first}/${r.n} in the Jumu'ah quiz. MashaAllah!`,act:'galOf',arg:c})}
+  const te=tugNext();if(te&&Date.now()>=te.at-TUG_EARLY)ev.push({at:te.at-TUG_EARLY,icon:'🚩',text:`Team Tug of War ${Date.now()<te.at?'starts at '+tugTime(te.at)+'. Come and join a team!':'is on now. Jump in!'}`,act:'tug'});
   const due=flashDue(k);if(due)ev.push({at:t0.getTime(),icon:'🃏',text:`${due} flashcard${due>1?'s are':' is'} ready for you`,act:'flash'});
   if(gemsLive().length&&(prog(k).feedOpened||'')!==dayKey())ev.push({at:t0.getTime()+1,icon:'✨',text:'New gems are ready for today',act:'page',arg:2});
   return ev.sort((a,b)=>b.at-a.at).slice(0,40);
@@ -2127,6 +2163,156 @@ function feedPage(active){
    <article class="reel feedend"><span>🌙</span><b>That's all for today</b><small>Come back tomorrow for new gems, inshaAllah.</small><button class="btn ghost" data-act="page" data-p="0">Back to my garden</button></article></div>`;
 }
 
+
+
+/* ===================== TEAM TUG OF WAR (scheduled, online) ===================== */
+const TUG_EARLY=10*60e3,TUG_TEAMS=[['🌙','Moon team','a'],['⭐','Star team','b']];
+function tugTime(t){const d=new Date(t),today=dayKey()===dayKey(d);return (today?'':d.toLocaleDateString([], {weekday:'short',day:'numeric',month:'short'})+', ')+d.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})}
+function tugEvents(){return Object.entries(S.tug||{}).map(([id,e])=>Object.assign({id},e)).filter(e=>e&&e.at).sort((a,b)=>a.at-b.at)}
+function tugNext(){const now=Date.now();return tugEvents().find(e=>now<e.at+(e.dur||120e3)+5*60e3)||null}
+function tugPlayers(ev){
+  const L=Object.values(S.tugp||{}).filter(x=>x&&x.ev===ev.id&&S.kids[x.kid]).sort((a,b)=>(a.joined-b.joined)||(a.kid<b.kid?-1:1));
+  return L.map((x,i)=>Object.assign({},x,{team:i%2}));
+}
+function tugTotals(pl){const t=[0,0];pl.forEach(x=>t[x.team]+=x.pulls||0);return t}
+function tugWin(pl){return 6+2*pl.length}
+function tugPhase(ev,pl){
+  const now=Date.now(),end=ev.at+(ev.dur||120e3);
+  if(now<ev.at)return 'lobby';
+  const t=tugTotals(pl),d=t[0]-t[1];
+  if(pl.length>=2&&Math.abs(d)>=tugWin(pl))return 'over';
+  if(now>=end)return 'over';
+  return 'live';
+}
+function tugWinner(ev,pl){const t=tugTotals(pl);return t[0]===t[1]?-1:t[0]>t[1]?0:1}
+function tugBanner(k){
+  if(mode!=='db')return '';const ev=tugNext();if(!ev)return '';
+  const now=Date.now(),live=now>=ev.at&&now<ev.at+(ev.dur||120e3),soon=now>=ev.at-TUG_EARLY;
+  if(now>=ev.at+(ev.dur||120e3)){const pl=tugPlayers(ev);if(!pl.some(x=>x.kid===k))return '';}
+  return `<button class="tugban ${live?'live':''}" data-act="tugGo"><span class="ti">🚩</span><span><b>Team Tug of War</b><small>${live?'It is on now! Tap to join a team.':soon?'Starts at '+tugTime(ev.at)+'. Tap to wait with your team.':'Coming up: '+tugTime(ev.at)+'. Everyone online joins a team!'}</small></span></button>`;
+}
+let TG=null;
+function tugGo(){
+  if(mode!=='db'){toast('Team Tug of War works when a grown-up has signed in on this device.');return}
+  const ev=tugNext();if(!ev){toast('No Team Tug of War is planned right now.');return}
+  if(Date.now()<ev.at-TUG_EARLY){toast('The team room opens 10 minutes before '+tugTime(ev.at)+'.');return}
+  const k=ui.kid,id=`tp-${ev.id}-${k}`;
+  if(!(S.tugp||{})[id]){const d={kid:k,ev:ev.id,joined:Date.now(),pulls:0,at:Date.now()};S.tugp=S.tugp||{};S.tugp[id]=d;put('fam/'+id,d)}
+  TG={ev:ev.id,id,qs:tugQuestions(k),qi:0,frozen:0,lock:false,done:false};
+  go('tug');tugUpdate();tugTick();
+}
+function tugQuestions(k){
+  const r=rng(Date.now()+k);let pool=quizPool(k).filter(q=>q.o.length>=2).map(q=>({q:q.q,o:q.o.slice(0,3),glyph:q.glyph}));
+  if(pool.length<12){learned(k).forEach(x=>{const others=sshuffle(LETTERS.filter(y=>y!==x),r).slice(0,2);pool.push({q:`Which letter is ${x[1]}?`,o:[x[0],...others.map(y=>y[0])],glyph:true})})}
+  return sshuffle(pool,r).map(q=>Object.assign(q,{opts:sshuffle(q.o.map((v,i)=>({v,ok:i===0})),r)}));
+}
+let tugTimer=0;
+function tugTick(){clearInterval(tugTimer);tugTimer=setInterval(()=>{if(ui.screen!=='tug'){clearInterval(tugTimer);return}tugUpdate()},1000)}
+function tugScreen(){
+  const ev=TG&&(S.tug||{})[TG.ev]?Object.assign({id:TG.ev},S.tug[TG.ev]):null;
+  if(!ev)return `<div class="topbar"><button class="back" data-act="tugLeave">← My garden</button></div><h1>Team Tug of War</h1><p class="muted">This game was cancelled.</p>`;
+  return `<div id="tugwrap"><div class="topbar"><button class="back" data-act="tugLeave">← My garden</button><span class="chip plain">🚩 Team Tug of War</span></div><div id="tugbody"></div></div>`;
+}
+function tugUpdate(){
+  const body=document.getElementById('tugbody');if(!body||!TG)return;
+  const raw=(S.tug||{})[TG.ev];if(!raw){body.innerHTML='<p class="muted">This game was cancelled by a grown-up.</p>';return}
+  const ev=Object.assign({id:TG.ev},raw),pl=tugPlayers(ev),ph=tugPhase(ev,pl),me=pl.find(x=>x.kid===ui.kid),t=tugTotals(pl);
+  const team=i=>`<div class="tteam ${TUG_TEAMS[i][2]}"><h3>${TUG_TEAMS[i][0]} ${TUG_TEAMS[i][1]}</h3>${ph!=='lobby'?`<div class="big">${t[i]}</div>`:''}${pl.filter(x=>x.team===i).map(x=>`<div class="tp ${x.kid===ui.kid?'me':''}">${symEl(x.kid,26)} ${esc(S.kids[x.kid].name)}${ph!=='lobby'?` · ${x.pulls||0}`:''}</div>`).join('')||'<p class="small muted">Waiting for players</p>'}</div>`;
+  const W=tugWin(pl),d=Math.max(-W,Math.min(W,t[0]-t[1])),pos=50-d/W*42;
+  const rope=`<div class="trope" aria-label="Rope: ${TUG_TEAMS[0][1]} ${t[0]}, ${TUG_TEAMS[1][1]} ${t[1]}"><span class="goal" style="left:8%"></span><span class="goal" style="right:8%"></span><div class="line"></div><span class="flag" style="left:${pos}%">🚩</span></div><div class="spread small muted"><span>← ${TUG_TEAMS[0][1]} pulls this way</span><span>${TUG_TEAMS[1][1]} →</span></div>`;
+  const left=Math.max(0,Math.ceil(((ph==='lobby'?ev.at:ev.at+(ev.dur||120e3))-Date.now())/1000)),clock=`${Math.floor(left/60)}:${String(left%60).padStart(2,'0')}`;
+  if(ph==='lobby'){body.innerHTML=`<h1>Get ready!</h1><p class="muted">Everyone who joins is put into a team. When the clock reaches zero, answer questions fast. Every right answer pulls the rope for your team!</p>
+    <div class="tclock" aria-live="polite">Starts in ${clock}</div><div class="tteams">${team(0)}${team(1)}</div>${me?`<p class="small muted" style="text-align:center">You are in the ${TUG_TEAMS[me.team][0]} ${TUG_TEAMS[me.team][1]}. Say Bismillah!</p>`:''}`;TG.shown=null;return}
+  if(ph==='over'){
+    const w=pl.length>=2?tugWinner(ev,pl):-1;
+    if(!TG.done&&me){TG.done=true;const P=prog(ui.kid),R=Object.assign({played:0,won:0},P.tugs);if(!(R.seen||{})[ev.id]){R.played++;if(w===me.team)R.won++;R.seen=Object.assign({},R.seen,{[ev.id]:1});P.tugs=R;saveProg(ui.kid)}}
+    body.innerHTML=`<h1>${pl.length<2?'Not enough players this time':w<0?"It's a draw!":`${TUG_TEAMS[w][0]} ${TUG_TEAMS[w][1]} wins!`}</h1>${rope}<div class="tteams">${team(0)}${team(1)}</div>
+     <p class="muted" style="text-align:center">${pl.length<2?'Ask a grown-up to plan another game when your cousins are online.':me&&w===me.team?'MashaAllah, great teamwork! Say Alhamdulillah.':'Well played! Winning and losing are both from Allah. Say MashaAllah to the winners.'}</p>
+     <div class="row" style="justify-content:center"><button class="btn" data-act="tugLeave">Back to my garden</button></div>`;TG.shown=null;return}
+  // live
+  if(pl.length<2){body.innerHTML=`<h1>Waiting for one more player</h1><div class="tclock">${clock}</div><div class="tteams">${team(0)}${team(1)}</div><p class="muted" style="text-align:center">The rope needs someone on each team. Send a wave to a cousin who is online!</p>`;TG.shown=null;return}
+  let top=document.getElementById('tuglive');
+  if(!top){body.innerHTML=`<div id="tuglive"></div><div id="tugq"></div>`;top=document.getElementById('tuglive')}
+  top.innerHTML=`<div class="tclock">${clock}</div>${rope}<div class="tteams">${team(0)}${team(1)}</div>`;
+  if(TG.shown!==TG.qi)tugShowQ();
+}
+function tugShowQ(){
+  const box=document.getElementById('tugq');if(!box)return;const q=TG.qs[TG.qi%TG.qs.length];TG.shown=TG.qi;TG.lock=false;
+  box.innerHTML=`<p class="tq">${q.glyph&&/^[؀-ۿ]/.test(q.q)?`<span class="ar">${esc(q.q)}</span>`:esc(q.q)}</p><div class="topts ${Date.now()<TG.frozen?'frozen':''}" id="topts">${q.opts.map((o,i)=>`<button data-act="tugQ" data-i="${i}" class="${q.glyph&&/[؀-ۿ]/.test(o.v)?'ar':''}">${esc(o.v)}</button>`).join('')}</div>`;
+}
+function tugAnswer(i,b){
+  if(!TG||TG.lock||Date.now()<TG.frozen)return;const q=TG.qs[TG.qi%TG.qs.length],o=q.opts[i];if(!o)return;
+  const ev=Object.assign({id:TG.ev},(S.tug||{})[TG.ev]||{}),pl=tugPlayers(ev);if(tugPhase(ev,pl)!=='live')return;
+  if(o.ok){TG.lock=true;b.classList.add('hit');const d=S.tugp[TG.id];if(d){d.pulls=(d.pulls||0)+1;d.at=Date.now();put('fam/'+TG.id,d)}
+    setTimeout(()=>{TG.qi++;tugUpdate()},350)}
+  else{b.classList.add('miss');TG.frozen=Date.now()+1500;const g=document.getElementById('topts');if(g)g.classList.add('frozen');
+    setTimeout(()=>{TG.qi++;tugUpdate()},1500)}
+}
+function tugParentSection(){
+  if(mode!=='db')return `<section class="sect"><h2>Team Tug of War</h2><p class="muted small">Sign in with Google (Family access) to plan a live game where every child online joins a team.</p></section>`;
+  const now=Date.now(),list=tugEvents().filter(e=>now<e.at+(e.dur||120e3)+5*60e3);
+  const d=new Date(now+60*60e3);d.setMinutes(0,0,0);const v=new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,16);
+  return `<section class="sect"><h2>Team Tug of War</h2><p class="muted small">Pick a time. Each child who is online opens the game, and they are split into the Moon team and the Star team. Right answers pull the rope. Children see it on their home page and in the bell 10 minutes before.</p>
+   <div class="card stage"><div class="field"><label for="tugat">Start time</label><input id="tugat" type="datetime-local" value="${v}"></div>
+   <div class="field"><label for="tugdur">How long</label><select id="tugdur"><option value="2">2 minutes</option><option value="3" selected>3 minutes</option><option value="5">5 minutes</option></select></div>
+   <div class="row"><button class="btn rose sm" data-act="tugSched" data-m="at">Plan this game</button><button class="btn ghost sm" data-act="tugSched" data-m="soon">Start in 2 minutes</button></div></div>
+   ${list.length?`<div class="list">${list.map(e=>{const n=Object.values(S.tugp||{}).filter(x=>x&&x.ev===e.id).length;return `<div class="li"><span class="tx"><b>${esc(tugTime(e.at))}</b><span class="small muted" style="display:block">${Math.round((e.dur||120e3)/60e3)} minutes · ${n} joined${now>=e.at?' · started':''}</span></span><button class="btn ghost sm" data-act="tugDel" data-id="${e.id}">Cancel</button></div>`}).join('')}</div>`:''}</section>`;
+}
+function tugSchedule(m){
+  const dur=(+(document.getElementById('tugdur')||{}).value||3)*60e3;let at;
+  if(m==='soon')at=Date.now()+2*60e3;else{const v=(document.getElementById('tugat')||{}).value;at=v?new Date(v).getTime():NaN}
+  if(!at||isNaN(at)||at<Date.now()-60e3){toast('Please pick a time in the future.');return}
+  const now=Date.now();tugEvents().filter(e=>now>e.at+(e.dur||120e3)+864e5).forEach(e=>tugCancel(e.id,true));
+  const id='t-'+at.toString(36)+uid().slice(0,4),doc={at,dur,by:(ui.chatAs&&ui.chatAs.name)||'Daddy',created:now};
+  S.tug=S.tug||{};S.tug[id]=doc;put('fam/'+id,doc);toast('Planned for '+tugTime(at)+'.');render();
+}
+function tugCancel(id,quiet){
+  if(!id)return;delete (S.tug||{})[id];del('fam/'+id);Object.keys(S.tugp||{}).forEach(k=>{if(S.tugp[k].ev===id){delete S.tugp[k];del('fam/'+k)}});if(!quiet){toast('Cancelled.');render()}
+}
+/* ===================== LITTLE LOVE NOTES (random, gentle) ===================== */
+const LOVE=[
+ ['☀️','Allah made the sun rise for you today. Say Alhamdulillah!',''],
+ ['💛','Allah is close. He hears you, even when you whisper a dua.','Surah al-Baqarah 2:186'],
+ ['🌟','Allah loves those who do good. Keep going!','Surah al-Baqarah 2:195'],
+ ['🌈',"Allah's mercy is so big, it covers everything.",'Surah al-A\'raf 7:156'],
+ ['✨','Allah sees every kind thing you do, even the tiny ones.','Surah az-Zalzalah 99:7'],
+ ['📚','Learning about Allah is a path to Jannah.','Sahih Muslim 2699'],
+ ['🌙','Allah made you, and He made you in the best way.','Surah at-Tin 95:4'],
+ ['💭','When you remember Allah, Allah remembers you!','Surah al-Baqarah 2:152'],
+ ['🌌','Allah never sleeps. He is always looking after you.','Surah al-Baqarah 2:255'],
+ ['⚖️','Saying Alhamdulillah fills the Scale with good deeds. Say it now!','Sahih Muslim 223'],
+ ['🌠','Allah made the stars, the sea and the mountains. And He made you too!',''],
+ ['💗','Be kind today. Allah is Kind and He loves kindness.','Sahih Muslim 2593'],
+ ['🌞','Even a cheerful face for someone is a good deed.','Sahih Muslim 2626'],
+ ['🍃','Say Bismillah before you start something. Allah\'s name brings blessing.',''],
+ ['🕊️','Allah loves to forgive. Say Astaghfirullah.',''],
+ ['📖',"The Qur'an is Allah's own words. How special that you are learning it!",''],
+ ['🏡','Make a dua for your family today. Allah loves to hear it.',''],
+ ['💖','Allah knows what is in your heart. Keep it kind and clean.',''],
+ ['🌙','You are never alone. Allah is with you wherever you are.','Surah al-Hadid 57:4'],
+ ['💐','Say thank you to Allah for your mummy and daddy today.',''],
+ ['🌷','Every little lesson makes your garden grow. Keep going, for Allah!',''],
+ ['🎁','Everything you have is a gift from Allah. Which gift will you thank Him for today?','Surah an-Nahl 16:18'],
+ ['🌧️','Allah sends the rain that makes flowers and fruit grow.','Surah al-Hajj 22:63'],
+ ['🤍','Love for your brother what you love for yourself. That is real iman.','Sahih al-Bukhari 13']
+];
+let loveAt=Date.now()+60e3+Math.random()*60e3,loveLast=-1,loveT=0;
+function loveOn(){return S.settings.loveMsgs!==false}
+function lovePop(){
+  let i;do{i=Math.floor(Math.random()*LOVE.length)}while(i===loveLast&&LOVE.length>1);loveLast=i;
+  const [ic,t,src]=LOVE[i];let el=document.querySelector('.lovepop');if(el)el.remove();
+  el=document.createElement('button');el.className='lovepop';el.setAttribute('role','status');el.setAttribute('aria-label','A little love note: '+t+' Tap to close.');
+  el.innerHTML=`<span class="lic" aria-hidden="true">${ic}</span><span><small>A little love note</small><b>${esc(t)}</b>${src?`<i>${esc(src)}</i>`:''}</span>`;
+  el.onclick=()=>{el.classList.remove('in');setTimeout(()=>el.remove(),450)};
+  document.body.appendChild(el);requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('in')));
+  clearTimeout(loveT);loveT=setTimeout(()=>{el.classList.remove('in');setTimeout(()=>el.remove(),450)},9000);
+}
+setInterval(()=>{
+  if(!loveOn()||document.hidden||!ui.kid||!S.kids[ui.kid])return;
+  if(!['home','world','score','bell','flash'].includes(ui.screen)){if(loveAt<Date.now()+20e3)loveAt=Date.now()+20e3;return}
+  if(Date.now()<loveAt)return;
+  loveAt=Date.now()+(4+Math.random()*5)*60e3;lovePop();
+},15e3);
 /* ===================== STORY OF THE DAY (opens 6 am) ===================== */
 const OPEN_HOUR=6;
 function day6(){return dayKey(new Date(Date.now()-OPEN_HOUR*3600e3))}
@@ -2139,10 +2325,11 @@ function storyOfDay(k){
   if(!s){again=true;const n=Math.round(new Date(t).getTime()/864e5);s=ready[n%ready.length]}
   P.sod={day:t,id:s.id,again};saveProg(k);return s;
 }
-function storyOpen(l,k){k=k||ui.kid;if(!k||!S.kids[k])return true;const P=prog(k);return !!P.done[l.id]||(storyOfDay(k)||{}).id===l.id}
+function nextStory(k){const P=prog(k);return STORIES.find(s=>approved(s)&&!P.done[s.id])||null}
+function storyOpen(l,k){k=k||ui.kid;if(!k||!S.kids[k])return true;const P=prog(k);return !!P.done[l.id]||(storyOfDay(k)||{}).id===l.id||(nextStory(k)||{}).id===l.id}
 function sodCard(k){
   const s=storyOfDay(k);if(!s)return '';const P=prog(k),d=P.done[s.id],again=P.sod&&P.sod.again;
-  return `<button class="sod" data-act="open" data-id="${s.id}"><span class="sodpic">${scene(s.slides[0].sc)}</span><span class="sodtx"><small>${again?'Read again today':'Today\'s story ✨'}</small><b>${esc(s.title)}</b><span>${d?starsTxt(d)+' · tap to read again':'A new story every morning at 6'}</span></span></button>`;
+  return `<button class="sod" data-act="open" data-id="${s.id}"><span class="sodpic">${scene(s.slides[0].sc)}</span><span class="sodtx"><small>${again?'Read again today':'Today\'s story ✨'}</small><b>${esc(s.title)}</b><span>${d?starsTxt(d)+' · tap to read again':'Finish it to unlock the next story'}</span></span></button>`;
 }
 
 /* ===================== JUMU'AH QUIZ (Friday 6 am) ===================== */
@@ -2254,7 +2441,7 @@ app.addEventListener('click',e=>{
    case 'bundleOK':approveBundle(id);break;
 
    case 'bell':ui.bellWas=bellSeen(ui.kid);markBell(ui.kid);go('bell');break;
-   case 'bellGo':{const a2=b.dataset.a,arg=b.dataset.arg;if(a2==='galOf'){ui.galKid=arg;ui.page=1;go('home')}else if(a2==='page'){ui.page=+arg;go('home')}else if(a2==='flash')startFlash();else if(a2==='wq')startWQ();else if(a2==='open')startLesson(arg);break;}
+   case 'bellGo':{const a2=b.dataset.a,arg=b.dataset.arg;if(a2==='galOf'){ui.galKid=arg;ui.page=1;go('home')}else if(a2==='page'){ui.page=+arg;go('home')}else if(a2==='flash')startFlash();else if(a2==='wq')startWQ();else if(a2==='tug')tugGo();else if(a2==='open')startLesson(arg);break;}
    case 'galOf':ui.galKid=b.dataset.k;render();break;
    case 'galCert':{const g=b.dataset.k,c=certList(g).find(x=>x.key===b.dataset.key);if(!c)break;ui.certBack='home';go('cert',{cert:Object.assign({kid:g},c)});break;}
    case 'heart':toggleHeart(b.dataset.k,b.dataset.key);break;
@@ -2297,6 +2484,13 @@ app.addEventListener('click',e=>{
    case 'chatDel':{const id=b.dataset.id;delete S.chat[id];del('fam/'+id);render();break;}
    case 'parentChat':ui.chatAs={name:(fb&&fb.user&&(fb.user.displayName||'').split(' ')[0])||'Grown-up'};go('chat');break;
    case 'chatBackParent':ui.chatAs=null;go('parents');break;
+   case 'tugGo':tugGo();break;
+   case 'tugQ':tugAnswer(+b.dataset.i,b);break;
+   case 'tugLeave':ui.page=0;go('home');break;
+   case 'tugSched':tugSchedule(b.dataset.m);break;
+   case 'tugDel':tugCancel(b.dataset.id);break;
+   case 'loveTest':lovePop();break;
+   case 'loveMsgs':S.settings.loveMsgs=S.settings.loveMsgs===false;saveSettings();render();break;
    case 'chatTyping':S.settings.chatTyping=S.settings.chatTyping===false;saveSettings();render();break;
    case 'deedOpen':ui.deedOpen=!ui.deedOpen;render();break;
    case 'deed':{ui.deedOpen=false;const k=uid();S.deeds[k]={kid:ui.kid,text:b.dataset.t,status:'pending',at:Date.now()};saveDeed(k);toast('Sent to Daddy');render();break;}
