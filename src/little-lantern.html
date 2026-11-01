@@ -197,6 +197,15 @@ a{color:var(--green)}
 .feedend{display:flex;flex-direction:column;align-items:center;gap:2px;padding:26px 16px;border-radius:24px;background:linear-gradient(180deg,#1C2440,#2B3557);color:#FBEFD3;text-align:center}
 .feedend span{font-size:2.4rem}.feedend small{color:#CFE0E6}
 body.igon #app{padding-top:0;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px));gap:10px}
+.w-hz{background:#FBEFD3;color:var(--ink)}
+.hzar{font-size:2.3rem!important;line-height:2}
+.aylisten{margin-top:6px;border:0;border-radius:999px;background:var(--gold-soft);color:var(--ink);font:800 .8rem var(--f-body);padding:6px 12px;cursor:pointer}
+.readbtn{border:0;background:var(--surface);border-radius:999px;width:42px;height:42px;font-size:1.3rem;cursor:pointer;flex:none;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.readbtn.on{background:var(--gold-soft)}
+.fwhy{display:block;font-size:.85rem;color:var(--muted);margin-top:8px}
+.pill.lvl{background:var(--gold-soft);font-weight:800}
+.lvlbar{display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:800;color:var(--muted)}
+.lvlbar .lvt{flex:1;height:10px;border-radius:6px;background:var(--line);overflow:hidden;display:block}.lvlbar .lvf{display:block;height:100%;min-width:6%;border-radius:6px;background:linear-gradient(90deg,#C98F22,#B9587A)}
 .w-hc{background:#E3F4F1;color:var(--ink)}
 .hijri{display:flex;gap:12px;align-items:flex-start;width:100%;border:0;padding:14px 16px;border-radius:22px;background:linear-gradient(135deg,#1E2A4A,#3D4E7A);color:#FBEFD3;font:inherit;text-align:left;cursor:pointer}
 .hijri .hm{font-size:2rem;line-height:1}.hijri small{display:block;color:#CFE0E6;font-weight:700;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase}
@@ -1319,19 +1328,32 @@ function hijriCard(full){
    ${full?'<p class="small muted">Dates follow the Umm al-Qura calendar. Where you live, a month may start a day later, because it begins when the new moon is seen.</p>':''}`;
 }
 
+/* ===================== QUR'AN: JUZ 'AMMA (hifz) ===================== */
+// Arabic: Uthmani text (Noble Qur'an Encyclopedia, quranenc.com); transliteration: Tanzil; meaning: Saheeh International. Audio: Mishary Alafasy via everyayah.com.
+const HZDATA=[[1, "Al-Fatihah", "The Opener", "الفاتحة", [["بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ", "Bismi Allahi alrrahmani alrraheemi", "In the name of Allah, the Entirely Merciful, the Especially Merciful"], ["ٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَٰلَمِينَ", "Alhamdu lillahi rabbi al'alameena", "All praise is due to Allah, Lord of the worlds"], ["ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ", "Alrrahmani alrraheemi", "The Entirely Merciful, the Especially Merciful"], ["مَٰلِكِ يَوۡمِ ٱلدِّينِ", "Maliki yawmi alddeeni", "Sovereign of the Day of Recompense"], ["إِيَّاكَ نَعۡبُدُ وَإِيَّاكَ نَسۡتَعِينُ", "Iyyaka na'budu waiyyaka nasta'eenu", "It is You we worship and You we ask for help"], ["ٱهۡدِنَا ٱلصِّرَٰطَ ٱلۡمُسۡتَقِيمَ", "Ihdina alssirata almustaqeema", "Guide us to the straight path"], ["صِرَٰطَ ٱلَّذِينَ أَنۡعَمۡتَ عَلَيۡهِمۡ غَيۡرِ ٱلۡمَغۡضُوبِ عَلَيۡهِمۡ وَلَا ٱلضَّآلِّينَ", "Sirata allatheena an'amta 'alayhim ghayri almaghdoobi 'alayhim wala alddalleena", "The path of those upon whom You have bestowed favor, not of those who have evoked Your anger or of those who are astray"]]], [114, "An-Nas", "Mankind", "الناس", [["قُلۡ أَعُوذُ بِرَبِّ ٱلنَّاسِ", "Qul a'oothu birabbi alnnasi", "Say, I seek refuge in the Lord of mankind"], ["مَلِكِ ٱلنَّاسِ", "Maliki alnnasi", "The Sovereign of mankind"], ["إِلَٰهِ ٱلنَّاسِ", "Ilahi alnnasi", "The God of mankind"], ["مِن شَرِّ ٱلۡوَسۡوَاسِ ٱلۡخَنَّاسِ", "Min sharri alwaswasi alkhannasi", "From the evil of the retreating whisperer"], ["ٱلَّذِي يُوَسۡوِسُ فِي صُدُورِ ٱلنَّاسِ", "Allathee yuwaswisu fee sudoori alnnasi", "Who whispers evil into the breasts of mankind"], ["مِنَ ٱلۡجِنَّةِ وَٱلنَّاسِ", "Mina aljinnati wa alnnasm", "From among the jinn and mankind"]]], [113, "Al-Falaq", "The Daybreak", "الفلق", [["قُلۡ أَعُوذُ بِرَبِّ ٱلۡفَلَقِ", "Qul a'oothu birabbi alfalaqi", "Say, I seek refuge in the Lord of daybreak"], ["مِن شَرِّ مَا خَلَقَ", "Min sharri ma khalaqa", "From the evil of that which He created"], ["وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ", "Wamin sharri ghasiqin itha waqaba", "And from the evil of darkness when it settles"], ["وَمِن شَرِّ ٱلنَّفَّـٰثَٰتِ فِي ٱلۡعُقَدِ", "Wamin sharri alnnaffathati fee al'uqadi", "And from the evil of the blowers in knots"], ["وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ", "Wamin sharri hasidin itha hasada", "And from the evil of an envier when he envies"]]], [112, "Al-Ikhlas", "The Sincerity", "الإخلاص", [["قُلۡ هُوَ ٱللَّهُ أَحَدٌ", "Qul huwa Allahu ahadun", "Say, He is Allah, who is One"], ["ٱللَّهُ ٱلصَّمَدُ", "Allahu alssamadu", "Allah, the Eternal Refuge"], ["لَمۡ يَلِدۡ وَلَمۡ يُولَدۡ", "Lam yalid walam yooladu", "He neither begets nor is born"], ["وَلَمۡ يَكُن لَّهُۥ كُفُوًا أَحَدُۢ", "Walam yakun lahu kufuwan ahadun", "Nor is there to Him any equivalent"]]], [111, "Al-Masad", "The Palm Fiber", "المسد", [["تَبَّتۡ يَدَآ أَبِي لَهَبٖ وَتَبَّ", "Tabbat yada abee lahabin watabba", "May the hands of Abu Lahab be ruined, and ruined is he"], ["مَآ أَغۡنَىٰ عَنۡهُ مَالُهُۥ وَمَا كَسَبَ", "Ma aghna 'anhu maluhu wama kasaba", "His wealth will not avail him or that which he gained"], ["سَيَصۡلَىٰ نَارٗا ذَاتَ لَهَبٖ", "Sayasla naran thata lahabin", "He will enter to burn in a Fire of blazing flame"], ["وَٱمۡرَأَتُهُۥ حَمَّالَةَ ٱلۡحَطَبِ", "Waimraatuhu hammalata alhatabi", "And his wife as well - the carrier of firewood"], ["فِي جِيدِهَا حَبۡلٞ مِّن مَّسَدِۭ", "Fee jeediha hablun min masadin", "Around her neck is a rope of twisted fiber"]]], [110, "An-Nasr", "The Divine Support", "النصر", [["إِذَا جَآءَ نَصۡرُ ٱللَّهِ وَٱلۡفَتۡحُ", "Itha jaa nasru Allahi waalfathu", "When the victory of Allah has come and the conquest"], ["وَرَأَيۡتَ ٱلنَّاسَ يَدۡخُلُونَ فِي دِينِ ٱللَّهِ أَفۡوَاجٗا", "Waraayta alnnasa yadkhuloona fee deeni Allahi afwajan", "And you see the people entering into the religion of Allah in multitudes"], ["فَسَبِّحۡ بِحَمۡدِ رَبِّكَ وَٱسۡتَغۡفِرۡهُۚ إِنَّهُۥ كَانَ تَوَّابَۢا", "Fasabbih bihamdi rabbika waistaghfirhu innahu kana tawwaban", "Then exalt Him with praise of your Lord and ask forgiveness of Him. Indeed, He is ever Accepting of repentance"]]], [109, "Al-Kafirun", "The Disbelievers", "الكافرون", [["قُلۡ يَـٰٓأَيُّهَا ٱلۡكَٰفِرُونَ", "Qul ya ayyuha alkafiroona", "Say, O disbelievers"], ["لَآ أَعۡبُدُ مَا تَعۡبُدُونَ", "La a'budu ma ta'budoona", "I do not worship what you worship"], ["وَلَآ أَنتُمۡ عَٰبِدُونَ مَآ أَعۡبُدُ", "Wala antum 'abidoona ma a'budu", "Nor are you worshippers of what I worship"], ["وَلَآ أَنَا۠ عَابِدٞ مَّا عَبَدتُّمۡ", "Wala ana 'abidun ma 'abadtum", "Nor will I be a worshipper of what you worship"], ["وَلَآ أَنتُمۡ عَٰبِدُونَ مَآ أَعۡبُدُ", "Wala antum 'abidoona ma a'budu", "Nor will you be worshippers of what I worship"], ["لَكُمۡ دِينُكُمۡ وَلِيَ دِينِ", "Lakum deenukum waliya deeni", "For you is your religion, and for me is my religion"]]], [108, "Al-Kawthar", "The Abundance", "الكوثر", [["إِنَّآ أَعۡطَيۡنَٰكَ ٱلۡكَوۡثَرَ", "Inna a'taynaka alkawthara", "Indeed, We have granted you, O Muhammad, al-Kawthar"], ["فَصَلِّ لِرَبِّكَ وَٱنۡحَرۡ", "Fasalli lirabbika wainhar", "So pray to your Lord and sacrifice to Him alone"], ["إِنَّ شَانِئَكَ هُوَ ٱلۡأَبۡتَرُ", "Inna shaniaka huwa alabtaru", "Indeed, your enemy is the one cut off"]]], [107, "Al-Ma'un", "The Small kindnesses", "الماعون", [["أَرَءَيۡتَ ٱلَّذِي يُكَذِّبُ بِٱلدِّينِ", "Araayta allathee yukaththibu bialddeeni", "Have you seen the one who denies the Recompense"], ["فَذَٰلِكَ ٱلَّذِي يَدُعُّ ٱلۡيَتِيمَ", "Fathalika allathee yadu''u alyateema", "For that is the one who drives away the orphan"], ["وَلَا يَحُضُّ عَلَىٰ طَعَامِ ٱلۡمِسۡكِينِ", "Wala yahuddu 'ala ta'ami almiskeeni", "And does not encourage the feeding of the poor"], ["فَوَيۡلٞ لِّلۡمُصَلِّينَ", "Fawaylun lilmusalleena", "So woe to those who pray"], ["ٱلَّذِينَ هُمۡ عَن صَلَاتِهِمۡ سَاهُونَ", "Allatheena hum 'an salatihim sahoona", "But who are heedless of their prayer"], ["ٱلَّذِينَ هُمۡ يُرَآءُونَ", "Allatheena hum yuraoona", "Those who make show of their deeds"], ["وَيَمۡنَعُونَ ٱلۡمَاعُونَ", "Wayamna'oona alma'oona", "And withhold simple assistance"]]], [106, "Quraysh", "Quraysh", "قريش", [["لِإِيلَٰفِ قُرَيۡشٍ", "Lieelafi qurayshin", "For the accustomed security of the Quraysh"], ["إِۦلَٰفِهِمۡ رِحۡلَةَ ٱلشِّتَآءِ وَٱلصَّيۡفِ", "Eelafihim rihlata alshshitai waalssayfi", "Their accustomed security in the caravan of winter and summer"], ["فَلۡيَعۡبُدُواْ رَبَّ هَٰذَا ٱلۡبَيۡتِ", "Falya'budoo rabba hatha albayti", "Let them worship the Lord of this House"], ["ٱلَّذِيٓ أَطۡعَمَهُم مِّن جُوعٖ وَءَامَنَهُم مِّنۡ خَوۡفِۭ", "Allathee at'amahum min joo'in waamanahum min khawfin", "Who has fed them, saving them from hunger and made them safe, saving them from fear"]]], [105, "Al-Fil", "The Elephant", "الفيل", [["أَلَمۡ تَرَ كَيۡفَ فَعَلَ رَبُّكَ بِأَصۡحَٰبِ ٱلۡفِيلِ", "Alam tara kayfa fa'ala rabbuka biashabi alfeeli", "Have you not considered, O Muhammad, how your Lord dealt with the companions of the elephant"], ["أَلَمۡ يَجۡعَلۡ كَيۡدَهُمۡ فِي تَضۡلِيلٖ", "Alam yaj'al kaydahum fee tadleelin", "Did He not make their plan into misguidance"], ["وَأَرۡسَلَ عَلَيۡهِمۡ طَيۡرًا أَبَابِيلَ", "Waarsala 'alayhim tayran ababeela", "And He sent against them birds in flocks"], ["تَرۡمِيهِم بِحِجَارَةٖ مِّن سِجِّيلٖ", "Tarmeehim bihijaratin min sijjeelin", "Striking them with stones of hard clay"], ["فَجَعَلَهُمۡ كَعَصۡفٖ مَّأۡكُولِۭ", "Faja'alahum ka'asfin makoolin", "And He made them like eaten straw"]]], [104, "Al-Humazah", "The Traducer", "الهمزة", [["وَيۡلٞ لِّكُلِّ هُمَزَةٖ لُّمَزَةٍ", "Waylun likulli humazatin lumazatin", "Woe to every scorner and mocker"], ["ٱلَّذِي جَمَعَ مَالٗا وَعَدَّدَهُۥ", "Allathee jama'a malan wa'addadahu", "Who collects wealth and continuously counts it"], ["يَحۡسَبُ أَنَّ مَالَهُۥٓ أَخۡلَدَهُۥ", "Yahsabu anna malahu akhladahu", "He thinks that his wealth will make him immortal"], ["كَلَّاۖ لَيُنۢبَذَنَّ فِي ٱلۡحُطَمَةِ", "Kalla layunbathanna fee alhutamati", "No! He will surely be thrown into the Crusher"], ["وَمَآ أَدۡرَىٰكَ مَا ٱلۡحُطَمَةُ", "Wama adraka ma alhutamatu", "And what can make you know what is the Crusher"], ["نَارُ ٱللَّهِ ٱلۡمُوقَدَةُ", "Naru Allahi almooqadatu", "It is the fire of Allah, eternally fueled"], ["ٱلَّتِي تَطَّلِعُ عَلَى ٱلۡأَفۡـِٔدَةِ", "Allatee tattali'u 'ala alafidati", "Which mounts directed at the hearts"], ["إِنَّهَا عَلَيۡهِم مُّؤۡصَدَةٞ", "lnnaha 'alayhim musadatun", "Indeed, Hellfire will be closed down upon them"], ["فِي عَمَدٖ مُّمَدَّدَةِۭ", "Fee 'amadin mumaddadatin", "In extended columns"]]], [103, "Al-'Asr", "The Declining Day", "العصر", [["وَٱلۡعَصۡرِ", "Waal'asri", "By time"], ["إِنَّ ٱلۡإِنسَٰنَ لَفِي خُسۡرٍ", "Inna alinsana lafee khusrin", "Indeed, mankind is in loss"], ["إِلَّا ٱلَّذِينَ ءَامَنُواْ وَعَمِلُواْ ٱلصَّـٰلِحَٰتِ وَتَوَاصَوۡاْ بِٱلۡحَقِّ وَتَوَاصَوۡاْ بِٱلصَّبۡرِ", "Illa allatheena amanoo wa'amiloo alssalihati watawasaw bialhaqqi watawasaw bialssabri", "Except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience"]]], [102, "At-Takathur", "The Rivalry in world increase", "التكاثر", [["أَلۡهَىٰكُمُ ٱلتَّكَاثُرُ", "Alhakumu alttakathuru", "Competition in worldly increase diverts you"], ["حَتَّىٰ زُرۡتُمُ ٱلۡمَقَابِرَ", "Hatta zurtumu almaqabira", "Until you visit the graveyards"], ["كَلَّا سَوۡفَ تَعۡلَمُونَ", "Kalla sawfa ta'lamoona", "No! You are going to know"], ["ثُمَّ كَلَّا سَوۡفَ تَعۡلَمُونَ", "Thumma kalla sawfa ta'lamoona", "Then no! You are going to know"], ["كَلَّا لَوۡ تَعۡلَمُونَ عِلۡمَ ٱلۡيَقِينِ", "Kalla law ta'lamoona 'ilma alyaqeeni", "No! If you only knew with knowledge of certainty"], ["لَتَرَوُنَّ ٱلۡجَحِيمَ", "Latarawunna aljaheema", "You will surely see the Hellfire"], ["ثُمَّ لَتَرَوُنَّهَا عَيۡنَ ٱلۡيَقِينِ", "Thumma latarawunnaha 'ayna alyaqeeni", "Then you will surely see it with the eye of certainty"], ["ثُمَّ لَتُسۡـَٔلُنَّ يَوۡمَئِذٍ عَنِ ٱلنَّعِيمِ", "Thumma latusalunna yawmaithin 'ani alnna'eemi", "Then you will surely be asked that Day about pleasure"]]], [101, "Al-Qari'ah", "The Calamity", "القارعة", [["ٱلۡقَارِعَةُ", "Alqari'atu", "The Striking Calamity"], ["مَا ٱلۡقَارِعَةُ", "Ma alqari'atu", "What is the Striking Calamity"], ["وَمَآ أَدۡرَىٰكَ مَا ٱلۡقَارِعَةُ", "Wama adraka ma alqari'atu", "And what can make you know what is the Striking Calamity"], ["يَوۡمَ يَكُونُ ٱلنَّاسُ كَٱلۡفَرَاشِ ٱلۡمَبۡثُوثِ", "Yawma yakoonu alnnasu kaalfarashi almabthoothi", "It is the Day when people will be like moths, dispersed"], ["وَتَكُونُ ٱلۡجِبَالُ كَٱلۡعِهۡنِ ٱلۡمَنفُوشِ", "Watakoonu aljibalu kaal'ihni almanfooshi", "And the mountains will be like wool, fluffed up"], ["فَأَمَّا مَن ثَقُلَتۡ مَوَٰزِينُهُۥ", "Faamma man thaqulat mawazeenuhu", "Then as for one whose scales are heavy with good deeds"], ["فَهُوَ فِي عِيشَةٖ رَّاضِيَةٖ", "Fahuwa fee 'eeshatin radiyatin", "He will be in a pleasant life"], ["وَأَمَّا مَنۡ خَفَّتۡ مَوَٰزِينُهُۥ", "Waamma man khaffat mawazeenuhu", "But as for one whose scales are light"], ["فَأُمُّهُۥ هَاوِيَةٞ", "Faommuhu hawiyatun", "His refuge will be an abyss"], ["وَمَآ أَدۡرَىٰكَ مَا هِيَهۡ", "Wama adraka ma hiyah", "And what can make you know what that is"], ["نَارٌ حَامِيَةُۢ", "Narun hamiyatun", "It is a Fire, intensely hot"]]], [100, "Al-'Adiyat", "The Courser", "العاديات", [["وَٱلۡعَٰدِيَٰتِ ضَبۡحٗا", "Waal'adiyati dabhan", "By the racers, panting"], ["فَٱلۡمُورِيَٰتِ قَدۡحٗا", "Faalmooriyati qadhan", "And the producers of sparks when striking"], ["فَٱلۡمُغِيرَٰتِ صُبۡحٗا", "Faalmugheerati subhan", "And the chargers at dawn"], ["فَأَثَرۡنَ بِهِۦ نَقۡعٗا", "Faatharna bihi naq'an", "Stirring up thereby clouds of dust"], ["فَوَسَطۡنَ بِهِۦ جَمۡعًا", "Fawasatna bihi jam'an", "Arriving thereby in the center collectively"], ["إِنَّ ٱلۡإِنسَٰنَ لِرَبِّهِۦ لَكَنُودٞ", "Inna alinsana lirabbihi lakanoodun", "Indeed mankind, to his Lord, is ungrateful"], ["وَإِنَّهُۥ عَلَىٰ ذَٰلِكَ لَشَهِيدٞ", "Wainnahu 'ala thalika lashaheedun", "And indeed, he is to that a witness"], ["وَإِنَّهُۥ لِحُبِّ ٱلۡخَيۡرِ لَشَدِيدٌ", "Wainnahu lihubbi alkhayri lashadeedun", "And indeed he is, in love of wealth, intense"], ["أَفَلَا يَعۡلَمُ إِذَا بُعۡثِرَ مَا فِي ٱلۡقُبُورِ", "Afala ya'lamu itha bu'thira ma fee alquboori", "But does he not know that when the contents of the graves are scattered"], ["وَحُصِّلَ مَا فِي ٱلصُّدُورِ", "Wahussila ma fee alssudoori", "And that within the breasts is obtained"], ["إِنَّ رَبَّهُم بِهِمۡ يَوۡمَئِذٖ لَّخَبِيرُۢ", "Inna rabbahum bihim yawmaithin lakhabeerun", "Indeed, their Lord with them, that Day, is fully Acquainted"]]], [99, "Az-Zalzalah", "The Earthquake", "الزلزلة", [["إِذَا زُلۡزِلَتِ ٱلۡأَرۡضُ زِلۡزَالَهَا", "Itha zulzilati alardu zilzalaha", "When the earth is shaken with its final earthquake"], ["وَأَخۡرَجَتِ ٱلۡأَرۡضُ أَثۡقَالَهَا", "Waakhrajati alardu athqalaha", "And the earth discharges its burdens"], ["وَقَالَ ٱلۡإِنسَٰنُ مَا لَهَا", "Waqala alinsanu ma laha", "And man says, What is wrong with it"], ["يَوۡمَئِذٖ تُحَدِّثُ أَخۡبَارَهَا", "Yawmaithin tuhaddithu akhbaraha", "That Day, it will report its news"], ["بِأَنَّ رَبَّكَ أَوۡحَىٰ لَهَا", "Bianna rabbaka awha laha", "Because your Lord has commanded it"], ["يَوۡمَئِذٖ يَصۡدُرُ ٱلنَّاسُ أَشۡتَاتٗا لِّيُرَوۡاْ أَعۡمَٰلَهُمۡ", "Yawmaithin yasduru alnnasu ashtatan liyuraw a'malahum", "That Day, the people will depart separated into categories to be shown the result of their deeds"], ["فَمَن يَعۡمَلۡ مِثۡقَالَ ذَرَّةٍ خَيۡرٗا يَرَهُۥ", "Faman ya'mal mithqala tharratin khayran yarahu", "So whoever does an atom's weight of good will see it"], ["وَمَن يَعۡمَلۡ مِثۡقَالَ ذَرَّةٖ شَرّٗا يَرَهُۥ", "Waman ya'mal mithqala tharratin sharran yarahu", "And whoever does an atom's weight of evil will see it"]]], [98, "Al-Bayyinah", "The Clear Proof", "البينة", [["لَمۡ يَكُنِ ٱلَّذِينَ كَفَرُواْ مِنۡ أَهۡلِ ٱلۡكِتَٰبِ وَٱلۡمُشۡرِكِينَ مُنفَكِّينَ حَتَّىٰ تَأۡتِيَهُمُ ٱلۡبَيِّنَةُ", "Lam yakuni allatheena kafaroo min ahli alkitabi waalmushrikeena munfakkeena hatta tatiyahumu albayyinatu", "Those who disbelieved among the People of the Scripture and the polytheists were not to be parted from misbelief until there came to them clear evidence"], ["رَسُولٞ مِّنَ ٱللَّهِ يَتۡلُواْ صُحُفٗا مُّطَهَّرَةٗ", "Rasoolun mina Allahi yatloo suhufan mutahharatan", "A Messenger from Allah, reciting purified scriptures"], ["فِيهَا كُتُبٞ قَيِّمَةٞ", "Feeha kutubun qayyimatun", "Within which are correct writings"], ["وَمَا تَفَرَّقَ ٱلَّذِينَ أُوتُواْ ٱلۡكِتَٰبَ إِلَّا مِنۢ بَعۡدِ مَا جَآءَتۡهُمُ ٱلۡبَيِّنَةُ", "Wama tafarraqa allatheena ootoo alkitaba illa min ba'di ma jaathumu albayyinatu", "Nor did those who were given the Scripture become divided until after there had come to them clear evidence"], ["وَمَآ أُمِرُوٓاْ إِلَّا لِيَعۡبُدُواْ ٱللَّهَ مُخۡلِصِينَ لَهُ ٱلدِّينَ حُنَفَآءَ وَيُقِيمُواْ ٱلصَّلَوٰةَ وَيُؤۡتُواْ ٱلزَّكَوٰةَۚ وَذَٰلِكَ دِينُ ٱلۡقَيِّمَةِ", "Wama omiroo illa liya'budoo Allaha mukhliseena lahu alddeena hunafaa wayuqeemoo alssalata wayutoo alzzakata wathalika deenu alqayyimati", "And they were not commanded except to worship Allah, being sincere to Him in religion, inclining to truth, and to establish prayer and to give zakah. And that is the correct religion"], ["إِنَّ ٱلَّذِينَ كَفَرُواْ مِنۡ أَهۡلِ ٱلۡكِتَٰبِ وَٱلۡمُشۡرِكِينَ فِي نَارِ جَهَنَّمَ خَٰلِدِينَ فِيهَآۚ أُوْلَـٰٓئِكَ هُمۡ شَرُّ ٱلۡبَرِيَّةِ", "Inna allatheena kafaroo min ahli alkitabi waalmushrikeena fee nari jahannama khalideena feeha olaika hum sharru albariyyati", "Indeed, they who disbelieved among the People of the Scripture and the polytheists will be in the fire of Hell, abiding eternally therein. Those are the worst of creatures"], ["إِنَّ ٱلَّذِينَ ءَامَنُواْ وَعَمِلُواْ ٱلصَّـٰلِحَٰتِ أُوْلَـٰٓئِكَ هُمۡ خَيۡرُ ٱلۡبَرِيَّةِ", "Inna allatheena amanoo wa'amiloo alssalihati olaika hum khayru albariyyati", "Indeed, they who have believed and done righteous deeds - those are the best of creatures"], ["جَزَآؤُهُمۡ عِندَ رَبِّهِمۡ جَنَّـٰتُ عَدۡنٖ تَجۡرِي مِن تَحۡتِهَا ٱلۡأَنۡهَٰرُ خَٰلِدِينَ فِيهَآ أَبَدٗاۖ رَّضِيَ ٱللَّهُ عَنۡهُمۡ وَرَضُواْ عَنۡهُۚ ذَٰلِكَ لِمَنۡ خَشِيَ رَبَّهُۥ", "Jazaohum 'inda rabbihim jannatu 'adnin tajree min tahtiha alanharu khalideena feeha abadan radiya Allahu 'anhum waradoo 'anhu thalika liman khashiya rabbahu", "Their reward with Allah will be gardens of perpetual residence beneath which rivers flow, wherein they will abide forever, Allah being pleased with them and they with Him. That is for whoever has feared his Lord"]]], [97, "Al-Qadr", "The Power", "القدر", [["إِنَّآ أَنزَلۡنَٰهُ فِي لَيۡلَةِ ٱلۡقَدۡرِ", "Inna anzalnahu fee laylati alqadri", "Indeed, We sent the Qur'an down during the Night of Decree"], ["وَمَآ أَدۡرَىٰكَ مَا لَيۡلَةُ ٱلۡقَدۡرِ", "Wama adraka ma laylatu alqadri", "And what can make you know what is the Night of Decree"], ["لَيۡلَةُ ٱلۡقَدۡرِ خَيۡرٞ مِّنۡ أَلۡفِ شَهۡرٖ", "Laylatu alqadri khayrun min alfi shahrin", "The Night of Decree is better than a thousand months"], ["تَنَزَّلُ ٱلۡمَلَـٰٓئِكَةُ وَٱلرُّوحُ فِيهَا بِإِذۡنِ رَبِّهِم مِّن كُلِّ أَمۡرٖ", "Tanazzalu almalaikatu waalrroohu feeha biithni rabbihim min kulli amrin", "The angels and the Spirit descend therein by permission of their Lord for every matter"], ["سَلَٰمٌ هِيَ حَتَّىٰ مَطۡلَعِ ٱلۡفَجۡرِ", "Salamun hiya hatta matla'i alfajri", "Peace it is until the emergence of dawn"]]], [96, "Al-'Alaq", "The Clot", "العلق", [["ٱقۡرَأۡ بِٱسۡمِ رَبِّكَ ٱلَّذِي خَلَقَ", "Iqra biismi rabbika allathee khalaqa", "Recite in the name of your Lord who created"], ["خَلَقَ ٱلۡإِنسَٰنَ مِنۡ عَلَقٍ", "Khalaqa alinsana min 'alaqin", "Created man from a clinging substance"], ["ٱقۡرَأۡ وَرَبُّكَ ٱلۡأَكۡرَمُ", "Iqra warabbuka alakramu", "Recite, and your Lord is the most Generous"], ["ٱلَّذِي عَلَّمَ بِٱلۡقَلَمِ", "Allathee 'allama bialqalami", "Who taught by the pen"], ["عَلَّمَ ٱلۡإِنسَٰنَ مَا لَمۡ يَعۡلَمۡ", "'allama alinsana ma lam ya'lam", "Taught man that which he knew not"], ["كَلَّآ إِنَّ ٱلۡإِنسَٰنَ لَيَطۡغَىٰٓ", "Kalla inna alinsana layatgha", "No! But indeed, man transgresses"], ["أَن رَّءَاهُ ٱسۡتَغۡنَىٰٓ", "An raahu istaghna", "Because he sees himself self-sufficient"], ["إِنَّ إِلَىٰ رَبِّكَ ٱلرُّجۡعَىٰٓ", "Inna ila rabbika alrruj'a", "Indeed, to your Lord is the return"], ["أَرَءَيۡتَ ٱلَّذِي يَنۡهَىٰ", "Araayta allathee yanha", "Have you seen the one who forbids"], ["عَبۡدًا إِذَا صَلَّىٰٓ", "'abdan itha salla", "A servant when he prays"], ["أَرَءَيۡتَ إِن كَانَ عَلَى ٱلۡهُدَىٰٓ", "Araayta in kana 'ala alhuda", "Have you seen if he is upon guidance"], ["أَوۡ أَمَرَ بِٱلتَّقۡوَىٰٓ", "Aw amara bialttaqwa", "Or enjoins righteousness"], ["أَرَءَيۡتَ إِن كَذَّبَ وَتَوَلَّىٰٓ", "Araayta in kaththaba watawalla", "Have you seen if he denies and turns away"], ["أَلَمۡ يَعۡلَم بِأَنَّ ٱللَّهَ يَرَىٰ", "Alam ya'lam bianna Allaha yara", "Does he not know that Allah sees"], ["كَلَّا لَئِن لَّمۡ يَنتَهِ لَنَسۡفَعَۢا بِٱلنَّاصِيَةِ", "Kalla lain lam yantahi lanasfa'an bialnnasiyati", "No! If he does not desist, We will surely drag him by the forelock"], ["نَاصِيَةٖ كَٰذِبَةٍ خَاطِئَةٖ", "Nasiyatin kathibatin khatiatin", "A lying, sinning forelock"], ["فَلۡيَدۡعُ نَادِيَهُۥ", "Falyad'u nadiyahu", "Then let him call his associates"], ["سَنَدۡعُ ٱلزَّبَانِيَةَ", "Sanad'u alzzabaniyata", "We will call the angels of Hell"], ["كَلَّا لَا تُطِعۡهُ وَٱسۡجُدۡۤ وَٱقۡتَرِب۩", "Kalla la tuti'hu waosjud waiqtarib", "No! Do not obey him. But prostrate and draw near to Allah"]]], [95, "At-Tin", "The Fig", "التين", [["وَٱلتِّينِ وَٱلزَّيۡتُونِ", "Waaltteeni waalzzaytooni", "By the fig and the olive"], ["وَطُورِ سِينِينَ", "Watoori seeneena", "And by Mount Sinai"], ["وَهَٰذَا ٱلۡبَلَدِ ٱلۡأَمِينِ", "Wahatha albaladi alameeni", "And by this secure city Makkah"], ["لَقَدۡ خَلَقۡنَا ٱلۡإِنسَٰنَ فِيٓ أَحۡسَنِ تَقۡوِيمٖ", "Laqad khalaqna alinsana fee ahsani taqweemin", "We have certainly created man in the best of stature"], ["ثُمَّ رَدَدۡنَٰهُ أَسۡفَلَ سَٰفِلِينَ", "Thumma radadnahu asfala safileena", "Then We return him to the lowest of the low"], ["إِلَّا ٱلَّذِينَ ءَامَنُواْ وَعَمِلُواْ ٱلصَّـٰلِحَٰتِ فَلَهُمۡ أَجۡرٌ غَيۡرُ مَمۡنُونٖ", "Illa allatheena amanoo wa'amiloo alssalihati falahum ajrun ghayru mamnoonin", "Except for those who believe and do righteous deeds, for they will have a reward uninterrupted"], ["فَمَا يُكَذِّبُكَ بَعۡدُ بِٱلدِّينِ", "Fama yukaththibuka ba'du bialddeeni", "So what yet causes you to deny the Recompense"], ["أَلَيۡسَ ٱللَّهُ بِأَحۡكَمِ ٱلۡحَٰكِمِينَ", "Alaysa Allahu biahkami alhakimeena", "Is not Allah the most just of judges"]]], [94, "Ash-Sharh", "The Relief", "الشرح", [["أَلَمۡ نَشۡرَحۡ لَكَ صَدۡرَكَ", "Alam nashrah laka sadraka", "Did We not expand for you, O Muhammad, your breast"], ["وَوَضَعۡنَا عَنكَ وِزۡرَكَ", "Wawada'na 'anka wizraka", "And We removed from you your burden"], ["ٱلَّذِيٓ أَنقَضَ ظَهۡرَكَ", "Allathee anqada thahraka", "Which had weighed upon your back"], ["وَرَفَعۡنَا لَكَ ذِكۡرَكَ", "Warafa'na laka thikraka", "And raised high for you your repute"], ["فَإِنَّ مَعَ ٱلۡعُسۡرِ يُسۡرًا", "Fainna ma'a al'usri yusran", "For indeed, with hardship will be ease"], ["إِنَّ مَعَ ٱلۡعُسۡرِ يُسۡرٗا", "Inna ma'a al'usri yusran", "Indeed, with hardship will be ease"], ["فَإِذَا فَرَغۡتَ فَٱنصَبۡ", "Faitha faraghta fainsab", "So when you have finished your duties, then stand up for worship"], ["وَإِلَىٰ رَبِّكَ فَٱرۡغَب", "Waila rabbika fairghab", "And to your Lord direct your longing"]]], [93, "Ad-Duhaa", "The Morning Hours", "الضحى", [["وَٱلضُّحَىٰ", "Waaldduha", "By the morning brightness"], ["وَٱلَّيۡلِ إِذَا سَجَىٰ", "Waallayli itha saja", "And by the night when it covers with darkness"], ["مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ", "Ma wadda'aka rabbuka wama qala", "Your Lord has not taken leave of you, O Muhammad, nor has He detested you"], ["وَلَلۡأٓخِرَةُ خَيۡرٞ لَّكَ مِنَ ٱلۡأُولَىٰ", "Walalakhiratu khayrun laka mina aloola", "And the Hereafter is better for you than the first life"], ["وَلَسَوۡفَ يُعۡطِيكَ رَبُّكَ فَتَرۡضَىٰٓ", "Walasawfa yu'teeka rabbuka fatarda", "And your Lord is going to give you, and you will be satisfied"], ["أَلَمۡ يَجِدۡكَ يَتِيمٗا فَـَٔاوَىٰ", "Alam yajidka yateeman faawa", "Did He not find you an orphan and give you refuge"], ["وَوَجَدَكَ ضَآلّٗا فَهَدَىٰ", "Wawajadaka dallan fahada", "And He found you lost and guided you"], ["وَوَجَدَكَ عَآئِلٗا فَأَغۡنَىٰ", "Wawajadaka 'ailan faaghna", "And He found you poor and made you self-sufficient"], ["فَأَمَّا ٱلۡيَتِيمَ فَلَا تَقۡهَرۡ", "Faamma alyateema fala taqhar", "So as for the orphan, do not oppress him"], ["وَأَمَّا ٱلسَّآئِلَ فَلَا تَنۡهَرۡ", "Waamma alssaila fala tanhar", "And as for the petitioner, do not repel him"], ["وَأَمَّا بِنِعۡمَةِ رَبِّكَ فَحَدِّثۡ", "Waamma bini'mati rabbika fahaddith", "But as for the favor of your Lord, report it"]]]];
+const HZ=HZDATA.map(([n,t,m,ar,vs])=>{
+  const steps=[{t:'say',text:`Surah ${t} means "${m}". It has ${vs.length} ayat. Listen to the whole surah first, then we learn it ayah by ayah.`,surah:n,count:vs.length}];
+  vs.forEach((v,i)=>steps.push({t:'hayah',s:n,a:i+1,ar:v[0],tr:v[1],en:v[2],n:vs.length>8?2:3}));
+  if(vs.length>=3)steps.push({t:'stack',prompt:'Put the ayat in order',hint:'Tap the ayah that comes first, then the next.',items:vs.map(v=>({t:v[1].split(' ').slice(0,4).join(' ')+'…',ar:v[0].split(' ').slice(0,4).join(' ')})),done:'MashaAllah! The ayat are in the right order.'});
+  steps.push({t:'say',text:`Now say the whole of Surah ${t} without looking. Tap ▶ to check yourself with the reciter.`,surah:n,count:vs.length});
+  steps.push({t:'daddy',text:`Recite Surah ${t} to Daddy or Ummi. When you can say it all by heart, they put in their PIN.`});
+  return {id:'hz'+n,world:'hz',title:'Surah '+t,ar:ar,sub:m+' · '+vs.length+' ayat',steps};
+});
+
 const WORLDS={
  aq:{name:'Knowing Allah',sub:'Aqeedah island 1',icon:'🌙',cls:'w-aq',lessons:AQ,seq:true},
  ad:{name:'My daily duas',sub:'Adhkar',icon:'🤲',cls:'w-ad',lessons:AD,seq:false},
  ar:{name:'Arabic letters',sub:'Alif to Yaa',icon:'ا',cls:'w-ar',lessons:LV,seq:true},
  st:{name:'The Story Room',sub:'Stories of the Prophets',icon:'📜',cls:'w-st',lessons:STORIES,seq:false},
  sk:{name:'Stack it',sub:'Put things in the right order',icon:'🧩',cls:'w-sk',lessons:SK,seq:false},
+ hz:{name:"Qur'an: Juz 'Amma",sub:'Learn the short surahs by heart',icon:'📖',cls:'w-hz',lessons:HZ,seq:true},
  hc:{name:'The Islamic year',sub:'Months, the moon and special days',icon:'🗓️',cls:'w-hc',lessons:HC,seq:true}
 };
-const SOON=[['📖',"Qur'an and Hifz",'Juz Amma, surah by surah'],['💧','Wudu and salah','Step by step, the Sunnah way'],['🌷','Akhlaq missions','Good manners you do for real'],['🗣️','Arabic words','Everyday words, Madina style']];
+const SOON=[['💧','Wudu and salah','Step by step, the Sunnah way'],['🌷','Akhlaq missions','Good manners you do for real'],['🗣️','Arabic words','Everyday words, Madina style']];
 const SYMS=['🌙','⭐','🌸','🌷','🌻','🕌','💎','🌈','🍀','📖','🌿','🍉'];
 const SYMBG=['var(--rose-soft)','var(--green-soft)','var(--gold-soft)','var(--sky)'];
 const DEEDS=['I helped Ummi','I helped Daddy','I said salam first','I shared with someone','I told the truth','I said Bismillah before eating','I was kind to my cousin','I said sorry'];
-const ALL=[...AQ,...AD,...LV,...STORIES,...SK,...HC];
+const ALL=[...AQ,...AD,...LV,...STORIES,...SK,...HC,...HZ];
 const byId=Object.fromEntries(ALL.map(l=>[l.id,l]));
 
 /* ===================== STATE + STORAGE ===================== */
@@ -1380,11 +1402,11 @@ function subscribeAll(onErr){
         for(const k in S.deeds)await put('deeds/'+k,S.deeds[k]);
         return;}}
     S.presence={};S.waves={};
-    S.chat={};S.hearts={};S.tug={};S.tugp={};
-    for(const id in m){if(id.startsWith('p-'))S.presence[id.slice(2)]=m[id];else if(id.startsWith('w-'))S.waves[id]=m[id];else if(id.startsWith('c-'))S.chat[id]=m[id];else if(id.startsWith('h-'))S.hearts[id]=m[id];else if(id.startsWith('t-'))S.tug[id]=m[id];else if(id.startsWith('tp-'))S.tugp[id]=m[id]}
+    S.chat={};S.hearts={};S.tug={};S.tugp={};S.reports={};
+    for(const id in m){if(id.startsWith('p-'))S.presence[id.slice(2)]=m[id];else if(id.startsWith('w-'))S.waves[id]=m[id];else if(id.startsWith('c-'))S.chat[id]=m[id];else if(id.startsWith('h-'))S.hearts[id]=m[id];else if(id.startsWith('t-'))S.tug[id]=m[id];else if(id.startsWith('tp-'))S.tugp[id]=m[id];else if(id.startsWith('r-'))S.reports[id]=m[id]}
     handleWaves();handleChat();
     const ch=s.docChanges?s.docChanges():[];
-    if(!wasFirst&&ch.length&&ch.every(c=>/^(?:[pwch]|tp?)-/.test(c.doc.id))){if(ui.screen==='tug')tugUpdate();else if(ui.screen==='home'||ui.screen==='chat'||ui.screen==='bell'||(ui.screen==='parents'&&ch.some(c=>/^t-/.test(c.doc.id))))soft();return}
+    if(!wasFirst&&ch.length&&ch.every(c=>/^(?:[pwchr]|tp?)-/.test(c.doc.id))){if(ui.screen==='tug')tugUpdate();else if(ui.screen==='home'||ui.screen==='chat'||ui.screen==='bell'||(ui.screen==='parents'&&ch.some(c=>/^t-/.test(c.doc.id))))soft();return}
     S.settings=Object.assign({},m.settings||{});S.approvals=Object.assign({},m.approvals||{});
     S.access=(m.access&&m.access.members)||[];
     dbReady=true;saveLocal();soft();
@@ -1439,6 +1461,31 @@ function starsTxt(n){return '★'.repeat(n)+'☆'.repeat(3-n)}
 let toastT;function toast(m){let t=document.querySelector('.toast');if(!t){t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t)}t.textContent=m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,2600)}
 let arVoice=null;function loadVoices(){try{arVoice=speechSynthesis.getVoices().find(v=>/^ar/i.test(v.lang))||null}catch(e){}}
 try{loadVoices();speechSynthesis.onvoiceschanged=()=>{loadVoices();soft()}}catch(e){}
+let enVoice=null;function loadEn(){try{const v=speechSynthesis.getVoices();enVoice=v.find(x=>/^en[-_](GB|IN|US)/i.test(x.lang)&&/female|samantha|google/i.test(x.name))||v.find(x=>/^en/i.test(x.lang))||null}catch(e){}}
+try{loadEn();speechSynthesis.addEventListener('voiceschanged',loadEn)}catch(e){}
+function readText(t){return String(t||'').replace(/<[^>]+>/g,' ').replace(/\([^)]*\)/g,'').replace(/\{name\}/g,kidName()).replace(/\s*ﷺ/g,', sallallahu alayhi wa sallam,').replace(/[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]+/g,'').replace(/\s+/g,' ').trim()}
+function sayEn(t){try{const x=readText(t);if(!x||!window.speechSynthesis)return;stopAudio();speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(x);if(enVoice){u.voice=enVoice;u.lang=enVoice.lang}else u.lang='en-GB';u.rate=.88;u.pitch=1.05;speechSynthesis.speak(u)}catch(e){}}
+let ayAudio=null;function stopAudio(){if(ayAudio){ayAudio.pause();ayAudio=null}}
+function ayPlay(ref,times){
+  const m=String(ref).match(/(\d+):(\d+)(?:-(\d+))?/);if(!m)return;const su=+m[1],a1=+m[2],a2=+(m[3]||m[2]);
+  const list=[];for(let r=0;r<(times||1);r++)for(let a=a1;a<=a2;a++)list.push(String(su).padStart(3,'0')+String(a).padStart(3,'0'));
+  try{speechSynthesis.cancel()}catch(e){}stopAudio();let i=0;
+  const next=()=>{if(i>=list.length){ayAudio=null;return}const au=new Audio('https://everyayah.com/data/Alafasy_128kbps/'+list[i++]+'.mp3');ayAudio=au;au.onended=next;au.onerror=()=>{toast('Could not play the recitation. Check the internet.');ayAudio=null};au.play().catch(()=>{})};next();
+}
+function readOn(){return !!(S.kids[ui.kid]||{}).read}
+let lastSpoken='';
+function autoRead(force){
+  if(!force&&!readOn())return;let key='',txt='';
+  if(ui.screen==='play'&&ui.L){const L=ui.L,s=L.steps[L.i],st=L.st||{};if(!s)return;key=L.id+'|'+L.i;
+    if(s.t==='say'||s.t==='key'||s.t==='daddy')txt=s.text;
+    else if(s.t==='story'){const sl=s.slides[st.k];key+='|'+st.k;txt=sl?sl.text+(sl.ay?' '+sl.ay.en:''):''}
+    else if(s.t==='quiz'){const q=s.qs[st.q];key+='|q'+st.q+(st.ans!=null?'a':'');if(q)txt=st.ans!=null?(st.ans===q.o[0]?'Yes! ':'Not quite. ')+(q.why||''):q.q+' Is it: '+(st.order&&st.order[st.q]||q.o).join(', or ')+'?'}
+    else if(s.t==='tap'||s.t==='stack'||s.t==='match'||s.t==='sort')txt=s.prompt;
+    else if(s.t==='hayah')txt='Ayah '+s.a+'. Listen, and say it after the reciter. '+s.en}
+  else if(ui.screen==='flash'&&ui.F&&ui.F.q[ui.F.i]){const c=ui.F.q[ui.F.i];key='f'+ui.F.i+ui.F.flip;txt=ui.F.flip?'The answer is: '+c.a:c.q}
+  else if(ui.screen==='score'&&ui.result){key='score'+ui.result.id;txt=ui.result.stars===3?'MashaAllah, perfect!':'Well done, '+kidName()+'!'}
+  if(!txt||(!force&&key===lastSpoken))return;lastSpoken=key;setTimeout(()=>sayEn(txt),250);
+}
 function speak(t){try{if(!arVoice)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.voice=arVoice;u.lang=arVoice.lang;u.rate=.8;speechSynthesis.speak(u)}catch(e){}}
 
 /* ===================== UI STATE ===================== */
@@ -1460,6 +1507,9 @@ function render(){
   placeRoad();
   beat(false);
   if(ui.screen==='cert')drawCert();
+  if(ui.screen!=='play'&&ui.screen!=='flash'){stopAudio()}
+  autoRead(false);
+  if(ui.screen==='home'||ui.screen==='score')levelCheck(ui.kid);
   if(ui.screen==='chat'){const cl=document.getElementById('chatlist');if(cl)cl.scrollTop=cl.scrollHeight;markRead();const f=document.getElementById('chatform');if(f)f.onsubmit=ev=>{ev.preventDefault();const t=document.getElementById('chattext');const v=(t.value||'').trim().slice(0,120);if(v){sendChat(v);t.value='';render()}}}
 }
 let certCanvas=null;
@@ -1512,6 +1562,10 @@ function gardenSVG(n,trees){
   if(!n&&!trees)s+=`<text x="${W/2}" y="70" text-anchor="middle" fill="var(--muted)" font-family="Nunito,sans-serif" font-size="18">Finish a lesson to plant your first flower</text>`;
   return s+'</svg>';
 }
+const LEVELS=[[0,'🌱','Little Seed'],[15,'🌿','Sprout'],[40,'🪴','Sapling'],[80,'🌳','Strong Tree'],[140,'🌴','Palm Tree'],[220,'🌙','Shining Moon'],[320,'⭐','Guiding Star'],[450,'🏆','Lantern Keeper']];
+function points(k){const P=prog(k);return Object.values(P.done||{}).reduce((a,b)=>a+b,0)+deedsOk(k)*2+(P.flashDays||0)+((P.love||[]).filter(x=>x.a===1).length)}
+function levelOf(k){const p=points(k);let i=0;while(i+1<LEVELS.length&&p>=LEVELS[i+1][0])i++;const L=LEVELS[i],N=LEVELS[i+1];return {i,icon:L[1],name:L[2],pts:p,next:N?{name:N[2],icon:N[1],need:N[0]-p,pct:Math.round((p-L[0])/(N[0]-L[0])*100)}:null}}
+function levelCheck(k){if(!k||!S.kids[k])return;const P=prog(k),L=levelOf(k);if(P.lvl==null){P.lvl=L.i;saveProg(k);return}if(L.i>P.lvl){P.lvl=L.i;saveProg(k);setTimeout(()=>toast(`🎉 MashaAllah! You are now a ${L.name} ${L.icon}`),600)}}
 function deedsOk(k){return Object.values(S.deeds).filter(d=>d.kid===k&&d.status==='ok').length}
 function worldDone(w,k){return WORLDS[w].lessons.every(l=>prog(k).done[l.id])}
 function lanternSVG(p){return `<svg width="64" height="96" viewBox="0 0 40 64" aria-hidden="true">${fanous({fill:Math.max(.08,p),dim:'#F1E3C2'})}</svg>`}
@@ -1537,15 +1591,16 @@ function gardenPane(){
   const tile=(w)=>{const W=WORLDS[w],n=W.lessons.filter(l=>P.done[l.id]).length;return `<button class="tile ${W.cls}" data-act="world" data-w="${w}"><span class="ic ${w==='ar'?'ar':''}">${W.icon}</span><b>${W.name}</b><span class="bar"><i style="width:${n/W.lessons.length*100}%"></i></span><small>${n}/${W.lessons.length}</small></button>`};
   return `<div class="pgwrap">
   <div class="hello2"><button class="avbtn" data-act="avatar" aria-label="Make my avatar">${symEl(k,64)}<span class="avedit">${S.kids[k].av?'Edit':'Make me!'}</span></button>
-   <div class="hx"><h1 class="hi">Assalamu alaikum, ${esc(S.kids[k].name)}!</h1><div class="pills"><span class="pill">⭐ ${stars}</span><span class="pill">🔥 ${P.streak||0} day${(P.streak||0)===1?'':'s'}</span><span class="pill">🌸 ${done+deedsOk(k)+(P.flashDays||0)}</span></div></div></div>
+   <div class="hx"><h1 class="hi">Assalamu alaikum, ${esc(S.kids[k].name)}!</h1><div class="pills"><span class="pill lvl" title="${(lv=>lv.next?lv.next.need+' more points to '+lv.next.name:'Top level!')(levelOf(k))}">${levelOf(k).icon} ${levelOf(k).name}</span><span class="pill">⭐ ${stars}</span><span class="pill">🔥 ${P.streak||0} day${(P.streak||0)===1?'':'s'}</span><span class="pill">🌸 ${done+deedsOk(k)+(P.flashDays||0)}</span></div></div></div>
   ${joinBell()}
   ${tugBanner(k)}
+  ${(lv=>lv.next?`<div class="lvlbar" aria-label="${lv.next.need} points to ${lv.next.name}"><span>${lv.icon} ${lv.name}</span><span class="lvt"><span class="lvf" style="width:${lv.next.pct}%"></span></span><span>${lv.next.icon} ${lv.next.need} to go</span></div>`:'')(levelOf(k))}
   ${hijriCard(false)}
   ${sodCard(k)}
   ${whosHere()}
   <div class="garden slim">${gardenSVG(done+deedsOk(k)+(P.flashDays||0),trees)}</div>
   <section class="sect"><h2 class="h2s">Today's three</h2><div class="today3">${tasks.map(t=>{const W=WORLDS[t.w];return `<button class="t3 ${t.did?'done':''}" ${t.w!=='ar'?`data-act="world" data-w="${t.w}"`:t.nx?`data-act="open" data-id="${t.nx.id}"`:'disabled'}><span class="ic ${t.w==='ar'?'ar':''}">${t.did?'✅':W.icon}</span><b>${short[t.w]}</b><small>${t.w==='aq'&&t.nx?'Stop '+(AQ.indexOf(t.nx)+1)+': '+esc(t.nx.title.replace(/^Allah is /,'')):t.w==='ad'?(t.did?'Done! Pick another':'All '+AD.length+' duas'):t.nx?esc(t.nx.title):(t.did?'Done!':'Waiting for Daddy')}</small></button>`}).join('')}</div></section>
-  <section class="sect"><h2 class="h2s">Play and learn</h2><div class="tiles">${['st','sk','aq','ad','ar','hc'].map(tile).join('')}
+  <section class="sect"><h2 class="h2s">Play and learn</h2><div class="tiles">${['st','hz','sk','aq','ad','ar','hc'].map(tile).join('')}
    ${wqTile(k)}
    <button class="tile w-fl" data-act="flash"><span class="ic">🃏</span><b>Flashcards</b><small>${(()=>{const n=flashDue(k);return n?n+' ready':flashDeck(k).length?'Done today ✅':'After a lesson'})()}</small></button>
    <button class="tile w-duel" data-act="${dOpen?'duelPick':'duelUnlock'}"><span class="ic">${dOpen?'⚔️':'🔒'}</span><b>Duel with Daddy</b><small>${dOpen?(D.played?`${D.won} wins`:'Play now'):'After a lesson'}</small></button></div>
@@ -1632,7 +1687,7 @@ function prepStep(){const s=curStep();const st={};
   if(s.t==='letters')st.open={};
   if(s.t==='sort'){st.items=shuffle(s.items);st.k=0;st.ans=null}
   if(s.t==='match'){st.left=shuffle(s.pairs.map((p,i)=>i));st.right=shuffle(s.pairs.map((p,i)=>i));st.sel=null;st.done={}}
-  if(s.t==='count')st.c=0;
+  if(s.t==='count'||s.t==='hayah')st.c=0;
   if(s.t==='story')st.k=0;
   if(s.t==='stack'){st.pool=shuffle(s.items.map((x,i)=>i));st.placed=[]}
   if(s.t==='order'){st.pool=shuffle(s.chunks.map((c,i)=>i));st.placed=[]}
@@ -1640,7 +1695,7 @@ function prepStep(){const s=curStep();const st={};
 function canNext(){const s=curStep(),st=ui.L.st;
   if(s.t==='tap')return Object.keys(st.open).length===s.items.length;
   if(s.t==='letters')return Object.keys(st.open).length===s.set.length;
-  if(s.t==='count')return st.c>=s.n;
+  if(s.t==='count'||s.t==='hayah')return st.c>=s.n;
   if(s.t==='story')return st.k>=s.slides.length-1;
   if(s.t==='stack')return st.placed.length===s.items.length;
   if(s.t==='order')return st.placed.length===s.chunks.length;
@@ -1654,9 +1709,10 @@ function play(){
   let body='';
   const daddy='<div class="daddy">'+lanternMini()+'Daddy says</div>';
   const dban=l.world==='ad'&&s.t!=='quiz'?`<div class="dban"><span class="dbe">${DPIC[l.id]||'🤲'}</span><b>${esc(l.when.split('.')[0])}</b></div>`:'';
-  if(s.t==='say')body=`<div class="card stage">${daddy}<p class="say">${fill(s.text)}</p>${s.ar?`<div class="bigar">${s.ar}</div><p class="tr">${esc(s.tr)}</p><p class="tr" style="font-style:normal">${esc(s.mean)}</p>`:''}</div>`;
-  else if(s.t==='story'){const sl=s.slides[st.k];body=`<div class="story" id="story"><div class="scene">${scene(sl.sc)}</div><div class="card stage"><p class="say">${fill(sl.text)}</p>${sl.ay?`<div class="ayah"><div class="ar">${sl.ay.ar}</div><p>${esc(sl.ay.en)}</p><span class="src">${esc(sl.ay.ref)}</span></div>`:''}</div><div class="spread"><button class="btn ghost sm" data-act="sPrev" ${st.k?'':'disabled'}>← Back</button><span class="sdots" aria-label="Page ${st.k+1} of ${s.slides.length}">${s.slides.map((x,i)=>`<i class="${i===st.k?'on':''}"></i>`).join('')}</span><button class="btn sm" data-act="sNext" ${st.k<s.slides.length-1?'':'disabled'}>Next →</button></div><p class="small muted" style="text-align:center">Swipe the picture or tap Next</p></div>`;}
+  if(s.t==='say')body=`<div class="card stage">${daddy}<p class="say">${fill(s.text)}</p>${s.surah?`<div class="row" style="justify-content:center"><button class="btn gold sm" data-act="ayPlay" data-ref="${s.surah}:1-${s.count}">▶ Play the whole surah</button></div>`:''}${s.ar?`<div class="bigar">${s.ar}</div><p class="tr">${esc(s.tr)}</p><p class="tr" style="font-style:normal">${esc(s.mean)}</p>`:''}</div>`;
+  else if(s.t==='story'){const sl=s.slides[st.k];body=`<div class="story" id="story"><div class="scene">${scene(sl.sc)}</div><div class="card stage"><p class="say">${fill(sl.text)}</p>${sl.ay?`<div class="ayah"><div class="ar">${sl.ay.ar}</div><p>${esc(sl.ay.en)}</p><span class="src">${esc(sl.ay.ref)}</span><button class="aylisten" data-act="ayPlay" data-ref="${esc(sl.ay.ref)}">▶ Listen</button></div>`:''}</div><div class="spread"><button class="btn ghost sm" data-act="sPrev" ${st.k?'':'disabled'}>← Back</button><span class="sdots" aria-label="Page ${st.k+1} of ${s.slides.length}">${s.slides.map((x,i)=>`<i class="${i===st.k?'on':''}"></i>`).join('')}</span><button class="btn sm" data-act="sNext" ${st.k<s.slides.length-1?'':'disabled'}>Next →</button></div><p class="small muted" style="text-align:center">Swipe the picture or tap Next</p></div>`;}
   else if(s.t==='stack'){const it=s.items;body=`<h2>${esc(s.prompt)}</h2><p class="muted small">${esc(s.hint||'Tap them in the right order, first to last.')}</p><div class="tower">${it.map((x,i)=>`<div class="tslot ${i<st.placed.length?'on':''}"><span class="tn">${i+1}</span>${i<st.placed.length?`<b>${esc(x.t)}</b>${x.ar?`<span class="ar">${x.ar}</span>`:''}`:''}</div>`).join('')}</div><div class="tpool">${st.pool.filter(i=>!st.placed.includes(i)).map(i=>`<button class="tcard" data-act="stk" data-i="${i}"><b>${esc(it[i].t)}</b>${it[i].ar?`<span class="ar">${it[i].ar}</span>`:''}</button>`).join('')}</div>${st.placed.length===it.length?`<div class="fb ok">${esc(s.done||'MashaAllah, perfect!')}</div>`:''}`;}
+  else if(s.t==='hayah')body=`<div class="card stage hz"><p class="small muted">Ayah ${s.a}</p><div class="bigar hzar">${s.ar}</div><p class="tr">${esc(s.tr)}</p><p class="small" style="text-align:center">${esc(s.en)}</p><div class="row" style="justify-content:center"><button class="btn gold sm" data-act="ayPlay" data-ref="${s.s}:${s.a}">▶ Listen</button><button class="btn ghost sm" data-act="ayPlay" data-ref="${s.s}:${s.a}" data-rep="3">🔁 Listen 3 times</button></div><div class="counter"><button data-act="count" aria-label="I said it once">${st.c}/${s.n}</button><p class="muted">Say it after the reciter, then tap. ${s.n} times.</p></div></div>`;
   else if(s.t==='key')body=`<div class="key"><span class="lbl">Remember this</span><p>${fill(s.text)}</p></div>`;
   else if(s.t==='tap')body=`<h2>${esc(s.prompt)}</h2><div class="taps">${s.items.map((it,i)=>`<button class="tapit ${st.open[i]?'open':''}" data-act="tap" data-i="${i}"><span class="ic" aria-hidden="true">${it[0]}</span><b>${esc(it[1])}</b>${st.open[i]?`<span class="rev">${esc(s.reveal)}</span>`:''}</button>`).join('')}</div>`;
   else if(s.t==='letters')body=`<div class="letters">${s.set.map((x,i)=>`<button class="letter ${st.open[i]?'open':''}" data-act="letter" data-i="${i}"><span class="g">${x[0]}</span><b>${x[1]}${arVoice?' 🔊':''}</b>${PICW[x[0]]?`<span class="pw"><span class="pe">${PICW[x[0]][0]}</span><span class="pa">${PICW[x[0]][1]}</span></span>`:''}${st.open[i]?`<span class="small">${x[2]} · sounds like <b>${esc(x[3])}</b>${PICW[x[0]]?` · ${PICW[x[0]][2]}`:''}</span>`:'<span class="small muted">Tap me</span>'}</button>`).join('')}</div>`;
@@ -1669,7 +1725,7 @@ function play(){
   else if(s.t==='order'){body=`<h2>Build the dua in the right order</h2><p class="muted small">Tap the pieces from first to last. Arabic reads from right to left.</p><div class="built">${st.placed.map(i=>`<span class="chunk placed">${s.chunks[i]}</span>`).join('')}</div><div class="chunks">${st.pool.filter(i=>!st.placed.includes(i)).map(i=>`<button class="chunk" data-act="chunk" data-i="${i}">${s.chunks[i]}</button>`).join('')}</div>${st.placed.length===s.chunks.length?'<div class="fb ok">MashaAllah, perfect!</div>':''}`;}
   else if(s.t==='daddy'){body=`<div class="card stage">${daddy}<p class="say">${fill(s.text)}</p><div class="row"><button class="btn gold" data-act="daddyCheck">Daddy's PIN</button></div><p class="small muted">Daddy not here? Come back later. Your answers are kept.</p></div>`;}
   const isLast=L.i===L.steps.length-1;
-  return `<div class="topbar"><button class="back" data-act="quit" aria-label="Leave lesson">✕</button><div class="prog"><i style="width:${pct}%"></i></div></div>
+  return `<div class="topbar"><button class="back" data-act="quit" aria-label="Leave lesson">✕</button><div class="prog"><i style="width:${pct}%"></i></div><button class="readbtn ${readOn()?'on':''}" data-act="readToggle" aria-label="${readOn()?'Reading aloud is on':'Read to me'}">${readOn()?'🔊':'🔈'}</button></div>
   <div class="spread"><h3>${esc(l.title)}</h3>${l.world!=='ad'&&l.world!=='st'&&l.world!=='sk'&&L.i===0&&WORLDS[l.world].seq&&!L.quick?`<button class="btn ghost sm" data-act="quick">I know this</button>`:''}</div>
   <div class="stage">${dban}${body}</div>
   ${s.t==='daddy'||(s.t==='sort'&&st.ans!=null)||(s.t==='quiz'&&st.ans!=null)?'':`<div class="row" style="justify-content:flex-end"><button class="btn ${isLast?'rose':''}" data-act="next" ${canNext()?'':'disabled'}>${isLast?'Finish':'Next'}</button></div>`}`;
@@ -1914,7 +1970,7 @@ function setupScreen(){
 function parents(){
   const ids=Object.keys(S.kids);
   const pendingDeeds=Object.entries(S.deeds).filter(([i,d])=>d.status==='pending');
-  const worlds=['aq','ad','st','hc'].map(w=>({w,list:WORLDS[w].lessons}));
+  const worlds=['aq','ad','st','hc','hz'].map(w=>({w,list:WORLDS[w].lessons}));
   const ek=ui.editKid,kid=ek&&ek!=='new'?S.kids[ek]:{name:'',pin:'',symbol:'🌸'};
   return `<div class="topbar"><button class="back" data-act="cover">← Done</button>${saveChip()}</div>
   <div class="ph"><img src="img/quran.jpg" alt=""><div><h1>Parents' corner</h1><p class="muted">Approve lessons, confirm good deeds and see how everyone is doing.</p></div></div>
@@ -1922,6 +1978,7 @@ function parents(){
   <section class="sect"><div class="spread"><h2>Children</h2><button class="btn sm" data-act="editKid" data-id="new">Add a child</button></div>
    ${ek?`<div class="card stage"><h3>${ek==='new'?'Add a child':'Edit '+esc(kid.name)}</h3>
      <div class="field"><label for="kname">Name</label><input id="kname" value="${esc(kid.name)}" autocomplete="off"></div>
+     <label class="small" style="display:flex;gap:8px;align-items:center;margin:4px 0 10px"><input type="checkbox" id="kread" ${kid.read?'checked':''}> Read everything aloud (for little ones who cannot read yet)</label>
      <div class="field"><label for="kpin">4-number PIN (leave empty for no PIN)</label><input id="kpin" inputmode="numeric" maxlength="4" value="${esc(kid.pin||'')}" autocomplete="off"></div>
      <div class="field"><label>Symbol</label><div class="syms">${SYMS.map(s=>`<button class="${(ui.sym||kid.symbol)===s?'on':''}" data-act="sym" data-s="${s}" aria-label="Symbol ${s}">${s}</button>`).join('')}</div></div>
      <div class="row"><button class="btn rose" data-act="saveKid">Save</button><button class="btn ghost" data-act="editKid" data-id="">Cancel</button>${ek!=='new'?`<button class="btn ghost" data-act="delKid">Remove</button>`:''}</div></div>`:''}
@@ -1930,6 +1987,7 @@ function parents(){
 
   ${bundlesSection()}
   ${tugParentSection()}
+  <section class="sect"><h2>This week</h2><div class="card stage"><p class="small" style="white-space:pre-line">${esc(weekReport())}</p><p class="small muted">${window.LL_NTFY?'Every Friday evening this summary is sent to your phone through the ntfy app (the same one that tells you about join requests).':'Phone reports work on the GitHub version.'}</p>${window.LL_NTFY?'<div class="row"><button class="btn ghost sm" data-act="repNow">Send it to my phone now</button></div>':''}</div></section>
   <section class="sect"><h2>Waiting for your OK</h2><p class="muted small">Read each lesson before your children see it. Arabic letters are open already.</p>
    ${worlds.map(({w,list})=>{const pend=list.filter(l=>!approved(l));return `<div class="card stage"><div class="spread"><h3>${WORLDS[w].name}</h3>${pend.length?`<button class="btn sm" data-act="apprAll" data-w="${w}">Approve all ${pend.length}</button>`:'<span class="chip green">All approved</span>'}</div>
     <div class="list">${list.map(l=>`<div class="li"><span class="tx"><b>${esc(l.title)}</b></span>${approved(l)?'<span class="chip green">Approved</span>':`<button class="btn sm" data-act="appr" data-id="${l.id}">Approve</button>`}<button class="btn ghost sm" data-act="prev" data-id="${l.id}">${ui.openPrev===l.id?'Hide':'Read'}</button>${ui.openPrev===l.id?previewHTML(l):''}</div>`).join('')}</div></div>`}).join('')}
@@ -1940,8 +1998,8 @@ function parents(){
    ${ids.length?`<div class="card stage"><h3>Add a deed you saw</h3><div class="field"><label for="dkid">Child</label><select id="dkid">${ids.map(k=>`<option value="${k}">${esc(S.kids[k].name)}</option>`).join('')}</select></div><div class="field"><label for="dtext">What did they do?</label><input id="dtext" placeholder="Helped clear the table without being asked" autocomplete="off"></div><div class="row"><button class="btn rose" data-act="addDeed">Add and grow a flower</button></div></div>`:''}
   </section>
 
-  <section class="sect"><h2>Progress</h2>${ids.length?`<div class="card tablewrap"><table><thead><tr><th>Child</th><th>Knowing Allah</th><th>Duas</th><th>Letters</th><th>Stories</th><th>Stars</th><th>Streak</th><th>Love notes</th><th>Last active</th></tr></thead><tbody>
-   ${ids.map(k=>{const P=prog(k);const c=w=>WORLDS[w].lessons.filter(l=>P.done[l.id]).length+'/'+WORLDS[w].lessons.length;const last=(P.log||[]).slice(-1)[0];return `<tr><td><b>${esc(S.kids[k].name)}</b></td><td>${c('aq')}</td><td>${c('ad')}</td><td>${c('ar')}</td><td>${c('st')}</td><td>${Object.values(P.done).reduce((a,b)=>a+b,0)}</td><td>${P.streak||0}</td><td>${(st=>st.all?`💛 ${st.y} yes · ${st.n} not yet`:'None yet')(loveStats(k))}</td><td>${last?new Date(last.at).toLocaleDateString():'Not yet'}</td></tr>`}).join('')}</tbody></table></div>`:'<p class="muted">Progress appears once children start.</p>'}</section>
+  <section class="sect"><h2>Progress</h2>${ids.length?`<div class="card tablewrap"><table><thead><tr><th>Child</th><th>Knowing Allah</th><th>Duas</th><th>Letters</th><th>Stories</th><th>Stars</th><th>Level</th><th>Streak</th><th>Love notes</th><th>Last active</th></tr></thead><tbody>
+   ${ids.map(k=>{const P=prog(k);const c=w=>WORLDS[w].lessons.filter(l=>P.done[l.id]).length+'/'+WORLDS[w].lessons.length;const last=(P.log||[]).slice(-1)[0];return `<tr><td><b>${esc(S.kids[k].name)}</b></td><td>${c('aq')}</td><td>${c('ad')}</td><td>${c('ar')}</td><td>${c('st')}</td><td>${Object.values(P.done).reduce((a,b)=>a+b,0)}</td><td>${levelOf(k).icon} ${levelOf(k).name}</td><td>${P.streak||0}</td><td>${(st=>st.all?`💛 ${st.y} yes · ${st.n} not yet`:'None yet')(loveStats(k))}</td><td>${last?new Date(last.at).toLocaleDateString():'Not yet'}</td></tr>`}).join('')}</tbody></table></div>`:'<p class="muted">Progress appears once children start.</p>'}</section>
 
   <section class="sect"><h2>For you to read</h2><div class="list">
    <div class="li"><span class="tx"><a href="https://abdurrahman.org/2014/06/04/how-does-a-father-teach-his-children-tawheed-shaykh-muhammad-bin-salih-al-uthaymeen/" target="_blank" rel="noopener">How does a father teach his children Tawheed?</a><span class="small muted" style="display:block">Shaykh al-Uthaymeen</span></span></div>
@@ -2156,6 +2214,7 @@ function myBrag(k){
   if(l.world==='ad')return [`I learnt the dua for ${l.title.toLowerCase()} 🤲`];
   if(l.world==='aq')return [`I learnt "${l.title}" today 🌙`];
   if(l.world==='sk')return [`I finished the ${l.title} game! 🧩`];
+  if(l.world==='hz')return [`I learnt ${l.title} by heart! 📖`];
   return [];
 }
 function reminderNow(){const h=new Date().getHours();return h<11?'Remember the morning dua today! 🛡️':h<15?'Say Bismillah before lunch! 🍽️':h<20?'Time for the evening dua! 🛡️':"Don't forget the dua before sleeping! 🛏️"}
@@ -2169,8 +2228,13 @@ function wavesFor(c){return [...cheerFor(c).slice(0,1),'Assalamu alaikum! 👋',
 /* ===================== FLASHCARDS ===================== */
 const FLASH_INT=[0,1,3,7,30];
 const PCLUE={'st-adam':['🌍','Who was the very first human, made by Allah from clay?'],'st-nuh':['🚢','Which Prophet built a big ship (the Ark) by Allah\'s command?'],'st1':['🌬️',"Which Prophet was sent to the people of 'Aad, who built tall buildings?"],'st-saaleh':['🐪','Which Prophet was sent to Thamud, with a special she-camel from Allah?'],'st-ibrahim':['🔥','Which Prophet broke the idols and was kept safe in the fire?'],'st-yunus':['🐋','Which Prophet was swallowed by a big fish?']};
+function hstr(t){let h=5381;for(const c of String(t))h=(h*33+c.charCodeAt(0))>>>0;return h.toString(36)}
+function missQ(q,src){const k=ui.kid;if(!k||!S.kids[k]||!q||!q.o)return;const P=prog(k),id='fx-'+hstr(q.q+'|'+q.o[0]);P.missed=P.missed||{};P.flash=P.flash||{};
+  P.missed[id]={q:q.q,a:q.o[0],why:q.why||'',big:q.big||'',glyph:!!q.glyph,src,at:Date.now(),n:((P.missed[id]||{}).n||0)+1};
+  P.flash[id]={b:0,due:dayNum()+2};saveProg(k)}
 function flashDeck(k){
   const P=prog(k),d=P.done||{},cards=[];
+  Object.entries(P.missed||{}).forEach(([id,m])=>cards.push({id,deck:'Try again',pic:m.big?'':'🔁',big:m.big||'',q:m.q,a:m.a,ar:m.glyph&&/[\u0600-\u06FF]/.test(m.a)?m.a:'',why:m.why}));
   STORIES.forEach(s=>{if(d[s.id]&&PCLUE[s.id]){const pr=PROPHETS.find(p=>p[0]===s.pid)||(s.id==='st1'?PROPHETS.find(p=>p[0]==='huud'):null);
     cards.push({id:'fp-'+s.id,deck:'Prophets',pic:PCLUE[s.id][0],q:PCLUE[s.id][1],a:pr?'Prophet '+pr[1]:s.title,ar:pr?pr[2]+' عَلَيْهِ السَّلَام':''})}});
   if(d['st-yunus'])cards.push({id:'fp-yunus-dua',deck:'Prophets',pic:'🐋',q:'What did Prophet Yunus say inside the big fish?',a:'There is no god but You, glory be to You. I was one of the wrongdoers.',ar:'لَا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ'});
@@ -2204,7 +2268,7 @@ function flashScreen(){
   <button class="fcard ${F.flip?'flip':''}" data-act="flip" aria-label="${F.flip?'Answer showing':'Tap to see the answer'}">
    <span class="fin">
     <span class="ff front">${c.pic?`<span class="fpic">${c.pic}</span>`:''}${c.big?`<span class="fbig">${c.big}</span>`:''}<span class="fq">${esc(c.q)}</span><span class="fhint">Say your answer out loud, then tap to flip</span></span>
-    <span class="ff back"><span class="flab">Answer</span><span class="fa">${esc(c.a)}</span>${c.ar?`<span class="far">${c.ar}</span>`:''}</span>
+    <span class="ff back"><span class="flab">Answer</span><span class="fa">${esc(c.a)}</span>${c.ar?`<span class="far">${c.ar}</span>`:''}${c.why?`<span class="fwhy">${esc(c.why)}</span>`:''}</span>
    </span>
   </button>
   ${F.flip?`<div class="fbtns"><button class="btn rose" data-act="fNo">🔁 Not yet</button><button class="btn" data-act="fYes">✅ I knew it</button></div>`:`<p class="small muted" style="text-align:center">Card ${F.i+1} of ${F.q.length}</p>`}`;
@@ -2359,6 +2423,24 @@ function tugSchedule(m){
 function tugCancel(id,quiet){
   if(!id)return;delete (S.tug||{})[id];del('fam/'+id);Object.keys(S.tugp||{}).forEach(k=>{if(S.tugp[k].ev===id){delete S.tugp[k];del('fam/'+k)}});if(!quiet){toast('Cancelled.');render()}
 }
+/* ===================== FRIDAY REPORT (to Daddy's phone) ===================== */
+function weekReport(){
+  const since=Date.now()-7*864e5,lines=[];
+  for(const k in S.kids){const P=prog(k),log=(P.log||[]).filter(e=>e.at>=since),ls=log.map(e=>byId[e.l]).filter(Boolean);
+    const st=[...new Set(ls.filter(l=>l.world==='st').map(l=>l.part?l.title.replace(/^Prophet /,''):l.title.replace(/^Prophet /,'')))],hz=ls.filter(l=>l.world==='hz').map(l=>l.title);
+    const lv=levelOf(k),love=(P.love||[]).filter(x=>x.at>=since),ly=love.filter(x=>x.a===1).length,ln=love.filter(x=>x.a===0).length,miss=Object.values(P.missed||{}).filter(m=>m.at>=since).length;
+    const wq=(P.wq||{})[weekId()];
+    lines.push(`${S.kids[k].name} (${lv.icon} ${lv.name}): ${log.length?log.length+' lesson'+(log.length>1?'s':''):'no lessons this week'}${st.length?`, stories: ${st.slice(0,4).join('; ')}${st.length>4?' +'+(st.length-4):''}`:''}${hz.length?`, Qur'an: ${hz.join(', ')}`:''}${love.length?`, love notes ${ly} yes / ${ln} not yet`:''}${miss?`, ${miss} question${miss>1?'s':''} to review`:''}.`)}
+  return lines.join('\n');
+}
+function reportDue(){const w=weekId(),start=weekStart6().getTime()+12*3600e3;if(Date.now()<start)return null;return w}
+function sendReport(force){
+  if(!window.LL_NTFY||!Object.keys(S.kids).length)return;const w=reportDue();if(!force&&!w)return;
+  const key='ll-rep-'+(w||'now');if(!force){try{if(localStorage.getItem(key))return}catch(e){}if(mode==='db'&&(S.reports||{})['r-'+w])return}
+  try{localStorage.setItem(key,'1')}catch(e){}if(mode==='db'&&!force)put('fam/r-'+w,{at:Date.now()});
+  fetch('https://ntfy.sh/'+window.LL_NTFY,{method:'POST',body:weekReport(),headers:{Title:"Little Lantern: this week's learning",Tags:'lantern',Click:location.href.split('#')[0]}}).then(()=>force&&toast('Report sent to your phone')).catch(()=>force&&toast('Could not send the report.'));
+}
+setInterval(()=>{if(dbReady||mode!=='db')sendReport(false)},5*60e3);setTimeout(()=>{if(dbReady||mode!=='db')sendReport(false)},20e3);
 /* ===================== LITTLE LOVE NOTES (random, gentle) ===================== */
 const LOVE=[
  ['🌸','Think of one thing Allah gave you today. Got it? Now smile and whisper: Alhamdulillah!',''],
@@ -2393,8 +2475,9 @@ const LOVE=[
 let loveAt=Date.now()+60e3+Math.random()*60e3,loveLast=-1,loveT=0;
 function loveOn(){return S.settings.loveMsgs!==false}
 function lovePop(){
-  let i;do{i=Math.floor(Math.random()*LOVE.length)}while(i===loveLast&&LOVE.length>1);loveLast=i;
-  const [ic,t,src]=LOVE[i];let el=document.querySelector('.lovepop');if(el)el.remove();
+  const K=ui.kid,PL=K&&S.kids[K]?prog(K):{},later=PL.loveLater&&PL.loveLater.at<=Date.now()?PL.loveLater:null;
+  let i;if(later)i=later.n;else{do{i=Math.floor(Math.random()*LOVE.length)}while(i===loveLast&&LOVE.length>1)}loveLast=i;
+  const ic=LOVE[i][0],src=LOVE[i][2],t=later?'Earlier you said not yet. Ready now? '+LOVE[i][1]:LOVE[i][1];let el=document.querySelector('.lovepop');if(el)el.remove();
   el=document.createElement('div');el.className='lovepop';el.setAttribute('role','alertdialog');el.setAttribute('aria-label','A little love note');
   el.innerHTML=`<div class="lhead"><span class="lapp">${lanternMini()}</span><b>Little Lantern</b><span>now</span><button class="lx" aria-label="Close">✕</button></div>
    <div class="lbody"><span class="lic" aria-hidden="true">${ic}</span><span class="ltx"><b>${esc(t)}</b>${src?`<i>${esc(src)}</i>`:''}</span></div>
@@ -2403,8 +2486,8 @@ function lovePop(){
   const log=ans=>{const k=ui.kid;if(!k||!S.kids[k])return;const P=prog(k);P.love=[...(P.love||[]),{at:Date.now(),n:i,a:ans}].slice(-200);if(ans)P.loveDone=(P.loveDone||0)+1;saveProg(k)};
   const reply=(txt)=>{el.querySelector('.lbody').innerHTML=`<span class="lic" aria-hidden="true">${txt[0]}</span><span class="ltx"><b>${txt[1]}</b></span>`;el.querySelector('.lbtns').remove();clearTimeout(loveT);loveT=setTimeout(close,2600)};
   el.querySelector('.lx').onclick=()=>{log(null);close()};
-  el.querySelector('.lyes').onclick=()=>{log(1);reply(['🌟','MashaAllah! Allah saw that, and He loves it.'])};
-  el.querySelector('.lno').onclick=()=>{log(0);reply(['🌱',"That's okay! Try it when you are ready. Allah loves it when we try."])};
+  el.querySelector('.lyes').onclick=()=>{log(1);if(later&&K){const P=prog(K);delete P.loveLater;saveProg(K);const id=uid();S.deeds[id]={kid:K,text:'Love note: '+LOVE[i][1],status:'pending',at:Date.now()};saveDeed(id);reply(['🌟','MashaAllah! It went into your good deed jar for Daddy to see.'])}else reply(['🌟','MashaAllah! Allah saw that, and He loves it.'])};
+  el.querySelector('.lno').onclick=()=>{log(0);if(K){const P=prog(K);if(later)delete P.loveLater;else P.loveLater={n:i,at:Date.now()+2*3600e3};saveProg(K)}reply(['🌱',later?"That's okay. Maybe tomorrow, inshaAllah!":"That's okay! I'll remind you a bit later. Allah loves it when we try."])};
   document.body.appendChild(el);requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('in')));
   clearTimeout(loveT);loveT=setTimeout(close,20000);
 }
@@ -2414,6 +2497,7 @@ function loveOK(){if(['home','world','score','bell','flash'].includes(ui.screen)
 setInterval(()=>{
   if(!loveOn()||document.hidden||!ui.kid||!S.kids[ui.kid])return;
   if(!loveOK()){if(loveAt<Date.now()+20e3)loveAt=Date.now()+20e3;return}
+  const LL=prog(ui.kid).loveLater;if(LL&&LL.at<=Date.now()&&loveAt>Date.now()+60e3)loveAt=Date.now();
   if(Date.now()<loveAt)return;
   loveAt=Date.now()+(4+Math.random()*5)*60e3;lovePop();
 },15e3);
@@ -2540,7 +2624,7 @@ app.addEventListener('click',e=>{
    case 'home':go('home');break;
    case 'page':setPage(+b.dataset.p);break;
    case 'wqGo':startWQ();break;
-   case 'wqAns':{const W=ui.W,q=W.qs[W.i];W.ans=b.dataset.v;if(W.ans===q.o[0])W.right++;render();break;}
+   case 'wqAns':{const W=ui.W,q=W.qs[W.i];W.ans=b.dataset.v;if(W.ans===q.o[0])W.right++;else missQ(q,'wq');render();break;}
    case 'wqNext':{const W=ui.W;W.i++;W.ans=null;if(W.i>=W.qs.length)wqFinish();render();window.scrollTo({top:0});break;}
    case 'bundleOK':approveBundle(id);break;
 
@@ -2567,7 +2651,7 @@ app.addEventListener('click',e=>{
    case 'sortNext':st.k++;st.ans=null;render();break;
    case 'mL':st.sel=+b.dataset.i;render();break;
    case 'mR':{if(st.sel==null){toast('Tap a name on the left first');break}const r=+b.dataset.i;if(r===st.sel){st.done[r]=1;st.sel=null}else{L.miss++;toast('Not a match. Try again');st.sel=null}render();break;}
-   case 'ans':{const q=s.qs[st.q];st.ans=b.dataset.v;if(st.ans!==q.o[0])L.miss++;else if(q.big||q.glyph){const x=LETTERS.find(y=>y[1]===q.o[0]||y[0]===q.o[0]);x&&speak(x[2])}render();break;}
+   case 'ans':{const q=s.qs[st.q];st.ans=b.dataset.v;if(st.ans!==q.o[0]){L.miss++;missQ(q,L.id)}else if(q.big||q.glyph){const x=LETTERS.find(y=>y[1]===q.o[0]||y[0]===q.o[0]);x&&speak(x[2])}render();break;}
    case 'qNext':st.q++;st.ans=null;if(st.q>=s.qs.length){if(L.i<L.steps.length-1){L.i++;prepStep()}else{finishLesson();break}}render();break;
    case 'count':st.c++;render();break;
    case 'avatar':ui.avDraft=null;go('avatar');break;
@@ -2593,6 +2677,9 @@ app.addEventListener('click',e=>{
    case 'tugLeave':ui.page=0;go('home');break;
    case 'tugSched':tugSchedule(b.dataset.m);break;
    case 'tugDel':tugCancel(b.dataset.id);break;
+   case 'ayPlay':ayPlay(b.dataset.ref,+b.dataset.rep||1);break;
+   case 'readToggle':{const k=ui.kid;if(S.kids[k]){S.kids[k].read=!S.kids[k].read;saveKid(k);toast(S.kids[k].read?'I will read everything to you 🔊':'Reading aloud is off');lastSpoken='';render();if(S.kids[k].read)autoRead(true);else try{speechSynthesis.cancel()}catch(e){}}break;}
+   case 'repNow':sendReport(true);break;
    case 'loveTest':lovePop();break;
    case 'loveMsgs':S.settings.loveMsgs=S.settings.loveMsgs===false;saveSettings();render();break;
    case 'chatTyping':S.settings.chatTyping=S.settings.chatTyping===false;saveSettings();render();break;
@@ -2603,7 +2690,7 @@ app.addEventListener('click',e=>{
    case 'editKid':ui.editKid=id||null;ui.sym=null;render();break;
    case 'sym':ui.sym=b.dataset.s;{const n=document.getElementById('kname')?.value,p=document.getElementById('kpin')?.value;render();if(n!=null)document.getElementById('kname').value=n;if(p!=null)document.getElementById('kpin').value=p;}break;
    case 'saveKid':{const n=document.getElementById('kname').value.trim(),p=document.getElementById('kpin').value.trim();if(!n){toast('Add a name');break}if(p&&!/^\d{4}$/.test(p)){toast('PIN must be 4 numbers, or empty');break}
-     const k=ui.editKid==='new'?uid():ui.editKid;S.kids[k]=Object.assign({},S.kids[k]||{},{name:n,pin:p,symbol:ui.sym||S.kids[k]?.symbol||'🌸'});saveKid(k);if(!S.progress[k]){prog(k);saveProg(k)}ui.editKid=null;toast('Saved');render();break;}
+     const k=ui.editKid==='new'?uid():ui.editKid;S.kids[k]=Object.assign({},S.kids[k]||{},{name:n,pin:p,symbol:ui.sym||S.kids[k]?.symbol||'🌸',read:!!(document.getElementById('kread')||{}).checked});saveKid(k);if(!S.progress[k]){prog(k);saveProg(k)}ui.editKid=null;toast('Saved');render();break;}
    case 'delKid':{const k=ui.editKid;delete S.kids[k];del('kids/'+k);ui.editKid=null;toast('Removed');render();break;}
    case 'appr':S.approvals[id]=true;saveApprovals();render();break;
    case 'apprAll':WORLDS[b.dataset.w].lessons.forEach(l=>S.approvals[l.id]=true);saveApprovals();toast('Approved');render();break;
