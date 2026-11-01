@@ -723,8 +723,8 @@ const AQ=[
 ];
 AQ.forEach(l=>l.world='aq');
 
-const PICW={'ا':['🍍','أَنَانَاس','pineapple'],'ب':['🏠','بَيْت','house'],'ت':['🍎','تُفَّاح','apple'],'ث':['❄️','ثَلْج','snow'],'ج':['🥕','جَزَر','carrot'],'ح':['🥛','حَلِيب','milk'],'خ':['🍞','خُبْز','bread'],'د':['🚲','دَرَّاجَة','bicycle'],'ذ':['🌽','ذُرَة','corn'],'ر':['🪶','رِيشَة','feather'],'ز':['🫒','زَيْتُون','olive'],'س':['⌚','سَاعَة','watch'],'ش':['☀️','شَمْس','sun'],'ص':['📦','صُنْدُوق','box'],'ض':['💡','ضَوْء','light'],'ط':['✈️','طَائِرَة','plane'],'ظ':['✉️','ظَرْف','envelope'],'ع':['🍇','عِنَب','grapes'],'غ':['☁️','غَيْمَة','cloud'],'ف':['🍓','فَرَاوِلَة','strawberry'],'ق':['🌙','قَمَر','moon'],'ك':['📖','كِتَاب','book'],'ل':['🍋','لَيْمُون','lemon'],'م':['🍌','مَوْز','banana'],'ن':['⭐','نَجْمَة','star'],'ه':['🎁','هَدِيَّة','gift'],'و':['🌹','وَرْدَة','rose'],'ي':['✋','يَد','hand']};
-const DPIC={ad1:'🍽️',ad2:'😋',ad3:'🌅',ad4:'🛏️',ad5:'🚪',ad6:'🧼',ad7:'👟',ad8:'🤧',ad9:'🛡️',ad10:'📖'};
+const PICW={'ا':['🍍','أَنَانَاس','pineapple'],'ب':['🏠','بَيْت','house'],'ت':['🍎','تُفَّاح','apple'],'ث':['❄️','ثَلْج','snow'],'ج':['🥕','جَزَر','carrot'],'ح':['🥛','حَلِيب','milk'],'خ':['🍞','خُبْز','bread'],'د':['🚲','دَرَّاجَة','bicycle'],'ذ':['🌽','ذُرَة','corn'],'ر':['🪶','رِيشَة','feather'],'ز':['🫒','زَيْتُون','olive'],'س':['⌚','سَاعَة','watch'],'ش':['☀️','شَمْس','sun'],'ص':['📦','صُنْدُوق','box'],'ض':['💡','ضَوْء','light'],'ط':['✈️','طَائِرَة','plane'],'ظ':['✉️','ظَرْف','envelope'],'ع':['🍇','عِنَب','grapes'],'غ':['☁️','غَيْمَة','cloud'],'ف':['🍓','فَرَاوِلَة','strawberry'],'ق':['🌙','قَمَر','moon'],'ك':['📖','كِتَاب','book'],'ل':['🍋','لَيْمُون','lemon'],'م':['🍌','مَوْز','banana'],'ن':['⭐','نَجْمَة','star'],'ه':['🎁','هَدِيَّة','gift'],'و':['🌹','وَرْدَة','rose'],'ي':['🕊️','يَمَامَة','dove']};
+const DPIC={ad1:'🍽️',ad2:'🥣',ad3:'🌅',ad4:'🛏️',ad5:'🚪',ad6:'🧼',ad7:'👟',ad8:'🌬️',ad9:'🛡️',ad10:'📖'};
 const DDAY=[['Wake up','🌅','#FFE3B8','#FFC98A',['ad3','ad9']],['Bathroom','🚿','#DDEBFA','#B9D3F0',['ad5','ad6']],['Meal time','🍽️','#E4F3E4','#BFE0BF',['ad1','ad2']],['Going out','🏡','#FCE3EC','#F4C3D4',['ad7']],['Any time','✨','#F1E8FA','#D9C8EE',['ad8']],['Bedtime','🌙','#2B3557','#1C2440',['ad4','ad10']]];
 const AD=[
 {id:'ad1',title:'Before eating',ar:'بِسْمِ اللَّهِ',when:'Before you start eating or drinking',tr:'Bismillah',mean:'In the name of Allah.',extra:{ar:'بِسْمِ اللَّهِ فِي أَوَّلِهِ وَآخِرِهِ',tr:'Bismillahi fi awwalihi wa akhirihi',mean:'If you forgot at the start, say: In the name of Allah, at its beginning and its end.'},chunks:['بِسْمِ اللَّهِ','فِي أَوَّلِهِ','وَآخِرِهِ'],src:'Abu Dawud, at-Tirmidhi'},
@@ -740,7 +740,7 @@ const AD=[
 ];
 AD.forEach(d=>{d.world='ad';d.auto=true;d.sub=d.when;d.steps=adhkarSteps(d)});
 function adhkarSteps(d){
-  const others=['🍽️ Before you start eating','🌅 When you wake up','🛏️ When you lie down to sleep','👟 When you go out of the house','😋 When you finish eating','🧼 When you come out of the toilet','🤧 When you sneeze','🛡️ Every morning and evening'];
+  const others=['🍽️ Before you start eating','🌅 When you wake up','🛏️ When you lie down to sleep','👟 When you go out of the house','🥣 When you finish eating','🧼 When you come out of the toilet','🌬️ When you sneeze','🛡️ Every morning and evening'];
   const st=[{t:'say',text:`Here is a dua for: ${d.when.toLowerCase()}. Listen to Daddy say it, then say it with him.`},
     {t:'dhikr'},{t:'count',n:d.count||3}];
   if(d.chunks) st.push({t:'order',chunks:d.chunks});
@@ -1137,8 +1137,8 @@ function certsShelf(){
 
 /* ===================== WHO'S HERE + SALAM ===================== */
 const ONLINE_MS=75000;
-const WAVES=['Assalamu alaikum! 👋','Come and play! 🌙',"Let's read a story! 📜",'MashaAllah! 🌟'];
-const REPLIES=['Wa alaikum assalam! 😊','Coming! 🏃','Jazakallahu khair! 💛'];
+const WAVES=['Assalamu alaikum! 🌸','Come and play! 🌙',"Let's read a story! 📜",'MashaAllah! 🌟'];
+const REPLIES=['Wa alaikum assalam! 🌸','Coming! 💨','Jazakallahu khair! 💛'];
 let lastBeat=0,lastDoing='';
 function doingNow(){
   const s=ui.screen;
@@ -1184,13 +1184,13 @@ function whosHere(){
 }
 function sendWave(to,msg){sendChat(msg,to)}
 function sendChat(text,to){
-  if(mode!=='db'||!text)return;
+  if(mode!=='db'||!text)return;text=noFaces(text);
   const id='c-'+Date.now().toString(36)+uid().slice(0,4);
   const doc=ui.chatAs?{name:ui.chatAs.name,parent:true,text,at:Date.now()}:{from:ui.kid,to:to||null,text,at:Date.now()};
   S.chat=S.chat||{};S.chat[id]=doc;put('fam/'+id,doc);
 }
-const CHAT_EMOJI=['😊','😂','❤️','👍','🌟','🎉','🤲','🌙','📜','🌸'];
-const CHAT_QUICK=['Assalamu alaikum! 👋','MashaAllah! 🌟','Alhamdulillah 🤲','Jazakallahu khair! 💛','Come and play! 🌙',"Let's read a story! 📜",'I finished a lesson! 🎉','InshaAllah tomorrow!'];
+const CHAT_EMOJI=['🌸','🎉','❤️','✅','🌟','🎉','💫','🌙','📜','🌸'];
+const CHAT_QUICK=['Assalamu alaikum! 🌸','MashaAllah! 🌟','Alhamdulillah 💛','Jazakallahu khair! 💛','Come and play! 🌙',"Let's read a story! 📜",'I finished a lesson! 🎉','InshaAllah tomorrow!'];
 function chatScreen(){
   const list=chatList(),typing=S.settings.chatTyping!==false,me=ui.kid;
   const who=c=>c.parent?{name:c.name||'Grown-up',av:'<span class="sym" style="width:36px;height:36px;font-size:18px;background:var(--gold-soft)">${lanternIcon(26)}</span>'}:{name:S.kids[c.from]?.name||'Someone',av:S.kids[c.from]?symEl(c.from,36):''};
@@ -1370,7 +1370,7 @@ const HZ=HZDATA.map(([n,t,m,ar,vs])=>{
 
 const WORLDS={
  aq:{name:'Knowing Allah',sub:'Aqeedah island 1',icon:'🌙',cls:'w-aq',lessons:AQ,seq:true},
- ad:{name:'My daily duas',sub:'Adhkar',icon:'🤲',cls:'w-ad',lessons:AD,seq:false},
+ ad:{name:'My daily duas',sub:'Adhkar',icon:'💫',cls:'w-ad',lessons:AD,seq:false},
  ar:{name:'Arabic letters',sub:'Alif to Yaa',icon:'ا',cls:'w-ar',lessons:LV,seq:true},
  st:{name:'The Story Room',sub:'Stories of the Prophets',icon:'📜',cls:'w-st',lessons:STORIES,seq:false},
  sk:{name:'Stack it',sub:'Put things in the right order',icon:'🧩',cls:'w-sk',lessons:SK,seq:false},
@@ -1486,7 +1486,7 @@ const approved=l=>l.auto||!!S.approvals[l.id];
 function doneDay(id){const e=(prog(ui.kid).log||[]).find(x=>x.l===id);return e?dayKey(new Date(e.at)):''}
 function unlocked(l){if(l.world==='st')return storyOpen(l);const w=WORLDS[l.world];if(!w.seq)return true;const i=w.lessons.indexOf(l);if(i===0)return true;const prev=w.lessons[i-1];if(!prog(ui.kid).done[prev.id])return false;if(l.world==='st')return doneDay(prev.id)!==dayKey();return true}
 function starsTxt(n){return '★'.repeat(n)+'☆'.repeat(3-n)}
-let toastT;function toast(m){let t=document.querySelector('.toast');if(!t){t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t)}t.textContent=m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,2600)}
+let toastT;function toast(m){m=noFaces(m);let t=document.querySelector('.toast');if(!t){t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t)}t.textContent=m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,2600)}
 let arVoice=null;function loadVoices(){try{arVoice=speechSynthesis.getVoices().find(v=>/^ar/i.test(v.lang))||null}catch(e){}}
 try{loadVoices();speechSynthesis.onvoiceschanged=()=>{loadVoices();soft()}}catch(e){}
 let enVoice=null,mlVoice=null,allVoices=[];
@@ -1526,8 +1526,8 @@ function autoRead(force){
   else if(ui.screen==='score'&&ui.result){key='score'+ui.result.id;txt=ui.result.stars===3?'MashaAllah, perfect!':'Well done, '+kidName()+'!'}
   if(!txt||(!force&&key===lastSpoken))return;lastSpoken=key;setTimeout(()=>sayEn(txt),250);
 }
-const LETML={'ا':['അലിഫ്','അനാനാസ്','കൈതച്ചക്ക'],'ب':['ബാ','ബൈത്ത്','വീട്'],'ت':['താ','തുഫ്ഫാഹ്','ആപ്പിൾ'],'ث':['ഥാ','ഥൽജ്','മഞ്ഞ്'],'ج':['ജീം','ജസർ','കാരറ്റ്'],'ح':['ഹാ','ഹലീബ്','പാൽ'],'خ':['ഖാ','ഖുബ്സ്','റൊട്ടി'],'د':['ദാൽ','ദർറാജ','സൈക്കിൾ'],'ذ':['ദാൽ','ദുറ','ചോളം'],'ر':['റാ','രീശ','തൂവൽ'],'ز':['സായ്','സൈതൂൻ','ഒലിവ്'],'س':['സീൻ','സാഅ','വാച്ച്'],'ش':['ശീൻ','ശംസ്','സൂര്യൻ'],'ص':['സ്വാദ്','സ്വുന്ദൂഖ്','പെട്ടി'],'ض':['ളാദ്','ളൗഅ്','വെളിച്ചം'],'ط':['ത്വാ','ത്വാഇറ','വിമാനം'],'ظ':['ള്വാ','ളർഫ്','കവർ'],'ع':['ഐൻ','ഇനബ്','മുന്തിരി'],'غ':['ഗൈൻ','ഗൈമ','മേഘം'],'ف':['ഫാ','ഫറാവില','സ്ട്രോബെറി'],'ق':['ഖാഫ്','ഖമർ','ചന്ദ്രൻ'],'ك':['കാഫ്','കിതാബ്','പുസ്തകം'],'ل':['ലാം','ലൈമൂൻ','നാരങ്ങ'],'م':['മീം','മൗസ്','പഴം'],'ن':['നൂൻ','നജ്മ','നക്ഷത്രം'],'ه':['ഹാ','ഹദിയ്യ','സമ്മാനം'],'و':['വാവ്','വർദ','റോസാപ്പൂ'],'ي':['യാ','യദ്','കൈ']};
-const PICTR={'ا':'ananas','ب':'bayt','ت':'tuffah','ث':'thalj','ج':'jazar','ح':'haleeb','خ':'khubz','د':'darrajah','ذ':'dhurah','ر':'reeshah','ز':'zaytoon','س':"sa'ah",'ش':'shams','ص':'sundooq','ض':"daw'",'ط':"ta'irah",'ظ':'zarf','ع':"'inab",'غ':'ghaymah','ف':'farawlah','ق':'qamar','ك':'kitab','ل':'laymoon','م':'mawz','ن':'najmah','ه':'hadiyyah','و':'wardah','ي':'yad'};
+const LETML={'ا':['അലിഫ്','അനാനാസ്','കൈതച്ചക്ക'],'ب':['ബാ','ബൈത്ത്','വീട്'],'ت':['താ','തുഫ്ഫാഹ്','ആപ്പിൾ'],'ث':['ഥാ','ഥൽജ്','മഞ്ഞ്'],'ج':['ജീം','ജസർ','കാരറ്റ്'],'ح':['ഹാ','ഹലീബ്','പാൽ'],'خ':['ഖാ','ഖുബ്സ്','റൊട്ടി'],'د':['ദാൽ','ദർറാജ','സൈക്കിൾ'],'ذ':['ദാൽ','ദുറ','ചോളം'],'ر':['റാ','രീശ','തൂവൽ'],'ز':['സായ്','സൈതൂൻ','ഒലിവ്'],'س':['സീൻ','സാഅ','വാച്ച്'],'ش':['ശീൻ','ശംസ്','സൂര്യൻ'],'ص':['സ്വാദ്','സ്വുന്ദൂഖ്','പെട്ടി'],'ض':['ളാദ്','ളൗഅ്','വെളിച്ചം'],'ط':['ത്വാ','ത്വാഇറ','വിമാനം'],'ظ':['ള്വാ','ളർഫ്','കവർ'],'ع':['ഐൻ','ഇനബ്','മുന്തിരി'],'غ':['ഗൈൻ','ഗൈമ','മേഘം'],'ف':['ഫാ','ഫറാവില','സ്ട്രോബെറി'],'ق':['ഖാഫ്','ഖമർ','ചന്ദ്രൻ'],'ك':['കാഫ്','കിതാബ്','പുസ്തകം'],'ل':['ലാം','ലൈമൂൻ','നാരങ്ങ'],'م':['മീം','മൗസ്','പഴം'],'ن':['നൂൻ','നജ്മ','നക്ഷത്രം'],'ه':['ഹാ','ഹദിയ്യ','സമ്മാനം'],'و':['വാവ്','വർദ','റോസാപ്പൂ'],'ي':['യാ','യമാമ','പ്രാവ്']};
+const PICTR={'ا':'ananas','ب':'bayt','ت':'tuffah','ث':'thalj','ج':'jazar','ح':'haleeb','خ':'khubz','د':'darrajah','ذ':'dhurah','ر':'reeshah','ز':'zaytoon','س':"sa'ah",'ش':'shams','ص':'sundooq','ض':"daw'",'ط':"ta'irah",'ظ':'zarf','ع':"'inab",'غ':'ghaymah','ف':'farawlah','ق':'qamar','ك':'kitab','ل':'laymoon','م':'mawz','ن':'najmah','ه':'hadiyyah','و':'wardah','ي':'yamamah'};
 function explainLetter(x){
   try{speechSynthesis.cancel()}catch(e){}stopAudio();
   if(arVoice){const u=new SpeechSynthesisUtterance(x[2]);u.voice=arVoice;u.lang=arVoice.lang;u.rate=.75;speechSynthesis.speak(u)}
@@ -1541,6 +1541,9 @@ function speak(t){try{if(!arVoice)return;speechSynthesis.cancel();const u=new Sp
 let ui={screen:'cover',kid:null,parent:false,world:null,L:null,pin:'',pinFor:null,editKid:null,openPrev:null,deedText:''};
 const app=document.getElementById('app');
 let pendingSoft=false;
+/* No faces, people or hand gestures anywhere (Ali's rule). Anything that slips in from content or chat is swapped for a sparkle. */
+const NOFACE=/(?:[\u{1F0CF}\u{1F3AD}\u{1F3C3}\u{1F3C4}\u{1F3C7}\u{1F3CA}-\u{1F3CC}\u{1F440}-\u{1F450}\u{1F466}-\u{1F487}\u{1F4AA}\u{1F574}-\u{1F57A}\u{1F590}-\u{1F596}\u{1F600}-\u{1F64F}\u{1F6A3}\u{1F6B4}-\u{1F6B6}\u{1F6C0}\u{1F6CC}\u{1F90C}-\u{1F90F}\u{1F910}-\u{1F93F}\u{1F970}-\u{1F97A}\u{1F9B5}-\u{1F9BF}\u{1F9CD}-\u{1F9DF}\u{1FAC0}-\u{1FAC5}\u{1FAE0}-\u{1FAF8}\u{1F479}-\u{1F47F}\u{1F480}\u{1F921}\u{1F47B}☝☠☹☺⛹✊-✍](?:\u{1F3FB}|\u{1F3FC}|\u{1F3FD}|\u{1F3FE}|\u{1F3FF}|️|‍[\p{Extended_Pictographic}♀♂]️?)*)+/gu;
+function noFaces(t){return String(t).replace(NOFACE,'✨')}
 function soft(){const a=document.activeElement;if(a&&app.contains(a)&&/INPUT|TEXTAREA|SELECT/.test(a.tagName)){pendingSoft=true;return}render()}
 app.addEventListener('focusout',()=>{if(pendingSoft){pendingSoft=false;setTimeout(()=>{const a=document.activeElement;if(!(a&&/INPUT|TEXTAREA|SELECT/.test(a.tagName)))render()},0)}});
 function go(screen,extra){Object.assign(ui,{screen},extra||{});render();window.scrollTo({top:0,behavior:'instant'})}
@@ -1551,7 +1554,7 @@ function render(){
   if(!['home','world','score','bell','flash','play'].includes(ui.screen)){const lp=document.querySelector('.lovepop');if(lp)lp.remove()}
   if(ui.screen==='tug'&&document.getElementById('tugwrap')){tugUpdate();return}
   const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen,cert:certScreen,chat:chatScreen,bell:bellScreen,flash:flashScreen,wquiz:wquizScreen,tug:tugScreen,tugscore:tugScoreScreen,gcert:gcertScreen,reclist:recListScreen,rec:recScreen}[ui.screen]||cover;
-  app.innerHTML=f();
+  app.innerHTML=noFaces(f());
   const igOn=ui.screen==='home';document.body.classList.toggle('igon',igOn);document.documentElement.classList.toggle('snapy',igOn&&ui.page===2);
   placeRoad();
   beat(false);
@@ -1652,7 +1655,7 @@ function gardenPane(){
   <section class="sect"><h2 class="h2s">Today's three</h2><div class="today3">${tasks.map(t=>{const W=WORLDS[t.w];return `<button class="t3 ${t.did?'done':''}" ${t.w!=='ar'?`data-act="world" data-w="${t.w}"`:t.nx?`data-act="open" data-id="${t.nx.id}"`:'disabled'}><span class="ic ${t.w==='ar'?'ar':''}">${t.did?'✅':W.icon}</span><b>${short[t.w]}</b><small>${t.w==='aq'&&t.nx?'Stop '+(AQ.indexOf(t.nx)+1)+': '+esc(t.nx.title.replace(/^Allah is /,'')):t.w==='ad'?(t.did?'Done! Pick another':'All '+AD.length+' duas'):t.nx?esc(t.nx.title):(t.did?'Done!':'Waiting for Daddy')}</small></button>`}).join('')}</div></section>
   <section class="sect"><h2 class="h2s">Play and learn</h2><div class="tiles">${['st','hz','sk','aq','ad','ar','hc'].map(tile).join('')}
    ${wqTile(k)}
-   <button class="tile w-fl" data-act="flash"><span class="ic">🃏</span><b>Flashcards</b><small>${(()=>{const n=flashDue(k);return n?n+' ready':flashDeck(k).length?'Done today ✅':'After a lesson'})()}</small></button>
+   <button class="tile w-fl" data-act="flash"><span class="ic">🗂️</span><b>Flashcards</b><small>${(()=>{const n=flashDue(k);return n?n+' ready':flashDeck(k).length?'Done today ✅':'After a lesson'})()}</small></button>
    <button class="tile w-duel" data-act="${dOpen?'duelPick':'duelUnlock'}"><span class="ic">${dOpen?'⚔️':'🔒'}</span><b>Duel with Daddy</b><small>${dOpen?(D.played?`${D.won} wins`:'Play now'):'After a lesson'}</small></button>
    ${mode==='db'?`<button class="tile w-duel" data-act="tugScore"><span class="ic">🚩</span><b>Team Tug of War</b><small>${(ev=>ev?(Date.now()>=ev.at?'Live now!':'Next: '+tugTime(ev.at).replace('Today ','')):'Scorecard')(tugNext())}</small></button>`:''}</div>
    <p class="small muted">Coming soon: ${SOON.map(s=>s[1]).join(', ')}</p></section>
@@ -1692,7 +1695,7 @@ function duaDay(){
   const card=id=>{const l=byId[id],d=P.done[id],short=l.ar.length<=26?l.ar:l.chunks?l.chunks[0]:l.ar.split('<br>')[0];
     return `<button class="dcard" data-act="open" data-id="${id}" aria-label="${esc(l.title)}${d?', done':''}"><span class="dpic">${DPIC[id]}</span><b>${esc(l.title)}</b><span class="dar">${short.length>26?short.split(' ').slice(0,3).join(' ')+' …':short}</span>${d?`<span class="stars">${starsTxt(d)}</span>`:'<span class="chip rose">Start</span>'}</button>`};
   return `<div class="topbar"><button class="back" data-act="home">← My garden</button></div>
-  <div class="world w-ad" style="min-height:auto"><span class="wicon">🤲</span><h1>My daily duas</h1><p>A dua for every part of your day. You know ${n} of ${AD.length}.</p></div>
+  <div class="world w-ad" style="min-height:auto"><span class="wicon">💫</span><h1>My daily duas</h1><p>A dua for every part of your day. You know ${n} of ${AD.length}.</p></div>
   <div class="dday">${DDAY.map(([name,ic,c1,c2,ids],i)=>`<section class="dsec ${i===DDAY.length-1?'night':''}" style="--c1:${c1};--c2:${c2}"><h2 class="dh"><span>${ic}</span>${name}</h2><div class="dgrid">${ids.map(card).join('')}</div></section>`).join('')}</div>`;
 }
 function letterLand(){
@@ -1764,7 +1767,7 @@ function play(){
   const L=ui.L,l=byId[L.id],s=curStep(),st=L.st,pct=Math.round(L.i/L.steps.length*100);
   let body='';
   const daddy='<div class="daddy">'+lanternMini()+'Daddy says</div>';
-  const dban=l.world==='ad'&&s.t!=='quiz'?`<div class="dban"><span class="dbe">${DPIC[l.id]||'🤲'}</span><b>${esc(l.when.split('.')[0])}</b></div>`:'';
+  const dban=l.world==='ad'&&s.t!=='quiz'?`<div class="dban"><span class="dbe">${DPIC[l.id]||'💫'}</span><b>${esc(l.when.split('.')[0])}</b></div>`:'';
   if(s.t==='say')body=`<div class="card stage">${daddy}<p class="say">${fill(s.text)}</p>${s.surah?`<div class="row" style="justify-content:center"><button class="btn gold sm" data-act="ayPlay" data-ref="${s.surah}:1-${s.count}">▶ Play the whole surah</button></div>`:''}${s.ar?`<div class="bigar">${s.ar}</div><p class="tr">${esc(s.tr)}</p><p class="tr" style="font-style:normal">${esc(s.mean)}</p>`:''}</div>`;
   else if(s.t==='story'){const sl=s.slides[st.k];body=`<div class="story" id="story"><div class="scene">${scene(sl.sc)}</div><div class="card stage"><p class="say">${fill(sl.text)}</p>${recHas(l.id,st.k,kidLang())?`<button class="famvoice" data-act="famPlay" data-k="${st.k}">▶ Hear ${esc(((recIdx(l.id)[st.k+'-'+kidLang()]||localRec[recKey(l.id,st.k,kidLang())]||{}).by)||'Daddy')}'s voice</button>`:''}${sl.ay?`<div class="ayah"><div class="ar">${sl.ay.ar}</div><p>${esc(sl.ay.en)}</p><span class="src">${esc(sl.ay.ref)}</span><button class="aylisten" data-act="ayPlay" data-ref="${esc(sl.ay.ref)}">▶ Listen</button></div>`:''}</div><div class="spread"><button class="btn ghost sm" data-act="sPrev" ${st.k?'':'disabled'}>← Back</button><span class="sdots" aria-label="Page ${st.k+1} of ${s.slides.length}">${s.slides.map((x,i)=>`<i class="${i===st.k?'on':''}"></i>`).join('')}</span><button class="btn sm" data-act="sNext" ${st.k<s.slides.length-1?'':'disabled'}>Next →</button></div><p class="small muted" style="text-align:center">Swipe the picture or tap Next</p></div>`;}
   else if(s.t==='stack'){const it=s.items;body=`<h2>${esc(s.prompt)}</h2><p class="muted small">${esc(s.hint||'Tap them in the right order, first to last.')}</p><div class="tower">${it.map((x,i)=>`<div class="tslot ${i<st.placed.length?'on':''}"><span class="tn">${i+1}</span>${i<st.placed.length?`<b>${esc(x.t)}</b>${x.ar?`<span class="ar">${x.ar}</span>`:''}`:''}</div>`).join('')}</div><div class="tpool">${st.pool.filter(i=>!st.placed.includes(i)).map(i=>`<button class="tcard" data-act="stk" data-i="${i}"><b>${esc(it[i].t)}</b>${it[i].ar?`<span class="ar">${it[i].ar}</span>`:''}</button>`).join('')}</div>${st.placed.length===it.length?`<div class="fb ok">${esc(s.done||'MashaAllah, perfect!')}</div>`:''}`;}
@@ -2097,13 +2100,13 @@ const GEMS=[
 // Ayat
 ['a1','Ayah','💭','فَاذْكُرُونِي أَذْكُرْكُمْ','Allah says: Remember Me, and I will remember you.','Surah al-Baqarah 2:152'],
 ['a2','Ayah','🌈','فَإِنَّ مَعَ الْعُسْرِ يُسْرًا','Allah promises: with every hard thing comes ease.','Surah ash-Sharh 94:5'],
-['a3','Ayah','🤲','فَإِنِّي قَرِيبٌ','Allah is close to us. He hears when we make dua and He answers.','Surah al-Baqarah 2:186'],
+['a3','Ayah','💫','فَإِنِّي قَرِيبٌ','Allah is close to us. He hears when we make dua and He answers.','Surah al-Baqarah 2:186'],
 ['a4','Ayah','🎁','لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ','Allah says: If you are thankful, I will give you more.','Surah Ibrahim 14:7'],
-['a5','Ayah','👨‍👩‍👧','وَبِالْوَالِدَيْنِ إِحْسَانًا','Allah tells us to be good and kind to our parents.','Surah al-Isra 17:23'],
-['a6','Ayah','🤝','إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ','All the believers are brothers and sisters.','Surah al-Hujurat 49:10'],
-['a7','Ayah','😌','أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ','Remembering Allah makes our hearts calm and happy.','Surah ar-Ra\'d 13:28'],
+['a5','Ayah','🏡','وَبِالْوَالِدَيْنِ إِحْسَانًا','Allah tells us to be good and kind to our parents.','Surah al-Isra 17:23'],
+['a6','Ayah','🌟','إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ','All the believers are brothers and sisters.','Surah al-Hujurat 49:10'],
+['a7','Ayah','💚','أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ','Remembering Allah makes our hearts calm and happy.','Surah ar-Ra\'d 13:28'],
 ['a8','Ayah','📚','رَّبِّ زِدْنِي عِلْمًا','A dua from the Qur\'an: My Lord, give me more knowledge.','Surah Ta-Ha 20:114'],
-['a9','Ayah','☝️','قُلْ هُوَ اللَّهُ أَحَدٌ','Say: He is Allah, the One.','Surah al-Ikhlas 112:1'],
+['a9','Ayah','1️⃣','قُلْ هُوَ اللَّهُ أَحَدٌ','Say: He is Allah, the One.','Surah al-Ikhlas 112:1'],
 ['a10','Ayah','🌙','لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ','Allah never gets sleepy and never sleeps. He always takes care of us.','Ayat al-Kursi, Surah al-Baqarah 2:255'],
 ['a11','Ayah','🌱','إِنَّ اللَّهَ مَعَ الصَّابِرِينَ','Allah is with those who are patient.','Surah al-Baqarah 2:153'],
 ['a12','Ayah','🛡️','وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ','Whoever trusts Allah, Allah is enough for him.','Surah at-Talaq 65:3'],
@@ -2111,32 +2114,32 @@ const GEMS=[
 ['a14','Ayah','⚖️','فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ','Even the tiniest good deed, as small as a speck of dust, will be seen on the Last Day.','Surah az-Zalzalah 99:7'],
 ['a15','Ayah','💬','وَقُولُوا لِلنَّاسِ حُسْنًا','Speak kindly to people.','Surah al-Baqarah 2:83'],
 ['a16','Ayah','🌺','فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ','Which of the blessings of your Lord will you deny? Count them today!','Surah ar-Rahman 55:13'],
-['a17','Ayah','🙂','وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ','Allah loves those who hold back their anger and forgive people.','Surah Al \'Imran 3:134'],
-['a18','Ayah','🚶','وَلَا تَمْشِ فِي الْأَرْضِ مَرَحًا','Luqman told his son: do not walk around showing off.','Surah Luqman 31:18'],
+['a17','Ayah','🕊️','وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ','Allah loves those who hold back their anger and forgive people.','Surah Al \'Imran 3:134'],
+['a18','Ayah','🌾','وَلَا تَمْشِ فِي الْأَرْضِ مَرَحًا','Luqman told his son: do not walk around showing off.','Surah Luqman 31:18'],
 ['a19','Ayah','🔉','وَاغْضُضْ مِن صَوْتِكَ','Luqman told his son: speak gently and keep your voice low.','Surah Luqman 31:19'],
-['a20','Ayah','👋','فَحَيُّوا بِأَحْسَنَ مِنْهَا أَوْ رُدُّوهَا','When someone greets you, greet them back with something even better.','Surah an-Nisa 4:86'],
+['a20','Ayah','🌸','فَحَيُّوا بِأَحْسَنَ مِنْهَا أَوْ رُدُّوهَا','When someone greets you, greet them back with something even better.','Surah an-Nisa 4:86'],
 // Hadith (Sahih al-Bukhari and Sahih Muslim)
 ['h1','Hadith','📖','خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ','The best of you are those who learn the Qur\'an and teach it.','Sahih al-Bukhari 5027'],
 ['h2','Hadith','💞','','None of you truly believes until he loves for his brother what he loves for himself.','Sahih al-Bukhari 13, Sahih Muslim 45'],
 ['h3','Hadith','🌷','الْكَلِمَةُ الطَّيِّبَةُ صَدَقَةٌ','A kind word is a charity.','Sahih al-Bukhari 2989, Sahih Muslim 1009'],
-['h4','Hadith','🤐','','Whoever believes in Allah and the Last Day should say something good, or stay quiet.','Sahih al-Bukhari 6018, Sahih Muslim 47'],
+['h4','Hadith','🔇','','Whoever believes in Allah and the Last Day should say something good, or stay quiet.','Sahih al-Bukhari 6018, Sahih Muslim 47'],
 ['h5','Hadith','🕊️','','Allah is Kind, and He loves kindness in everything.','Sahih al-Bukhari 6927, Sahih Muslim 2593'],
-['h6','Hadith','💪','','The strong person is not the one who wins a wrestle. The strong one controls himself when he is angry.','Sahih al-Bukhari 6114, Sahih Muslim 2609'],
+['h6','Hadith','⚡','','The strong person is not the one who wins a wrestle. The strong one controls himself when he is angry.','Sahih al-Bukhari 6114, Sahih Muslim 2609'],
 ['h7','Hadith','🧊','لَا تَغْضَبْ','A man asked the Prophet ﷺ for advice. He said: Do not get angry. He said it again and again.','Sahih al-Bukhari 6116'],
-['h8','Hadith','👋','أَفْشُوا السَّلَامَ بَيْنَكُمْ','Spread salam to each other, and you will love one another.','Sahih Muslim 54'],
+['h8','Hadith','🌸','أَفْشُوا السَّلَامَ بَيْنَكُمْ','Spread salam to each other, and you will love one another.','Sahih Muslim 54'],
 ['h9','Hadith','🐢','','The deeds Allah loves most are the ones we keep doing every day, even if they are small.','Sahih al-Bukhari 6464, Sahih Muslim 783'],
 ['h10','Hadith','💗','','Whoever is not merciful to people, Allah will not be merciful to him.','Sahih al-Bukhari 7376, Sahih Muslim 2319'],
-['h11','Hadith','😊','يَسِّرُوا وَلَا تُعَسِّرُوا','Make things easy for people, not hard. Give good news and don\'t push people away.','Sahih al-Bukhari 69, Sahih Muslim 1734'],
+['h11','Hadith','🌸','يَسِّرُوا وَلَا تُعَسِّرُوا','Make things easy for people, not hard. Give good news and don\'t push people away.','Sahih al-Bukhari 69, Sahih Muslim 1734'],
 ['h12','Hadith','✨','كُلُّ مَعْرُوفٍ صَدَقَةٌ','Every good deed is a charity.','Sahih al-Bukhari 6021, Sahih Muslim 1005'],
 ['h13','Hadith','⚖️','','Two short phrases are heavy on the Scale and loved by Ar-Rahman: SubhanAllahi wa bihamdihi, SubhanAllahil-Adheem.','Sahih al-Bukhari 6406, Sahih Muslim 2694'],
 ['h14','Hadith','🍽️','','The Prophet ﷺ told a boy: Say Bismillah, eat with your right hand, and eat from what is in front of you.','Sahih al-Bukhari 5376, Sahih Muslim 2022'],
 ['h15','Hadith','🥘','','The Prophet ﷺ never complained about food. If he liked it, he ate it. If not, he left it.','Sahih al-Bukhari 5409, Sahih Muslim 2064'],
-['h16','Hadith','👩','','A man asked who deserves his kindness most. The Prophet ﷺ said: Your mother. Then your mother. Then your mother. Then your father.','Sahih al-Bukhari 5971, Sahih Muslim 2548'],
-['h17','Hadith','🤧','','When you sneeze, say Alhamdulillah. Whoever hears it says Yarhamuk-Allah.','Sahih al-Bukhari 6224'],
+['h16','Hadith','💐','','A man asked who deserves his kindness most. The Prophet ﷺ said: Your mother. Then your mother. Then your mother. Then your father.','Sahih al-Bukhari 5971, Sahih Muslim 2548'],
+['h17','Hadith','🌬️','','When you sneeze, say Alhamdulillah. Whoever hears it says Yarhamuk-Allah.','Sahih al-Bukhari 6224'],
 ['h18','Hadith','🎁','','The giving hand is better than the taking hand.','Sahih al-Bukhari 1429, Sahih Muslim 1033'],
-['h19','Hadith','🫶','','A Muslim is someone whose words and hands never hurt other Muslims.','Sahih al-Bukhari 10, Sahih Muslim 41'],
+['h19','Hadith','💞','','A Muslim is someone whose words and hands never hurt other Muslims.','Sahih al-Bukhari 10, Sahih Muslim 41'],
 ['h20','Hadith','❤️','','Allah does not look at how we look or what we own. He looks at our hearts and our deeds.','Sahih Muslim 2564'],
-['h21','Hadith','👉','','Whoever shows someone the way to do a good deed gets the same reward as the one who does it.','Sahih Muslim 1893'],
+['h21','Hadith','🧭','','Whoever shows someone the way to do a good deed gets the same reward as the one who does it.','Sahih Muslim 1893'],
 ['h22','Hadith','🌟','','Telling the truth leads to goodness, and goodness leads to Jannah.','Sahih al-Bukhari 6094, Sahih Muslim 2607'],
 // Prophets
 ['p1','Prophets','🏷️','','Allah taught Prophet Adam the names of all things, even more than the angels knew.','Surah al-Baqarah 2:31'],
@@ -2147,7 +2150,7 @@ const GEMS=[
 ['p6','Prophets','🌊','','Allah split the sea for Prophet Musa when he struck it with his stick, and his people walked across.','Surah ash-Shu\'ara 26:63'],
 ['p7','Prophets','🐜','','Prophet Sulayman heard an ant tell the other ants to hurry home, and he smiled.','Surah an-Naml 27:18-19'],
 ['p8','Prophets','⚒️','','Allah made iron soft in the hands of Prophet Dawud, so he could make armour.','Surah Saba 34:10'],
-['p9','Prophets','👶','','Prophet \'Isa spoke as a tiny baby and said: I am a servant of Allah.','Surah Maryam 19:30'],
+['p9','Prophets','🌟','','Prophet \'Isa spoke as a tiny baby and said: I am a servant of Allah.','Surah Maryam 19:30'],
 ['p10','Prophets','🐋','لَا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ','Inside the big fish, Prophet Yunus made dua, and Allah saved him.','Surah al-Anbiya 21:87-88'],
 ['p11','Prophets','🌿','نِعْمَ الْعَبْدُ','Prophet Ayyub was so patient when he was sick that Allah called him an excellent servant.','Surah Sad 38:44'],
 ['p12','Prophets','💚','وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ','Allah sent Prophet Muhammad ﷺ as a mercy to the whole world.','Surah al-Anbiya 21:107'],
@@ -2209,7 +2212,7 @@ function toggleHeart(kid,key){
 }
 
 /* ---------- gallery ---------- */
-const CERTPIC={first:'🌱','world-aq':'🌙','world-ad':'🤲','world-ar':'ا','world-sk':'🧩',streak7:'🔥',streak30:'🏆',flowers25:'🌸',kerala:'🚗'};
+const CERTPIC={first:'🌱','world-aq':'🌙','world-ad':'💫','world-ar':'ا','world-sk':'🧩',streak7:'🔥',streak30:'🏆',flowers25:'🌸',kerala:'🚗'};
 const TILEBG=['#FCE3EC','#FFF1D1','#DCEDE5','#E3ECFA','#EEE5FA','#FFE6D9'];
 function certThumb(c,i){
   if(c.story&&byId[c.story])return `<span class="gthumb scene">${scene(byId[c.story].slides[0].sc)}</span>`;
@@ -2256,7 +2259,7 @@ function bellEvents(k){
   const wf=weekStart6().getTime();if(!wqState(k)&&Date.now()-wf<4*864e5&&quizPool(k).length>=5)ev.push({at:wf,icon:'🕌',text:"This week's Jumu'ah quiz is ready!",act:'wq'});
   for(const c in S.kids){if(c===k)continue;const r=(prog(c).wq||{})[weekId()];if(r)ev.push({at:r.at,kid:c,icon:'🕌',text:`${S.kids[c].name} scored ${r.first}/${r.n} in the Jumu'ah quiz. MashaAllah!`,act:'galOf',arg:c})}
   const te=tugNext();if(te&&Date.now()>=te.at-TUG_HYPE)ev.push({at:Math.max(te.at-TUG_HYPE,Date.now()-60e3),icon:'🚩',text:`Team Tug of War ${Date.now()<te.at?'starts at '+tugTime(te.at)+'. Come and join a team!':'is on now. Jump in!'}`,act:'tug'});
-  const due=flashDue(k);if(due)ev.push({at:t0.getTime(),icon:'🃏',text:`${due} flashcard${due>1?'s are':' is'} ready for you`,act:'flash'});
+  const due=flashDue(k);if(due)ev.push({at:t0.getTime(),icon:'🗂️',text:`${due} flashcard${due>1?'s are':' is'} ready for you`,act:'flash'});
   if(gemsLive().length&&(prog(k).feedOpened||'')!==dayKey())ev.push({at:t0.getTime()+1,icon:'✨',text:'New gems are ready for today',act:'page',arg:2});
   return ev.sort((a,b)=>b.at-a.at).slice(0,40);
 }
@@ -2282,7 +2285,7 @@ function myBrag(k){
   const l=byId[last.l];
   if(l.world==='st')return [`I read the story of ${l.title.replace(/,.*$/,'')} today! 📜 Did you?`];
   if(l.world==='ar'){const x=l.set[Math.floor(Math.random()*l.set.length)],p=PICW[x[0]];return p?[`I learnt \u2068${p[1]}\u2069 (${p[2]}) starts with \u2068${x[0]}\u2069 ${p[0]}. Did you?`]:[]}
-  if(l.world==='ad')return [`I learnt the dua for ${l.title.toLowerCase()} 🤲`];
+  if(l.world==='ad')return [`I learnt the dua for ${l.title.toLowerCase()} 💫`];
   if(l.world==='aq')return [`I learnt "${l.title}" today 🌙`];
   if(l.world==='sk')return [`I finished the ${l.title} game! 🧩`];
   if(l.world==='hz')return [`I learnt ${l.title} by heart! 📖`];
@@ -2292,9 +2295,9 @@ function reminderNow(){const h=new Date().getHours();return h<11?'Remember the m
 function chatSuggest(){
   const k=ui.kid,others=Object.keys(S.kids).filter(c=>c!==k);
   const cheers=others.map(c=>cheerFor(c)[0]).filter(Boolean).slice(0,3);
-  return [...cheers,...myBrag(k),reminderNow(),"Let's both finish today's three! 💪",'Did you read a story today? 📜','Keep going, you can do it! 🌱','Assalamu alaikum! 👋','MashaAllah! 🌟','Jazakallahu khair! 💛'].slice(0,10);
+  return [...cheers,...myBrag(k),reminderNow(),"Let's both finish today's three! ⚡",'Did you read a story today? 📜','Keep going, you can do it! 🌱','Assalamu alaikum! 🌸','MashaAllah! 🌟','Jazakallahu khair! 💛'].slice(0,10);
 }
-function wavesFor(c){return [...cheerFor(c).slice(0,1),'Assalamu alaikum! 👋',"Let's learn together! 🌙","Did you read today's story? 📜",'MashaAllah, keep going! 🌟']}
+function wavesFor(c){return [...cheerFor(c).slice(0,1),'Assalamu alaikum! 🌸',"Let's learn together! 🌙","Did you read today's story? 📜",'MashaAllah, keep going! 🌟']}
 
 /* ===================== FLASHCARDS ===================== */
 const FLASH_INT=[0,1,3,7,30];
@@ -2331,7 +2334,7 @@ function startFlash(){
 }
 function flashScreen(){
   const F=ui.F;
-  if(!F||!F.total)return `<div class="topbar"><button class="back" data-act="home">← Back</button></div><h1>Flashcards 🃏</h1><div class="card stage"><p class="muted">Finish a lesson first. Cards about what you learnt will appear here, and they come back until you know them by heart.</p></div>`;
+  if(!F||!F.total)return `<div class="topbar"><button class="back" data-act="home">← Back</button></div><h1>Flashcards 🗂️</h1><div class="card stage"><p class="muted">Finish a lesson first. Cards about what you learnt will appear here, and they come back until you know them by heart.</p></div>`;
   if(F.i>=F.q.length)return `<div class="topbar"><button class="back" data-act="home">← My garden</button></div><div class="flashdone card stage"><div class="big">🌸</div><h1>MashaAllah!</h1><p>You knew ${F.knew} of ${F.total} cards today.</p><p class="muted">${F.flower?'A new flower grew in your garden. ':''}The ones you are still learning will come back tomorrow.</p><button class="btn rose" data-act="home">My garden</button></div>`;
   const c=F.q[F.i];
   return `<div class="topbar"><button class="back" data-act="home">✕</button><span class="chip plain">${c.deck}</span></div>
@@ -2371,7 +2374,7 @@ function nudges(k){
   const ad=AD.find(l=>!d[l.id]);if(ad)out.push({icon:DPIC[ad.id],text:`Learn the dua for ${ad.title.toLowerCase()} today?`,act:'open',arg:ad.id});
   const ar=nextIn('ar');if(ar)out.push({icon:(PICW[ar.set[0][0]]||['ا'])[0],text:`New letters are waiting: ${ar.set.map(x=>x[0]).join(' ')}`,act:'open',arg:ar.id});
   const sk=SK.find(l=>!d[l.id]);if(sk)out.push({icon:'🧩',text:`Can you do the ${sk.title} game?`,act:'open',arg:sk.id});
-  const fd=flashDue(k);if(fd)out.push({icon:'🃏',text:`${fd} flashcards are waiting for you. Quick round?`,act:'flash',arg:''});
+  const fd=flashDue(k);if(fd)out.push({icon:'🗂️',text:`${fd} flashcards are waiting for you. Quick round?`,act:'flash',arg:''});
   const n=dayNum();return out.length?[out[n%out.length],out[(n+1)%out.length]].filter((x,i,a)=>a.indexOf(x)===i):[];
 }
 function feedPage(active){
@@ -2432,7 +2435,7 @@ function tugPop(ev,stage){
   el=document.createElement('div');el.className='lovepop tugpop';el.setAttribute('role','alertdialog');
   el.innerHTML=`<div class="lhead"><span class="lapp">${lanternMini()}</span><b>Little Lantern</b><span>now</span><button class="lx" aria-label="Close">✕</button></div>
    <div class="lbody"><span class="lic">🚩</span><span class="ltx"><b>${stage==='live'?'Team Tug of War is LIVE! Your team needs you!':'Team Tug of War starts in 10 minutes!'}</b><i>🌙 Moon team vs Star team ⭐${my!=null?' · you are '+TUG_TEAMS[my][1]:''}</i></span></div>
-   <div class="lbtns"><button class="lyes">${stage==='live'?'Pull now! 💪':'Get ready 🚩'}</button><button class="lno">Later</button></div>`;
+   <div class="lbtns"><button class="lyes">${stage==='live'?'Pull now! ⚡':'Get ready 🚩'}</button><button class="lno">Later</button></div>`;
   const close=()=>{el.classList.remove('in');setTimeout(()=>el.remove(),450)};
   el.querySelector('.lx').onclick=close;el.querySelector('.lno').onclick=close;el.querySelector('.lyes').onclick=()=>{close();tugGo()};
   document.body.appendChild(el);requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('in')));setTimeout(close,25000);
@@ -2512,7 +2515,7 @@ function tugScoreScreen(){
   <h1>🏆 Tug of War scorecard</h1>
   ${ev?`<button class="tugban ${now>=ev.at?'live':''}" data-act="tugGo"><span class="ti">🚩</span><span><b>Next game: ${esc(tugTime(ev.at))}</b><small>${(n=>n+' minute'+(n>1?'s':''))(Math.max(1,Math.round((ev.dur||120e3)/60e3)))}${ev.auto?' · every week':''}</small><span class="tcd" data-cd="${ev.at}">${now<ev.at?'Starts in '+cdown(ev.at-now):'Tap to jump in!'}</span></span></button>`:'<p class="muted">No game planned yet. Ask a grown-up to set a weekly time.</p>'}
   <section class="sect"><h2 class="h2s">Team wins</h2><div class="tteams2 big"><div class="tteam a"><b>🌙 Moon team</b><div class="tbig">${st.wins[0]}</div><div class="tchips">${Object.keys(S.kids).filter(k=>T[k]===0).map(k=>`<span class="tchip">${symEl(k,22)} ${esc(S.kids[k].name)}</span>`).join('')}</div></div><div class="tteam b"><b>⭐ Star team</b><div class="tbig">${st.wins[1]}</div><div class="tchips">${Object.keys(S.kids).filter(k=>T[k]===1).map(k=>`<span class="tchip">${symEl(k,22)} ${esc(S.kids[k].name)}</span>`).join('')}</div></div></div>${st.draws?`<p class="small muted">${st.draws} draw${st.draws>1?'s':''}</p>`:''}</section>
-  <section class="sect"><h2 class="h2s">Strongest pullers 💪</h2>${tops.length?`<div class="list">${tops.map(([k,o],i)=>`<div class="li">${['🥇','🥈','🥉'][i]||'🎗️'} ${symEl(k,32)}<span class="tx"><b>${esc(S.kids[k].name)}</b><span class="small muted" style="display:block">${o.pulls} pulls · ${o.games} game${o.games>1?'s':''} · ${o.wins} won</span></span></div>`).join('')}</div>`:'<p class="muted small">Play a game to get on the board!</p>'}</section>
+  <section class="sect"><h2 class="h2s">Strongest pullers ⚡</h2>${tops.length?`<div class="list">${tops.map(([k,o],i)=>`<div class="li">${['🥇','🥈','🥉'][i]||'🎗️'} ${symEl(k,32)}<span class="tx"><b>${esc(S.kids[k].name)}</b><span class="small muted" style="display:block">${o.pulls} pulls · ${o.games} game${o.games>1?'s':''} · ${o.wins} won</span></span></div>`).join('')}</div>`:'<p class="muted small">Play a game to get on the board!</p>'}</section>
   <section class="sect"><h2 class="h2s">Recent games</h2>${st.R.length?`<div class="list">${st.R.slice(0,8).map(r=>`<div class="li"><span class="tx"><b>${r.winner<0?'Draw':TUG_TEAMS[r.winner][0]+' '+TUG_TEAMS[r.winner][1]+' won'}</b><span class="small muted" style="display:block">${esc(tugTime(r.at))} · 🌙 ${r.totals[0]} : ${r.totals[1]} ⭐</span></span><button class="btn ghost sm" data-act="openGCert" data-key="team-tr-${esc(r.ev.replace(/^t-/,''))}">🏅 Certificate</button></div>`).join('')}</div>`:'<p class="muted small">No games yet.</p>'}</section>`;
 }
 function tugParentSection(){
@@ -2552,7 +2555,7 @@ function groupCerts(){
   const out=[],kids=Object.keys(S.kids);
   Object.entries(S.tugr||{}).sort((a,b)=>b[1].at-a[1].at).forEach(([id,r])=>{const mem=t=>Object.entries(r.players||{}).filter(([k,p])=>p.team===t&&S.kids[k]).map(([k])=>k);
     if(r.winner>=0)out.push({key:'team-'+id,icon:TUG_TEAMS[r.winner][0],title:`${TUG_TEAMS[r.winner][1]} champions`,line:`won Team Tug of War, ${r.totals[r.winner]} pulls to ${r.totals[1-r.winner]}`,members:mem(r.winner),at:r.at,also:mem(1-r.winner),alsoLine:`Well played, ${TUG_TEAMS[1-r.winner][1]}!`});
-    else out.push({key:'team-'+id,icon:'🤝',title:'Brilliant teamwork',line:`pulled to a draw in Team Tug of War, ${r.totals[0]} each`,members:[...mem(0),...mem(1)],at:r.at})});
+    else out.push({key:'team-'+id,icon:'🌟',title:'Brilliant teamwork',line:`pulled to a draw in Team Tug of War, ${r.totals[0]} each`,members:[...mem(0),...mem(1)],at:r.at})});
   const sum=f=>kids.reduce((a,k)=>a+f(k),0),who=f=>kids.filter(k=>f(k)>0);
   const stories=k=>STORIES.filter(st=>prog(k).done[st.id]).length,surahs=k=>HZ.filter(l=>prog(k).done[l.id]).length,yes=k=>(prog(k).love||[]).filter(x=>x.a===1).length,lessons=k=>Object.keys(prog(k).done||{}).length;
   const mile=(key,icon,title,n,steps,line,f)=>{steps.filter(m=>n>=m).forEach(m=>out.push({key:key+m,icon,title,line:line(m),members:who(f),at:gcAt(key+m)}))};
@@ -2724,7 +2727,7 @@ function lovePop(){
   const ic=LOVE[i][0],src=LOVE[i][2],t=later?'Earlier you said not yet. Ready now? '+LOVE[i][1]:LOVE[i][1];let el=document.querySelector('.lovepop');if(el)el.remove();
   el=document.createElement('div');el.className='lovepop';el.setAttribute('role','alertdialog');el.setAttribute('aria-label','A little love note');
   el.innerHTML=`<div class="lhead"><span class="lapp">${lanternMini()}</span><b>Little Lantern</b><span>now</span><button class="lx" aria-label="Close">✕</button></div>
-   <div class="lbody"><span class="lic" aria-hidden="true">${ic}</span><span class="ltx"><b>${esc(t)}</b>${src?`<i>${esc(src)}</i>`:''}</span></div>
+   <div class="lbody"><span class="lic" aria-hidden="true">${noFaces(ic)}</span><span class="ltx"><b>${esc(noFaces(t))}</b>${src?`<i>${esc(src)}</i>`:''}</span></div>
    <div class="lbtns"><button class="lyes">Yes, I did it 💛</button><button class="lno">Not yet</button></div>`;
   const close=()=>{el.classList.remove('in');setTimeout(()=>el.remove(),450)};
   const log=ans=>{const k=ui.kid;if(!k||!S.kids[k])return;const P=prog(k);P.love=[...(P.love||[]),{at:Date.now(),n:i,a:ans}].slice(-200);if(ans)P.loveDone=(P.loveDone||0)+1;saveProg(k)};
@@ -2811,7 +2814,7 @@ function mergeBundle(b){
   (b.stories||[]).forEach(st=>{if(!st.id||byId[st.id]||!PROPHETS.some(p=>p[0]===st.pid)||STORIES.some(s=>s.pid===st.pid&&(s.ch||1)===(st.ch||1)))return;
     st.world='st';st.bundle=b.id;st.steps=[{t:'story',slides:st.slides},{t:'quiz',qs:st.quiz||[]}];STORIES.push(st);byId[st.id]=st});
   STORIES.sort(storyOrder);
-  (b.gems||[]).forEach((g,i)=>{if(!g.id||GEMS.some(x=>x.id===g.id))return;const c=GEMC[(GEMS.length+i)%GEMC.length];GEMS.push(Object.assign({c1:c[0],c2:c[1],ar:'',ok:false,bundle:b.id},g))});
+  (b.gems||[]).forEach((g,i)=>{if(!g.id||GEMS.some(x=>x.id===g.id))return;g.pic=noFaces(g.pic||'✨');const c=GEMC[(GEMS.length+i)%GEMC.length];GEMS.push(Object.assign({c1:c[0],c2:c[1],ar:'',ok:false,bundle:b.id},g))});
   (b.quiz||[]).forEach(q=>EXTRA_Q.push(Object.assign({bundle:b.id},q)));
   if(b.ml&&b.ml.stories)MLB.push(b);
 }
@@ -2961,7 +2964,13 @@ app.addEventListener('click',e=>{
    case 'sym':ui.sym=b.dataset.s;{const n=document.getElementById('kname')?.value,p=document.getElementById('kpin')?.value;render();if(n!=null)document.getElementById('kname').value=n;if(p!=null)document.getElementById('kpin').value=p;}break;
    case 'saveKid':{const n=document.getElementById('kname').value.trim(),p=document.getElementById('kpin').value.trim();if(!n){toast('Add a name');break}if(p&&!/^\d{4}$/.test(p)){toast('PIN must be 4 numbers, or empty');break}
      const k=ui.editKid==='new'?uid():ui.editKid;S.kids[k]=Object.assign({},S.kids[k]||{},{name:n,pin:p,symbol:ui.sym||S.kids[k]?.symbol||'🌸',read:!!(document.getElementById('kread')||{}).checked,lang:(document.getElementById('klang')||{}).value==='ml'?'ml':'en'});saveKid(k);if(!S.progress[k]){prog(k);saveProg(k)}ui.editKid=null;toast('Saved');render();break;}
-   case 'delKid':{const k=ui.editKid;delete S.kids[k];del('kids/'+k);ui.editKid=null;toast('Removed');render();break;}
+   case 'delKid':{const k=ui.editKid;if(!S.kids[k])break;if(!confirm(`Remove ${S.kids[k].name} and all of their progress? This cannot be undone.`))break;
+     delete S.kids[k];del('kids/'+k);delete S.progress[k];del('progress/'+k);
+     Object.keys(S.deeds||{}).forEach(d=>{if(S.deeds[d].kid===k){delete S.deeds[d];del('deeds/'+d)}});
+     Object.keys(S.tugp||{}).forEach(d=>{if(S.tugp[d].kid===k){delete S.tugp[d];del('fam/'+d)}});
+     if(S.presence&&S.presence[k]){delete S.presence[k];del('fam/p-'+k)}
+     if(S.settings.tugTeams&&k in S.settings.tugTeams){const T=Object.assign({},S.settings.tugTeams);delete T[k];S.settings.tugTeams=T;saveSettings()}
+     if(ui.kid===k)ui.kid=null;ui.editKid=null;toast('Removed');render();break;}
    case 'appr':S.approvals[id]=true;saveApprovals();render();break;
    case 'apprAll':WORLDS[b.dataset.w].lessons.forEach(l=>S.approvals[l.id]=true);saveApprovals();toast('Approved');render();break;
    case 'prev':ui.openPrev=ui.openPrev===id?null:id;render();break;

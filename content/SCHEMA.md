@@ -99,7 +99,7 @@ Look at the existing stories in `src/little-lantern.html` (search `MORE_STORIES`
 ```
 
 - `kind` is one of `Ayah`, `Hadith`, `Prophets`, `Did you know?`. Mix them: about 6 ayat, 7 hadith, 4 Prophets, 4 Did you know.
-- `pic` is one emoji. Never a face, a person or a hand gesture made to look like a person.
+- `pic` is one emoji. Never a face, a person, a body part or any hand gesture (no 😊 🃏 🤲 👋 💪 🤝 👶 and similar). Use objects, nature, places, food or symbols. The app also replaces any such emoji with ✨ automatically.
 - `ar` is optional. Use it only for short ayat or short, well-known hadith wording you are certain of.
 - `text` is one or two simple sentences.
 - Before adding a gem, check that it isn't already in the app (search `src/little-lantern.html` and earlier bundles for the same reference).
