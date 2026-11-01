@@ -45,6 +45,7 @@ Add the file name to `content/index.json`, for example `{"bundles":["weekly/2026
 }
 ```
 
+- Story series: a Prophet can have several chapters. Add `"ch": 2` (chapter number) and `"part": "Short part title"` to each chapter, with ids like `st-musa-2`. Chapters unlock one after another as the child finishes each story. The weekly helper still adds a first story for the earliest Prophet with none; deeper chapters are added on request.
 - `pid` must be one of the Prophets below that **does not have a story yet**: check the existing ones by searching `src/little-lantern.html` and earlier bundles for `pid:'...'` or `"pid": "..."`.
 - Prophet ids, in order: adam, idris, nuh, huud, saaleh, ibrahim, lut, ismail, ishaq, yaqub, yusuf, ayyub, shuayb, musa, harun, dhulkifl, dawud, sulayman, ilyas, alyasa, yunus, zakariyya, yahya, isa, muhammad. Choose the **earliest** one in this order that is still missing.
 - 8 to 11 slides. The last slide is "What do we learn?", with `{"sky": ["#1E2A4A","#3D4E7A"], "stars": true, "lantern": [90,104], "book": true, "dunes": ["#B88A5A","#A67848","#946639"]}`.

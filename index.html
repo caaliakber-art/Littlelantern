@@ -25,8 +25,8 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>window.LL_FB={apiKey:"AIzaSyAIZ4JyxxZPBcPD5OHjQ-hpofP-KJwHtzE",authDomain:"little-lantern-b8a7b.firebaseapp.com",projectId:"little-lantern-b8a7b",storageBucket:"little-lantern-b8a7b.firebasestorage.app",messagingSenderId:"598122924180",appId:"1:598122924180:web:2bf132131983ea04d74c81"};window.LL_NTFY="little-lantern-17b8f6b09be7";</script>
-<meta name="ll-build" content="202611010325">
-<script>window.LL_BUILD="202611010325";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
+<meta name="ll-build" content="202611010343">
+<script>window.LL_BUILD="202611010343";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
 </head>
 <body>
 <title>Little Lantern</title>
@@ -228,6 +228,13 @@ a{color:var(--green)}
 .feedend{display:flex;flex-direction:column;align-items:center;gap:2px;padding:26px 16px;border-radius:24px;background:linear-gradient(180deg,#1C2440,#2B3557);color:#FBEFD3;text-align:center}
 .feedend span{font-size:2.4rem}.feedend small{color:#CFE0E6}
 body.igon #app{padding-top:0;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px));gap:10px}
+.w-hc{background:#E3F4F1;color:var(--ink)}
+.hijri{display:flex;gap:12px;align-items:flex-start;width:100%;border:0;padding:14px 16px;border-radius:22px;background:linear-gradient(135deg,#1E2A4A,#3D4E7A);color:#FBEFD3;font:inherit;text-align:left;cursor:pointer}
+.hijri .hm{font-size:2rem;line-height:1}.hijri small{display:block;color:#CFE0E6;font-weight:700;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase}
+.hijri b{font:600 1.2rem var(--f-display)}.hijri .har{font-family:var(--f-ar);font-size:1.2rem;margin-inline-start:8px;color:#F6C453}
+.hijri em{display:block;font-style:normal;font-size:.8rem;color:#F6C453;font-weight:700}
+.hijri .hnext{display:block;font-size:.85rem;color:#E6EEF6;margin-top:2px}
+.hijri ul{margin:6px 0 0;padding:0;list-style:none;font-size:.9rem;display:grid;gap:3px}.hijri ul b{font:700 .9rem var(--f-body)}
 .tugban{display:flex;gap:12px;align-items:center;width:100%;border:0;padding:14px 16px;border-radius:22px;background:linear-gradient(120deg,#E3ECFA,#FCE3EC);color:var(--ink);font:inherit;text-align:left;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.06)}
 .tugban .ti{font-size:2.2rem}.tugban b{display:block;font:600 1.1rem var(--f-display)}.tugban small{color:var(--muted)}
 .tugban.live{background:linear-gradient(120deg,#FFE6D9,#FBEFD3);animation:tugpulse 1.6s ease-in-out infinite}
@@ -250,12 +257,14 @@ body.igon #app{padding-top:0;padding-bottom:calc(24px + env(safe-area-inset-bott
 .topts button.ar{font-family:var(--f-ar);font-size:1.8rem}
 .topts button.hit{background:#DCEDE5;border-color:#1F5C4A}.topts button.miss{background:#FCE3EC;border-color:#E0445E}
 .topts.frozen{opacity:.45;pointer-events:none}
-.lovepop{position:fixed;left:50%;top:calc(12px + env(safe-area-inset-top,0px));transform:translate(-50%,-140%);width:min(92vw,420px);z-index:40;display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:22px;background:linear-gradient(135deg,#FFF6E0,#FCE3EC);color:#2B2430;box-shadow:0 12px 30px rgba(0,0,0,.18);transition:transform .45s cubic-bezier(.2,.9,.25,1.2);cursor:pointer;text-align:left;border:0;font:inherit}
-.lovepop.in{transform:translate(-50%,0)}
-.lovepop .lic{font-size:2rem;flex:none}
-.lovepop small{display:block;font-weight:800;color:#B9587A;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase}
-.lovepop b{display:block;font:600 1.02rem/1.35 var(--f-display)}
-.lovepop i{display:block;font-style:normal;font-size:.72rem;color:#6F6370;margin-top:2px}
+.lovepop{position:fixed;right:10px;left:10px;top:calc(8px + env(safe-area-inset-top,0px));max-width:560px;margin-inline:auto;transform:translateX(calc(100% + 24px));z-index:40;display:flex;gap:10px;align-items:center;padding:8px 8px 8px 12px;border-radius:999px;background:linear-gradient(90deg,#FFF6E0,#FCE3EC);color:#2B2430;box-shadow:0 8px 22px rgba(0,0,0,.16);transition:transform .5s cubic-bezier(.2,.9,.25,1.1)}
+.lovepop.in{transform:none}
+.lovepop .lic{font-size:1.5rem;flex:none}
+.lovepop .ltx{flex:1;min-width:0}
+.lovepop b{display:block;font:700 .88rem/1.3 var(--f-body)}
+.lovepop i{display:block;font-style:normal;font-size:.68rem;color:#6F6370}
+.lovepop .ldid{flex:none;border:0;border-radius:999px;background:#B9587A;color:#fff;font:800 .78rem var(--f-body);padding:8px 10px;cursor:pointer;white-space:nowrap}
+.lovepop .lx{flex:none;border:0;background:none;color:#6F6370;font-size:.9rem;cursor:pointer;padding:6px}
 @media (prefers-reduced-motion:reduce){.lovepop{transition:none}}
 .igsticky{position:sticky;top:0;z-index:20;margin-inline:-16px;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .igsticky .igtop{position:static;margin-inline:0;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:0;padding-bottom:4px}
@@ -503,6 +512,7 @@ details{padding:6px 0}summary{cursor:pointer}
 .tpool{display:flex;flex-wrap:wrap;gap:8px}
 .tcard{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:14px;background:var(--surface);border:2px solid var(--gold);font-size:1rem;min-height:48px}
 /* story room shelf */
+.book .bpart{padding:0 12px;font-size:.78rem;font-weight:700;color:var(--muted);line-height:1.25}
 .shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
 .book{display:flex;flex-direction:column;gap:4px;text-align:left;padding:0 0 12px;border-radius:8px 16px 16px 8px;background:var(--surface);border:1px solid var(--line);border-left:10px solid var(--spine);overflow:hidden;min-width:0}
 .book>*:not(.bcover){margin-inline:12px}
@@ -874,7 +884,7 @@ const MORE_STORIES=[
   {q:'What sign did Allah send to Thamud?',o:['A special she-camel','A big ship','A golden tree'],why:'The she-camel of Allah was a sign for them.'},
   {q:'How did they share the water?',o:['She drank one day, they drank the next','They never shared','Only at night'],why:'She had her day to drink, and they had theirs.'},
   {q:'Who did Allah save?',o:['Saaleh and the believers','Only the strongest','Nobody'],why:'Allah saved Saaleh and those who believed, by His mercy.'}]},
-{id:'st-ibrahim',pid:'ibrahim',title:'Prophet Ibrahim and the fire',ar:'إِبْرَاهِيم عَلَيْهِ السَّلَام',sub:'Thinking for yourself, and trusting Allah',slides:[
+{id:'st-ibrahim',pid:'ibrahim',ch:1,part:'The stars, the statues and the fire',title:'Prophet Ibrahim and the fire',ar:'إِبْرَاهِيم عَلَيْهِ السَّلَام',sub:'Thinking for yourself, and trusting Allah',slides:[
  {sc:{label:'A town at night with lamps glowing',sky:NIGHT,stars:true,town:{lit:true,c:'#6E6A8A',d:'#4E4A6A'},dunes:NIGHTD},text:"Prophet Ibrahim, alayhis salaam, grew up among people who worshipped statues and stars. Even his own father made statues."},
  {sc:{label:'One bright star in the night sky',sky:NIGHT,stars:true,bigstar:[260,60],dunes:NIGHTD},text:"One night he saw a bright star. To make his people think, he said: Is this my Rabb? But when the star set and disappeared, he said:",ay:AY2.afilin},
  {sc:{label:'The moon rising, then the sun',sky:['#5E6F9C','#F3C9A2'],fullmoon:[90,60,18],sun:[310,140,26],dunes:['#C9A07E','#B98F6D','#A87E5C']},text:"Then he saw the moon rising, and then the big shining sun. Both of them set too. Things that disappear cannot be Allah, because Allah is always there."},
@@ -928,7 +938,8 @@ const STORIES_OLD=[
 ];
 STORIES_OLD[0].pid='huud';
 const PROPHETS=[['adam','Adam','آدَم'],['idris','Idris','إِدْرِيس'],['nuh','Nuh','نُوح'],['huud','Huud','هُود'],['saaleh','Saaleh','صَالِح'],['ibrahim','Ibrahim','إِبْرَاهِيم'],['lut','Lut','لُوط'],['ismail',"Isma'il",'إِسْمَاعِيل'],['ishaq','Ishaq','إِسْحَاق'],['yaqub',"Ya'qub",'يَعْقُوب'],['yusuf','Yusuf','يُوسُف'],['ayyub','Ayyub','أَيُّوب'],['shuayb',"Shu'ayb",'شُعَيْب'],['musa','Musa','مُوسَى'],['harun','Harun','هَارُون'],['dhulkifl','Dhul-Kifl','ذُو الْكِفْل'],['dawud','Dawud','دَاوُد'],['sulayman','Sulayman','سُلَيْمَان'],['ilyas','Ilyas','إِلْيَاس'],['alyasa',"Al-Yasa'",'الْيَسَع'],['yunus','Yunus','يُونُس'],['zakariyya','Zakariyya','زَكَرِيَّا'],['yahya','Yahya','يَحْيَى'],['isa',"'Isa",'عِيسَى'],['muhammad','Muhammad ﷺ','مُحَمَّد ﷺ']];
-const STORIES=PROPHETS.map(p=>[...STORIES_OLD,...MORE_STORIES].find(s=>s.pid===p[0])).filter(Boolean);
+const storyOrder=(a,b)=>(PROPHETS.findIndex(p=>p[0]===a.pid)-PROPHETS.findIndex(p=>p[0]===b.pid))||((a.ch||1)-(b.ch||1));
+const STORIES=[...STORIES_OLD,...MORE_STORIES].sort(storyOrder);
 STORIES.forEach(st=>{st.world='st';st.steps=[{t:'story',slides:st.slides},{t:'quiz',qs:st.quiz}]});
 
 
@@ -1233,18 +1244,116 @@ const SK=[
  {t:'match',prompt:'Match each one to its clue',pairs:[['','Allah','The One we worship alone'],['','Angels','Made from light, always obey'],['','Books','Like the Qur\'an, Allah\'s words'],['','Messengers','Sent by Allah to teach people'],['','The Last Day','Everyone is brought back to life'],['','Al-Qadr','Allah knows and wrote everything']]}]}
 ];
 
+/* ===================== THE ISLAMIC YEAR (Hijri calendar) ===================== */
+const HMONTHS=[["Muharram", "مُحَرَّم"], ["Safar", "صَفَر"], ["Rabi' al-Awwal", "رَبِيعٌ الْأَوَّل"], ["Rabi' ath-Thani", "رَبِيعٌ الثَّانِي"], ["Jumada al-Ula", "جُمَادَى الْأُولَى"], ["Jumada al-Akhirah", "جُمَادَى الْآخِرَة"], ["Rajab", "رَجَب"], ["Sha'ban", "شَعْبَان"], ["Ramadan", "رَمَضَان"], ["Shawwal", "شَوَّال"], ["Dhul-Qa'dah", "ذُو الْقَعْدَة"], ["Dhul-Hijjah", "ذُو الْحِجَّة"]];
+const HC=[
+{id:'hc1',title:'Months that follow the moon',ar:'الْأَهِلَّة',sub:'Why the Islamic year follows the new moon',steps:[
+ {t:'say',text:"Assalamu alaikum, {name}! Look up at the moon tonight. Did you know that Allah made the moon a calendar in the sky?"},
+ {t:'say',text:"People asked the Prophet ﷺ about the new moons. Allah answered:",ar:"يَسۡـَٔلُونَكَ عَنِ ٱلۡأَهِلَّةِۖ قُلۡ هِيَ مَوَٰقِيتُ لِلنَّاسِ وَٱلۡحَجِّۗ",tr:"Yas'alunaka 'anil-ahillah, qul hiya mawaqitu lin-nasi wal-hajj",mean:"They ask you about the new moons. Say: they show the times for people and for Hajj. (Surah al-Baqarah 2:189)"},
+ {t:'tap',prompt:'Tap the moon each night. Watch it change!',reveal:'Allah made it change',items:[['🌒','A thin new crescent: a new month begins'],['🌓','Half moon: about one week in'],['🌕','Full moon: the middle of the month'],['🌗','Getting smaller again'],['🌘','A thin old crescent: the month is ending']]},
+ {t:'say',text:"A new Islamic month starts when the thin new crescent is seen. Each month has 29 or 30 days. The Prophet ﷺ said: Start fasting when you see the new moon, and stop when you see it. (Sahih al-Bukhari 1909, Sahih Muslim 1081)"},
+ {t:'say',text:"Allah made the sun and the moon so we can count the years:",ar:"هُوَ ٱلَّذِي جَعَلَ ٱلشَّمۡسَ ضِيَآءٗ وَٱلۡقَمَرَ نُورٗا وَقَدَّرَهُۥ مَنَازِلَ لِتَعۡلَمُواْ عَدَدَ ٱلسِّنِينَ وَٱلۡحِسَابَۚ",tr:"Huwal-ladhi ja'alash-shamsa diya'an wal-qamara nuran wa qaddarahu manazila li ta'lamu 'adadas-sinina wal-hisab",mean:"He is the One who made the sun shining and the moon a light, and set its stages, so you know the number of years and how to count. (Surah Yunus 10:5)"},
+ {t:'say',text:"Allah tells us there are twelve months in the year:",ar:"إِنَّ عِدَّةَ ٱلشُّهُورِ عِندَ ٱللَّهِ ٱثۡنَا عَشَرَ شَهۡرٗا",tr:"Inna 'iddatash-shuhuri 'indallahi-thna 'ashara shahra",mean:"The number of months with Allah is twelve. (Surah at-Tawbah 9:36)"},
+ {t:'key',text:"The Islamic (Hijri) year has 12 months. Each month starts with the new crescent moon and has 29 or 30 days."},
+ {t:'quiz',qs:[
+  {q:'How many months are in the Islamic year?',o:['Twelve','Ten','Thirty'],why:'Allah says the number of months is twelve.'},
+  {q:'What starts a new Islamic month?',o:['Seeing the new crescent moon','A big storm','The first day of school'],why:'A new month starts when the thin new crescent is seen.'},
+  {q:'How many days can an Islamic month have?',o:['29 or 30','7','100'],why:'Each month has 29 or 30 days.'},
+  {q:'Who made the moon change shape every night?',o:['Allah','The stars','Nobody'],why:'Allah set the stages of the moon so we can count time.'}]}]},
+{id:'hc2',title:'The first six months',ar:'مُحَرَّم … جُمَادَى',sub:'Muharram to Jumada al-Akhirah',steps:[
+ {t:'say',text:"Let's learn the names of the months, {name}! The year starts with Muharram."},
+ {t:'tap',prompt:'Tap each month to hear where it comes',reveal:'Month number',items:[['1️⃣','Muharram'],['2️⃣','Safar'],['3️⃣',"Rabi' al-Awwal"],['4️⃣',"Rabi' ath-Thani"],['5️⃣','Jumada al-Ula'],['6️⃣','Jumada al-Akhirah']]},
+ {t:'say',text:"Here is a trick: there are two Rabi' months together, and two Jumada months together. Al-Awwal and al-Ula mean the first one. Ath-Thani and al-Akhirah mean the next one."},
+ {t:'stack',prompt:'Put the first six months in order',items:[{t:"Muharram",ar:"مُحَرَّم"},{t:"Safar",ar:"صَفَر"},{t:"Rabi' al-Awwal",ar:"رَبِيعٌ الْأَوَّل"},{t:"Rabi' ath-Thani",ar:"رَبِيعٌ الثَّانِي"},{t:"Jumada al-Ula",ar:"جُمَادَى الْأُولَى"},{t:"Jumada al-Akhirah",ar:"جُمَادَى الْآخِرَة"}],done:'MashaAllah! Muharram, Safar, two Rabi\'s and two Jumadas.'},
+ {t:'quiz',qs:[
+  {q:'Which month starts the Islamic year?',o:['Muharram','Ramadan','Safar'],why:'Muharram is month number 1.'},
+  {q:'Which month comes after Muharram?',o:['Safar','Rajab','Shawwal'],why:'Muharram, then Safar.'},
+  {q:'Which two months come together after Safar?',o:["Rabi' al-Awwal and Rabi' ath-Thani",'Ramadan and Shawwal','Rajab and Sha\'ban'],why:"Month 3 and month 4 are the two Rabi' months."}]}]},
+{id:'hc3',title:'The last six months',ar:'رَجَب … ذُو الْحِجَّة',sub:'Rajab to Dhul-Hijjah',steps:[
+ {t:'say',text:"Now the second half of the year. It starts with Rajab and ends with Dhul-Hijjah, the month of Hajj."},
+ {t:'tap',prompt:'Tap each month',reveal:'Month number',items:[['7️⃣','Rajab'],['8️⃣',"Sha'ban"],['9️⃣','Ramadan, the month of fasting'],['🔟','Shawwal, it starts with Eid'],['🕋',"Dhul-Qa'dah (11)"],['🐑','Dhul-Hijjah, the month of Hajj (12)']]},
+ {t:'stack',prompt:'Put the last six months in order',items:[{t:"Rajab",ar:"رَجَب"},{t:"Sha'ban",ar:"شَعْبَان"},{t:"Ramadan",ar:"رَمَضَان"},{t:"Shawwal",ar:"شَوَّال"},{t:"Dhul-Qa'dah",ar:"ذُو الْقَعْدَة"},{t:"Dhul-Hijjah",ar:"ذُو الْحِجَّة"}],done:'Wonderful! Rajab all the way to Dhul-Hijjah.'},
+ {t:'stack',prompt:'Now all twelve!',hint:'Start with Muharram.',items:[{t:"Muharram",ar:"مُحَرَّم"},{t:"Safar",ar:"صَفَر"},{t:"Rabi' al-Awwal",ar:"رَبِيعٌ الْأَوَّل"},{t:"Rabi' ath-Thani",ar:"رَبِيعٌ الثَّانِي"},{t:"Jumada al-Ula",ar:"جُمَادَى الْأُولَى"},{t:"Jumada al-Akhirah",ar:"جُمَادَى الْآخِرَة"},{t:"Rajab",ar:"رَجَب"},{t:"Sha'ban",ar:"شَعْبَان"},{t:"Ramadan",ar:"رَمَضَان"},{t:"Shawwal",ar:"شَوَّال"},{t:"Dhul-Qa'dah",ar:"ذُو الْقَعْدَة"},{t:"Dhul-Hijjah",ar:"ذُو الْحِجَّة"}],done:'MashaAllah! You know all twelve months of the Islamic year!'},
+ {t:'quiz',qs:[
+  {q:'Which month do we fast in?',o:['Ramadan','Rajab','Safar'],why:'Ramadan is month number 9, the month of fasting.'},
+  {q:'Which month comes right after Ramadan?',o:['Shawwal',"Sha'ban",'Muharram'],why:'Shawwal comes after Ramadan, and it starts with Eid al-Fitr.'},
+  {q:'What is the last month of the year?',o:['Dhul-Hijjah','Muharram','Rajab'],why:'Dhul-Hijjah, the month of Hajj, is month 12.'}]}]},
+{id:'hc4',title:'The four sacred months',ar:'أَرْبَعَةٌ حُرُم',sub:'Four months Allah made extra special',steps:[
+ {t:'say',text:"Allah made four of the twelve months sacred, and told us not to wrong ourselves in them.",ar:"مِنۡهَآ أَرۡبَعَةٌ حُرُمٞۚ",tr:"Minha arba'atun hurum",mean:"Four of them are sacred. (Surah at-Tawbah 9:36)"},
+ {t:'say',text:"The Prophet ﷺ told us which ones: three in a row, Dhul-Qa'dah, Dhul-Hijjah and Muharram, and then Rajab, which comes between Jumada and Sha'ban. (Sahih al-Bukhari 3197)"},
+ {t:'tap',prompt:'Tap the four sacred months',reveal:'A sacred month',items:[['🌙',"Dhul-Qa'dah"],['🕋','Dhul-Hijjah'],['✨','Muharram'],['⭐','Rajab']]},
+ {t:'key',text:"The four sacred months are Dhul-Qa'dah, Dhul-Hijjah, Muharram and Rajab. We try extra hard to be good in them."},
+ {t:'quiz',qs:[
+  {q:'How many sacred months are there?',o:['Four','Two','Twelve'],why:'Allah says four of the twelve are sacred.'},
+  {q:'Which of these is a sacred month?',o:['Rajab','Safar','Shawwal'],why:"The sacred months are Dhul-Qa'dah, Dhul-Hijjah, Muharram and Rajab."},
+  {q:'Which three sacred months come in a row?',o:["Dhul-Qa'dah, Dhul-Hijjah, Muharram","Ramadan, Shawwal, Safar","Rajab, Sha'ban, Ramadan"],why:'Three come in a row at the end and start of the year.'}]}]},
+{id:'hc5',title:'Ramadan and Eid al-Fitr',ar:'رَمَضَان',sub:'The month of the Qur\'an',steps:[
+ {t:'say',text:"Ramadan is the ninth month. It is the month when the Qur'an was sent down:",ar:"شَهۡرُ رَمَضَانَ ٱلَّذِيٓ أُنزِلَ فِيهِ ٱلۡقُرۡءَانُ",tr:"Shahru Ramadanal-ladhi unzila fihil-Qur'an",mean:"The month of Ramadan, in which the Qur'an was sent down. (Surah al-Baqarah 2:185)"},
+ {t:'say',text:"In Ramadan, grown-ups fast from dawn until sunset. Children can practise fasting for part of the day, and everyone reads more Qur'an and does more good."},
+ {t:'say',text:"Inside Ramadan is a very special night, Laylat al-Qadr. It is better than a thousand months!",ar:"لَيۡلَةُ ٱلۡقَدۡرِ خَيۡرٞ مِّنۡ أَلۡفِ شَهۡرٖ",tr:"Laylatul-qadri khayrum-min alfi shahr",mean:"The Night of Qadr is better than a thousand months. (Surah al-Qadr 97:3)"},
+ {t:'say',text:"The Prophet ﷺ told us to look for it in the last ten nights of Ramadan. (Sahih al-Bukhari 2020)"},
+ {t:'say',text:"When Ramadan ends and the new moon of Shawwal is seen, it is Eid al-Fitr! We say Allahu Akbar, pray the Eid prayer and thank Allah. Fasting six days of Shawwal as well brings a huge reward. (Sahih Muslim 1164)"},
+ {t:'key',text:"Ramadan is month 9, the month of fasting and the Qur'an. Laylat al-Qadr is in its last ten nights. Eid al-Fitr is on the 1st of Shawwal."},
+ {t:'quiz',qs:[
+  {q:'What was sent down in Ramadan?',o:["The Qur'an",'Rain','Snow'],why:"Allah sent down the Qur'an in Ramadan."},
+  {q:'Laylat al-Qadr is better than how many months?',o:['A thousand','Ten','One'],why:'It is better than a thousand months.'},
+  {q:'When is Eid al-Fitr?',o:['The 1st of Shawwal','The 1st of Ramadan','The 10th of Muharram'],why:'Eid al-Fitr is on the first day of Shawwal.'}]}]},
+{id:'hc6',title:'Dhul-Hijjah, Hajj and Eid al-Adha',ar:'ذُو الْحِجَّة',sub:'The best ten days of the year',steps:[
+ {t:'say',text:"Dhul-Hijjah is the twelfth month. Its first ten days are very special. The Prophet ﷺ said no good deeds are better than the ones done in these days. (Sahih al-Bukhari 969)"},
+ {t:'say',text:"In Dhul-Hijjah, Muslims from all over the world go to Makkah for Hajj, just as Allah told Prophet Ibrahim to call people to it. (Surah al-Hajj 22:27)"},
+ {t:'say',text:"The 9th of Dhul-Hijjah is the Day of 'Arafah. The Prophet ﷺ said fasting on that day wipes away the sins of the year before and the year after. (Sahih Muslim 1162)"},
+ {t:'say',text:"The 10th of Dhul-Hijjah is Eid al-Adha! We pray the Eid prayer, say Allahu Akbar, and families share their sacrifice with relatives and people in need."},
+ {t:'tap',prompt:'Tap the special days of Dhul-Hijjah',reveal:'A day to do lots of good',items:[['🔟','Days 1 to 10: the best days'],['🕋','Hajj in Makkah'],['⛰️',"Day 9: the Day of 'Arafah"],['🎉','Day 10: Eid al-Adha']]},
+ {t:'quiz',qs:[
+  {q:'Which month is the month of Hajj?',o:['Dhul-Hijjah','Ramadan','Safar'],why:'Hajj is in Dhul-Hijjah, month 12.'},
+  {q:"Which day is the Day of 'Arafah?",o:['The 9th of Dhul-Hijjah','The 1st of Muharram','The 27th of Rajab'],why:"The Day of 'Arafah is the 9th of Dhul-Hijjah."},
+  {q:'When is Eid al-Adha?',o:['The 10th of Dhul-Hijjah','The 1st of Shawwal','The 10th of Muharram'],why:'Eid al-Adha is on the 10th of Dhul-Hijjah.'}]}]},
+{id:'hc7',title:"Muharram and 'Ashura",ar:'عَاشُورَاء',sub:'A new year, and the day Allah saved Musa',steps:[
+ {t:'say',text:"Muharram is the first month of the Islamic year. The Muslims counted their years from the Hijrah, when the Prophet ﷺ arrived in Madinah. That is why it is called the Hijri calendar. (Sahih al-Bukhari 3934)"},
+ {t:'say',text:"The 10th of Muharram is called 'Ashura. It is the day Allah saved Prophet Musa and his people from Fir'awn at the sea. The Prophet ﷺ fasted on it and told the Muslims to fast too. (Sahih al-Bukhari 2004)"},
+ {t:'say',text:"The Prophet ﷺ said fasting 'Ashura wipes away the sins of the year before. (Sahih Muslim 1162) He also wanted to fast the 9th as well. (Sahih Muslim 1134)"},
+ {t:'key',text:"Muharram starts the Hijri year. 'Ashura, the 10th of Muharram, is the day Allah saved Musa. We can fast the 9th and the 10th."},
+ {t:'quiz',qs:[
+  {q:'From which event do we count the Hijri years?',o:['The Hijrah to Madinah','The first rain','The building of a palace'],why:'The years are counted from the Hijrah.'},
+  {q:"What happened on the day of 'Ashura?",o:['Allah saved Musa from Fir\'awn','The Qur\'an was finished','It snowed in Makkah'],why:"On 'Ashura Allah saved Musa and his people."},
+  {q:"Which date is 'Ashura?",o:['The 10th of Muharram','The 1st of Ramadan','The 9th of Dhul-Hijjah'],why:"'Ashura is the 10th of Muharram."}]}]},
+{id:'hc8',title:'Month master',ar:'',sub:'The month-names game',gen:true,make(){
+  const r=Math.random,ev=[['Ramadan','The month of fasting'],['Shawwal','Eid al-Fitr is on day 1'],['Dhul-Hijjah','Hajj and Eid al-Adha'],['Muharram',"The year begins, and 'Ashura"],['Rajab','A sacred month before Sha\'ban'],["Sha'ban",'Comes right before Ramadan']];
+  const start=Math.floor(r()*6),six=HMONTHS.slice(start,start+6).map(m=>({t:m[0],ar:m[1]}));
+  return [{t:'say',text:"Time for the month-names game, {name}! Can you remember them all?"},
+   {t:'stack',prompt:'Put these six in order',items:six,done:'MashaAllah! Now try the whole year.'},
+   {t:'stack',prompt:'All twelve months, from Muharram',items:HMONTHS.map(m=>({t:m[0],ar:m[1]})),done:'You are a month master!'},
+   {t:'match',prompt:'Match each month to what happens in it',pairs:shuffle(ev).slice(0,5).map(e=>['',e[0],e[1]])}]}}
+];
+HC.forEach(l=>{l.world='hc';if(l.gen)l.steps=[]});
+const HIJ=(()=>{try{const f=new Intl.DateTimeFormat('en-u-ca-islamic-umalqura-nu-latn',{day:'numeric',month:'numeric',year:'numeric'});const t=f.formatToParts(new Date(2026,9,29));if(!t.some(p=>p.type==='month'))return null;return d=>{const o={};f.formatToParts(d).forEach(p=>{if(p.type==='day'||p.type==='month')o[p.type]=+p.value;if(p.type==='year'||p.type==='relatedYear')o.year=parseInt(p.value)});return o}}catch(e){return null}})();
+const HDAYS=[[1,1,'🌙','Islamic New Year'],[1,10,'🌊',"'Ashura"],[9,1,'🌙','Ramadan begins'],[10,1,'🎉','Eid al-Fitr'],[12,9,'⛰️',"Day of 'Arafah"],[12,10,'🐑','Eid al-Adha']];
+function hijriToday(){if(!HIJ)return null;const h=HIJ(new Date(Date.now()-0));return h&&h.month?h:null}
+function hijriStr(h){return `${h.day} ${HMONTHS[h.month-1][0]} ${h.year}`}
+function hijriNext(n){if(!HIJ)return [];const out=[],seen=new Set();const d=new Date();d.setHours(12,0,0,0);
+  for(let i=0;i<400&&out.length<n;i++){const h=HIJ(d);const m=HDAYS.find(x=>x[0]===h.month&&x[1]===h.day);if(m&&!seen.has(m[3])){seen.add(m[3]);out.push({days:i,icon:m[2],name:m[3],h:{...h}})}d.setDate(d.getDate()+1)}
+  return out}
+function hijriCard(full){
+  const h=hijriToday();if(!h)return '';const nx=hijriNext(full?6:1);const sacred=[1,7,11,12].includes(h.month);
+  const when=x=>x.days===0?'today!':x.days===1?'tomorrow':`in ${x.days} days`;
+  return `<button class="hijri" ${full?'':'data-act="world" data-w="hc"'}><span class="hm">🌙</span><span class="htx"><small>Today in the Islamic calendar</small><b>${hijriStr(h)}</b><span class="har">${HMONTHS[h.month-1][1]}</span>${sacred?'<em>✨ A sacred month</em>':''}
+   ${nx.length?(full?`<ul>${nx.map(x=>`<li>${x.icon} <b>${x.name}</b> ${when(x)}</li>`).join('')}</ul>`:`<span class="hnext">${nx[0].icon} ${nx[0].name} ${when(nx[0])}</span>`):''}</span></button>
+   ${full?'<p class="small muted">Dates follow the Umm al-Qura calendar. Where you live, a month may start a day later, because it begins when the new moon is seen.</p>':''}`;
+}
+
 const WORLDS={
  aq:{name:'Knowing Allah',sub:'Aqeedah island 1',icon:'🌙',cls:'w-aq',lessons:AQ,seq:true},
  ad:{name:'My daily duas',sub:'Adhkar',icon:'🤲',cls:'w-ad',lessons:AD,seq:false},
  ar:{name:'Arabic letters',sub:'Alif to Yaa',icon:'ا',cls:'w-ar',lessons:LV,seq:true},
  st:{name:'The Story Room',sub:'Stories of the Prophets',icon:'📜',cls:'w-st',lessons:STORIES,seq:false},
- sk:{name:'Stack it',sub:'Put things in the right order',icon:'🧩',cls:'w-sk',lessons:SK,seq:false}
+ sk:{name:'Stack it',sub:'Put things in the right order',icon:'🧩',cls:'w-sk',lessons:SK,seq:false},
+ hc:{name:'The Islamic year',sub:'Months, the moon and special days',icon:'🗓️',cls:'w-hc',lessons:HC,seq:true}
 };
-const SOON=[['📖',"Qur'an and Hifz",'Juz Amma, surah by surah'],['💧','Wudu and salah','Step by step, the Sunnah way'],['🌷','Akhlaq missions','Good manners you do for real'],['🗣️','Arabic words','Everyday words, Madina style'],['🌙','The Islamic year','Ramadan, Dhul Hijjah, Muharram']];
+const SOON=[['📖',"Qur'an and Hifz",'Juz Amma, surah by surah'],['💧','Wudu and salah','Step by step, the Sunnah way'],['🌷','Akhlaq missions','Good manners you do for real'],['🗣️','Arabic words','Everyday words, Madina style']];
 const SYMS=['🌙','⭐','🌸','🌷','🌻','🕌','💎','🌈','🍀','📖','🌿','🍉'];
 const SYMBG=['var(--rose-soft)','var(--green-soft)','var(--gold-soft)','var(--sky)'];
 const DEEDS=['I helped Ummi','I helped Daddy','I said salam first','I shared with someone','I told the truth','I said Bismillah before eating','I was kind to my cousin','I said sorry'];
-const ALL=[...AQ,...AD,...LV,...STORIES,...SK];
+const ALL=[...AQ,...AD,...LV,...STORIES,...SK,...HC];
 const byId=Object.fromEntries(ALL.map(l=>[l.id,l]));
 
 /* ===================== STATE + STORAGE ===================== */
@@ -1365,7 +1474,7 @@ function go(screen,extra){Object.assign(ui,{screen},extra||{});render();window.s
 /* ===================== SCREENS ===================== */
 function render(){
   if(ui.screen==='duel')return;
-  if(!['home','world','score','bell','flash'].includes(ui.screen)){const lp=document.querySelector('.lovepop');if(lp)lp.remove()}
+  if(!['home','world','score','bell','flash','play'].includes(ui.screen)){const lp=document.querySelector('.lovepop');if(lp)lp.remove()}
   if(ui.screen==='tug'&&document.getElementById('tugwrap')){tugUpdate();return}
   const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen,cert:certScreen,chat:chatScreen,bell:bellScreen,flash:flashScreen,wquiz:wquizScreen,tug:tugScreen}[ui.screen]||cover;
   app.innerHTML=f();
@@ -1453,11 +1562,12 @@ function gardenPane(){
    <div class="hx"><h1 class="hi">Assalamu alaikum, ${esc(S.kids[k].name)}!</h1><div class="pills"><span class="pill">⭐ ${stars}</span><span class="pill">🔥 ${P.streak||0} day${(P.streak||0)===1?'':'s'}</span><span class="pill">🌸 ${done+deedsOk(k)+(P.flashDays||0)}</span></div></div></div>
   ${joinBell()}
   ${tugBanner(k)}
+  ${hijriCard(false)}
   ${sodCard(k)}
   ${whosHere()}
   <div class="garden slim">${gardenSVG(done+deedsOk(k)+(P.flashDays||0),trees)}</div>
   <section class="sect"><h2 class="h2s">Today's three</h2><div class="today3">${tasks.map(t=>{const W=WORLDS[t.w];return `<button class="t3 ${t.did?'done':''}" ${t.w!=='ar'?`data-act="world" data-w="${t.w}"`:t.nx?`data-act="open" data-id="${t.nx.id}"`:'disabled'}><span class="ic ${t.w==='ar'?'ar':''}">${t.did?'✅':W.icon}</span><b>${short[t.w]}</b><small>${t.w==='aq'&&t.nx?'Stop '+(AQ.indexOf(t.nx)+1)+': '+esc(t.nx.title.replace(/^Allah is /,'')):t.w==='ad'?(t.did?'Done! Pick another':'All '+AD.length+' duas'):t.nx?esc(t.nx.title):(t.did?'Done!':'Waiting for Daddy')}</small></button>`}).join('')}</div></section>
-  <section class="sect"><h2 class="h2s">Play and learn</h2><div class="tiles">${['st','sk','aq','ad','ar'].map(tile).join('')}
+  <section class="sect"><h2 class="h2s">Play and learn</h2><div class="tiles">${['st','sk','aq','ad','ar','hc'].map(tile).join('')}
    ${wqTile(k)}
    <button class="tile w-fl" data-act="flash"><span class="ic">🃏</span><b>Flashcards</b><small>${(()=>{const n=flashDue(k);return n?n+' ready':flashDeck(k).length?'Done today ✅':'After a lesson'})()}</small></button>
    <button class="tile w-duel" data-act="${dOpen?'duelPick':'duelUnlock'}"><span class="ic">${dOpen?'⚔️':'🔒'}</span><b>Duel with Daddy</b><small>${dOpen?(D.played?`${D.won} wins`:'Play now'):'After a lesson'}</small></button></div>
@@ -1514,7 +1624,7 @@ function worldScreen(){
   if(ui.world==='ad')return duaDay();
   if(ui.world==='ar')return letterLand();
   const W=WORLDS[ui.world],P=prog(ui.kid);
-  return `<div class="topbar"><button class="back" data-act="home">← My garden</button></div>
+  return `<div class="topbar"><button class="back" data-act="home">← My garden</button></div>${ui.world==='hc'?hijriCard(true):''}
   <div class="world ${W.cls}" style="min-height:auto"><span class="wicon ${ui.world==='ar'?'ar':''}">${W.icon}</span><h1>${W.name}</h1><p>${W.sub}${ui.world==='aq'?' · from Tawheed for Children, Level One, by Dr. Saleh as-Saleh':''}</p></div>
   <div class="lessons">${W.lessons.map((l,i)=>{const ok=approved(l),un=unlocked(l),d=P.done[l.id];
     const state=!ok?'<span class="chip gold">Waiting for Daddy</span>':!un?'<span class="chip plain">Locked</span>':d?`<span class="stars">${starsTxt(d)}</span>`:'<span class="chip rose">Start</span>';
@@ -1655,15 +1765,17 @@ function storyCard(){
 function library(){
   const P=prog(ui.kid);
   const books=PROPHETS.map((pr,i)=>{
-    const st=STORIES.find(s=>s.pid===pr[0]),hue=['#1F5C4A','#B9587A','#C98F22','#3E6E8E','#7A5A9A'][i%5];
-    const head=`<span class="bnum">${i+1}</span><span class="bname">${esc(pr[1])}</span><span class="bar2 ar">${pr[2]}</span>`;
-    if(!st)return `<div class="book soon" style="--spine:${hue}">${head}<span class="chip plain">Coming soon</span></div>`;
+    const list=STORIES.filter(s=>s.pid===pr[0]),hue=['#1F5C4A','#B9587A','#C98F22','#3E6E8E','#7A5A9A'][i%5],multi=list.length>1;
+    const head=st=>`<span class="bnum">${i+1}</span><span class="bname">${esc(pr[1])}</span><span class="bar2 ar">${pr[2]}</span>${multi?`<span class="bpart">Part ${st.ch||1}: ${esc(st.part||st.title)}</span>`:''}`;
+    if(!list.length)return `<div class="book soon" style="--spine:${hue}"><span class="bnum">${i+1}</span><span class="bname">${esc(pr[1])}</span><span class="bar2 ar">${pr[2]}</span><span class="chip plain">Coming soon</span></div>`;
+    return list.map(st=>{
     const ok=approved(st),d=P.done[st.id];
     const cover=`<span class="bcover">${scene(st.slides[0].sc)}</span>`;
-    if(!ok)return `<div class="book wait" style="--spine:${hue}">${cover}${head}<span class="chip gold">Waiting for Daddy</span></div>`;
+    if(!ok)return `<div class="book wait" style="--spine:${hue}">${cover}${head(st)}<span class="chip gold">Waiting for Daddy</span></div>`;
     const today=(storyOfDay(ui.kid)||{}).id===st.id,nx=(nextStory(ui.kid)||{}).id===st.id;
-    if(!d&&!today&&!nx)return `<div class="book wait" style="--spine:${hue}">${cover}${head}<span class="chip plain">🔒 Read the one before to unlock</span></div>`;
-    return `<button class="book ${today||nx?'today':''}" style="--spine:${hue}" data-act="open" data-id="${st.id}">${cover}${head}${d?`<span class="stars">${starsTxt(d)}</span>`:today?'<span class="chip rose">✨ Today\'s story</span>':'<span class="chip rose">🔓 Unlocked!</span>'}</button>`;
+    if(!d&&!today&&!nx)return `<div class="book wait" style="--spine:${hue}">${cover}${head(st)}<span class="chip plain">🔒 Read the one before to unlock</span></div>`;
+    return `<button class="book ${today||nx?'today':''}" style="--spine:${hue}" data-act="open" data-id="${st.id}">${cover}${head(st)}${d?`<span class="stars">${starsTxt(d)}</span>`:today?'<span class="chip rose">✨ Today\'s story</span>':'<span class="chip rose">🔓 Unlocked!</span>'}</button>`;
+    }).join('');
   }).join('');
   const n=STORIES.filter(s=>P.done[s.id]).length;
   return `<div class="topbar"><button class="back" data-act="home">← My garden</button></div>
@@ -1824,7 +1936,7 @@ function setupScreen(){
 function parents(){
   const ids=Object.keys(S.kids);
   const pendingDeeds=Object.entries(S.deeds).filter(([i,d])=>d.status==='pending');
-  const worlds=['aq','ad','st'].map(w=>({w,list:WORLDS[w].lessons}));
+  const worlds=['aq','ad','st','hc'].map(w=>({w,list:WORLDS[w].lessons}));
   const ek=ui.editKid,kid=ek&&ek!=='new'?S.kids[ek]:{name:'',pin:'',symbol:'🌸'};
   return `<div class="topbar"><button class="back" data-act="cover">← Done</button>${saveChip()}</div>
   <div class="ph"><img src="img/quran.jpg" alt=""><div><h1>Parents' corner</h1><p class="muted">Approve lessons, confirm good deeds and see how everyone is doing.</p></div></div>
@@ -1865,7 +1977,7 @@ function parents(){
    ${isOwner()?`<div class="card stage"><div class="field"><label for="newmember">Add a parent's Google email</label><input id="newmember" type="email" autocomplete="off" placeholder="name@gmail.com"></div><div class="row"><button class="btn sm" data-act="addMember">Add to family</button></div></div>`:''}
    <div class="row"><button class="btn ghost sm" data-act="fbSignOut">Sign out of Google on this device</button></div></section>`:''}
   ${mode==='db'?`<section class="sect"><h2>Family chat</h2><p class="muted small">Read what the children send each other, write to them, and remove any message.</p><div class="row"><button class="btn sm" data-act="parentChat">Open family chat</button><button class="btn ghost sm" data-act="chatTyping">${S.settings.chatTyping===false?'Allow typed messages':'Quick phrases only'}</button></div><p class="small muted">Typed messages are ${S.settings.chatTyping===false?'off: children can only send quick phrases and emoji':'on: children can type up to 120 characters'}.</p></section>`:''}
-  <section class="sect"><h2>Settings</h2><div class="card stage"><h3>Little love notes</h3><p class="muted small">Every few minutes a gentle message about Allah pops up while the children are in the app (never during a lesson or game).</p><div class="row"><button class="btn sm ${S.settings.loveMsgs===false?'rose':'ghost'}" data-act="loveMsgs">${S.settings.loveMsgs===false?'Turn love notes on':'Turn love notes off'}</button><button class="btn ghost sm" data-act="loveTest">Show one now</button></div></div><div class="card stage"><div class="field"><label for="ppin2">Change parent PIN</label><input id="ppin2" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="New 4-number PIN"></div><div class="row"><button class="btn ghost sm" data-act="changePin">Update PIN</button></div>
+  <section class="sect"><h2>Settings</h2><div class="card stage"><h3>Little love notes</h3><p class="muted small">Every few minutes a short note slides in asking the child to think of Allah or do something small in their heart, with an "I did it" button. It can appear between lesson pages and stories, but never during quizzes, duels or Tug of War.</p><div class="row"><button class="btn sm ${S.settings.loveMsgs===false?'rose':'ghost'}" data-act="loveMsgs">${S.settings.loveMsgs===false?'Turn love notes on':'Turn love notes off'}</button><button class="btn ghost sm" data-act="loveTest">Show one now</button></div></div><div class="card stage"><div class="field"><label for="ppin2">Change parent PIN</label><input id="ppin2" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="New 4-number PIN"></div><div class="row"><button class="btn ghost sm" data-act="changePin">Update PIN</button></div>
    <p class="small muted">${mode==='db'?(fb?'Progress syncs through the family database, so it follows each child to every device where a family grown-up has signed in.':'Progress is saved to your family space, so it follows each child across devices where a signed-in grown-up opens this page.'):'Progress is saved on this device only. Open this page while signed in to save it to your family space.'}</p></div></section>`;
 }
 function previewHTML(l){
@@ -2271,45 +2383,54 @@ function tugCancel(id,quiet){
 }
 /* ===================== LITTLE LOVE NOTES (random, gentle) ===================== */
 const LOVE=[
- ['☀️','Allah made the sun rise for you today. Say Alhamdulillah!',''],
- ['💛','Allah is close. He hears you, even when you whisper a dua.','Surah al-Baqarah 2:186'],
- ['🌟','Allah loves those who do good. Keep going!','Surah al-Baqarah 2:195'],
- ['🌈',"Allah's mercy is so big, it covers everything.",'Surah al-A\'raf 7:156'],
- ['✨','Allah sees every kind thing you do, even the tiny ones.','Surah az-Zalzalah 99:7'],
- ['📚','Learning about Allah is a path to Jannah.','Sahih Muslim 2699'],
- ['🌙','Allah made you, and He made you in the best way.','Surah at-Tin 95:4'],
- ['💭','When you remember Allah, Allah remembers you!','Surah al-Baqarah 2:152'],
- ['🌌','Allah never sleeps. He is always looking after you.','Surah al-Baqarah 2:255'],
- ['⚖️','Saying Alhamdulillah fills the Scale with good deeds. Say it now!','Sahih Muslim 223'],
- ['🌠','Allah made the stars, the sea and the mountains. And He made you too!',''],
- ['💗','Be kind today. Allah is Kind and He loves kindness.','Sahih Muslim 2593'],
- ['🌞','Even a cheerful face for someone is a good deed.','Sahih Muslim 2626'],
- ['🍃','Say Bismillah before you start something. Allah\'s name brings blessing.',''],
- ['🕊️','Allah loves to forgive. Say Astaghfirullah.',''],
- ['📖',"The Qur'an is Allah's own words. How special that you are learning it!",''],
- ['🏡','Make a dua for your family today. Allah loves to hear it.',''],
- ['💖','Allah knows what is in your heart. Keep it kind and clean.',''],
- ['🌙','You are never alone. Allah is with you wherever you are.','Surah al-Hadid 57:4'],
- ['💐','Say thank you to Allah for your mummy and daddy today.',''],
- ['🌷','Every little lesson makes your garden grow. Keep going, for Allah!',''],
- ['🎁','Everything you have is a gift from Allah. Which gift will you thank Him for today?','Surah an-Nahl 16:18'],
- ['🌧️','Allah sends the rain that makes flowers and fruit grow.','Surah al-Hajj 22:63'],
- ['🤍','Love for your brother what you love for yourself. That is real iman.','Sahih al-Bukhari 13']
+ ['🌸','Think of one thing Allah gave you today. Got it? Now smile and whisper: Alhamdulillah!',''],
+ ['💧','Who made the water you drink? Allah! Next time you drink, say Bismillah first.',''],
+ ['🌬️','Take a big, slow breath. Allah gave you that breath. Say SubhanAllah in your heart.',''],
+ ['💛','Allah is close to you. Tell Him one little wish in your heart, right now.','Surah al-Baqarah 2:186'],
+ ['☁️','Look around you. Find one thing Allah made. Found it? Say: SubhanAllah!',''],
+ ['💡','Who gave you a mind that can learn? Allah! Say Alhamdulillah, and keep learning.',''],
+ ['🎁','Count three blessings on your fingers: one, two, three. All of them are from Allah!','Surah an-Nahl 16:18'],
+ ['🌟','Think of someone you love. Make a little dua for them in your heart.',''],
+ ['🍎','What did you eat today? Who made it grow? Say: Alhamdulillah!',''],
+ ['🌈','Made a mistake today? Allah loves to forgive. Say Astaghfirullah softly, and smile.',''],
+ ['🌙','Allah never sleeps. He is always looking after you. Feel safe, and say: Allahu Akbar!','Surah al-Baqarah 2:255'],
+ ['✨','Say SubhanAllah three times in your heart. One, two, three. MashaAllah!',''],
+ ['💗','Smile at the next person you see. Even a cheerful face is a good deed!','Sahih Muslim 2626'],
+ ['🌍','Allah made the whole world, and He made you too. Say: SubhanAllah!',''],
+ ['💭','When you remember Allah, Allah remembers you. Remember Him now: Allahu Akbar!','Surah al-Baqarah 2:152'],
+ ['🏡','Think of your home and your bed. Who gave them to you? Whisper a thank you to Allah.',''],
+ ['⚖️','Say Alhamdulillah right now. It fills the Scale with good!','Sahih Muslim 223'],
+ ['🕊️','Is someone upset with you, or you with them? Forgive in your heart. Allah loves people who forgive.','Surah Al \'Imran 3:134'],
+ ['📖','Which surah do you know by heart? Say a little of it in your mind now.',''],
+ ['🌱','Plan one tiny good deed for the next five minutes. Allah will see it!','Surah az-Zalzalah 99:7'],
+ ['🌞','Allah made the sun rise for you today. Say Alhamdulillah, and smile!',''],
+ ['💖','Allah knows what is in your heart. Fill it with something kind right now.',''],
+ ['🌌','Imagine the night sky. Allah made every star, and He knows everything about you.',''],
+ ['🍯','Allah taught the bee to make sweet honey. What sweet thing will you do today?','Surah an-Nahl 16:68'],
+ ['🎈','Happy right now? Say Alhamdulillah. A bit sad? Tell Allah. He always hears you.',''],
+ ['🌺','Make dua for Mummy and Daddy: Rabbir-hamhuma kama rabbayani saghira.','Surah al-Isra 17:24'],
+ ['⭐','Allah loves people who do good. What good thing will you do next?','Surah al-Baqarah 2:195'],
+ ['🤍','Love for your cousin what you love for yourself. Who can you share with today?','Sahih al-Bukhari 13']
 ];
 let loveAt=Date.now()+60e3+Math.random()*60e3,loveLast=-1,loveT=0;
 function loveOn(){return S.settings.loveMsgs!==false}
 function lovePop(){
   let i;do{i=Math.floor(Math.random()*LOVE.length)}while(i===loveLast&&LOVE.length>1);loveLast=i;
   const [ic,t,src]=LOVE[i];let el=document.querySelector('.lovepop');if(el)el.remove();
-  el=document.createElement('button');el.className='lovepop';el.setAttribute('role','status');el.setAttribute('aria-label','A little love note: '+t+' Tap to close.');
-  el.innerHTML=`<span class="lic" aria-hidden="true">${ic}</span><span><small>A little love note</small><b>${esc(t)}</b>${src?`<i>${esc(src)}</i>`:''}</span>`;
-  el.onclick=()=>{el.classList.remove('in');setTimeout(()=>el.remove(),450)};
+  el=document.createElement('div');el.className='lovepop';el.setAttribute('role','status');
+  el.innerHTML=`<span class="lic" aria-hidden="true">${ic}</span><span class="ltx"><b>${esc(t)}</b>${src?`<i>${esc(src)}</i>`:''}</span><button class="ldid" aria-label="I did it">I did it 💛</button><button class="lx" aria-label="Close">✕</button>`;
+  const close=()=>{el.classList.remove('in');setTimeout(()=>el.remove(),450)};
+  el.querySelector('.lx').onclick=close;
+  el.querySelector('.ldid').onclick=()=>{const k=ui.kid;if(k&&S.kids[k]){const P=prog(k);P.loveDone=(P.loveDone||0)+1;saveProg(k)}
+    el.querySelector('.ltx').innerHTML=`<b>MashaAllah! Allah saw that. 💛</b>`;el.querySelector('.ldid').remove();clearTimeout(loveT);loveT=setTimeout(close,1800)};
   document.body.appendChild(el);requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('in')));
-  clearTimeout(loveT);loveT=setTimeout(()=>{el.classList.remove('in');setTimeout(()=>el.remove(),450)},9000);
+  clearTimeout(loveT);loveT=setTimeout(close,14000);
 }
+function loveOK(){if(['home','world','score','bell','flash'].includes(ui.screen))return true;
+  if(ui.screen==='play'&&ui.L){const st=ui.L.steps[ui.L.i];return !!st&&['say','key','story','tap','dhikr'].includes(st.t)}return false}
 setInterval(()=>{
   if(!loveOn()||document.hidden||!ui.kid||!S.kids[ui.kid])return;
-  if(!['home','world','score','bell','flash'].includes(ui.screen)){if(loveAt<Date.now()+20e3)loveAt=Date.now()+20e3;return}
+  if(!loveOK()){if(loveAt<Date.now()+20e3)loveAt=Date.now()+20e3;return}
   if(Date.now()<loveAt)return;
   loveAt=Date.now()+(4+Math.random()*5)*60e3;lovePop();
 },15e3);
@@ -2340,7 +2461,7 @@ function sshuffle(a,r){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.fl
 function quizPool(k){
   const P=prog(k),d=P.done||{},ws=weekStart6().getTime(),recent=new Set((P.log||[]).filter(e=>e.at>=ws-7*864e5).map(e=>e.l)),out=[];
   const add=(q,id)=>{if(q&&q.o&&q.o.length>=2)out.push(Object.assign({src:id,recent:recent.has(id)},q))};
-  [...AQ,...AD,...STORIES,...SK].forEach(l=>{if(!d[l.id]||!approved(l))return;(l.steps||[]).forEach(s=>{if(s.t==='quiz')(s.qs||[]).forEach(q=>add(q,l.id))})});
+  [...AQ,...AD,...STORIES,...SK,...HC].forEach(l=>{if(!d[l.id]||!approved(l))return;(l.steps||[]).forEach(s=>{if(s.t==='quiz')(s.qs||[]).forEach(q=>add(q,l.id))})});
   LV.forEach(l=>{if(d[l.id])l.set.forEach(x=>{const p=PICW[x[0]],pool=LETTERS.filter(y=>y!==x);add({q:p?`${p[0]} ${p[2]} (\u2068${p[1]}\u2069) starts with which letter?`:`Which letter is ${x[1]}?`,o:[x[0],...(i=>[pool[(i*7)%27],pool[(i*7+9)%27],pool[(i*7+18)%27]])(LETTERS.indexOf(x)).map(y=>y[0])],glyph:true,why:`${x[1]}: ${x[0]}`},l.id)})});
   EXTRA_Q.filter(q=>S.approvals[q.bundle]).forEach(q=>add(q,q.bundle));
   return out;
@@ -2376,9 +2497,9 @@ function wqTile(k){const st=wqState(k);return `<button class="tile w-wq" data-ac
 const EXTRA_Q=[];let BUNDLES=[];
 function mergeBundle(b){
   if(!b||!b.id||BUNDLES.some(x=>x.id===b.id))return;BUNDLES.push(b);
-  (b.stories||[]).forEach(st=>{if(!st.id||byId[st.id]||!PROPHETS.some(p=>p[0]===st.pid)||STORIES.some(s=>s.pid===st.pid))return;
+  (b.stories||[]).forEach(st=>{if(!st.id||byId[st.id]||!PROPHETS.some(p=>p[0]===st.pid)||STORIES.some(s=>s.pid===st.pid&&(s.ch||1)===(st.ch||1)))return;
     st.world='st';st.bundle=b.id;st.steps=[{t:'story',slides:st.slides},{t:'quiz',qs:st.quiz||[]}];STORIES.push(st);byId[st.id]=st});
-  STORIES.sort((a,b2)=>PROPHETS.findIndex(p=>p[0]===a.pid)-PROPHETS.findIndex(p=>p[0]===b2.pid));
+  STORIES.sort(storyOrder);
   (b.gems||[]).forEach((g,i)=>{if(!g.id||GEMS.some(x=>x.id===g.id))return;const c=GEMC[(GEMS.length+i)%GEMC.length];GEMS.push(Object.assign({c1:c[0],c2:c[1],ar:'',ok:false,bundle:b.id},g))});
   (b.quiz||[]).forEach(q=>EXTRA_Q.push(Object.assign({bundle:b.id},q)));
 }

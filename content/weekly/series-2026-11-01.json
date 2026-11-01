@@ -1,0 +1,6929 @@
+{
+ "id": "series-2026-11-01",
+ "title": "Story series: deeper chapters",
+ "notes": "Replaces the 4-story pack. 25 stories: Prophet Muhammad ﷺ (5 parts), 'Isa with Maryam (5), Ibrahim parts 2 to 4, Yusuf (4), Musa (4), Sulayman (3), and Isma'il. Chapters unlock one after another. Arabic is copied word for word from the QuranEnc Uthmani text. Hadith numbers are from memory and were not opened online, so please glance at: Bukhari 3 / Muslim 160 (Hira), Bukhari 4770 (as-Safa), Bukhari 3231 / Muslim 1795 (angel of the mountains), Bukhari 349, 3207 / Muslim 162 (Mi'raj and the prayers), Bukhari 3653 / Muslim 2381 (the cave), Bukhari 428 (building the masjid), Bukhari 3934 (counting years from the Hijrah), Bukhari 3584 (the crying palm trunk), Bukhari 5997 / Muslim 2318 (kissing al-Hasan), Bukhari 4287 / Muslim 1781 (the idols at the Ka'bah), Muslim 408 (ten blessings), Bukhari 3448 / Muslim 155 ('Isa returning), Bukhari 3364 (Zamzam). Things handled gently on purpose: the wife of al-Aziz (Yusuf part 2), the cup episode left out (Yusuf part 4), Musa leaving Egypt without the killing (Musa part 2), the guests of Ibrahim and the angel with Maryam are told in words, never drawn.",
+ "stories": [
+  {
+   "id": "st-ismail",
+   "pid": "ismail",
+   "title": "Prophet Isma'il and the water of Zamzam",
+   "ar": "إِسْمَاعِيل عَلَيْهِ السَّلَام",
+   "sub": "Trusting Allah, and keeping promises",
+   "slides": [
+    {
+     "sc": {
+      "label": "A dry valley between bare mountains",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "sun": [
+       320,
+       60,
+       22
+      ],
+      "mountains": {
+       "c": "#C9A07E",
+       "d": "#A87E5C"
+      },
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Prophet Ibrahim, alayhis salaam, brought his wife Hajar and their baby son Isma'il to a dry valley in Makkah. There was no water, no plants and no people. (Sahih al-Bukhari 3364)",
+     "ay": {
+      "ar": "رَّبَّنَآ إِنِّيٓ أَسۡكَنتُ مِن ذُرِّيَّتِي بِوَادٍ غَيۡرِ ذِي زَرۡعٍ عِندَ بَيۡتِكَ ٱلۡمُحَرَّمِ",
+      "en": "Our Lord, I have settled some of my family in a valley with no plants, near Your Sacred House.",
+      "ref": "Surah Ibrahim 14:37"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern in the empty valley at dusk",
+      "sky": [
+       "#C7A0B8",
+       "#F1D9CF"
+      ],
+      "lantern": [
+       200,
+       128
+      ],
+      "mountains": {
+       "c": "#9C8676",
+       "d": "#7C6658"
+      },
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "When Ibrahim turned to leave, Hajar asked him: Did Allah command you to do this? He said: Yes. So Hajar said: Then Allah will not leave us. What strong trust in Allah! (Sahih al-Bukhari 3364)"
+    },
+    {
+     "sc": {
+      "label": "Two rocky hills under a hot sun",
+      "sky": [
+       "#F6B26B",
+       "#FCE1B3"
+      ],
+      "sun": [
+       200,
+       60,
+       30
+      ],
+      "sunC": "#FFB547",
+      "mountains": {
+       "c": "#C9A07E",
+       "d": "#A87E5C"
+      },
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "Soon the water ran out, and baby Isma'il was thirsty. Hajar ran up the hill of as-Safa to look for help, then across to the hill of al-Marwah. She did this seven times. (Sahih al-Bukhari 3364)"
+    },
+    {
+     "sc": {
+      "label": "Fresh water bubbling up from the sand",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "water": true,
+      "glow": [
+       200,
+       170
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Then, by Allah's command, water burst up out of the ground! This blessed water is the well of Zamzam, and it still flows today. (Sahih al-Bukhari 3364)"
+    },
+    {
+     "sc": {
+      "label": "The two hills under a calm evening sky",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       80,
+       150,
+       22
+      ],
+      "mountains": {
+       "c": "#C9A07E",
+       "d": "#A87E5C"
+      },
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "The Prophet ﷺ said that this is why people walk between as-Safa and al-Marwah when they do Hajj and 'Umrah. (Sahih al-Bukhari 3364)",
+     "ay": {
+      "ar": "إِنَّ ٱلصَّفَا وَٱلۡمَرۡوَةَ مِن شَعَآئِرِ ٱللَّهِۖ",
+      "en": "Truly, as-Safa and al-Marwah are among the signs of Allah.",
+      "ref": "Surah al-Baqarah 2:158"
+     }
+    },
+    {
+     "sc": {
+      "label": "A quiet starry night over the valley",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "moon": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Isma'il grew old enough to walk and work beside his father. Then Ibrahim saw in a dream that he must sacrifice his dear son. He asked Isma'il what he thought, and Isma'il answered:",
+     "ay": {
+      "ar": "فَلَمَّا بَلَغَ مَعَهُ ٱلسَّعۡيَ قَالَ يَٰبُنَيَّ إِنِّيٓ أَرَىٰ فِي ٱلۡمَنَامِ أَنِّيٓ أَذۡبَحُكَ فَٱنظُرۡ مَاذَا تَرَىٰۚ قَالَ يَـٰٓأَبَتِ ٱفۡعَلۡ مَا تُؤۡمَرُۖ سَتَجِدُنِيٓ إِن شَآءَ ٱللَّهُ مِنَ ٱلصَّـٰبِرِينَ",
+      "en": "He said: O my father, do what you are commanded. You will find me, if Allah wills, one of the patient.",
+      "ref": "Surah as-Saffat 37:102"
+     }
+    },
+    {
+     "sc": {
+      "label": "A bright sunrise over the hills",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       28
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Father and son both obeyed Allah. Then Allah called out to Ibrahim: You have done what the dream asked! Allah saved Isma'il and gave a great sacrifice in his place.",
+     "ay": {
+      "ar": "وَفَدَيۡنَٰهُ بِذِبۡحٍ عَظِيمٖ",
+      "en": "And We ransomed him with a great sacrifice.",
+      "ref": "Surah as-Saffat 37:107"
+     }
+    },
+    {
+     "sc": {
+      "label": "Building blocks of stone being placed in a row",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "sun": [
+       330,
+       50,
+       18
+      ],
+      "blocks": true,
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Years later, Ibrahim and Isma'il built the Ka'bah together, the House of Allah. While they worked, they made dua:",
+     "ay": {
+      "ar": "وَإِذۡ يَرۡفَعُ إِبۡرَٰهِـۧمُ ٱلۡقَوَاعِدَ مِنَ ٱلۡبَيۡتِ وَإِسۡمَٰعِيلُ رَبَّنَا تَقَبَّلۡ مِنَّآۖ إِنَّكَ أَنتَ ٱلسَّمِيعُ ٱلۡعَلِيمُ",
+      "en": "Our Lord, accept this from us. You are the All-Hearing, the All-Knowing.",
+      "ref": "Surah al-Baqarah 2:127"
+     }
+    },
+    {
+     "sc": {
+      "label": "A peaceful oasis with palm trees",
+      "sky": [
+       "#F3D3A6",
+       "#FBEAD2"
+      ],
+      "palms": [
+       [
+        110,
+        1
+       ],
+       [
+        300,
+        0.9
+       ]
+      ],
+      "water": true,
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Allah praised Isma'il for always keeping his promises. He told his family to pray and give charity, and Allah was pleased with him.",
+     "ay": {
+      "ar": "وَٱذۡكُرۡ فِي ٱلۡكِتَٰبِ إِسۡمَٰعِيلَۚ إِنَّهُۥ كَانَ صَادِقَ ٱلۡوَعۡدِ وَكَانَ رَسُولٗا نَّبِيّٗا",
+      "en": "Mention Isma'il in the Book. He was true to his promise, and he was a Messenger and a Prophet.",
+      "ref": "Surah Maryam 19:54"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Trust Allah, like Hajar did: Allah never leaves the people who trust Him. Obey Allah even when it is hard, like Ibrahim and Isma'il. And always keep your promises."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What did Hajar say when Ibrahim told her Allah commanded it?",
+     "o": [
+      "Then Allah will not leave us",
+      "I am scared",
+      "Take us with you"
+     ],
+     "why": "She trusted Allah completely."
+    },
+    {
+     "q": "How many times did Hajar run between as-Safa and al-Marwah?",
+     "o": [
+      "Seven times",
+      "Two times",
+      "Ten times"
+     ],
+     "why": "She ran between the two hills seven times."
+    },
+    {
+     "q": "What is the name of the blessed water that came up?",
+     "o": [
+      "Zamzam",
+      "The Nile",
+      "Rain"
+     ],
+     "why": "By Allah's command, the water of Zamzam came up."
+    },
+    {
+     "q": "What did Ibrahim and Isma'il build together?",
+     "o": [
+      "The Ka'bah",
+      "A ship",
+      "A palace"
+     ],
+     "why": "They built the Ka'bah and made dua: Our Lord, accept from us."
+    }
+   ]
+  },
+  {
+   "id": "st-muhammad-1",
+   "pid": "muhammad",
+   "ch": 1,
+   "part": "The cave of Hira",
+   "title": "Prophet Muhammad ﷺ: the cave of Hira",
+   "ar": "مُحَمَّد ﷺ",
+   "sub": "Read! The first words of the Qur'an",
+   "slides": [
+    {
+     "sc": {
+      "label": "Rocky mountains around Makkah at night",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "moon": true,
+      "mountains": {
+       "c": "#4E4A6A",
+       "d": "#3A3650"
+      },
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Before he became a Prophet, Muhammad ﷺ was known as a good and honest man. He loved to go alone to a cave called Hira, high in a mountain near Makkah, to worship Allah for many nights. (Sahih al-Bukhari 3, Sahih Muslim 160)"
+    },
+    {
+     "sc": {
+      "label": "A small glow inside the dark mountain",
+      "sky": [
+       "#050810",
+       "#0B1424"
+      ],
+      "glow": [
+       200,
+       130
+      ],
+      "mountains": {
+       "c": "#3A3650",
+       "d": "#2A2640"
+      },
+      "noGround": true,
+      "stars": true
+     },
+     "text": "One night in the cave, the angel Jibril came to him with the first words of the Qur'an. He said: Read! (Sahih al-Bukhari 3, Sahih Muslim 160)"
+    },
+    {
+     "sc": {
+      "label": "An open book glowing under the stars",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "book": true,
+      "glow": [
+       200,
+       110
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "These are the very first ayat that Allah sent down:",
+     "ay": {
+      "ar": "ٱقۡرَأۡ بِٱسۡمِ رَبِّكَ ٱلَّذِي خَلَقَ خَلَقَ ٱلۡإِنسَٰنَ مِنۡ عَلَقٍ ٱقۡرَأۡ وَرَبُّكَ ٱلۡأَكۡرَمُ",
+      "en": "Read in the name of your Lord who created. He created people from a clinging clot. Read! And your Lord is the Most Generous.",
+      "ref": "Surah al-'Alaq 96:1-3"
+     }
+    },
+    {
+     "sc": {
+      "label": "A quill pen beside an open book",
+      "sky": [
+       "#E9DFD2",
+       "#F7F1E8"
+      ],
+      "book": true,
+      "glow": [
+       200,
+       90
+      ],
+      "dunes": [
+       "#D8CBB8",
+       "#C8BBA8",
+       "#B8AB98"
+      ]
+     },
+     "text": "Allah teaches us through the pen and through learning:",
+     "ay": {
+      "ar": "ٱلَّذِي عَلَّمَ بِٱلۡقَلَمِ عَلَّمَ ٱلۡإِنسَٰنَ مَا لَمۡ يَعۡلَمۡ",
+      "en": "The One who taught by the pen. He taught people what they did not know.",
+      "ref": "Surah al-'Alaq 96:4-5"
+     }
+    },
+    {
+     "sc": {
+      "label": "A warm lit house in the town at night",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "town": {
+       "lit": true
+      },
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "The Prophet ﷺ hurried home, his heart beating fast. He said to his wife Khadijah: Cover me! Cover me! She wrapped him up until he felt calm. (Sahih al-Bukhari 3, Sahih Muslim 160)"
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern by a window",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       200,
+       118
+      ],
+      "town": {
+       "lit": true
+      },
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Khadijah comforted him. She said: Allah will never let you down. You are good to your family, you help the weak, you give to people in need, you are kind to guests, and you help people when hard times come. (Sahih al-Bukhari 3, Sahih Muslim 160)"
+    },
+    {
+     "sc": {
+      "label": "Dawn breaking over the mountains",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       26
+      ],
+      "mountains": {
+       "c": "#C9A07E",
+       "d": "#A87E5C"
+      },
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "This was the start of something huge. Muhammad ﷺ was now the Messenger of Allah, and the Qur'an would come to him bit by bit, for many years."
+    },
+    {
+     "sc": {
+      "label": "The town of Makkah in morning light",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "sun": [
+       320,
+       50,
+       18
+      ],
+      "town": {},
+      "mountains": {
+       "c": "#C9A07E",
+       "d": "#A87E5C"
+      },
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Think about it: the first word Allah sent was Read! Learning is so important in Islam. Every time you learn something good, you are following those first ayat."
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? The first word of the Qur'an is Read, so we love to learn. Good character, like helping the weak and being kind to guests, is loved by Allah. And when someone we love is scared, we comfort them, like Khadijah did."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What was the name of the cave where the first ayat came?",
+     "o": [
+      "Hira",
+      "Thawr",
+      "Uhud"
+     ],
+     "why": "The first revelation came in the cave of Hira."
+    },
+    {
+     "q": "What was the very first word sent down?",
+     "o": [
+      "Read!",
+      "Pray!",
+      "Run!"
+     ],
+     "why": "Iqra: Read in the name of your Lord who created."
+    },
+    {
+     "q": "Who comforted the Prophet ﷺ when he came home?",
+     "o": [
+      "His wife Khadijah",
+      "A shopkeeper",
+      "Nobody"
+     ],
+     "why": "Khadijah wrapped him up and said kind, true words about his character."
+    },
+    {
+     "q": "Which good thing did Khadijah say he did?",
+     "o": [
+      "Help the weak",
+      "Win races",
+      "Tell jokes"
+     ],
+     "why": "She said he was good to family, helped the weak and gave to people in need."
+    }
+   ]
+  },
+  {
+   "id": "st-muhammad-2",
+   "pid": "muhammad",
+   "ch": 2,
+   "part": "Calling people to Allah",
+   "title": "Prophet Muhammad ﷺ: calling people to Allah",
+   "ar": "مُحَمَّد ﷺ",
+   "sub": "Truthful, patient and merciful",
+   "slides": [
+    {
+     "sc": {
+      "label": "A glowing lantern on the hills of Makkah",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       200,
+       118
+      ],
+      "mountains": {
+       "c": "#6E5A6E",
+       "d": "#4E3E4E"
+      },
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Allah told His Messenger ﷺ to start by calling his own family and people to worship Allah alone:",
+     "ay": {
+      "ar": "وَأَنذِرۡ عَشِيرَتَكَ ٱلۡأَقۡرَبِينَ",
+      "en": "And warn your closest relatives.",
+      "ref": "Surah ash-Shu'ara 26:214"
+     }
+    },
+    {
+     "sc": {
+      "label": "A small hill called as-Safa under a morning sky",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "sun": [
+       320,
+       60,
+       20
+      ],
+      "mountains": {
+       "c": "#C9A07E",
+       "d": "#A87E5C"
+      },
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "So the Prophet ﷺ climbed the small hill of as-Safa in Makkah and called out to all the families of Quraysh. They all came to see what was happening. (Sahih al-Bukhari 4770)"
+    },
+    {
+     "sc": {
+      "label": "A valley behind the hill",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "mountains": {
+       "c": "#B98F6D",
+       "d": "#97805E"
+      },
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "He asked them: If I told you an army was behind this valley, ready to attack, would you believe me? They said: Yes! We have only ever found you telling the truth. (Sahih al-Bukhari 4770)"
+    },
+    {
+     "sc": {
+      "label": "The hill as-Safa with a bright sky",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "sun": [
+       80,
+       60,
+       18
+      ],
+      "mountains": {
+       "c": "#C9A07E",
+       "d": "#A87E5C"
+      },
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Then he said: I am warning you about a great punishment, so worship Allah alone. Even though they knew he was truthful, many of them refused, and some were very unkind. (Sahih al-Bukhari 4770)"
+    },
+    {
+     "sc": {
+      "label": "A quiet town under an evening sky",
+      "sky": [
+       "#C7A0B8",
+       "#F1D9CF"
+      ],
+      "town": {},
+      "dunes": [
+       "#B9A78E",
+       "#A8957B",
+       "#97836A"
+      ]
+     },
+     "text": "For years, some people in Makkah laughed at the Prophet ﷺ and made life hard for him and the believers. But he stayed patient and kept calling them kindly to Allah."
+    },
+    {
+     "sc": {
+      "label": "A long road between dry mountains",
+      "sky": [
+       "#8D8577",
+       "#C4B8A2"
+      ],
+      "mountains": {
+       "c": "#8E7466",
+       "d": "#6E5648"
+      },
+      "dunes": [
+       "#B8A07E",
+       "#A88E6B",
+       "#97805E"
+      ]
+     },
+     "text": "One day he went to some people and asked them to believe, but they turned him away. He walked off feeling very sad, and did not notice where he was going until he reached a place called Qarn ath-Tha'alib. (Sahih al-Bukhari 3231, Sahih Muslim 1795)"
+    },
+    {
+     "sc": {
+      "label": "A cloud giving shade over two big mountains",
+      "sky": [
+       "#9CC3DE",
+       "#E3F0F7"
+      ],
+      "cloud": [
+       200,
+       40,
+       1.3,
+       "#F4F7FA"
+      ],
+      "mountains": {
+       "c": "#8E7466",
+       "d": "#6E5648"
+      },
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "There, Allah sent the angel of the mountains. He said: If you want, I will close these two mountains on them. (Sahih al-Bukhari 3231, Sahih Muslim 1795)"
+    },
+    {
+     "sc": {
+      "label": "Sunrise over the mountains",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       26
+      ],
+      "mountains": {
+       "c": "#C9A07E",
+       "d": "#A87E5C"
+      },
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "But the Prophet ﷺ said no. He said: I hope that Allah will bring from their children people who worship Allah alone. What amazing mercy! (Sahih al-Bukhari 3231, Sahih Muslim 1795)"
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Tell the truth always, so people trust you like they trusted the Prophet ﷺ. Be patient when people are unkind. And instead of wishing bad for people, make dua that Allah guides them."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Which hill did the Prophet ﷺ climb to call his people?",
+     "o": [
+      "As-Safa",
+      "Uhud",
+      "Hira"
+     ],
+     "why": "He climbed as-Safa and called the families of Quraysh."
+    },
+    {
+     "q": "What did the people say about him?",
+     "o": [
+      "We only found you truthful",
+      "You tell jokes",
+      "We do not know you"
+     ],
+     "why": "They knew he always told the truth."
+    },
+    {
+     "q": "Who did Allah send when the Prophet ﷺ was very sad?",
+     "o": [
+      "The angel of the mountains",
+      "A king",
+      "A storm"
+     ],
+     "why": "The angel of the mountains offered to close the mountains on them."
+    },
+    {
+     "q": "What did the Prophet ﷺ hope for those people?",
+     "o": [
+      "That their children would worship Allah",
+      "That they would be punished",
+      "That they would leave"
+     ],
+     "why": "He chose mercy and hoped for their guidance."
+    }
+   ]
+  },
+  {
+   "id": "st-muhammad-3",
+   "pid": "muhammad",
+   "ch": 3,
+   "part": "The night journey",
+   "title": "Prophet Muhammad ﷺ: the night journey",
+   "ar": "مُحَمَّد ﷺ",
+   "sub": "Al-Isra, al-Mi'raj and the gift of salah",
+   "slides": [
+    {
+     "sc": {
+      "label": "A deep night sky full of stars",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "moon": true,
+      "noGround": true
+     },
+     "text": "One night, Allah took His Messenger ﷺ on an amazing journey. Allah says:",
+     "ay": {
+      "ar": "سُبۡحَٰنَ ٱلَّذِيٓ أَسۡرَىٰ بِعَبۡدِهِۦ لَيۡلٗا مِّنَ ٱلۡمَسۡجِدِ ٱلۡحَرَامِ إِلَى ٱلۡمَسۡجِدِ ٱلۡأَقۡصَا",
+      "en": "Glory be to the One who took His servant by night from al-Masjid al-Haram to al-Masjid al-Aqsa.",
+      "ref": "Surah al-Isra 17:1"
+     }
+    },
+    {
+     "sc": {
+      "label": "A road of light across the night",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "glow": [
+       200,
+       140
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "He was brought al-Buraq, a white animal a little smaller than a mule and bigger than a donkey. Each step it took reached as far as its eyes could see. (Sahih Muslim 162)"
+    },
+    {
+     "sc": {
+      "label": "A shining sky high above the clouds",
+      "sky": [
+       "#1E3150",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "cloud": [
+       200,
+       200,
+       1.4,
+       "#8E9AB8"
+      ],
+      "noGround": true,
+      "glow": [
+       200,
+       80
+      ]
+     },
+     "text": "Then he was taken up through the heavens, one after another. In each heaven the gate was opened, and he was welcomed. (Sahih al-Bukhari 3207, Sahih Muslim 162)"
+    },
+    {
+     "sc": {
+      "label": "Seven bright stars, one above the other",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "bigstar": [
+       200,
+       40
+      ],
+      "noGround": true,
+      "glow": [
+       200,
+       120
+      ]
+     },
+     "text": "He met Prophets in the heavens: Adam in the first, Yahya and 'Isa in the second, Yusuf in the third, Idris in the fourth, Harun in the fifth, Musa in the sixth and Ibrahim in the seventh. Each one welcomed him. (Sahih al-Bukhari 3207, Sahih Muslim 162)"
+    },
+    {
+     "sc": {
+      "label": "A peaceful glow high in the sky",
+      "sky": [
+       "#3D4E7A",
+       "#C7A0B8"
+      ],
+      "stars": true,
+      "glow": [
+       200,
+       90
+      ],
+      "noGround": true
+     },
+     "text": "Adam and Ibrahim said: Welcome, righteous son! The others said: Welcome, righteous brother! All the Prophets were one family in worshipping Allah alone. (Sahih al-Bukhari 349)"
+    },
+    {
+     "sc": {
+      "label": "A soft light above everything",
+      "sky": [
+       "#0E1A2E",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "glow": [
+       200,
+       70
+      ],
+      "noGround": true
+     },
+     "text": "Higher still, Allah gave His Messenger ﷺ a special gift for us: the prayer. At first it was fifty prayers every day. (Sahih al-Bukhari 349)"
+    },
+    {
+     "sc": {
+      "label": "Stars twinkling over a calm earth",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "fullmoon": [
+       300,
+       60,
+       16
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "On the way back, Musa told him: Your people will not manage that. Go back and ask Allah to make it lighter. So he asked again and again. (Sahih al-Bukhari 349)"
+    },
+    {
+     "sc": {
+      "label": "Five bright stars in a row",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "bigstar": [
+       200,
+       60
+      ],
+      "moon": [
+       80,
+       50,
+       14
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "At last there were five prayers. Allah said they are five, but they count as fifty! That is how generous Allah is. (Sahih al-Bukhari 349)"
+    },
+    {
+     "sc": {
+      "label": "Dawn over the town of Makkah",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       26
+      ],
+      "town": {},
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "All of this happened in one night! Allah showed him some of His great signs in one single night.",
+     "ay": {
+      "ar": "لِنُرِيَهُۥ مِنۡ ءَايَٰتِنَآۚ إِنَّهُۥ هُوَ ٱلسَّمِيعُ ٱلۡبَصِيرُ",
+      "en": "To show him some of Our signs. Truly, He is the All-Hearing, the All-Seeing.",
+      "ref": "Surah al-Isra 17:1"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Salah is a gift that Allah gave from above the seven heavens, so we pray our five prayers with love. All the Prophets were brothers in Islam. And nothing is too hard for Allah."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "How many prayers did Allah give us every day in the end?",
+     "o": [
+      "Five",
+      "Fifty",
+      "Two"
+     ],
+     "why": "Five prayers, with the reward of fifty."
+    },
+    {
+     "q": "Which Prophet did he meet in the fourth heaven?",
+     "o": [
+      "Idris",
+      "Nuh",
+      "Yunus"
+     ],
+     "why": "He met Idris in the fourth heaven."
+    },
+    {
+     "q": "Who told him to ask Allah to make the prayers lighter?",
+     "o": [
+      "Musa",
+      "Adam",
+      "Yusuf"
+     ],
+     "why": "Musa advised him to go back and ask."
+    },
+    {
+     "q": "Where did the night journey go to on earth?",
+     "o": [
+      "Al-Masjid al-Aqsa",
+      "Madinah",
+      "The sea"
+     ],
+     "why": "From al-Masjid al-Haram to al-Masjid al-Aqsa."
+    }
+   ]
+  },
+  {
+   "id": "st-muhammad-4",
+   "pid": "muhammad",
+   "ch": 4,
+   "part": "The Hijrah",
+   "title": "Prophet Muhammad ﷺ: the Hijrah",
+   "ar": "مُحَمَّد ﷺ",
+   "sub": "Allah is with us",
+   "slides": [
+    {
+     "sc": {
+      "label": "The town of Makkah under a dark evening sky",
+      "sky": [
+       "#4B3A6B",
+       "#9B7BA8"
+      ],
+      "moon": true,
+      "town": {
+       "lit": true
+      },
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "In Makkah, life became very hard for the Muslims. Many of them moved to the city of Yathrib, later called Madinah, where people were waiting to welcome them."
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern on a desert road at night",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       200,
+       128
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Then Allah allowed His Messenger ﷺ to leave too. He set off with his best friend, Abu Bakr. This journey is called the Hijrah."
+    },
+    {
+     "sc": {
+      "label": "A cave in a rocky mountain at night",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "moon": true,
+      "mountains": {
+       "c": "#4E4A6A",
+       "d": "#3A3650"
+      },
+      "noGround": true
+     },
+     "text": "They hid in a cave in a mountain. The people chasing them came so close! Abu Bakr said: If one of them looks down at his feet, he will see us! (Sahih al-Bukhari 3653, Sahih Muslim 2381)"
+    },
+    {
+     "sc": {
+      "label": "A small soft light inside the dark cave",
+      "sky": [
+       "#050810",
+       "#0B1424"
+      ],
+      "glow": [
+       200,
+       130
+      ],
+      "mountains": {
+       "c": "#3A3650",
+       "d": "#2A2640"
+      },
+      "noGround": true
+     },
+     "text": "The Prophet ﷺ answered calmly: What do you think of two people, when Allah is the third with them? (Sahih al-Bukhari 3653, Sahih Muslim 2381)"
+    },
+    {
+     "sc": {
+      "label": "Stars over the mountain cave",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "mountains": {
+       "c": "#4E4A6A",
+       "d": "#3A3650"
+      },
+      "noGround": true
+     },
+     "text": "Allah tells us about that moment in the Qur'an:",
+     "ay": {
+      "ar": "إِذۡ هُمَا فِي ٱلۡغَارِ إِذۡ يَقُولُ لِصَٰحِبِهِۦ لَا تَحۡزَنۡ إِنَّ ٱللَّهَ مَعَنَاۖ",
+      "en": "When the two of them were in the cave, he said to his friend: Do not be sad, Allah is with us.",
+      "ref": "Surah at-Tawbah 9:40"
+     }
+    },
+    {
+     "sc": {
+      "label": "Calm sunrise over the desert",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       26
+      ],
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "Allah sent down calm and kept them safe. When it was safe, they travelled on across the desert to Madinah.",
+     "ay": {
+      "ar": "فَأَنزَلَ ٱللَّهُ سَكِينَتَهُۥ عَلَيۡهِ",
+      "en": "Then Allah sent down His calm upon him.",
+      "ref": "Surah at-Tawbah 9:40"
+     }
+    },
+    {
+     "sc": {
+      "label": "A green town with palm trees",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "sun": [
+       320,
+       50,
+       18
+      ],
+      "town": {},
+      "palms": [
+       [
+        70,
+        0.9
+       ],
+       [
+        340,
+        1
+       ]
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "In Madinah, the Prophet ﷺ built a masjid. He worked together with the Muslims to build it. (Sahih al-Bukhari 428)"
+    },
+    {
+     "sc": {
+      "label": "A crescent moon over Madinah",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "moon": true,
+      "town": {
+       "lit": true
+      },
+      "palms": [
+       [
+        70,
+        0.9
+       ],
+       [
+        340,
+        1
+       ]
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "This journey was so important that the Muslims later counted their years from it. That is why our Islamic calendar is called the Hijri calendar. (Sahih al-Bukhari 3934)"
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? When we are scared, we remember: Allah is with us. Good friends stay together in hard times, like Abu Bakr. And our Hijri calendar reminds us of the Hijrah every year."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Who travelled with the Prophet ﷺ on the Hijrah?",
+     "o": [
+      "Abu Bakr",
+      "Musa",
+      "Khadijah"
+     ],
+     "why": "His best friend Abu Bakr went with him."
+    },
+    {
+     "q": "What did the Prophet ﷺ say in the cave?",
+     "o": [
+      "Do not be sad, Allah is with us",
+      "Let's run",
+      "We are lost"
+     ],
+     "why": "La tahzan, innallaha ma'ana."
+    },
+    {
+     "q": "What did he build in Madinah?",
+     "o": [
+      "A masjid",
+      "A palace",
+      "A ship"
+     ],
+     "why": "He built the masjid and carried bricks himself."
+    },
+    {
+     "q": "Our Islamic calendar counts the years from what?",
+     "o": [
+      "The Hijrah",
+      "The first rain",
+      "A birthday"
+     ],
+     "why": "That is why it is called the Hijri calendar."
+    }
+   ]
+  },
+  {
+   "id": "st-muhammad-5",
+   "pid": "muhammad",
+   "ch": 5,
+   "part": "A mercy to the worlds",
+   "title": "Prophet Muhammad ﷺ: a mercy to the worlds",
+   "ar": "مُحَمَّد ﷺ",
+   "sub": "His mercy, and sending salawat on him",
+   "slides": [
+    {
+     "sc": {
+      "label": "Sunrise over the whole earth",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       28
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Allah tells us why He sent Prophet Muhammad ﷺ:",
+     "ay": {
+      "ar": "وَمَآ أَرۡسَلۡنَٰكَ إِلَّا رَحۡمَةٗ لِّلۡعَٰلَمِينَ",
+      "en": "And We sent you only as a mercy to all the worlds.",
+      "ref": "Surah al-Anbiya 21:107"
+     }
+    },
+    {
+     "sc": {
+      "label": "A masjid among palm trees",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "town": {},
+      "palms": [
+       [
+        200,
+        1.1
+       ]
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "In his masjid in Madinah, the Prophet ﷺ used to stand next to a palm tree trunk when he gave the Friday talk. Later, a minbar was made for him, a small set of steps to stand on."
+    },
+    {
+     "sc": {
+      "label": "A single palm trunk with a soft glow",
+      "sky": [
+       "#C7A0B8",
+       "#F1D9CF"
+      ],
+      "palms": [
+       [
+        200,
+        1.1
+       ]
+      ],
+      "glow": [
+       200,
+       120
+      ],
+      "dunes": [
+       "#B9A78E",
+       "#A8957B",
+       "#97836A"
+      ]
+     },
+     "text": "When he moved to the new minbar, the palm trunk began to cry, like a small child! The Prophet ﷺ came down and held it until it calmed down. (Sahih al-Bukhari 3584)"
+    },
+    {
+     "sc": {
+      "label": "Flowers in a sunny garden",
+      "sky": [
+       "#A8D8EE",
+       "#E8F6FB"
+      ],
+      "garden": true,
+      "flowers": true,
+      "dunes": [
+       "#A9C98A",
+       "#8DB873",
+       "#76A35E"
+      ]
+     },
+     "text": "He was gentle with children. He kissed his grandson al-Hasan. A man said: I have ten children and I have never kissed one of them! The Prophet ﷺ said: Whoever is not merciful will not be shown mercy. (Sahih al-Bukhari 5997, Sahih Muslim 2318)"
+    },
+    {
+     "sc": {
+      "label": "A bright star over calm hills",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "bigstar": [
+       200,
+       60
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Allah Himself praised his character:",
+     "ay": {
+      "ar": "وَإِنَّكَ لَعَلَىٰ خُلُقٍ عَظِيمٖ",
+      "en": "And truly, you have a great character.",
+      "ref": "Surah al-Qalam 68:4"
+     }
+    },
+    {
+     "sc": {
+      "label": "The town of Makkah in morning sunlight",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "sun": [
+       320,
+       50,
+       18
+      ],
+      "town": {},
+      "mountains": {
+       "c": "#C9A07E",
+       "d": "#A87E5C"
+      },
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Years later, the Prophet ﷺ came back to Makkah, the city he had to leave. Around the Ka'bah there were three hundred and sixty idols. (Sahih al-Bukhari 4287, Sahih Muslim 1781)"
+    },
+    {
+     "sc": {
+      "label": "Broken stone pieces under a bright sky",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "blocks": true,
+      "sun": [
+       200,
+       150,
+       26
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "He knocked the idols down with a stick in his hand, saying the words of the Qur'an. Now the Ka'bah was only for the worship of Allah again. (Sahih al-Bukhari 4287)",
+     "ay": {
+      "ar": "وَقُلۡ جَآءَ ٱلۡحَقُّ وَزَهَقَ ٱلۡبَٰطِلُۚ إِنَّ ٱلۡبَٰطِلَ كَانَ زَهُوقٗا",
+      "en": "And say: The truth has come, and falsehood has gone. Falsehood was always going to go.",
+      "ref": "Surah al-Isra 17:81"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing light over an open book",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "book": true,
+      "glow": [
+       200,
+       100
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Allah and His angels send blessings on the Prophet ﷺ, and Allah tells us to do the same:",
+     "ay": {
+      "ar": "إِنَّ ٱللَّهَ وَمَلَـٰٓئِكَتَهُۥ يُصَلُّونَ عَلَى ٱلنَّبِيِّۚ يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُواْ صَلُّواْ عَلَيۡهِ وَسَلِّمُواْ تَسۡلِيمًا",
+      "en": "Truly, Allah and His angels send blessings on the Prophet. O you who believe, send blessings on him and greetings of peace.",
+      "ref": "Surah al-Ahzab 33:56"
+     }
+    },
+    {
+     "sc": {
+      "label": "A night sky with many stars",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "moon": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "The Prophet ﷺ said: Whoever sends one blessing on me, Allah sends ten blessings on him. So let's say it now: SallAllahu alayhi wa sallam! (Sahih Muslim 408)"
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? The Prophet ﷺ was a mercy to everyone: to children, to people who hurt him, and even to a palm tree trunk. We love him by following his kind ways, and by sending salawat on him often."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Why did Allah send Prophet Muhammad ﷺ?",
+     "o": [
+      "As a mercy to all the worlds",
+      "To be a king",
+      "To build palaces"
+     ],
+     "why": "Wa ma arsalnaka illa rahmatan lil-'alamin."
+    },
+    {
+     "q": "What cried when the Prophet ﷺ moved to the minbar?",
+     "o": [
+      "A palm tree trunk",
+      "A camel",
+      "A bird"
+     ],
+     "why": "The trunk cried until he held it and it calmed down."
+    },
+    {
+     "q": "What did he say about being merciful?",
+     "o": [
+      "Whoever is not merciful will not be shown mercy",
+      "Mercy is for babies",
+      "Only be kind to friends"
+     ],
+     "why": "He said this when he kissed his grandson al-Hasan."
+    },
+    {
+     "q": "If we send one blessing on the Prophet ﷺ, how many does Allah send on us?",
+     "o": [
+      "Ten",
+      "One",
+      "None"
+     ],
+     "why": "Allah sends ten blessings on us. (Sahih Muslim 408)"
+    }
+   ]
+  },
+  {
+   "id": "st-ibrahim-2",
+   "pid": "ibrahim",
+   "ch": 2,
+   "part": "The proud king and the honoured guests",
+   "title": "Prophet Ibrahim: the proud king and the guests",
+   "ar": "إِبْرَاهِيم عَلَيْهِ السَّلَام",
+   "sub": "Clear thinking, and being generous to guests",
+   "slides": [
+    {
+     "sc": {
+      "label": "A grand city with tall pillars",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "pillars": {},
+      "sun": [
+       330,
+       60,
+       20
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Prophet Ibrahim, alayhis salaam, lived in a land ruled by a proud king. Allah had given this man a kingdom, but he argued with Ibrahim about Allah.",
+     "ay": {
+      "ar": "أَلَمۡ تَرَ إِلَى ٱلَّذِي حَآجَّ إِبۡرَٰهِـۧمَ فِي رَبِّهِۦٓ أَنۡ ءَاتَىٰهُ ٱللَّهُ ٱلۡمُلۡكَ",
+      "en": "Have you not heard of the man who argued with Ibrahim about his Lord, because Allah had given him a kingdom?",
+      "ref": "Surah al-Baqarah 2:258"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern below the palace at night",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       200,
+       128
+      ],
+      "pillars": {
+       "c": "#6E5A6E",
+       "t": "#4E3E4E"
+      },
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Ibrahim told him: My Lord is the One who gives life and causes death. The proud king said: I give life and cause death too! He was boasting.",
+     "ay": {
+      "ar": "إِذۡ قَالَ إِبۡرَٰهِـۧمُ رَبِّيَ ٱلَّذِي يُحۡيِۦ وَيُمِيتُ قَالَ أَنَا۠ أُحۡيِۦ وَأُمِيتُۖ",
+      "en": "Ibrahim said: My Lord is the One who gives life and causes death. He said: I give life and cause death.",
+      "ref": "Surah al-Baqarah 2:258"
+     }
+    },
+    {
+     "sc": {
+      "label": "The sun rising in the east over the hills",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       80,
+       150,
+       26
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "So Ibrahim gave him a question he could not answer:",
+     "ay": {
+      "ar": "قَالَ إِبۡرَٰهِـۧمُ فَإِنَّ ٱللَّهَ يَأۡتِي بِٱلشَّمۡسِ مِنَ ٱلۡمَشۡرِقِ فَأۡتِ بِهَا مِنَ ٱلۡمَغۡرِبِ",
+      "en": "Ibrahim said: Allah brings the sun up from the east, so you bring it up from the west!",
+      "ref": "Surah al-Baqarah 2:258"
+     }
+    },
+    {
+     "sc": {
+      "label": "The sun setting quietly in the west",
+      "sky": [
+       "#C7A0B8",
+       "#F1D9CF"
+      ],
+      "sun": [
+       330,
+       160,
+       22
+      ],
+      "dunes": [
+       "#B9A78E",
+       "#A8957B",
+       "#97836A"
+      ]
+     },
+     "text": "The proud king was stuck. He had nothing to say. Only Allah controls the sun, the moon and everything.",
+     "ay": {
+      "ar": "فَبُهِتَ ٱلَّذِي كَفَرَۗ",
+      "en": "So the one who disbelieved was left speechless.",
+      "ref": "Surah al-Baqarah 2:258"
+     }
+    },
+    {
+     "sc": {
+      "label": "A peaceful home under palm trees",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "palms": [
+       [
+        90,
+        1
+       ],
+       [
+        320,
+        0.9
+       ]
+      ],
+      "town": {},
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "One day, some guests came to Ibrahim's home. They were really angels sent by Allah, but Ibrahim did not know that yet. They greeted him with salam, and he greeted them back.",
+     "ay": {
+      "ar": "وَلَقَدۡ جَآءَتۡ رُسُلُنَآ إِبۡرَٰهِيمَ بِٱلۡبُشۡرَىٰ قَالُواْ سَلَٰمٗاۖ قَالَ سَلَٰمٞۖ",
+      "en": "Our messengers came to Ibrahim with good news. They said: Salam. He said: Salam.",
+      "ref": "Surah Hud 11:69"
+     }
+    },
+    {
+     "sc": {
+      "label": "A warm cooking fire beside the home",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "fire": true,
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Ibrahim quickly went to his family and brought out a roasted calf, the best food he had, for his guests. He was very generous.",
+     "ay": {
+      "ar": "فَرَاغَ إِلَىٰٓ أَهۡلِهِۦ فَجَآءَ بِعِجۡلٖ سَمِينٖ",
+      "en": "Then he went quietly to his family and brought a fat roasted calf.",
+      "ref": "Surah adh-Dhariyat 51:26"
+     }
+    },
+    {
+     "sc": {
+      "label": "A quiet evening sky over the home",
+      "sky": [
+       "#C7A0B8",
+       "#F1D9CF"
+      ],
+      "town": {
+       "lit": true
+      },
+      "dunes": [
+       "#B9A78E",
+       "#A8957B",
+       "#97836A"
+      ]
+     },
+     "text": "But the guests did not eat, and Ibrahim felt a little afraid. They said: Do not be afraid! Then they gave him good news of a son who would be full of knowledge.",
+     "ay": {
+      "ar": "قَالُواْ لَا تَخَفۡۖ وَبَشَّرُوهُ بِغُلَٰمٍ عَلِيمٖ",
+      "en": "They said: Do not be afraid. And they gave him good news of a boy who would be full of knowledge.",
+      "ref": "Surah adh-Dhariyat 51:28"
+     }
+    },
+    {
+     "sc": {
+      "label": "A bright morning with flowers",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       26
+      ],
+      "flowers": true,
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Ibrahim and his wife were very old, so this news was amazing! Allah promised them a son called Ishaq, and after him a grandson called Ya'qub.",
+     "ay": {
+      "ar": "فَبَشَّرۡنَٰهَا بِإِسۡحَٰقَ وَمِن وَرَآءِ إِسۡحَٰقَ يَعۡقُوبَ",
+      "en": "So We gave her good news of Ishaq, and after Ishaq, Ya'qub.",
+      "ref": "Surah Hud 11:71"
+     }
+    },
+    {
+     "sc": {
+      "label": "A soft light over a happy home",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "glow": [
+       200,
+       80
+      ],
+      "palms": [
+       [
+        90,
+        1
+       ],
+       [
+        320,
+        0.9
+       ]
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "The guests reminded them that nothing is too hard for Allah:",
+     "ay": {
+      "ar": "قَالُوٓاْ أَتَعۡجَبِينَ مِنۡ أَمۡرِ ٱللَّهِۖ رَحۡمَتُ ٱللَّهِ وَبَرَكَٰتُهُۥ عَلَيۡكُمۡ أَهۡلَ ٱلۡبَيۡتِۚ",
+      "en": "Are you amazed at what Allah decides? The mercy of Allah and His blessings be upon you, people of this house.",
+      "ref": "Surah Hud 11:73"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Use your mind to know the truth: only Allah gives life and controls the sun. Be generous and kind to guests, like Ibrahim. And never think anything is too hard for Allah."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What did the proud king boast about?",
+     "o": [
+      "That he gives life and death",
+      "That he could fly",
+      "That he was the fastest"
+     ],
+     "why": "He boasted, but only Allah gives life and death."
+    },
+    {
+     "q": "What did Ibrahim ask the king to do with the sun?",
+     "o": [
+      "Bring it up from the west",
+      "Make it hotter",
+      "Turn it off"
+     ],
+     "why": "Allah brings it from the east. The king could not answer."
+    },
+    {
+     "q": "What did Ibrahim give his guests?",
+     "o": [
+      "A roasted calf, his best food",
+      "Nothing at all",
+      "Only water"
+     ],
+     "why": "He was very generous to his guests."
+    },
+    {
+     "q": "What good news did the guests bring?",
+     "o": [
+      "A son called Ishaq",
+      "A new house",
+      "Lots of gold"
+     ],
+     "why": "Allah gave them good news of Ishaq, and then Ya'qub."
+    }
+   ]
+  },
+  {
+   "id": "st-ibrahim-3",
+   "pid": "ibrahim",
+   "ch": 3,
+   "part": "The four birds and Ibrahim's duas",
+   "title": "Prophet Ibrahim: the birds and his duas",
+   "ar": "إِبْرَاهِيم عَلَيْهِ السَّلَام",
+   "sub": "A heart that is sure, and duas for our family",
+   "slides": [
+    {
+     "sc": {
+      "label": "Quiet hills under a calm sky",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "mountains": {
+       "c": "#B9876A",
+       "d": "#946649"
+      },
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Prophet Ibrahim, alayhis salaam, believed in Allah with all his heart. One day he asked Allah to show him how He brings the dead back to life.",
+     "ay": {
+      "ar": "وَإِذۡ قَالَ إِبۡرَٰهِـۧمُ رَبِّ أَرِنِي كَيۡفَ تُحۡيِ ٱلۡمَوۡتَىٰۖ",
+      "en": "Ibrahim said: My Lord, show me how You give life to the dead.",
+      "ref": "Surah al-Baqarah 2:260"
+     }
+    },
+    {
+     "sc": {
+      "label": "A soft glow over the hills",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "glow": [
+       200,
+       80
+      ],
+      "mountains": {
+       "c": "#B9876A",
+       "d": "#946649"
+      },
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Allah asked: Do you not believe? Ibrahim said: Yes, I do! I only want my heart to feel calm and sure.",
+     "ay": {
+      "ar": "قَالَ أَوَلَمۡ تُؤۡمِنۖ قَالَ بَلَىٰ وَلَٰكِن لِّيَطۡمَئِنَّ قَلۡبِيۖ",
+      "en": "He said: Do you not believe? He said: Yes, but so that my heart can be at peace.",
+      "ref": "Surah al-Baqarah 2:260"
+     }
+    },
+    {
+     "sc": {
+      "label": "Four hilltops under a wide sky",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "mountains": {
+       "c": "#A9876A",
+       "d": "#8C6A50"
+      },
+      "cloud": [
+       300,
+       40,
+       1,
+       "#F4F7FA"
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Allah told him to take four birds, and to put a part of them on each hill. Then he should call them.",
+     "ay": {
+      "ar": "فَخُذۡ أَرۡبَعَةٗ مِّنَ ٱلطَّيۡرِ فَصُرۡهُنَّ إِلَيۡكَ ثُمَّ ٱجۡعَلۡ عَلَىٰ كُلِّ جَبَلٖ مِّنۡهُنَّ جُزۡءٗا ثُمَّ ٱدۡعُهُنَّ",
+      "en": "Take four birds... then put a part of them on every hill, then call them.",
+      "ref": "Surah al-Baqarah 2:260"
+     }
+    },
+    {
+     "sc": {
+      "label": "Wind blowing across the hills",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "wind": true,
+      "mountains": {
+       "c": "#A9876A",
+       "d": "#8C6A50"
+      },
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "When Ibrahim called, the birds came rushing back to him, alive! Allah can do anything.",
+     "ay": {
+      "ar": "يَأۡتِينَكَ سَعۡيٗاۚ وَٱعۡلَمۡ أَنَّ ٱللَّهَ عَزِيزٌ حَكِيمٞ",
+      "en": "They will come to you rushing. And know that Allah is Almighty, All-Wise.",
+      "ref": "Surah al-Baqarah 2:260"
+     }
+    },
+    {
+     "sc": {
+      "label": "A quiet valley between mountains in Makkah",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "mountains": {
+       "c": "#C9A07E",
+       "d": "#A87E5C"
+      },
+      "sun": [
+       320,
+       60,
+       20
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Ibrahim made many beautiful duas. In Makkah, he asked Allah to keep the city safe, and to keep him and his children far away from worshipping idols.",
+     "ay": {
+      "ar": "رَبِّ ٱجۡعَلۡ هَٰذَا ٱلۡبَلَدَ ءَامِنٗا وَٱجۡنُبۡنِي وَبَنِيَّ أَن نَّعۡبُدَ ٱلۡأَصۡنَامَ",
+      "en": "My Lord, make this city safe, and keep me and my children away from worshipping idols.",
+      "ref": "Surah Ibrahim 14:35"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern in the valley at night",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       200,
+       128
+      ],
+      "mountains": {
+       "c": "#6E5A6E",
+       "d": "#4E3E4E"
+      },
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "He asked Allah to help his family pray, and to give them fruits so they would be thankful.",
+     "ay": {
+      "ar": "رَبَّنَا لِيُقِيمُواْ ٱلصَّلَوٰةَ فَٱجۡعَلۡ أَفۡـِٔدَةٗ مِّنَ ٱلنَّاسِ تَهۡوِيٓ إِلَيۡهِمۡ وَٱرۡزُقۡهُم مِّنَ ٱلثَّمَرَٰتِ لَعَلَّهُمۡ يَشۡكُرُونَ",
+      "en": "Our Lord, so that they establish the prayer... and give them fruits so that they may be thankful.",
+      "ref": "Surah Ibrahim 14:37"
+     }
+    },
+    {
+     "sc": {
+      "label": "Stars over a calm valley",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "moon": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "He made this dua for himself and his children. We can say it too, after our salah:",
+     "ay": {
+      "ar": "رَبِّ ٱجۡعَلۡنِي مُقِيمَ ٱلصَّلَوٰةِ وَمِن ذُرِّيَّتِيۚ رَبَّنَا وَتَقَبَّلۡ دُعَآءِ",
+      "en": "My Lord, make me one who keeps up the prayer, and my children too. Our Lord, accept my dua.",
+      "ref": "Surah Ibrahim 14:40"
+     }
+    },
+    {
+     "sc": {
+      "label": "Morning light over the earth",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       26
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "And he asked Allah to forgive him, his parents and all the believers:",
+     "ay": {
+      "ar": "رَبَّنَا ٱغۡفِرۡ لِي وَلِوَٰلِدَيَّ وَلِلۡمُؤۡمِنِينَ يَوۡمَ يَقُومُ ٱلۡحِسَابُ",
+      "en": "Our Lord, forgive me and my parents and the believers on the Day the account is set up.",
+      "ref": "Surah Ibrahim 14:41"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? It is good to ask Allah to make our hearts sure. Allah can do anything. And we can make Ibrahim's duas for ourselves, our parents and our families every day."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Why did Ibrahim ask to see how Allah gives life?",
+     "o": [
+      "So his heart would feel calm and sure",
+      "Because he did not believe",
+      "He wanted to play"
+     ],
+     "why": "He said: Yes I believe, but so my heart is at peace."
+    },
+    {
+     "q": "How many birds did Allah tell Ibrahim to take?",
+     "o": [
+      "Four",
+      "Two",
+      "Ten"
+     ],
+     "why": "Allah told him to take four birds."
+    },
+    {
+     "q": "What happened when Ibrahim called the birds?",
+     "o": [
+      "They came rushing back to him",
+      "They flew away",
+      "Nothing happened"
+     ],
+     "why": "Allah brought them back to life."
+    },
+    {
+     "q": "What did Ibrahim ask Allah to keep his children away from?",
+     "o": [
+      "Worshipping idols",
+      "Playing outside",
+      "Eating dates"
+     ],
+     "why": "He asked Allah to keep them far from idols."
+    }
+   ]
+  },
+  {
+   "id": "st-ibrahim-4",
+   "pid": "ibrahim",
+   "ch": 4,
+   "part": "Building the Ka'bah",
+   "title": "Prophet Ibrahim: building the Ka'bah",
+   "ar": "إِبْرَاهِيم عَلَيْهِ السَّلَام",
+   "sub": "Worship Allah alone, and work with dua",
+   "slides": [
+    {
+     "sc": {
+      "label": "An empty place in a valley between mountains",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "mountains": {
+       "c": "#C9A07E",
+       "d": "#A87E5C"
+      },
+      "sun": [
+       320,
+       60,
+       20
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Allah showed Prophet Ibrahim, alayhis salaam, the place of His House, the Ka'bah. Allah told him: Do not worship anything with Me.",
+     "ay": {
+      "ar": "وَإِذۡ بَوَّأۡنَا لِإِبۡرَٰهِيمَ مَكَانَ ٱلۡبَيۡتِ أَن لَّا تُشۡرِكۡ بِي شَيۡـٔٗا",
+      "en": "When We showed Ibrahim the place of the House: Do not worship anything with Me.",
+      "ref": "Surah al-Hajj 22:26"
+     }
+    },
+    {
+     "sc": {
+      "label": "Stone blocks being placed in rows",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "blocks": true,
+      "sun": [
+       330,
+       50,
+       18
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Ibrahim and his son Isma'il, alayhis salaam, built the Ka'bah together, stone by stone. While they worked, they kept making dua:",
+     "ay": {
+      "ar": "وَإِذۡ يَرۡفَعُ إِبۡرَٰهِـۧمُ ٱلۡقَوَاعِدَ مِنَ ٱلۡبَيۡتِ وَإِسۡمَٰعِيلُ رَبَّنَا تَقَبَّلۡ مِنَّآۖ إِنَّكَ أَنتَ ٱلسَّمِيعُ ٱلۡعَلِيمُ",
+      "en": "When Ibrahim was raising the foundations of the House, with Isma'il: Our Lord, accept this from us. You are the All-Hearing, the All-Knowing.",
+      "ref": "Surah al-Baqarah 2:127"
+     }
+    },
+    {
+     "sc": {
+      "label": "A soft glow over the new building",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "glow": [
+       200,
+       90
+      ],
+      "blocks": true,
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "They asked Allah to make them Muslims who obey Him, and to make their children Muslims too.",
+     "ay": {
+      "ar": "رَبَّنَا وَٱجۡعَلۡنَا مُسۡلِمَيۡنِ لَكَ وَمِن ذُرِّيَّتِنَآ أُمَّةٗ مُّسۡلِمَةٗ لَّكَ",
+      "en": "Our Lord, make us Muslims to You, and from our children a Muslim nation.",
+      "ref": "Surah al-Baqarah 2:128"
+     }
+    },
+    {
+     "sc": {
+      "label": "A bright star over the valley at night",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "bigstar": [
+       200,
+       60
+      ],
+      "mountains": {
+       "c": "#6E5A6E",
+       "d": "#4E3E4E"
+      },
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "They also asked Allah to send a Messenger from their family, to teach people the Book.",
+     "ay": {
+      "ar": "رَبَّنَا وَٱبۡعَثۡ فِيهِمۡ رَسُولٗا مِّنۡهُمۡ يَتۡلُواْ عَلَيۡهِمۡ ءَايَٰتِكَ وَيُعَلِّمُهُمُ ٱلۡكِتَٰبَ وَٱلۡحِكۡمَةَ",
+      "en": "Our Lord, send among them a Messenger from among them, who will recite Your ayat to them and teach them the Book and wisdom.",
+      "ref": "Surah al-Baqarah 2:129"
+     }
+    },
+    {
+     "sc": {
+      "label": "A clean, quiet place for prayer",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "glow": [
+       200,
+       100
+      ],
+      "blocks": true,
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Allah told them to keep His House clean for the people who walk around it, stand in prayer, bow and do sujood.",
+     "ay": {
+      "ar": "أَن طَهِّرَا بَيۡتِيَ لِلطَّآئِفِينَ وَٱلۡعَٰكِفِينَ وَٱلرُّكَّعِ ٱلسُّجُودِ",
+      "en": "Make My House clean for those who walk around it, stay in it, bow and do sujood.",
+      "ref": "Surah al-Baqarah 2:125"
+     }
+    },
+    {
+     "sc": {
+      "label": "Paths coming from far away across the desert",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "sun": [
+       80,
+       60,
+       20
+      ],
+      "mountains": {
+       "c": "#C9A07E",
+       "d": "#A87E5C"
+      },
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "Then Allah told Ibrahim to call all people to Hajj. Allah promised that they would come from far, far away.",
+     "ay": {
+      "ar": "وَأَذِّن فِي ٱلنَّاسِ بِٱلۡحَجِّ يَأۡتُوكَ رِجَالٗا وَعَلَىٰ كُلِّ ضَامِرٖ يَأۡتِينَ مِن كُلِّ فَجٍّ عَمِيقٖ",
+      "en": "Call the people to Hajj. They will come to you on foot and on every thin camel, from every far-away road.",
+      "ref": "Surah al-Hajj 22:27"
+     }
+    },
+    {
+     "sc": {
+      "label": "A peaceful sky at sunset",
+      "sky": [
+       "#C7A0B8",
+       "#F1D9CF"
+      ],
+      "sun": [
+       200,
+       160,
+       24
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "And people still come today, from every country in the world! Allah also told us to pray near the place where Ibrahim stood, called Maqam Ibrahim.",
+     "ay": {
+      "ar": "وَٱتَّخِذُواْ مِن مَّقَامِ إِبۡرَٰهِـۧمَ مُصَلّٗىۖ",
+      "en": "And take the standing place of Ibrahim as a place of prayer.",
+      "ref": "Surah al-Baqarah 2:125"
+     }
+    },
+    {
+     "sc": {
+      "label": "A garden glowing with soft light",
+      "sky": [
+       "#A8D8EE",
+       "#E8F6FB"
+      ],
+      "garden": true,
+      "glow": [
+       200,
+       70
+      ],
+      "flowers": true,
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Ibrahim loved Allah so much and obeyed Him so well that Allah gave him a special name: Khalil, the close friend of Allah.",
+     "ay": {
+      "ar": "وَٱتَّخَذَ ٱللَّهُ إِبۡرَٰهِيمَ خَلِيلٗا",
+      "en": "And Allah took Ibrahim as a close friend.",
+      "ref": "Surah an-Nisa 4:125"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Worship Allah alone. Make dua while you work, and ask Allah to accept your good deeds. And keep the masjid clean for the people who pray."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Who built the Ka'bah together?",
+     "o": [
+      "Ibrahim and Isma'il",
+      "Musa and Harun",
+      "Dawud and Sulayman"
+     ],
+     "why": "Father and son built it together."
+    },
+    {
+     "q": "What did they say while building?",
+     "o": [
+      "Our Lord, accept this from us",
+      "We are tired",
+      "Hurry up"
+     ],
+     "why": "Rabbana taqabbal minna."
+    },
+    {
+     "q": "What did Allah tell Ibrahim to call people to?",
+     "o": [
+      "Hajj",
+      "A party",
+      "A race"
+     ],
+     "why": "People still come to Hajj from all over the world."
+    },
+    {
+     "q": "What special name did Allah give Ibrahim?",
+     "o": [
+      "Khalil, the close friend of Allah",
+      "The king",
+      "The sailor"
+     ],
+     "why": "Allah took Ibrahim as a close friend."
+    }
+   ]
+  },
+  {
+   "id": "st-sulayman-1",
+   "pid": "sulayman",
+   "ch": 1,
+   "part": "The ants and the wind",
+   "title": "Prophet Sulayman: the ants and the wind",
+   "ar": "سُلَيْمَان عَلَيْهِ السَّلَام",
+   "sub": "Thanking Allah for every gift",
+   "slides": [
+    {
+     "sc": {
+      "label": "A green valley under a bright sky",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "sun": [
+       320,
+       50,
+       20
+      ],
+      "garden": true,
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Allah gave Prophet Dawud and his son Prophet Sulayman, alayhimas salaam, a lot of knowledge. They did not become proud. They said Alhamdulillah:",
+     "ay": {
+      "ar": "ٱلۡحَمۡدُ لِلَّهِ ٱلَّذِي فَضَّلَنَا عَلَىٰ كَثِيرٖ مِّنۡ عِبَادِهِ ٱلۡمُؤۡمِنِينَ",
+      "en": "All praise is for Allah, who has favoured us over many of His believing servants.",
+      "ref": "Surah an-Naml 27:15"
+     }
+    },
+    {
+     "sc": {
+      "label": "A palace by a garden",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "pillars": {},
+      "garden": true,
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "After Dawud, Sulayman became king. Allah taught him to understand the speech of birds!",
+     "ay": {
+      "ar": "وَقَالَ يَـٰٓأَيُّهَا ٱلنَّاسُ عُلِّمۡنَا مَنطِقَ ٱلطَّيۡرِ وَأُوتِينَا مِن كُلِّ شَيۡءٍۖ",
+      "en": "O people, we have been taught the speech of birds, and we have been given something of everything.",
+      "ref": "Surah an-Naml 27:16"
+     }
+    },
+    {
+     "sc": {
+      "label": "Strong wind blowing across the land",
+      "sky": [
+       "#A8C8E0",
+       "#E3F0F7"
+      ],
+      "wind": true,
+      "cloud": [
+       110,
+       40,
+       1,
+       "#F4F7FA"
+      ],
+      "dunes": [
+       "#E8D3A8",
+       "#DCC496",
+       "#CEB484"
+      ]
+     },
+     "text": "Allah made the wind obey Sulayman. It blew where he commanded, by Allah's permission.",
+     "ay": {
+      "ar": "وَلِسُلَيۡمَٰنَ ٱلرِّيحَ عَاصِفَةٗ تَجۡرِي بِأَمۡرِهِۦٓ إِلَى ٱلۡأَرۡضِ ٱلَّتِي بَٰرَكۡنَا فِيهَاۚ",
+      "en": "And for Sulayman, the strong wind blew by his command to the land We had blessed.",
+      "ref": "Surah al-Anbiya 21:81"
+     }
+    },
+    {
+     "sc": {
+      "label": "A long road across wide land",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "sun": [
+       300,
+       60,
+       20
+      ],
+      "mountains": {
+       "c": "#C9A07E",
+       "d": "#A87E5C"
+      },
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "Sulayman had a huge army of jinn, people and birds, all marching in neat rows.",
+     "ay": {
+      "ar": "وَحُشِرَ لِسُلَيۡمَٰنَ جُنُودُهُۥ مِنَ ٱلۡجِنِّ وَٱلۡإِنسِ وَٱلطَّيۡرِ فَهُمۡ يُوزَعُونَ",
+      "en": "And gathered for Sulayman were his soldiers of jinn, people and birds, in neat rows.",
+      "ref": "Surah an-Naml 27:17"
+     }
+    },
+    {
+     "sc": {
+      "label": "A valley with tiny flowers",
+      "sky": [
+       "#F3D3A6",
+       "#FBEAD2"
+      ],
+      "flowers": true,
+      "dunes": [
+       "#C9A07E",
+       "#B98F6D",
+       "#A87E5C"
+      ]
+     },
+     "text": "One day they came to a valley of ants. One little ant called out to the others:",
+     "ay": {
+      "ar": "يَـٰٓأَيُّهَا ٱلنَّمۡلُ ٱدۡخُلُواْ مَسَٰكِنَكُمۡ لَا يَحۡطِمَنَّكُمۡ سُلَيۡمَٰنُ وَجُنُودُهُۥ وَهُمۡ لَا يَشۡعُرُونَ",
+      "en": "O ants, go into your homes, so Sulayman and his army do not crush you without knowing.",
+      "ref": "Surah an-Naml 27:18"
+     }
+    },
+    {
+     "sc": {
+      "label": "Sunlight over the quiet valley",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       26
+      ],
+      "flowers": true,
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Sulayman heard the tiny ant and smiled. He was amused by what she said.",
+     "ay": {
+      "ar": "فَتَبَسَّمَ ضَاحِكٗا مِّن قَوۡلِهَا",
+      "en": "So he smiled, laughing at what she said.",
+      "ref": "Surah an-Naml 27:19"
+     }
+    },
+    {
+     "sc": {
+      "label": "A soft glow over the valley",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "glow": [
+       200,
+       80
+      ],
+      "flowers": true,
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Then he thanked Allah with this beautiful dua. We can say it too:",
+     "ay": {
+      "ar": "رَبِّ أَوۡزِعۡنِيٓ أَنۡ أَشۡكُرَ نِعۡمَتَكَ ٱلَّتِيٓ أَنۡعَمۡتَ عَلَيَّ وَعَلَىٰ وَٰلِدَيَّ وَأَنۡ أَعۡمَلَ صَٰلِحٗا تَرۡضَىٰهُ",
+      "en": "My Lord, help me to thank You for the blessings You gave me and my parents, and to do good deeds that please You.",
+      "ref": "Surah an-Naml 27:19"
+     }
+    },
+    {
+     "sc": {
+      "label": "Flowers in a green garden",
+      "sky": [
+       "#A8D8EE",
+       "#E8F6FB"
+      ],
+      "garden": true,
+      "flowers": true,
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "He finished his dua by asking Allah, by His mercy, to put him among His righteous servants.",
+     "ay": {
+      "ar": "وَأَدۡخِلۡنِي بِرَحۡمَتِكَ فِي عِبَادِكَ ٱلصَّـٰلِحِينَ",
+      "en": "And by Your mercy, put me among Your righteous servants.",
+      "ref": "Surah an-Naml 27:19"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Every gift we have is from Allah, so we say Alhamdulillah. Never be proud. And be kind to tiny creatures, even ants."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What could Sulayman understand?",
+     "o": [
+      "The speech of birds",
+      "What the stars said",
+      "Every fish"
+     ],
+     "why": "Allah taught him the speech of birds."
+    },
+    {
+     "q": "What did the little ant tell the others?",
+     "o": [
+      "Go into your homes",
+      "Come and look",
+      "Let's play"
+     ],
+     "why": "She warned them so they would not be crushed."
+    },
+    {
+     "q": "What did Sulayman do when he heard the ant?",
+     "o": [
+      "He smiled and thanked Allah",
+      "He got angry",
+      "He ran away"
+     ],
+     "why": "He made dua to be thankful."
+    },
+    {
+     "q": "What did Allah make obey Sulayman?",
+     "o": [
+      "The wind",
+      "The sun",
+      "The moon"
+     ],
+     "why": "The wind blew by his command, by Allah's permission."
+    }
+   ]
+  },
+  {
+   "id": "st-sulayman-2",
+   "pid": "sulayman",
+   "ch": 2,
+   "part": "The hoopoe and the Queen of Saba",
+   "title": "Prophet Sulayman: the hoopoe and the queen",
+   "ar": "سُلَيْمَان عَلَيْهِ السَّلَام",
+   "sub": "Calling to Allah, and staying humble",
+   "slides": [
+    {
+     "sc": {
+      "label": "A tree with an empty branch",
+      "sky": [
+       "#A8D8EE",
+       "#E8F6FB"
+      ],
+      "tree": [
+       200,
+       false
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Prophet Sulayman, alayhis salaam, checked on all the birds. The hoopoe bird was missing!",
+     "ay": {
+      "ar": "فَقَالَ مَالِيَ لَآ أَرَى ٱلۡهُدۡهُدَ أَمۡ كَانَ مِنَ ٱلۡغَآئِبِينَ",
+      "en": "Why do I not see the hoopoe? Is he missing?",
+      "ref": "Surah an-Naml 27:20"
+     }
+    },
+    {
+     "sc": {
+      "label": "A faraway land with a great palace",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "pillars": {},
+      "sun": [
+       320,
+       60,
+       20
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Soon the hoopoe came back with big news. He said: I have come from the land of Saba with true news.",
+     "ay": {
+      "ar": "وَجِئۡتُكَ مِن سَبَإِۭ بِنَبَإٖ يَقِينٍ",
+      "en": "I have come to you from Saba with news that is certain.",
+      "ref": "Surah an-Naml 27:22"
+     }
+    },
+    {
+     "sc": {
+      "label": "The sun shining over the faraway palace",
+      "sky": [
+       "#F6B26B",
+       "#FCE1B3"
+      ],
+      "sun": [
+       200,
+       60,
+       30
+      ],
+      "sunC": "#FFB547",
+      "pillars": {},
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "A queen rules there, and she has a great throne. But she and her people bow down to the sun instead of Allah!",
+     "ay": {
+      "ar": "وَجَدتُّهَا وَقَوۡمَهَا يَسۡجُدُونَ لِلشَّمۡسِ مِن دُونِ ٱللَّهِ",
+      "en": "I found her and her people doing sujood to the sun instead of Allah.",
+      "ref": "Surah an-Naml 27:24"
+     }
+    },
+    {
+     "sc": {
+      "label": "A rolled letter glowing softly",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "glow": [
+       200,
+       110
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Sulayman sent the queen a letter. It began with the name of Allah:",
+     "ay": {
+      "ar": "إِنَّهُۥ مِن سُلَيۡمَٰنَ وَإِنَّهُۥ بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ",
+      "en": "It is from Sulayman, and it says: In the name of Allah, the Most Merciful, the Especially Merciful.",
+      "ref": "Surah an-Naml 27:30"
+     }
+    },
+    {
+     "sc": {
+      "label": "A palace hall with soft light",
+      "sky": [
+       "#C7A0B8",
+       "#F1D9CF"
+      ],
+      "glow": [
+       200,
+       90
+      ],
+      "pillars": {},
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "The letter said: Do not be proud. Come to me as Muslims.",
+     "ay": {
+      "ar": "أَلَّا تَعۡلُواْ عَلَيَّ وَأۡتُونِي مُسۡلِمِينَ",
+      "en": "Do not be proud with me, and come to me as Muslims.",
+      "ref": "Surah an-Naml 27:31"
+     }
+    },
+    {
+     "sc": {
+      "label": "A row of rich gifts in a hall",
+      "sky": [
+       "#E9DFD2",
+       "#F7F1E8"
+      ],
+      "glow": [
+       200,
+       90
+      ],
+      "noGround": true,
+      "town": {
+       "c": "#D8CBB8",
+       "d": "#B8AB98",
+       "y": 200
+      }
+     },
+     "text": "The queen sent Sulayman expensive gifts. But he did not want money. He said:",
+     "ay": {
+      "ar": "فَمَآ ءَاتَىٰنِۦَ ٱللَّهُ خَيۡرٞ مِّمَّآ ءَاتَىٰكُمۚ",
+      "en": "What Allah has given me is better than what He has given you.",
+      "ref": "Surah an-Naml 27:36"
+     }
+    },
+    {
+     "sc": {
+      "label": "A palace glowing in the evening",
+      "sky": [
+       "#C7A0B8",
+       "#F1D9CF"
+      ],
+      "pillars": {},
+      "glow": [
+       200,
+       80
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Before the queen arrived, her throne was brought to Sulayman faster than the blink of an eye! Sulayman did not boast. He said:",
+     "ay": {
+      "ar": "هَٰذَا مِن فَضۡلِ رَبِّي لِيَبۡلُوَنِيٓ ءَأَشۡكُرُ أَمۡ أَكۡفُرُۖ",
+      "en": "This is from the favour of my Lord, to test me: will I be thankful or not?",
+      "ref": "Surah an-Naml 27:40"
+     }
+    },
+    {
+     "sc": {
+      "label": "A shining palace floor that looks like water",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "pillars": {
+       "c": "#CFE3EE",
+       "t": "#A9C9DB"
+      },
+      "sea": [
+       "#BFE0F0",
+       "#A8D2E8"
+      ]
+     },
+     "text": "The queen came to Sulayman's palace. Its floor was made of smooth glass, and she thought it was water! She understood the truth and said:",
+     "ay": {
+      "ar": "رَبِّ إِنِّي ظَلَمۡتُ نَفۡسِي وَأَسۡلَمۡتُ مَعَ سُلَيۡمَٰنَ لِلَّهِ رَبِّ ٱلۡعَٰلَمِينَ",
+      "en": "My Lord, I have wronged myself, and I submit, with Sulayman, to Allah, the Lord of all the worlds.",
+      "ref": "Surah an-Naml 27:44"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Call people to Allah kindly. Start important things with Bismillah. And when Allah gives you something wonderful, say: This is from the favour of my Lord."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Which bird was missing?",
+     "o": [
+      "The hoopoe",
+      "The eagle",
+      "The parrot"
+     ],
+     "why": "The hoopoe came back with news from Saba."
+    },
+    {
+     "q": "What were the queen's people worshipping?",
+     "o": [
+      "The sun",
+      "The moon",
+      "The sea"
+     ],
+     "why": "They did sujood to the sun instead of Allah."
+    },
+    {
+     "q": "How did Sulayman's letter begin?",
+     "o": [
+      "Bismillahir-Rahmanir-Rahim",
+      "Dear Queen",
+      "Hello"
+     ],
+     "why": "In the name of Allah, the Most Merciful."
+    },
+    {
+     "q": "What did the queen do at the end?",
+     "o": [
+      "She submitted to Allah",
+      "She ran away",
+      "She got angry"
+     ],
+     "why": "She said: I submit with Sulayman to Allah."
+    }
+   ]
+  },
+  {
+   "id": "st-sulayman-3",
+   "pid": "sulayman",
+   "ch": 3,
+   "part": "The field, the builders and the staff",
+   "title": "Prophet Sulayman: the staff and the unseen",
+   "ar": "سُلَيْمَان عَلَيْهِ السَّلَام",
+   "sub": "Being thankful, and only Allah knows the unseen",
+   "slides": [
+    {
+     "sc": {
+      "label": "A green field at night",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "moon": true,
+      "dunes": [
+       "#6F8F6A",
+       "#5E7D5A",
+       "#4E6B4B"
+      ]
+     },
+     "text": "One night, some sheep wandered into a farmer's field and ate the crops. Prophet Dawud and his son Prophet Sulayman, alayhimas salaam, had to judge what was fair.",
+     "ay": {
+      "ar": "وَدَاوُۥدَ وَسُلَيۡمَٰنَ إِذۡ يَحۡكُمَانِ فِي ٱلۡحَرۡثِ إِذۡ نَفَشَتۡ فِيهِ غَنَمُ ٱلۡقَوۡمِ",
+      "en": "And Dawud and Sulayman, when they judged about the field, when the people's sheep strayed into it at night.",
+      "ref": "Surah al-Anbiya 21:78"
+     }
+    },
+    {
+     "sc": {
+      "label": "Morning sun over the green field",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       26
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Allah helped Sulayman understand the best answer. And Allah gave both of them wisdom and knowledge.",
+     "ay": {
+      "ar": "فَفَهَّمۡنَٰهَا سُلَيۡمَٰنَۚ وَكُلًّا ءَاتَيۡنَا حُكۡمٗا وَعِلۡمٗاۚ",
+      "en": "We made Sulayman understand it, and to each of them We gave wisdom and knowledge.",
+      "ref": "Surah al-Anbiya 21:79"
+     }
+    },
+    {
+     "sc": {
+      "label": "Mountains under a morning sky",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "mountains": {
+       "c": "#B9876A",
+       "d": "#946649"
+      },
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Allah gave Dawud a special gift too: the mountains and the birds glorified Allah together with him!",
+     "ay": {
+      "ar": "وَسَخَّرۡنَا مَعَ دَاوُۥدَ ٱلۡجِبَالَ يُسَبِّحۡنَ وَٱلطَّيۡرَۚ",
+      "en": "And We made the mountains and the birds glorify Allah with Dawud.",
+      "ref": "Surah al-Anbiya 21:79"
+     }
+    },
+    {
+     "sc": {
+      "label": "A spring of shining water",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "water": true,
+      "glow": [
+       200,
+       170
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "For Sulayman, Allah made a spring of melted copper flow, so things could be made from it. And some jinn worked for him, by Allah's permission.",
+     "ay": {
+      "ar": "وَأَسَلۡنَا لَهُۥ عَيۡنَ ٱلۡقِطۡرِۖ وَمِنَ ٱلۡجِنِّ مَن يَعۡمَلُ بَيۡنَ يَدَيۡهِ بِإِذۡنِ رَبِّهِۦۖ",
+      "en": "And We made a spring of melted copper flow for him. And some of the jinn worked for him, by his Lord's permission.",
+      "ref": "Surah Saba 34:12"
+     }
+    },
+    {
+     "sc": {
+      "label": "Great buildings with tall arches",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "pillars": {},
+      "sun": [
+       330,
+       50,
+       18
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "They built big buildings, huge bowls and heavy cooking pots. And Allah told the family of Dawud:",
+     "ay": {
+      "ar": "ٱعۡمَلُوٓاْ ءَالَ دَاوُۥدَ شُكۡرٗاۚ وَقَلِيلٞ مِّنۡ عِبَادِيَ ٱلشَّكُورُ",
+      "en": "Work, O family of Dawud, with thankfulness. And few of My servants are truly thankful.",
+      "ref": "Surah Saba 34:13"
+     }
+    },
+    {
+     "sc": {
+      "label": "A quiet palace in the evening",
+      "sky": [
+       "#C7A0B8",
+       "#F1D9CF"
+      ],
+      "pillars": {
+       "c": "#B98A5E",
+       "t": "#8E6440"
+      },
+      "dunes": [
+       "#B9A78E",
+       "#A8957B",
+       "#97836A"
+      ]
+     },
+     "text": "Then the time came for Sulayman to die. He was leaning on his staff, and he stayed standing, so nobody knew he had died. The jinn kept on working.",
+     "ay": {
+      "ar": "فَلَمَّا قَضَيۡنَا عَلَيۡهِ ٱلۡمَوۡتَ مَا دَلَّهُمۡ عَلَىٰ مَوۡتِهِۦٓ إِلَّا دَآبَّةُ ٱلۡأَرۡضِ تَأۡكُلُ مِنسَأَتَهُۥۖ",
+      "en": "When We decreed his death, nothing showed them he had died except a little creature of the earth eating his staff.",
+      "ref": "Surah Saba 34:14"
+     }
+    },
+    {
+     "sc": {
+      "label": "Dry sand and a fallen wooden staff",
+      "sky": [
+       "#C9B79C",
+       "#EADFCB"
+      ],
+      "cracks": true,
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "A tiny creature of the earth slowly ate his wooden staff. When the staff broke and he fell, the jinn finally knew!",
+     "ay": {
+      "ar": "فَلَمَّا خَرَّ تَبَيَّنَتِ ٱلۡجِنُّ أَن لَّوۡ كَانُواْ يَعۡلَمُونَ ٱلۡغَيۡبَ مَا لَبِثُواْ فِي ٱلۡعَذَابِ ٱلۡمُهِينِ",
+      "en": "When he fell, the jinn saw that if they knew the unseen, they would not have stayed in that hard work.",
+      "ref": "Surah Saba 34:14"
+     }
+    },
+    {
+     "sc": {
+      "label": "A night sky full of stars",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "moon": true,
+      "noGround": true
+     },
+     "text": "The jinn could not even see that Sulayman had died, right in front of them. So the jinn do not know the unseen. Only Allah knows the unseen."
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Only Allah knows the unseen, not jinn, not fortune tellers, nobody else. Be fair when you sort out problems. And use every gift from Allah with thankfulness."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Who helped Sulayman understand the best answer about the field?",
+     "o": [
+      "Allah",
+      "The farmer",
+      "The sheep"
+     ],
+     "why": "We made Sulayman understand it."
+    },
+    {
+     "q": "What did the mountains and birds do with Dawud?",
+     "o": [
+      "Glorified Allah",
+      "Ran away",
+      "Slept"
+     ],
+     "why": "They glorified Allah with him."
+    },
+    {
+     "q": "How did the jinn find out Sulayman had died?",
+     "o": [
+      "A tiny creature ate his staff and he fell",
+      "Someone told them",
+      "They saw it in the stars"
+     ],
+     "why": "They did not know until he fell."
+    },
+    {
+     "q": "Who knows the unseen?",
+     "o": [
+      "Only Allah",
+      "The jinn",
+      "Fortune tellers"
+     ],
+     "why": "Only Allah knows the unseen."
+    }
+   ]
+  },
+  {
+   "id": "st-isa-1",
+   "pid": "isa",
+   "ch": 1,
+   "part": "Maryam, the chosen girl",
+   "title": "Maryam and the food from Allah",
+   "ar": "عِيسَىٰ عَلَيْهِ السَّلَام",
+   "sub": "Allah gives to whom He wills",
+   "slides": [
+    {
+     "sc": {
+      "label": "A quiet house with a lamp at night",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "town": {
+       "lit": true
+      },
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Long ago, a good woman, the wife of 'Imran, was waiting for a baby. She promised Allah that her child would serve Him.",
+     "ay": {
+      "ar": "رَبِّ إِنِّي نَذَرۡتُ لَكَ مَا فِي بَطۡنِي مُحَرَّرٗا فَتَقَبَّلۡ مِنِّيٓۖ إِنَّكَ أَنتَ ٱلسَّمِيعُ ٱلۡعَلِيمُ",
+      "en": "My Lord, I promise to You what is in my womb, to serve You. So accept it from me. You are the All-Hearing, the All-Knowing.",
+      "ref": "Surah Al 'Imran 3:35"
+     }
+    },
+    {
+     "sc": {
+      "label": "A soft dawn light",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "glow": [
+       200,
+       90
+      ],
+      "sun": [
+       200,
+       160,
+       24
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Her baby was a girl. She named her Maryam, and asked Allah to protect Maryam and her children from Shaytan.",
+     "ay": {
+      "ar": "وَإِنِّي سَمَّيۡتُهَا مَرۡيَمَ وَإِنِّيٓ أُعِيذُهَا بِكَ وَذُرِّيَّتَهَا مِنَ ٱلشَّيۡطَٰنِ ٱلرَّجِيمِ",
+      "en": "I have named her Maryam, and I ask You to protect her and her children from Shaytan, the outcast.",
+      "ref": "Surah Al 'Imran 3:36"
+     }
+    },
+    {
+     "sc": {
+      "label": "A young tree growing in a garden",
+      "sky": [
+       "#A8D8EE",
+       "#E8F6FB"
+      ],
+      "tree": [
+       200,
+       true
+      ],
+      "garden": true,
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Allah accepted Maryam in a beautiful way, and made her grow up good and pure.",
+     "ay": {
+      "ar": "فَتَقَبَّلَهَا رَبُّهَا بِقَبُولٍ حَسَنٖ وَأَنۢبَتَهَا نَبَاتًا حَسَنٗا",
+      "en": "So her Lord accepted her well, and made her grow up in a good way.",
+      "ref": "Surah Al 'Imran 3:37"
+     }
+    },
+    {
+     "sc": {
+      "label": "A prayer room with a glowing lantern",
+      "sky": [
+       "#1E3150",
+       "#3D4E7A"
+      ],
+      "lantern": [
+       200,
+       120
+      ],
+      "glow": [
+       200,
+       110
+      ],
+      "noGround": true
+     },
+     "text": "Prophet Zakariyya, alayhis salaam, looked after her. Maryam spent her time worshipping Allah in a special prayer room called the mihrab.",
+     "ay": {
+      "ar": "وَكَفَّلَهَا زَكَرِيَّاۖ",
+      "en": "And Zakariyya took care of her.",
+      "ref": "Surah Al 'Imran 3:37"
+     }
+    },
+    {
+     "sc": {
+      "label": "Fruit and food glowing in a quiet room",
+      "sky": [
+       "#E9DFD2",
+       "#F7F1E8"
+      ],
+      "glow": [
+       200,
+       100
+      ],
+      "noGround": true
+     },
+     "text": "Every time Zakariyya came into the mihrab, he found food with Maryam! He asked: Maryam, where did this come from?",
+     "ay": {
+      "ar": "كُلَّمَا دَخَلَ عَلَيۡهَا زَكَرِيَّا ٱلۡمِحۡرَابَ وَجَدَ عِندَهَا رِزۡقٗاۖ قَالَ يَٰمَرۡيَمُ أَنَّىٰ لَكِ هَٰذَاۖ",
+      "en": "Every time Zakariyya came to her in the mihrab, he found food with her. He said: O Maryam, where is this from?",
+      "ref": "Surah Al 'Imran 3:37"
+     }
+    },
+    {
+     "sc": {
+      "label": "Sunlight streaming into the room",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       26
+      ],
+      "glow": [
+       200,
+       90
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Maryam answered:",
+     "ay": {
+      "ar": "قَالَتۡ هُوَ مِنۡ عِندِ ٱللَّهِۖ إِنَّ ٱللَّهَ يَرۡزُقُ مَن يَشَآءُ بِغَيۡرِ حِسَابٍ",
+      "en": "She said: It is from Allah. Truly, Allah gives to whom He wills without counting.",
+      "ref": "Surah Al 'Imran 3:37"
+     }
+    },
+    {
+     "sc": {
+      "label": "A peaceful garden with a soft light",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "garden": true,
+      "flowers": true,
+      "glow": [
+       200,
+       70
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Allah takes care of the people who worship Him. Everything we eat and everything we have comes from Allah."
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Allah is the One who gives us food and everything we need. Ask Allah for what you need. Spend time worshipping Allah, like Maryam did."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What was the name of the baby girl?",
+     "o": [
+      "Maryam",
+      "Hawwa",
+      "Hajar"
+     ],
+     "why": "Her mother named her Maryam."
+    },
+    {
+     "q": "Which Prophet looked after Maryam?",
+     "o": [
+      "Zakariyya",
+      "Nuh",
+      "Yunus"
+     ],
+     "why": "Zakariyya took care of her."
+    },
+    {
+     "q": "What did Zakariyya find with Maryam in the mihrab?",
+     "o": [
+      "Food from Allah",
+      "A cat",
+      "A big book"
+     ],
+     "why": "Every time, he found food with her."
+    },
+    {
+     "q": "Where did Maryam say the food came from?",
+     "o": [
+      "From Allah",
+      "From the market",
+      "From her friend"
+     ],
+     "why": "She said: It is from Allah."
+    }
+   ]
+  },
+  {
+   "id": "st-isa-2",
+   "pid": "isa",
+   "ch": 2,
+   "part": "The good news and the palm tree",
+   "title": "Maryam and the palm tree",
+   "ar": "عِيسَىٰ عَلَيْهِ السَّلَام",
+   "sub": "Nothing is hard for Allah",
+   "slides": [
+    {
+     "sc": {
+      "label": "A quiet place towards the east at dawn",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       90,
+       150,
+       24
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "When Maryam was older, she went away from her family to a quiet place in the east.",
+     "ay": {
+      "ar": "وَٱذۡكُرۡ فِي ٱلۡكِتَٰبِ مَرۡيَمَ إِذِ ٱنتَبَذَتۡ مِنۡ أَهۡلِهَا مَكَانٗا شَرۡقِيّٗا",
+      "en": "And mention Maryam in the Book, when she went away from her family to a place in the east.",
+      "ref": "Surah Maryam 19:16"
+     }
+    },
+    {
+     "sc": {
+      "label": "A soft bright light in the quiet place",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "glow": [
+       200,
+       90
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Allah sent an angel to her, in the shape of a man. Maryam was scared and said:",
+     "ay": {
+      "ar": "قَالَتۡ إِنِّيٓ أَعُوذُ بِٱلرَّحۡمَٰنِ مِنكَ إِن كُنتَ تَقِيّٗا",
+      "en": "I ask the Most Merciful to protect me from you, if you fear Allah.",
+      "ref": "Surah Maryam 19:18"
+     }
+    },
+    {
+     "sc": {
+      "label": "A gentle glow over the sand",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "glow": [
+       200,
+       90
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "The angel said: I am only a messenger from your Lord, to give you a pure baby boy.",
+     "ay": {
+      "ar": "قَالَ إِنَّمَآ أَنَا۠ رَسُولُ رَبِّكِ لِأَهَبَ لَكِ غُلَٰمٗا زَكِيّٗا",
+      "en": "I am only a messenger from your Lord, to give you a pure boy.",
+      "ref": "Surah Maryam 19:19"
+     }
+    },
+    {
+     "sc": {
+      "label": "A starry sky",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "moon": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Maryam asked: How can I have a baby? No man has touched me. The angel said:",
+     "ay": {
+      "ar": "قَالَ رَبُّكِ هُوَ عَلَيَّ هَيِّنٞۖ وَلِنَجۡعَلَهُۥٓ ءَايَةٗ لِّلنَّاسِ وَرَحۡمَةٗ مِّنَّاۚ",
+      "en": "Your Lord says: It is easy for Me. And We will make him a sign for people and a mercy from Us.",
+      "ref": "Surah Maryam 19:21"
+     }
+    },
+    {
+     "sc": {
+      "label": "A faraway place with one palm tree",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "palms": [
+       [
+        200,
+        1.2
+       ]
+      ],
+      "sun": [
+       320,
+       60,
+       20
+      ],
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "When the time came for the baby, Maryam went to a faraway place. The pain brought her to the trunk of a palm tree. She was tired and very sad."
+    },
+    {
+     "sc": {
+      "label": "A little stream of water near the palm tree",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "palms": [
+       [
+        200,
+        1.2
+       ]
+      ],
+      "water": true,
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "Then she was called: Do not be sad! Your Lord has put a stream of water below you.",
+     "ay": {
+      "ar": "أَلَّا تَحۡزَنِي قَدۡ جَعَلَ رَبُّكِ تَحۡتَكِ سَرِيّٗا",
+      "en": "Do not be sad. Your Lord has put a stream below you.",
+      "ref": "Surah Maryam 19:24"
+     }
+    },
+    {
+     "sc": {
+      "label": "A tall palm tree full of dates",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "palms": [
+       [
+        200,
+        1.3
+       ]
+      ],
+      "sun": [
+       80,
+       150,
+       22
+      ],
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "Shake the trunk of the palm tree towards you, and fresh ripe dates will fall down for you.",
+     "ay": {
+      "ar": "وَهُزِّيٓ إِلَيۡكِ بِجِذۡعِ ٱلنَّخۡلَةِ تُسَٰقِطۡ عَلَيۡكِ رُطَبٗا جَنِيّٗا",
+      "en": "And shake the trunk of the palm tree towards you, and fresh ripe dates will fall on you.",
+      "ref": "Surah Maryam 19:25"
+     }
+    },
+    {
+     "sc": {
+      "label": "The palm tree and the stream at sunset",
+      "sky": [
+       "#C7A0B8",
+       "#F1D9CF"
+      ],
+      "palms": [
+       [
+        200,
+        1.2
+       ]
+      ],
+      "water": true,
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "So eat, drink and be happy. Allah looked after Maryam and her baby, 'Isa, alayhis salaam, in every way.",
+     "ay": {
+      "ar": "فَكُلِي وَٱشۡرَبِي وَقَرِّي عَيۡنٗاۖ",
+      "en": "So eat and drink and be happy.",
+      "ref": "Surah Maryam 19:26"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Nothing is hard for Allah. When we are scared, we ask Ar-Rahman to protect us, like Maryam did. And when we are sad, Allah sends help in ways we never expected."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Who did Maryam ask for protection when she was scared?",
+     "o": [
+      "Ar-Rahman, Allah",
+      "Her friends",
+      "Nobody"
+     ],
+     "why": "She said: I seek refuge in the Most Merciful."
+    },
+    {
+     "q": "What good news did the angel bring?",
+     "o": [
+      "A pure baby boy",
+      "A new house",
+      "Lots of money"
+     ],
+     "why": "A pure boy: 'Isa."
+    },
+    {
+     "q": "What did Allah say about giving Maryam a baby?",
+     "o": [
+      "It is easy for Me",
+      "It is too hard",
+      "Maybe later"
+     ],
+     "why": "Nothing is hard for Allah."
+    },
+    {
+     "q": "What fell from the palm tree?",
+     "o": [
+      "Fresh ripe dates",
+      "Apples",
+      "Leaves only"
+     ],
+     "why": "Allah gave her dates and a stream of water."
+    }
+   ]
+  },
+  {
+   "id": "st-isa-3",
+   "pid": "isa",
+   "ch": 3,
+   "part": "The baby who spoke",
+   "title": "Baby 'Isa speaks",
+   "ar": "عِيسَىٰ عَلَيْهِ السَّلَام",
+   "sub": "'Isa is a servant of Allah",
+   "slides": [
+    {
+     "sc": {
+      "label": "A town in the evening",
+      "sky": [
+       "#C7A0B8",
+       "#F1D9CF"
+      ],
+      "town": {},
+      "dunes": [
+       "#B9A78E",
+       "#A8957B",
+       "#97836A"
+      ]
+     },
+     "text": "Maryam carried baby 'Isa, alayhis salaam, back to her people. They were shocked. They said: Maryam, you have done something terrible!",
+     "ay": {
+      "ar": "فَأَتَتۡ بِهِۦ قَوۡمَهَا تَحۡمِلُهُۥۖ قَالُواْ يَٰمَرۡيَمُ لَقَدۡ جِئۡتِ شَيۡـٔٗا فَرِيّٗا",
+      "en": "Then she brought him to her people, carrying him. They said: O Maryam, you have done something terrible.",
+      "ref": "Surah Maryam 19:27"
+     }
+    },
+    {
+     "sc": {
+      "label": "A quiet town square",
+      "sky": [
+       "#C7A0B8",
+       "#F1D9CF"
+      ],
+      "town": {},
+      "dunes": [
+       "#B9A78E",
+       "#A8957B",
+       "#97836A"
+      ]
+     },
+     "text": "Maryam did not talk. She just pointed at the baby. They said: How can we talk to a baby in a cradle?",
+     "ay": {
+      "ar": "فَأَشَارَتۡ إِلَيۡهِۖ قَالُواْ كَيۡفَ نُكَلِّمُ مَن كَانَ فِي ٱلۡمَهۡدِ صَبِيّٗا",
+      "en": "So she pointed to him. They said: How can we speak to a baby in the cradle?",
+      "ref": "Surah Maryam 19:29"
+     }
+    },
+    {
+     "sc": {
+      "label": "A bright light shining over the town",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "glow": [
+       200,
+       80
+      ],
+      "town": {},
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Then, by Allah's power, baby 'Isa spoke! The very first thing he said was:",
+     "ay": {
+      "ar": "قَالَ إِنِّي عَبۡدُ ٱللَّهِ ءَاتَىٰنِيَ ٱلۡكِتَٰبَ وَجَعَلَنِي نَبِيّٗا",
+      "en": "He said: I am a servant of Allah. He has given me the Book and made me a Prophet.",
+      "ref": "Surah Maryam 19:30"
+     }
+    },
+    {
+     "sc": {
+      "label": "Morning sun over the town",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       26
+      ],
+      "town": {},
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "He said that Allah had made him blessed wherever he is, and told him to pray and give zakah all his life.",
+     "ay": {
+      "ar": "وَجَعَلَنِي مُبَارَكًا أَيۡنَ مَا كُنتُ وَأَوۡصَٰنِي بِٱلصَّلَوٰةِ وَٱلزَّكَوٰةِ مَا دُمۡتُ حَيّٗا",
+      "en": "And He made me blessed wherever I am, and told me to pray and give zakah as long as I live.",
+      "ref": "Surah Maryam 19:31"
+     }
+    },
+    {
+     "sc": {
+      "label": "Flowers in a garden",
+      "sky": [
+       "#A8D8EE",
+       "#E8F6FB"
+      ],
+      "flowers": true,
+      "garden": true,
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "He also said that Allah made him kind and good to his mother, and not proud or rough.",
+     "ay": {
+      "ar": "وَبَرَّۢا بِوَٰلِدَتِي وَلَمۡ يَجۡعَلۡنِي جَبَّارٗا شَقِيّٗا",
+      "en": "And kind to my mother. And He did not make me proud or rough.",
+      "ref": "Surah Maryam 19:32"
+     }
+    },
+    {
+     "sc": {
+      "label": "A quiet night sky",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "moon": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "'Isa is a servant of Allah and a Prophet. Allah does not have a son. Glory be to Him! When Allah wants something, He just says: Be, and it is.",
+     "ay": {
+      "ar": "مَا كَانَ لِلَّهِ أَن يَتَّخِذَ مِن وَلَدٖۖ سُبۡحَٰنَهُۥٓۚ إِذَا قَضَىٰٓ أَمۡرٗا فَإِنَّمَا يَقُولُ لَهُۥ كُن فَيَكُونُ",
+      "en": "Allah would never take a son. Glory be to Him! When He decides something, He only says to it: Be, and it is.",
+      "ref": "Surah Maryam 19:35"
+     }
+    },
+    {
+     "sc": {
+      "label": "Clay earth under a dawn sky",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "sun": [
+       200,
+       150,
+       24
+      ],
+      "dunes": [
+       "#B9876A",
+       "#A8775B",
+       "#946649"
+      ]
+     },
+     "text": "Allah created 'Isa without a father, just as He created Adam without a father or a mother.",
+     "ay": {
+      "ar": "إِنَّ مَثَلَ عِيسَىٰ عِندَ ٱللَّهِ كَمَثَلِ ءَادَمَۖ خَلَقَهُۥ مِن تُرَابٖ ثُمَّ قَالَ لَهُۥ كُن فَيَكُونُ",
+      "en": "The example of 'Isa with Allah is like Adam. He created him from dust, then said to him: Be, and he was.",
+      "ref": "Surah Al 'Imran 3:59"
+     }
+    },
+    {
+     "sc": {
+      "label": "A straight path across the desert",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "sun": [
+       320,
+       50,
+       20
+      ],
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "'Isa told the people:",
+     "ay": {
+      "ar": "وَإِنَّ ٱللَّهَ رَبِّي وَرَبُّكُمۡ فَٱعۡبُدُوهُۚ هَٰذَا صِرَٰطٞ مُّسۡتَقِيمٞ",
+      "en": "And Allah is my Lord and your Lord, so worship Him. This is a straight path.",
+      "ref": "Surah Maryam 19:36"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? 'Isa was a servant of Allah and a Prophet, and he told people to worship Allah alone. Be kind to your mother, like 'Isa. And remember: when Allah wants something, He says Be, and it is."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What was the first thing baby 'Isa said?",
+     "o": [
+      "I am a servant of Allah",
+      "I am hungry",
+      "Hello everyone"
+     ],
+     "why": "Inni 'abdullah: I am a servant of Allah."
+    },
+    {
+     "q": "Who was 'Isa kind and good to?",
+     "o": [
+      "His mother",
+      "Nobody",
+      "Only animals"
+     ],
+     "why": "Allah made him dutiful to his mother."
+    },
+    {
+     "q": "Does Allah have a son?",
+     "o": [
+      "No, Glory be to Allah",
+      "Yes",
+      "Maybe"
+     ],
+     "why": "Allah would never take a son. 'Isa is His servant and Prophet."
+    },
+    {
+     "q": "Who else did Allah create without a father?",
+     "o": [
+      "Adam",
+      "Nuh",
+      "Yusuf"
+     ],
+     "why": "Allah created Adam from dust, and said: Be."
+    }
+   ]
+  },
+  {
+   "id": "st-isa-4",
+   "pid": "isa",
+   "ch": 4,
+   "part": "Miracles by Allah's permission",
+   "title": "Prophet 'Isa: miracles and the table",
+   "ar": "عِيسَىٰ عَلَيْهِ السَّلَام",
+   "sub": "Every miracle is from Allah",
+   "slides": [
+    {
+     "sc": {
+      "label": "A green land beside a river",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "river": true,
+      "town": {},
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Allah sent Prophet 'Isa, alayhis salaam, as a Messenger to the Children of Israel, with signs from Allah.",
+     "ay": {
+      "ar": "وَرَسُولًا إِلَىٰ بَنِيٓ إِسۡرَـٰٓءِيلَ أَنِّي قَدۡ جِئۡتُكُم بِـَٔايَةٖ مِّن رَّبِّكُمۡ",
+      "en": "And a Messenger to the Children of Israel: I have come to you with a sign from your Lord.",
+      "ref": "Surah Al 'Imran 3:49"
+     }
+    },
+    {
+     "sc": {
+      "label": "Clay earth and a wide sky",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "cloud": [
+       300,
+       40,
+       1,
+       "#F4F7FA"
+      ],
+      "dunes": [
+       "#B9876A",
+       "#A8775B",
+       "#946649"
+      ]
+     },
+     "text": "By Allah's permission, 'Isa shaped a bird from clay and blew into it, and it became a real bird!",
+     "ay": {
+      "ar": "أَنِّيٓ أَخۡلُقُ لَكُم مِّنَ ٱلطِّينِ كَهَيۡـَٔةِ ٱلطَّيۡرِ فَأَنفُخُ فِيهِ فَيَكُونُ طَيۡرَۢا بِإِذۡنِ ٱللَّهِۖ",
+      "en": "I make for you from clay the shape of a bird, then I blow into it and it becomes a bird, by Allah's permission.",
+      "ref": "Surah Al 'Imran 3:49"
+     }
+    },
+    {
+     "sc": {
+      "label": "A soft healing light",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "glow": [
+       200,
+       90
+      ],
+      "sun": [
+       200,
+       160,
+       24
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "By Allah's permission, he healed people who were born blind and people with a skin illness. He even brought the dead back to life, by Allah's permission.",
+     "ay": {
+      "ar": "وَأُبۡرِئُ ٱلۡأَكۡمَهَ وَٱلۡأَبۡرَصَ وَأُحۡيِ ٱلۡمَوۡتَىٰ بِإِذۡنِ ٱللَّهِۖ",
+      "en": "And I heal the blind and the one with leprosy, and I bring the dead to life, by Allah's permission.",
+      "ref": "Surah Al 'Imran 3:49"
+     }
+    },
+    {
+     "sc": {
+      "label": "An open book glowing",
+      "sky": [
+       "#E9DFD2",
+       "#F7F1E8"
+      ],
+      "book": true,
+      "glow": [
+       200,
+       90
+      ],
+      "dunes": [
+       "#D8CBB8",
+       "#C8BBA8",
+       "#B8AB98"
+      ]
+     },
+     "text": "Allah taught 'Isa the Book, wisdom, the Tawrah and the Injil. 'Isa never did these things by his own power. Every miracle was from Allah.",
+     "ay": {
+      "ar": "وَإِذۡ عَلَّمۡتُكَ ٱلۡكِتَٰبَ وَٱلۡحِكۡمَةَ وَٱلتَّوۡرَىٰةَ وَٱلۡإِنجِيلَۖ",
+      "en": "And when I taught you the Book and wisdom and the Tawrah and the Injil.",
+      "ref": "Surah al-Ma'idah 5:110"
+     }
+    },
+    {
+     "sc": {
+      "label": "Clouds in a bright sky",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "cloud": [
+       120,
+       40,
+       1.1,
+       "#F4F7FA"
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "'Isa had close helpers called the Hawariyyun. One day they asked: Can your Lord send down a table of food from the sky?",
+     "ay": {
+      "ar": "إِذۡ قَالَ ٱلۡحَوَارِيُّونَ يَٰعِيسَى ٱبۡنَ مَرۡيَمَ هَلۡ يَسۡتَطِيعُ رَبُّكَ أَن يُنَزِّلَ عَلَيۡنَا مَآئِدَةٗ مِّنَ ٱلسَّمَآءِۖ",
+      "en": "The disciples said: O 'Isa, son of Maryam, can your Lord send down to us a table from the sky?",
+      "ref": "Surah al-Ma'idah 5:112"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing light coming down from the sky",
+      "sky": [
+       "#7FB6E0",
+       "#E6F2FA"
+      ],
+      "glow": [
+       200,
+       70
+      ],
+      "cloud": [
+       200,
+       30,
+       1.2,
+       "#F4F7FA"
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "'Isa made dua to Allah:",
+     "ay": {
+      "ar": "ٱللَّهُمَّ رَبَّنَآ أَنزِلۡ عَلَيۡنَا مَآئِدَةٗ مِّنَ ٱلسَّمَآءِ تَكُونُ لَنَا عِيدٗا لِّأَوَّلِنَا وَءَاخِرِنَا وَءَايَةٗ مِّنكَۖ وَٱرۡزُقۡنَا وَأَنتَ خَيۡرُ ٱلرَّـٰزِقِينَ",
+      "en": "O Allah, our Lord, send down to us a table from the sky, to be a celebration and a sign from You. And give us food, and You are the best of givers.",
+      "ref": "Surah al-Ma'idah 5:114"
+     }
+    },
+    {
+     "sc": {
+      "label": "Sunlight over a peaceful land",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       26
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Allah said: I will send it down to you. Allah answered the dua of His Prophet.",
+     "ay": {
+      "ar": "قَالَ ٱللَّهُ إِنِّي مُنَزِّلُهَا عَلَيۡكُمۡۖ",
+      "en": "Allah said: I will send it down to you.",
+      "ref": "Surah al-Ma'idah 5:115"
+     }
+    },
+    {
+     "sc": {
+      "label": "A night sky full of stars",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "bigstar": [
+       200,
+       60
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "So who should we thank for these miracles? Only Allah! 'Isa was a Messenger, and all the power belongs to Allah."
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Every miracle happens only by Allah's permission. Allah is the best of givers, so we ask Him for what we need. And we thank Allah for every gift."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "How did 'Isa do his miracles?",
+     "o": [
+      "By Allah's permission",
+      "By magic",
+      "By himself"
+     ],
+     "why": "Every miracle was bi-idhnillah, by Allah's permission."
+    },
+    {
+     "q": "What did 'Isa make from clay, by Allah's permission?",
+     "o": [
+      "A bird",
+      "A house",
+      "A car"
+     ],
+     "why": "It became a real bird, by Allah's permission."
+    },
+    {
+     "q": "What did the helpers ask for?",
+     "o": [
+      "A table of food from the sky",
+      "A big ship",
+      "A golden crown"
+     ],
+     "why": "They asked for a table from the sky."
+    },
+    {
+     "q": "Who is the best of givers?",
+     "o": [
+      "Allah",
+      "The king",
+      "The helpers"
+     ],
+     "why": "Wa anta khayrur-raziqin."
+    }
+   ]
+  },
+  {
+   "id": "st-isa-5",
+   "pid": "isa",
+   "ch": 5,
+   "part": "Raised up by Allah",
+   "title": "Prophet 'Isa: raised up by Allah",
+   "ar": "عِيسَىٰ عَلَيْهِ السَّلَام",
+   "sub": "Worship Allah alone, my Lord and your Lord",
+   "slides": [
+    {
+     "sc": {
+      "label": "A dark sky over a town",
+      "sky": [
+       "#3B4250",
+       "#6E7686"
+      ],
+      "town": {},
+      "dunes": [
+       "#9C8C7C",
+       "#8C7C6C",
+       "#7C6C5C"
+      ]
+     },
+     "text": "Some people did not believe Prophet 'Isa, alayhis salaam. They wanted to kill him."
+    },
+    {
+     "sc": {
+      "label": "Clouds parting in the night sky",
+      "sky": [
+       "#1E3150",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "cloud": [
+       200,
+       120,
+       1.4,
+       "#8E9AB8"
+      ],
+      "noGround": true
+     },
+     "text": "But Allah protected him. They did not kill him and they did not crucify him. It was only made to look like that to them.",
+     "ay": {
+      "ar": "وَمَا قَتَلُوهُ وَمَا صَلَبُوهُ وَلَٰكِن شُبِّهَ",
+      "en": "They did not kill him and they did not crucify him, but it was made to seem so to them.",
+      "ref": "Surah an-Nisa 4:157"
+     }
+    },
+    {
+     "sc": {
+      "label": "A path of light going up into the sky",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "glow": [
+       200,
+       60
+      ],
+      "noGround": true
+     },
+     "text": "Allah raised 'Isa up to Himself. Allah is Almighty and All-Wise.",
+     "ay": {
+      "ar": "بَل رَّفَعَهُ ٱللَّهُ إِلَيۡهِۚ وَكَانَ ٱللَّهُ عَزِيزًا حَكِيمٗا",
+      "en": "Rather, Allah raised him up to Himself. And Allah is Almighty, All-Wise.",
+      "ref": "Surah an-Nisa 4:158"
+     }
+    },
+    {
+     "sc": {
+      "label": "An open book glowing at night",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "book": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "'Isa only ever told people one message, the same message as every Prophet:",
+     "ay": {
+      "ar": "مَا قُلۡتُ لَهُمۡ إِلَّا مَآ أَمَرۡتَنِي بِهِۦٓ أَنِ ٱعۡبُدُواْ ٱللَّهَ رَبِّي وَرَبَّكُمۡۚ",
+      "en": "I only told them what You commanded me: Worship Allah, my Lord and your Lord.",
+      "ref": "Surah al-Ma'idah 5:117"
+     }
+    },
+    {
+     "sc": {
+      "label": "A clear night with one bright star",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "bigstar": [
+       200,
+       60
+      ],
+      "noGround": true
+     },
+     "text": "'Isa never told anyone to worship him or his mother. On the Day of Judgement he will say to Allah: Glory be to You! I would never say something that is not true.",
+     "ay": {
+      "ar": "قَالَ سُبۡحَٰنَكَ مَا يَكُونُ لِيٓ أَنۡ أَقُولَ مَا لَيۡسَ لِي بِحَقٍّۚ",
+      "en": "Glory be to You! I would never say what I have no right to say.",
+      "ref": "Surah al-Ma'idah 5:116"
+     }
+    },
+    {
+     "sc": {
+      "label": "A sunrise over the earth",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       26
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Some people later made a big mistake and said 'Isa is the son of God. But 'Isa is a servant of Allah and His Messenger. Allah is One.",
+     "ay": {
+      "ar": "قُلۡ هُوَ ٱللَّهُ أَحَدٌ",
+      "en": "Say: He is Allah, the One.",
+      "ref": "Surah al-Ikhlas 112:1"
+     }
+    },
+    {
+     "sc": {
+      "label": "A peaceful sky over green hills",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "sun": [
+       320,
+       50,
+       20
+      ],
+      "glow": [
+       200,
+       90
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "The Prophet Muhammad ﷺ told us that 'Isa, son of Maryam, will come down again before the Last Day, and he will judge with justice. (Sahih al-Bukhari 3448, Sahih Muslim 155)"
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Allah protects His Prophets. 'Isa is a servant of Allah and His Messenger, and Allah has no son. We worship Allah alone: my Lord and your Lord. And we believe what Allah and His Messenger ﷺ tell us about the future."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Was 'Isa killed?",
+     "o": [
+      "No, Allah raised him up",
+      "Yes",
+      "Nobody knows"
+     ],
+     "why": "They did not kill him. Allah raised him up to Himself."
+    },
+    {
+     "q": "What did 'Isa tell people to do?",
+     "o": [
+      "Worship Allah, my Lord and your Lord",
+      "Worship him",
+      "Worship his mother"
+     ],
+     "why": "He only told them to worship Allah."
+    },
+    {
+     "q": "Which surah tells us Allah is One?",
+     "o": [
+      "Surah al-Ikhlas",
+      "Surah al-Fil",
+      "Surah an-Nas"
+     ],
+     "why": "Qul huwa Allahu ahad."
+    },
+    {
+     "q": "What will 'Isa do before the Last Day?",
+     "o": [
+      "Come down again and judge with justice",
+      "Stay away forever",
+      "Build a ship"
+     ],
+     "why": "The Prophet ﷺ told us he will come down again."
+    }
+   ]
+  },
+  {
+   "id": "st-yusuf-1",
+   "pid": "yusuf",
+   "ch": 1,
+   "part": "The dream and the well",
+   "title": "Prophet Yusuf: the dream and the well",
+   "ar": "يُوسُف عَلَيْهِ السَّلَام",
+   "sub": "Keeping secrets safe, and patience when we are sad",
+   "slides": [
+    {
+     "sc": {
+      "label": "A night sky with eleven stars, the sun and the moon",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "moon": [
+       90,
+       60,
+       14
+      ],
+      "sun": [
+       320,
+       70,
+       16
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Yusuf, alayhis salaam, was a young boy. His father was Prophet Ya'qub, alayhis salaam. One night Yusuf had a wonderful dream, and he told his father:",
+     "ay": {
+      "ar": "إِذۡ قَالَ يُوسُفُ لِأَبِيهِ يَـٰٓأَبَتِ إِنِّي رَأَيۡتُ أَحَدَ عَشَرَ كَوۡكَبٗا وَٱلشَّمۡسَ وَٱلۡقَمَرَ رَأَيۡتُهُمۡ لِي سَٰجِدِينَ",
+      "en": "O my father, I saw eleven stars and the sun and the moon. I saw them bowing down to me.",
+      "ref": "Surah Yusuf 12:4"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern at night",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       200,
+       118
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Ya'qub knew the dream was special. He told Yusuf to keep it a secret from his brothers, because Shaytan is a clear enemy to people.",
+     "ay": {
+      "ar": "قَالَ يَٰبُنَيَّ لَا تَقۡصُصۡ رُءۡيَاكَ عَلَىٰٓ إِخۡوَتِكَ",
+      "en": "O my son, do not tell your dream to your brothers.",
+      "ref": "Surah Yusuf 12:5"
+     }
+    },
+    {
+     "sc": {
+      "label": "A quiet town in the evening",
+      "sky": [
+       "#C7A0B8",
+       "#F1D9CF"
+      ],
+      "town": {},
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Yusuf's brothers were jealous. They said their father loved Yusuf and his younger brother more than them.",
+     "ay": {
+      "ar": "قَالُواْ لَيُوسُفُ وَأَخُوهُ أَحَبُّ إِلَىٰٓ أَبِينَا مِنَّا",
+      "en": "Yusuf and his brother are more loved by our father than we are.",
+      "ref": "Surah Yusuf 12:8"
+     }
+    },
+    {
+     "sc": {
+      "label": "Rocky hills under a hot sun",
+      "sky": [
+       "#F6B26B",
+       "#FCE1B3"
+      ],
+      "sun": [
+       200,
+       60,
+       28
+      ],
+      "sunC": "#FFB547",
+      "mountains": {
+       "c": "#C9A07E",
+       "d": "#A87E5C"
+      },
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "Jealousy made them plan something very bad. One of them said: Do not kill Yusuf, but throw him into the bottom of a well, and some travellers will pick him up."
+    },
+    {
+     "sc": {
+      "label": "Green fields under a bright sky",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "sun": [
+       320,
+       50,
+       18
+      ],
+      "flowers": true,
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "They asked their father to let Yusuf come out with them to eat and play. Ya'qub was sad to let him go, but in the end they took him.",
+     "ay": {
+      "ar": "أَرۡسِلۡهُ مَعَنَا غَدٗا يَرۡتَعۡ وَيَلۡعَبۡ",
+      "en": "Send him with us tomorrow, to eat and play.",
+      "ref": "Surah Yusuf 12:12"
+     }
+    },
+    {
+     "sc": {
+      "label": "An old stone well in the desert",
+      "sky": [
+       "#C9B79C",
+       "#EADFCB"
+      ],
+      "well": true,
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "They put Yusuf into the bottom of a well. But Yusuf was not alone. Allah told him that one day he would tell his brothers about what they had done.",
+     "ay": {
+      "ar": "غَيَٰبَتِ ٱلۡجُبِّۚ وَأَوۡحَيۡنَآ إِلَيۡهِ لَتُنَبِّئَنَّهُم بِأَمۡرِهِمۡ هَٰذَا وَهُمۡ لَا يَشۡعُرُونَ",
+      "en": "And We told him: You will tell them about this one day.",
+      "ref": "Surah Yusuf 12:15"
+     }
+    },
+    {
+     "sc": {
+      "label": "Evening sky over an empty desert",
+      "sky": [
+       "#8D8577",
+       "#C4B8A2"
+      ],
+      "dunes": [
+       "#B8A07E",
+       "#A88E6B",
+       "#97805E"
+      ]
+     },
+     "text": "At night the brothers came home crying. They said a wolf had eaten Yusuf, and they brought his shirt with false blood on it.",
+     "ay": {
+      "ar": "وَجَآءُوٓ أَبَاهُمۡ عِشَآءٗ يَبۡكُونَ",
+      "en": "And they came to their father at night, crying.",
+      "ref": "Surah Yusuf 12:16"
+     }
+    },
+    {
+     "sc": {
+      "label": "A dark night with a small soft light",
+      "sky": [
+       "#050810",
+       "#0B1424"
+      ],
+      "noGround": true,
+      "glow": [
+       200,
+       120
+      ],
+      "stars": true
+     },
+     "text": "Ya'qub knew it was not true. He was very sad, but he did not shout or give up. He said:",
+     "ay": {
+      "ar": "جَمِيلٞۖ وَٱللَّهُ ٱلۡمُسۡتَعَانُ عَلَىٰ مَا تَصِفُونَ",
+      "en": "So patience is best. And Allah is the One whose help I ask.",
+      "ref": "Surah Yusuf 12:18"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Jealousy can make people do terrible things, so we ask Allah to keep our hearts clean. Some things are best kept private. And when we are sad, we say like Ya'qub: patience is best, and we ask Allah for help."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What did Yusuf see in his dream?",
+     "o": [
+      "Eleven stars, the sun and the moon",
+      "A big ship",
+      "A tall mountain"
+     ],
+     "why": "They were bowing down to him."
+    },
+    {
+     "q": "Why did Ya'qub tell Yusuf to keep the dream secret?",
+     "o": [
+      "So his brothers would not plan against him",
+      "Because it was silly",
+      "Because he was tired"
+     ],
+     "why": "He said: do not tell your dream to your brothers."
+    },
+    {
+     "q": "Where did the brothers put Yusuf?",
+     "o": [
+      "At the bottom of a well",
+      "On a boat",
+      "In a cave"
+     ],
+     "why": "They put him into a deep well."
+    },
+    {
+     "q": "What did Ya'qub say when he was very sad?",
+     "o": [
+      "Patience is best",
+      "I give up",
+      "It does not matter"
+     ],
+     "why": "Fasabrun jamil: so patience is best."
+    }
+   ]
+  },
+  {
+   "id": "st-yusuf-2",
+   "pid": "yusuf",
+   "ch": 2,
+   "part": "Egypt, honesty and prison",
+   "title": "Prophet Yusuf: Egypt, honesty and prison",
+   "ar": "يُوسُف عَلَيْهِ السَّلَام",
+   "sub": "Saying no to wrong, and teaching Tawheed everywhere",
+   "slides": [
+    {
+     "sc": {
+      "label": "An old well with travellers' camp nearby at sunrise",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "well": true,
+      "sun": [
+       80,
+       150,
+       22
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Some travellers stopped at the well. One of them let his bucket down, and he found Yusuf, alayhis salaam! He said: Good news! Here is a boy!",
+     "ay": {
+      "ar": "قَالَ يَٰبُشۡرَىٰ هَٰذَا غُلَٰمٞۚ",
+      "en": "He said: Good news! Here is a boy!",
+      "ref": "Surah Yusuf 12:19"
+     }
+    },
+    {
+     "sc": {
+      "label": "A road through the desert to a far town",
+      "sky": [
+       "#F3D3A6",
+       "#FBEAD2"
+      ],
+      "sun": [
+       320,
+       60,
+       20
+      ],
+      "palms": [
+       [
+        70,
+        0.8
+       ],
+       [
+        340,
+        0.9
+       ]
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "They took him to Egypt and sold him for a few coins. A great man in Egypt bought him and told his wife to look after him kindly.",
+     "ay": {
+      "ar": "أَكۡرِمِي مَثۡوَىٰهُ عَسَىٰٓ أَن يَنفَعَنَآ أَوۡ نَتَّخِذَهُۥ وَلَدٗاۚ",
+      "en": "Look after him kindly. Perhaps he will be good for us, or we will take him as a son.",
+      "ref": "Surah Yusuf 12:21"
+     }
+    },
+    {
+     "sc": {
+      "label": "A town by the river in Egypt",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "town": {},
+      "river": true,
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "This was Allah's plan. Allah gave Yusuf a home in the land and taught him to understand dreams. Allah always does what He wills.",
+     "ay": {
+      "ar": "وَٱللَّهُ غَالِبٌ عَلَىٰٓ أَمۡرِهِۦ وَلَٰكِنَّ أَكۡثَرَ ٱلنَّاسِ لَا يَعۡلَمُونَ",
+      "en": "And Allah always carries out what He wills, but most people do not know.",
+      "ref": "Surah Yusuf 12:21"
+     }
+    },
+    {
+     "sc": {
+      "label": "A palace under a warm sky",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "pillars": {},
+      "sun": [
+       300,
+       70,
+       20
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Yusuf grew up strong, and Allah gave him wisdom and knowledge, because he did good.",
+     "ay": {
+      "ar": "وَلَمَّا بَلَغَ أَشُدَّهُۥٓ ءَاتَيۡنَٰهُ حُكۡمٗا وَعِلۡمٗاۚ وَكَذَٰلِكَ نَجۡزِي ٱلۡمُحۡسِنِينَ",
+      "en": "We gave him wisdom and knowledge. This is how We reward people who do good.",
+      "ref": "Surah Yusuf 12:22"
+     }
+    },
+    {
+     "sc": {
+      "label": "Closed doors in a quiet hall",
+      "sky": [
+       "#C8B9A6",
+       "#E9DFD2"
+      ],
+      "glow": [
+       200,
+       90
+      ],
+      "noGround": true,
+      "town": {
+       "c": "#B9A78E",
+       "d": "#97836A",
+       "y": 200
+      }
+     },
+     "text": "One day, the wife of the great man asked Yusuf to do something wrong. Yusuf said no straight away:",
+     "ay": {
+      "ar": "مَعَاذَ ٱللَّهِۖ",
+      "en": "I seek refuge in Allah!",
+      "ref": "Surah Yusuf 12:23"
+     }
+    },
+    {
+     "sc": {
+      "label": "A dark night with a small light",
+      "sky": [
+       "#050810",
+       "#0B1424"
+      ],
+      "noGround": true,
+      "glow": [
+       200,
+       120
+      ]
+     },
+     "text": "Even though Yusuf did nothing wrong, he was put in prison. He made dua: My Lord, prison is better for me than doing what they want.",
+     "ay": {
+      "ar": "قَالَ رَبِّ ٱلسِّجۡنُ أَحَبُّ إِلَيَّ مِمَّا يَدۡعُونَنِيٓ إِلَيۡهِۖ",
+      "en": "My Lord, prison is more loved to me than what they call me to.",
+      "ref": "Surah Yusuf 12:33"
+     }
+    },
+    {
+     "sc": {
+      "label": "A small window of light in a dark room",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "glow": [
+       200,
+       100
+      ],
+      "noGround": true
+     },
+     "text": "Two young men in the prison had dreams, and they asked Yusuf to explain them. They could see he was a good person. Before answering, Yusuf taught them about Allah:",
+     "ay": {
+      "ar": "يَٰصَٰحِبَيِ ٱلسِّجۡنِ ءَأَرۡبَابٞ مُّتَفَرِّقُونَ خَيۡرٌ أَمِ ٱللَّهُ ٱلۡوَٰحِدُ ٱلۡقَهَّارُ",
+      "en": "My two prison friends, are many different gods better, or Allah, the One, the All-Powerful?",
+      "ref": "Surah Yusuf 12:39"
+     }
+    },
+    {
+     "sc": {
+      "label": "Light shining into the dark",
+      "sky": [
+       "#3D4E7A",
+       "#C7A0B8"
+      ],
+      "glow": [
+       200,
+       80
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "He told them that Allah has commanded that we worship only Him. That is the right religion.",
+     "ay": {
+      "ar": "أَمَرَ أَلَّا تَعۡبُدُوٓاْ إِلَّآ إِيَّاهُۚ ذَٰلِكَ ٱلدِّينُ",
+      "en": "He has commanded that you worship none but Him. That is the right religion.",
+      "ref": "Surah Yusuf 12:40"
+     }
+    },
+    {
+     "sc": {
+      "label": "A long night over the prison walls",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "moon": true,
+      "town": {
+       "c": "#6E6A8A",
+       "d": "#4E4A6A"
+      },
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Yusuf explained their dreams. He asked the man who would go free to mention him to the king. But Shaytan made the man forget, and Yusuf stayed in prison for some years.",
+     "ay": {
+      "ar": "فَلَبِثَ فِي ٱلسِّجۡنِ بِضۡعَ سِنِينَ",
+      "en": "And he stayed in prison for some years.",
+      "ref": "Surah Yusuf 12:42"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Say no to wrong things, even when nobody is watching, and ask Allah for help like Yusuf did. Teach people about Allah wherever you are. And be patient: Allah's plan is always working."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Who found Yusuf in the well?",
+     "o": [
+      "Some travellers",
+      "A king",
+      "His father"
+     ],
+     "why": "Travellers let down a bucket and found him."
+    },
+    {
+     "q": "What did Yusuf say when he was asked to do something wrong?",
+     "o": [
+      "I seek refuge in Allah",
+      "Okay",
+      "Maybe later"
+     ],
+     "why": "Ma'adh Allah: I seek refuge in Allah."
+    },
+    {
+     "q": "What did Yusuf teach the men in prison first?",
+     "o": [
+      "To worship Allah alone",
+      "How to escape",
+      "How to cook"
+     ],
+     "why": "He called them to Tawheed before explaining their dreams."
+    },
+    {
+     "q": "Why did Yusuf stay in prison for years?",
+     "o": [
+      "The man forgot to mention him to the king",
+      "He liked it there",
+      "He was sleeping"
+     ],
+     "why": "Shaytan made the man forget."
+    }
+   ]
+  },
+  {
+   "id": "st-yusuf-3",
+   "pid": "yusuf",
+   "ch": 3,
+   "part": "The king's dream",
+   "title": "Prophet Yusuf: the king's dream",
+   "ar": "يُوسُف عَلَيْهِ السَّلَام",
+   "sub": "Planning ahead, and the truth always comes out",
+   "slides": [
+    {
+     "sc": {
+      "label": "A night sky over a palace",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "moon": true,
+      "pillars": {
+       "c": "#6E6A8A",
+       "t": "#4E4A6A"
+      },
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "One night, the king of Egypt had a strange dream. He saw seven fat cows being eaten by seven thin ones, and seven green ears of grain and seven dry ones.",
+     "ay": {
+      "ar": "إِنِّيٓ أَرَىٰ سَبۡعَ بَقَرَٰتٖ سِمَانٖ يَأۡكُلُهُنَّ سَبۡعٌ عِجَافٞ وَسَبۡعَ سُنۢبُلَٰتٍ خُضۡرٖ وَأُخَرَ يَابِسَٰتٖۖ",
+      "en": "I see seven fat cows being eaten by seven thin ones, and seven green ears of grain, and others dry.",
+      "ref": "Surah Yusuf 12:43"
+     }
+    },
+    {
+     "sc": {
+      "label": "A palace hall in soft light",
+      "sky": [
+       "#C8B9A6",
+       "#E9DFD2"
+      ],
+      "glow": [
+       200,
+       90
+      ],
+      "noGround": true,
+      "town": {
+       "c": "#B9A78E",
+       "d": "#97836A",
+       "y": 200
+      }
+     },
+     "text": "None of the king's wise men could explain it. They said it was just mixed up dreams.",
+     "ay": {
+      "ar": "قَالُوٓاْ أَضۡغَٰثُ أَحۡلَٰمٖۖ وَمَا نَحۡنُ بِتَأۡوِيلِ ٱلۡأَحۡلَٰمِ بِعَٰلِمِينَ",
+      "en": "They said: These are mixed up dreams, and we do not know how to explain dreams.",
+      "ref": "Surah Yusuf 12:44"
+     }
+    },
+    {
+     "sc": {
+      "label": "Light shining through a small window at dawn",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       24
+      ],
+      "town": {},
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Then the man from the prison remembered Yusuf, alayhis salaam! He went to him and said:",
+     "ay": {
+      "ar": "يُوسُفُ أَيُّهَا ٱلصِّدِّيقُ أَفۡتِنَا",
+      "en": "Yusuf, O truthful one, explain to us...",
+      "ref": "Surah Yusuf 12:46"
+     }
+    },
+    {
+     "sc": {
+      "label": "Golden wheat fields along the river",
+      "sky": [
+       "#F3D3A6",
+       "#FBEAD2"
+      ],
+      "sun": [
+       320,
+       60,
+       20
+      ],
+      "river": true,
+      "flowers": true,
+      "dunes": [
+       "#E8D3A8",
+       "#DCC496",
+       "#CEB484"
+      ]
+     },
+     "text": "Yusuf explained: For seven years you will farm well. Keep the grain you harvest in its ears, except a little to eat.",
+     "ay": {
+      "ar": "تَزۡرَعُونَ سَبۡعَ سِنِينَ دَأَبٗا فَمَا حَصَدتُّمۡ فَذَرُوهُ فِي سُنۢبُلِهِۦٓ إِلَّا قَلِيلٗا مِّمَّا تَأۡكُلُونَ",
+      "en": "You will farm for seven years as usual. What you harvest, leave it in its ears, except a little that you eat.",
+      "ref": "Surah Yusuf 12:47"
+     }
+    },
+    {
+     "sc": {
+      "label": "Dry, cracked ground under a hot sun",
+      "sky": [
+       "#F6B26B",
+       "#FCE1B3"
+      ],
+      "sun": [
+       200,
+       70,
+       32
+      ],
+      "sunC": "#FFB547",
+      "cracks": true,
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "After that, seven hard years will come, and people will eat what they saved. Then a year of rain and plenty will come.",
+     "ay": {
+      "ar": "ثُمَّ يَأۡتِي مِنۢ بَعۡدِ ذَٰلِكَ سَبۡعٞ شِدَادٞ",
+      "en": "Then after that will come seven hard years.",
+      "ref": "Surah Yusuf 12:48"
+     }
+    },
+    {
+     "sc": {
+      "label": "A palace by the river at noon",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "pillars": {},
+      "river": true,
+      "sun": [
+       200,
+       40,
+       18
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "The king said: Bring him to me! But Yusuf did not rush out. First he wanted everyone to know he had done nothing wrong.",
+     "ay": {
+      "ar": "وَقَالَ ٱلۡمَلِكُ ٱئۡتُونِي بِهِۦۖ",
+      "en": "And the king said: Bring him to me.",
+      "ref": "Surah Yusuf 12:50"
+     }
+    },
+    {
+     "sc": {
+      "label": "Bright light over the city",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       28
+      ],
+      "town": {
+       "lit": true
+      },
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "The truth came out. Everyone said Yusuf had done nothing bad, and the wife of the great man said: The truth is clear now. He is one of the truthful.",
+     "ay": {
+      "ar": "ٱلۡـَٰٔنَ حَصۡحَصَ ٱلۡحَقُّ",
+      "en": "Now the truth has come out.",
+      "ref": "Surah Yusuf 12:51"
+     }
+    },
+    {
+     "sc": {
+      "label": "Storehouses full of grain in the sunshine",
+      "sky": [
+       "#F3D3A6",
+       "#FBEAD2"
+      ],
+      "blocks": true,
+      "sun": [
+       320,
+       60,
+       20
+      ],
+      "dunes": [
+       "#E8D3A8",
+       "#DCC496",
+       "#CEB484"
+      ]
+     },
+     "text": "The king said Yusuf was trusted and honoured. Yusuf asked to look after the storehouses, because he knew how to keep them safe.",
+     "ay": {
+      "ar": "قَالَ ٱجۡعَلۡنِي عَلَىٰ خَزَآئِنِ ٱلۡأَرۡضِۖ إِنِّي حَفِيظٌ عَلِيمٞ",
+      "en": "Put me in charge of the storehouses of the land. I will guard them well, and I know how.",
+      "ref": "Surah Yusuf 12:55"
+     }
+    },
+    {
+     "sc": {
+      "label": "A green land with a river and palms",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "palms": [
+       [
+        90,
+        0.9
+       ],
+       [
+        310,
+        1
+       ]
+      ],
+      "river": true,
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "This is how Allah gave Yusuf a strong place in the land. Allah never lets the reward of good people be lost.",
+     "ay": {
+      "ar": "وَلَا نُضِيعُ أَجۡرَ ٱلۡمُحۡسِنِينَ",
+      "en": "And We do not let the reward of those who do good be lost.",
+      "ref": "Surah Yusuf 12:56"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Use the good times to get ready for the hard times. Being honest matters, and the truth always comes out in the end. And Allah never forgets a single good deed."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What did the king see in his dream?",
+     "o": [
+      "Seven fat cows eaten by seven thin cows",
+      "Eleven stars",
+      "A big ship"
+     ],
+     "why": "He also saw green and dry ears of grain."
+    },
+    {
+     "q": "What did Yusuf tell them to do in the seven good years?",
+     "o": [
+      "Save the grain",
+      "Eat it all",
+      "Throw it away"
+     ],
+     "why": "Keep it in its ears, except a little to eat."
+    },
+    {
+     "q": "Why did Yusuf not rush out of prison?",
+     "o": [
+      "He wanted everyone to know he was innocent",
+      "He was asleep",
+      "He was scared"
+     ],
+     "why": "He wanted the truth to come out first."
+    },
+    {
+     "q": "What job did Yusuf ask for?",
+     "o": [
+      "Looking after the storehouses",
+      "Being a sailor",
+      "Being a guard at the gate"
+     ],
+     "why": "He said: I will guard them well, and I know how."
+    }
+   ]
+  },
+  {
+   "id": "st-yusuf-4",
+   "pid": "yusuf",
+   "ch": 4,
+   "part": "Forgiving and the dream come true",
+   "title": "Prophet Yusuf: forgiving, and the dream comes true",
+   "ar": "يُوسُف عَلَيْهِ السَّلَام",
+   "sub": "Never losing hope in Allah, and forgiving others",
+   "slides": [
+    {
+     "sc": {
+      "label": "A busy town at sunset",
+      "sky": [
+       "#C7A0B8",
+       "#F1D9CF"
+      ],
+      "town": {
+       "lit": true
+      },
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "The hard years came, and people came to Egypt for food. Yusuf's brothers came too! Yusuf, alayhis salaam, knew them, but they did not know him.",
+     "ay": {
+      "ar": "فَعَرَفَهُمۡ وَهُمۡ لَهُۥ مُنكِرُونَ",
+      "en": "He knew them, but they did not know him.",
+      "ref": "Surah Yusuf 12:58"
+     }
+    },
+    {
+     "sc": {
+      "label": "Storehouses of grain in the sunshine",
+      "sky": [
+       "#F3D3A6",
+       "#FBEAD2"
+      ],
+      "blocks": true,
+      "sun": [
+       320,
+       60,
+       20
+      ],
+      "dunes": [
+       "#E8D3A8",
+       "#DCC496",
+       "#CEB484"
+      ]
+     },
+     "text": "Yusuf gave them food and asked them to bring their youngest brother next time. Their father was afraid to let him go, but he said:",
+     "ay": {
+      "ar": "فَٱللَّهُ خَيۡرٌ حَٰفِظٗاۖ وَهُوَ أَرۡحَمُ ٱلرَّـٰحِمِينَ",
+      "en": "Allah is the best protector, and He is the Most Merciful of all.",
+      "ref": "Surah Yusuf 12:64"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern in a quiet room",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       200,
+       118
+      ],
+      "town": {
+       "lit": true
+      },
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "When the youngest brother came, Yusuf took him close and said: I am your brother, so do not be sad about what they used to do.",
+     "ay": {
+      "ar": "إِنِّيٓ أَنَا۠ أَخُوكَ فَلَا تَبۡتَئِسۡ بِمَا كَانُواْ يَعۡمَلُونَ",
+      "en": "I am your brother, so do not be sad about what they used to do.",
+      "ref": "Surah Yusuf 12:69"
+     }
+    },
+    {
+     "sc": {
+      "label": "A road through the desert at dusk",
+      "sky": [
+       "#8D8577",
+       "#C4B8A2"
+      ],
+      "dunes": [
+       "#B8A07E",
+       "#A88E6B",
+       "#97805E"
+      ]
+     },
+     "text": "By Allah's plan, the youngest brother stayed with Yusuf in Egypt. Now Ya'qub had lost two sons. He was so sad that his eyes turned white, but he only complained to Allah:",
+     "ay": {
+      "ar": "إِنَّمَآ أَشۡكُواْ بَثِّي وَحُزۡنِيٓ إِلَى ٱللَّهِ",
+      "en": "I only tell my sadness and grief to Allah.",
+      "ref": "Surah Yusuf 12:86"
+     }
+    },
+    {
+     "sc": {
+      "label": "Sunrise over the hills",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       26
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Ya'qub never lost hope. He told his sons: Go and look for Yusuf and his brother.",
+     "ay": {
+      "ar": "وَلَا تَاْيۡـَٔسُواْ مِن رَّوۡحِ ٱللَّهِۖ",
+      "en": "Do not lose hope in Allah's mercy.",
+      "ref": "Surah Yusuf 12:87"
+     }
+    },
+    {
+     "sc": {
+      "label": "A town by the river with lamps glowing",
+      "sky": [
+       "#C7A0B8",
+       "#F1D9CF"
+      ],
+      "town": {
+       "lit": true
+      },
+      "river": true,
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "The brothers came back to Egypt, and Yusuf asked them: Do you know what you did to Yusuf? They said: Are you really Yusuf? He said:",
+     "ay": {
+      "ar": "أَنَا۠ يُوسُفُ وَهَٰذَآ أَخِيۖ قَدۡ مَنَّ ٱللَّهُ عَلَيۡنَآۖ",
+      "en": "I am Yusuf, and this is my brother. Allah has been kind to us.",
+      "ref": "Surah Yusuf 12:90"
+     }
+    },
+    {
+     "sc": {
+      "label": "Soft light over the busy town",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "glow": [
+       200,
+       90
+      ],
+      "town": {},
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "The brothers said sorry. Yusuf did not punish them or make them feel bad. He forgave them:",
+     "ay": {
+      "ar": "قَالَ لَا تَثۡرِيبَ عَلَيۡكُمُ ٱلۡيَوۡمَۖ يَغۡفِرُ ٱللَّهُ لَكُمۡۖ وَهُوَ أَرۡحَمُ ٱلرَّـٰحِمِينَ",
+      "en": "No blame on you today. May Allah forgive you, and He is the Most Merciful of all.",
+      "ref": "Surah Yusuf 12:92"
+     }
+    },
+    {
+     "sc": {
+      "label": "Bright morning light over the desert",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       28
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Yusuf sent his shirt home. When it was put on Ya'qub's face, Allah gave his eyesight back! Ya'qub said: Did I not tell you I know from Allah what you do not know?",
+     "ay": {
+      "ar": "فَلَمَّآ أَن جَآءَ ٱلۡبَشِيرُ أَلۡقَىٰهُ عَلَىٰ وَجۡهِهِۦ فَٱرۡتَدَّ بَصِيرٗاۖ",
+      "en": "When the bringer of good news came, he put it on his face, and he could see again.",
+      "ref": "Surah Yusuf 12:96"
+     }
+    },
+    {
+     "sc": {
+      "label": "Eleven stars, the sun and the moon shining together",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "moon": [
+       90,
+       60,
+       14
+      ],
+      "sun": [
+       320,
+       70,
+       16
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "The whole family came to Egypt, and they bowed to Yusuf, just like his dream long ago. (In those days, bowing to greet someone was allowed. For us, sujood is only for Allah.) Yusuf said:",
+     "ay": {
+      "ar": "يَـٰٓأَبَتِ هَٰذَا تَأۡوِيلُ رُءۡيَٰيَ مِن قَبۡلُ قَدۡ جَعَلَهَا رَبِّي حَقّٗاۖ",
+      "en": "O my father, this is the meaning of my dream from long ago. My Lord has made it come true.",
+      "ref": "Surah Yusuf 12:100"
+     }
+    },
+    {
+     "sc": {
+      "label": "A peaceful garden at sunset",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "garden": true,
+      "flowers": true,
+      "sun": [
+       80,
+       150,
+       22
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Yusuf thanked Allah for everything and made a beautiful dua:",
+     "ay": {
+      "ar": "تَوَفَّنِي مُسۡلِمٗا وَأَلۡحِقۡنِي بِٱلصَّـٰلِحِينَ",
+      "en": "Let me die as a Muslim, and join me with the righteous.",
+      "ref": "Surah Yusuf 12:101"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Never lose hope in Allah's mercy, like Ya'qub. Forgive people who hurt you, like Yusuf. Tell your sadness to Allah. And remember: Allah's plan is always the best plan."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Who came to Egypt looking for food?",
+     "o": [
+      "Yusuf's brothers",
+      "The king of Saba",
+      "A sailor"
+     ],
+     "why": "His brothers came, and Yusuf knew them."
+    },
+    {
+     "q": "What did Ya'qub tell his sons about Allah's mercy?",
+     "o": [
+      "Never lose hope in it",
+      "Forget about it",
+      "It is too small"
+     ],
+     "why": "Do not lose hope in Allah's mercy."
+    },
+    {
+     "q": "What did Yusuf say to his brothers?",
+     "o": [
+      "No blame on you today",
+      "Go away",
+      "You must pay"
+     ],
+     "why": "He forgave them and asked Allah to forgive them."
+    },
+    {
+     "q": "What happened when Yusuf's shirt touched his father's face?",
+     "o": [
+      "He could see again",
+      "He fell asleep",
+      "Nothing"
+     ],
+     "why": "Allah gave Ya'qub his eyesight back."
+    }
+   ]
+  },
+  {
+   "id": "st-musa-1",
+   "pid": "musa",
+   "ch": 1,
+   "part": "The baby in the river",
+   "title": "Prophet Musa: the baby in the river",
+   "ar": "مُوسَىٰ عَلَيْهِ السَّلَام",
+   "sub": "Allah keeps His promises and looks after us",
+   "slides": [
+    {
+     "sc": {
+      "label": "A big city with tall buildings beside the river",
+      "sky": [
+       "#C8B9A6",
+       "#E9DFD2"
+      ],
+      "pillars": {},
+      "river": true,
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Long ago in Egypt, there was a proud and cruel king called Fir'awn. He made himself high and mighty in the land, and he was hurting the Children of Israel, even their baby boys.",
+     "ay": {
+      "ar": "إِنَّ فِرۡعَوۡنَ عَلَا فِي ٱلۡأَرۡضِ",
+      "en": "Truly, Fir'awn made himself high and mighty in the land.",
+      "ref": "Surah al-Qasas 28:4"
+     }
+    },
+    {
+     "sc": {
+      "label": "Sunrise over the city",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       26
+      ],
+      "town": {},
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "But Allah wanted to be kind to the people who were weak and hurt, and to make them leaders.",
+     "ay": {
+      "ar": "وَنُرِيدُ أَن نَّمُنَّ عَلَى ٱلَّذِينَ ٱسۡتُضۡعِفُواْ فِي ٱلۡأَرۡضِ",
+      "en": "And We wanted to be kind to those who were made weak in the land.",
+      "ref": "Surah al-Qasas 28:5"
+     }
+    },
+    {
+     "sc": {
+      "label": "A river flowing gently at dawn",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "river": true,
+      "palms": [
+       [
+        70,
+        0.8
+       ],
+       [
+        340,
+        0.9
+       ]
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "When baby Musa, alayhis salaam, was born, his mother was afraid for him. Allah told her what to do:",
+     "ay": {
+      "ar": "وَأَوۡحَيۡنَآ إِلَىٰٓ أُمِّ مُوسَىٰٓ أَنۡ أَرۡضِعِيهِۖ فَإِذَا خِفۡتِ عَلَيۡهِ فَأَلۡقِيهِ فِي ٱلۡيَمِّ وَلَا تَخَافِي وَلَا تَحۡزَنِيٓۖ إِنَّا رَآدُّوهُ إِلَيۡكِ وَجَاعِلُوهُ مِنَ ٱلۡمُرۡسَلِينَ",
+      "en": "Feed him, and when you fear for him, put him in the river. Do not be afraid or sad. We will bring him back to you, and make him a Messenger.",
+      "ref": "Surah al-Qasas 28:7"
+     }
+    },
+    {
+     "sc": {
+      "label": "A small wooden box floating on the river",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "river": true,
+      "sun": [
+       320,
+       50,
+       18
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "She put him in a box and put the box in the river. The river carried the box to the shore.",
+     "ay": {
+      "ar": "أَنِ ٱقۡذِفِيهِ فِي ٱلتَّابُوتِ فَٱقۡذِفِيهِ",
+      "en": "Put him in the box, and put it in the river.",
+      "ref": "Surah Ta-Ha 20:39"
+     }
+    },
+    {
+     "sc": {
+      "label": "A palace beside the river",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "pillars": {},
+      "river": true,
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Fir'awn's family picked him up. Fir'awn's wife loved the baby at once and said:",
+     "ay": {
+      "ar": "وَقَالَتِ ٱمۡرَأَتُ فِرۡعَوۡنَ قُرَّتُ عَيۡنٖ لِّي وَلَكَۖ لَا تَقۡتُلُوهُ",
+      "en": "A joy to my eyes and yours. Do not kill him.",
+      "ref": "Surah al-Qasas 28:9"
+     }
+    },
+    {
+     "sc": {
+      "label": "A quiet house with an empty feeling",
+      "sky": [
+       "#8D8577",
+       "#C4B8A2"
+      ],
+      "town": {},
+      "dunes": [
+       "#B8A07E",
+       "#A88E6B",
+       "#97805E"
+      ]
+     },
+     "text": "At home, Musa's mother missed him so much. Allah made her heart strong so she would keep trusting His promise. She told Musa's sister: Follow him.",
+     "ay": {
+      "ar": "وَقَالَتۡ لِأُخۡتِهِۦ قُصِّيهِۖ",
+      "en": "And she said to his sister: Follow him.",
+      "ref": "Surah al-Qasas 28:11"
+     }
+    },
+    {
+     "sc": {
+      "label": "The palace in the evening",
+      "sky": [
+       "#C7A0B8",
+       "#F1D9CF"
+      ],
+      "pillars": {},
+      "river": true,
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Baby Musa would not drink milk from anyone. His sister, who was watching from far away, said: Shall I show you a family who will look after him well?",
+     "ay": {
+      "ar": "فَقَالَتۡ هَلۡ أَدُلُّكُمۡ عَلَىٰٓ أَهۡلِ بَيۡتٖ يَكۡفُلُونَهُۥ لَكُمۡ",
+      "en": "Shall I show you a family who will look after him for you?",
+      "ref": "Surah al-Qasas 28:12"
+     }
+    },
+    {
+     "sc": {
+      "label": "A small house with a warm light at night",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "town": {
+       "lit": true
+      },
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "So Allah gave Musa back to his own mother, just as He had promised!",
+     "ay": {
+      "ar": "فَرَدَدۡنَٰهُ إِلَىٰٓ أُمِّهِۦ كَيۡ تَقَرَّ عَيۡنُهَا وَلَا تَحۡزَنَ وَلِتَعۡلَمَ أَنَّ وَعۡدَ ٱللَّهِ",
+      "en": "So We gave him back to his mother, so she could be happy and not sad, and know that Allah's promise is true.",
+      "ref": "Surah al-Qasas 28:13"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Allah always keeps His promises. When we are scared, we trust Allah like Musa's mother did. And Allah can turn anything around, even a cruel king's palace into a safe home."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Where did Musa's mother put her baby, as Allah told her?",
+     "o": [
+      "In the river",
+      "In a cave",
+      "On a mountain"
+     ],
+     "why": "Allah promised to bring him back to her."
+    },
+    {
+     "q": "Who said baby Musa was a joy to her eyes?",
+     "o": [
+      "Fir'awn's wife",
+      "Fir'awn",
+      "A soldier"
+     ],
+     "why": "Fir'awn's wife loved him and said: Do not kill him."
+    },
+    {
+     "q": "Who followed the box to see where Musa went?",
+     "o": [
+      "His sister",
+      "His uncle",
+      "A bird"
+     ],
+     "why": "His mother told his sister: Follow him."
+    },
+    {
+     "q": "Why did Musa go back to his mother?",
+     "o": [
+      "Allah promised it, and Allah keeps His promises",
+      "She paid a lot of money",
+      "He walked home"
+     ],
+     "why": "Allah's promise is always true."
+    }
+   ]
+  },
+  {
+   "id": "st-musa-2",
+   "pid": "musa",
+   "ch": 2,
+   "part": "Kindness at the well of Madyan",
+   "title": "Prophet Musa: kindness at the well of Madyan",
+   "ar": "مُوسَىٰ عَلَيْهِ السَّلَام",
+   "sub": "Helping others, and asking Allah for what we need",
+   "slides": [
+    {
+     "sc": {
+      "label": "A long road out of the city at dawn",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       80,
+       150,
+       22
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "When Musa, alayhis salaam, grew up, he had to leave Egypt, afraid of Fir'awn's people. He made dua:",
+     "ay": {
+      "ar": "رَبِّ نَجِّنِي مِنَ ٱلۡقَوۡمِ ٱلظَّـٰلِمِينَ",
+      "en": "My Lord, save me from the people who do wrong.",
+      "ref": "Surah al-Qasas 28:21"
+     }
+    },
+    {
+     "sc": {
+      "label": "A desert road between rocky hills",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "sun": [
+       320,
+       60,
+       22
+      ],
+      "mountains": {
+       "c": "#C9A07E",
+       "d": "#A87E5C"
+      },
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "He walked a long way towards the land of Madyan. He did not know the way, so he trusted Allah:",
+     "ay": {
+      "ar": "قَالَ عَسَىٰ رَبِّيٓ أَن يَهۡدِيَنِي سَوَآءَ ٱلسَّبِيلِ",
+      "en": "Maybe my Lord will guide me to the right path.",
+      "ref": "Surah al-Qasas 28:22"
+     }
+    },
+    {
+     "sc": {
+      "label": "A stone well in the desert",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "well": true,
+      "sun": [
+       80,
+       60,
+       20
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "At the well of Madyan, many shepherds were giving water to their animals. Two women were waiting at the side. They said they could not give water until the shepherds finished, and their father was a very old man.",
+     "ay": {
+      "ar": "وَأَبُونَا شَيۡخٞ كَبِيرٞ",
+      "en": "Our father is a very old man.",
+      "ref": "Surah al-Qasas 28:23"
+     }
+    },
+    {
+     "sc": {
+      "label": "The well with water shining in the sun",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "well": true,
+      "sun": [
+       200,
+       50,
+       22
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Musa was tired and far from home, but he helped them straight away. He gave water to their animals for them."
+    },
+    {
+     "sc": {
+      "label": "A tree giving cool shade",
+      "sky": [
+       "#A8D8EE",
+       "#E8F6FB"
+      ],
+      "tree": [
+       200,
+       false
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Then he sat in the shade and made a beautiful dua. We can say it too when we need something:",
+     "ay": {
+      "ar": "فَقَالَ رَبِّ إِنِّي لِمَآ أَنزَلۡتَ إِلَيَّ مِنۡ خَيۡرٖ فَقِيرٞ",
+      "en": "My Lord, I really need whatever good You send down to me.",
+      "ref": "Surah al-Qasas 28:24"
+     }
+    },
+    {
+     "sc": {
+      "label": "A small house beyond the well",
+      "sky": [
+       "#F3D3A6",
+       "#FBEAD2"
+      ],
+      "town": {},
+      "well": true,
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Soon, one of the women came back, walking shyly, and said: My father invites you, to thank you for giving water for us.",
+     "ay": {
+      "ar": "إِنَّ أَبِي يَدۡعُوكَ لِيَجۡزِيَكَ أَجۡرَ مَا سَقَيۡتَ لَنَاۚ",
+      "en": "My father invites you, to reward you for watering for us.",
+      "ref": "Surah al-Qasas 28:25"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern in a warm home at night",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       200,
+       118
+      ],
+      "town": {
+       "lit": true
+      },
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Musa told the old man his story. The old man said: Do not be afraid. You are safe now from the people who do wrong.",
+     "ay": {
+      "ar": "لَا تَخَفۡۖ نَجَوۡتَ مِنَ ٱلۡقَوۡمِ ٱلظَّـٰلِمِينَ",
+      "en": "Do not be afraid. You are safe from the people who do wrong.",
+      "ref": "Surah al-Qasas 28:25"
+     }
+    },
+    {
+     "sc": {
+      "label": "Green pasture with palm trees",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "palms": [
+       [
+        90,
+        0.9
+       ],
+       [
+        310,
+        1
+       ]
+      ],
+      "water": true,
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "One of the daughters said: Father, hire him. The best helper is someone strong and trustworthy.",
+     "ay": {
+      "ar": "إِنَّ خَيۡرَ مَنِ ٱسۡتَـٔۡجَرۡتَ ٱلۡقَوِيُّ ٱلۡأَمِينُ",
+      "en": "The best one to hire is the strong, the trustworthy.",
+      "ref": "Surah al-Qasas 28:26"
+     }
+    },
+    {
+     "sc": {
+      "label": "Sunrise over the hills of Madyan",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       26
+      ],
+      "mountains": {
+       "c": "#9FB08A",
+       "d": "#7E9670"
+      },
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "So Musa stayed in Madyan for years. He worked hard, married one of the daughters and had a new home and family."
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Help people even when you are tired. Be strong and trustworthy. And when you need something, tell Allah, like Musa did: Rabbi inni lima anzalta ilayya min khayrin faqir."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What did Musa do at the well?",
+     "o": [
+      "He gave water to the animals for the two women",
+      "He took all the water",
+      "He went to sleep"
+     ],
+     "why": "He helped them straight away."
+    },
+    {
+     "q": "What did Musa do after helping?",
+     "o": [
+      "He sat in the shade and made dua",
+      "He asked for money",
+      "He shouted"
+     ],
+     "why": "He said: My Lord, I need whatever good You send me."
+    },
+    {
+     "q": "What did the daughter say makes the best helper?",
+     "o": [
+      "Strong and trustworthy",
+      "Rich and famous",
+      "Fast and loud"
+     ],
+     "why": "The best one to hire is the strong and trustworthy."
+    },
+    {
+     "q": "How did Allah answer Musa's dua?",
+     "o": [
+      "He gave him a safe home and family",
+      "He gave him a ship",
+      "Nothing happened"
+     ],
+     "why": "Musa found safety, work and a family in Madyan."
+    }
+   ]
+  },
+  {
+   "id": "st-musa-3",
+   "pid": "musa",
+   "ch": 3,
+   "part": "The fire, the staff and the magicians",
+   "title": "Prophet Musa: the fire, the staff and the magicians",
+   "ar": "مُوسَىٰ عَلَيْهِ السَّلَام",
+   "sub": "Allah is with us, so we speak the truth gently and bravely",
+   "slides": [
+    {
+     "sc": {
+      "label": "A fire glowing on a mountain at night",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "peak": "#5E5A7A",
+      "fire": true,
+      "noGround": true
+     },
+     "text": "Years later, Musa, alayhis salaam, was travelling with his family. He saw a fire on the side of the mountain and said: Stay here, I have seen a fire.",
+     "ay": {
+      "ar": "لِأَهۡلِهِ ٱمۡكُثُوٓاْ إِنِّيٓ ءَانَسۡتُ نَارٗا",
+      "en": "Stay here. I have seen a fire.",
+      "ref": "Surah Ta-Ha 20:10"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing light in a sacred valley",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "glow": [
+       200,
+       110
+      ],
+      "peak": "#5E5A7A",
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "When he came near, Allah called to him: I am your Lord, so take off your sandals. You are in the holy valley of Tuwa.",
+     "ay": {
+      "ar": "إِنِّيٓ أَنَا۠ رَبُّكَ فَٱخۡلَعۡ نَعۡلَيۡكَ إِنَّكَ بِٱلۡوَادِ ٱلۡمُقَدَّسِ طُوٗى",
+      "en": "I am your Lord, so take off your sandals. You are in the holy valley of Tuwa.",
+      "ref": "Surah Ta-Ha 20:12"
+     }
+    },
+    {
+     "sc": {
+      "label": "A soft glow over the valley",
+      "sky": [
+       "#3D4E7A",
+       "#C7A0B8"
+      ],
+      "glow": [
+       200,
+       90
+      ],
+      "peak": "#7E7A9A",
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Allah spoke to Musa and told him the most important thing of all:",
+     "ay": {
+      "ar": "إِنَّنِيٓ أَنَا ٱللَّهُ لَآ إِلَٰهَ إِلَّآ أَنَا۠ فَٱعۡبُدۡنِي وَأَقِمِ ٱلصَّلَوٰةَ لِذِكۡرِيٓ",
+      "en": "Truly, I am Allah. There is no god but Me. So worship Me, and pray to remember Me.",
+      "ref": "Surah Ta-Ha 20:14"
+     }
+    },
+    {
+     "sc": {
+      "label": "A wooden staff lying on the ground in the valley",
+      "sky": [
+       "#3D4E7A",
+       "#C7A0B8"
+      ],
+      "glow": [
+       200,
+       140
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Allah gave Musa two signs. When he threw down his staff, it became a moving snake, and Allah said: Take it and do not be afraid. And when he put his hand to his side, it came out shining white.",
+     "ay": {
+      "ar": "خُذۡهَا وَلَا تَخَفۡۖ",
+      "en": "Take it, and do not be afraid.",
+      "ref": "Surah Ta-Ha 20:21"
+     }
+    },
+    {
+     "sc": {
+      "label": "Dawn over the mountain",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       24
+      ],
+      "peak": "#9E8A7A",
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Allah told Musa to go to Fir'awn. It was a very big job, so Musa made this dua. We can say it too, before a test or when we feel shy:",
+     "ay": {
+      "ar": "قَالَ رَبِّ ٱشۡرَحۡ لِي صَدۡرِي وَيَسِّرۡ لِيٓ أَمۡرِي وَٱحۡلُلۡ عُقۡدَةٗ مِّن لِّسَانِي يَفۡقَهُواْ قَوۡلِي",
+      "en": "My Lord, open my heart, make my job easy for me, and untie the knot in my tongue, so they understand what I say.",
+      "ref": "Surah Ta-Ha 20:25-28"
+     }
+    },
+    {
+     "sc": {
+      "label": "Two lanterns glowing side by side",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       160,
+       118
+      ],
+      "glow": [
+       240,
+       118
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Musa asked Allah to make his brother Harun his helper. Allah said yes! Then He told them both to speak to Fir'awn gently:",
+     "ay": {
+      "ar": "فَقُولَا لَهُۥ قَوۡلٗا لَّيِّنٗا لَّعَلَّهُۥ يَتَذَكَّرُ أَوۡ يَخۡشَىٰ",
+      "en": "Speak to him gently. Maybe he will remember, or be afraid of Allah.",
+      "ref": "Surah Ta-Ha 20:44"
+     }
+    },
+    {
+     "sc": {
+      "label": "A calm night sky full of stars",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "moon": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Musa and Harun were scared of Fir'awn. Allah comforted them:",
+     "ay": {
+      "ar": "قَالَ لَا تَخَافَآۖ إِنَّنِي مَعَكُمَآ أَسۡمَعُ وَأَرَىٰ",
+      "en": "Do not be afraid. I am with you both. I hear and I see.",
+      "ref": "Surah Ta-Ha 20:46"
+     }
+    },
+    {
+     "sc": {
+      "label": "The proud city under a stormy sky",
+      "sky": [
+       "#5E6472",
+       "#A3A9B5"
+      ],
+      "pillars": {
+       "c": "#B98A5E",
+       "t": "#8E6440"
+      },
+      "cloud": [
+       80,
+       30,
+       1.4,
+       "#4A4F5C"
+      ],
+      "dunes": [
+       "#9C8C7C",
+       "#8C7C6C",
+       "#7C6C5C"
+      ]
+     },
+     "text": "Fir'awn would not listen. He called his magicians to beat Musa. They threw down their ropes and sticks, and with their magic they seemed to move."
+    },
+    {
+     "sc": {
+      "label": "Light breaking through the clouds over the city",
+      "sky": [
+       "#9FB8D8",
+       "#E3F0F7"
+      ],
+      "pillars": {},
+      "glow": [
+       200,
+       70
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Allah told Musa to throw his staff. It swallowed up all their tricks! The magicians knew this was real, from Allah, and they said:",
+     "ay": {
+      "ar": "قَالُوٓاْ ءَامَنَّا بِرَبِّ هَٰرُونَ وَمُوسَىٰ",
+      "en": "We believe in the Lord of Harun and Musa.",
+      "ref": "Surah Ta-Ha 20:70"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Only Allah deserves our worship. When a job feels too big, say Musa's dua: Rabbish-rahli sadri. Speak the truth gently. And never be afraid of anyone, because Allah hears and sees."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Where did Allah speak to Musa?",
+     "o": [
+      "In the holy valley of Tuwa",
+      "In a palace",
+      "On a ship"
+     ],
+     "why": "He was told to take off his sandals there."
+    },
+    {
+     "q": "What dua did Musa make before going to Fir'awn?",
+     "o": [
+      "Rabbi-shrah li sadri",
+      "Bismillah",
+      "Ameen"
+     ],
+     "why": "My Lord, open my heart and make my job easy for me."
+    },
+    {
+     "q": "Who did Allah make Musa's helper?",
+     "o": [
+      "His brother Harun",
+      "A soldier",
+      "A king"
+     ],
+     "why": "Musa asked for Harun, and Allah said yes."
+    },
+    {
+     "q": "What did the magicians do when they saw the real sign?",
+     "o": [
+      "They believed in Allah",
+      "They laughed",
+      "They ran away"
+     ],
+     "why": "They said: We believe in the Lord of Harun and Musa."
+    }
+   ]
+  },
+  {
+   "id": "st-musa-4",
+   "pid": "musa",
+   "ch": 4,
+   "part": "The sea is split",
+   "title": "Prophet Musa: the sea is split",
+   "ar": "مُوسَىٰ عَلَيْهِ السَّلَام",
+   "sub": "When we are scared, we remember: Allah is with me",
+   "slides": [
+    {
+     "sc": {
+      "label": "A quiet city under a starry night",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "moon": true,
+      "town": {
+       "c": "#6E6A8A",
+       "d": "#4E4A6A"
+      },
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Fir'awn still would not let the believers go. So Allah told Musa, alayhis salaam: Travel at night with My servants. You will be followed.",
+     "ay": {
+      "ar": "أَسۡرِ بِعِبَادِيٓ إِنَّكُم مُّتَّبَعُونَ",
+      "en": "Travel at night with My servants. You will be followed.",
+      "ref": "Surah ash-Shu'ara 26:52"
+     }
+    },
+    {
+     "sc": {
+      "label": "Sunrise over a long dusty road",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       80,
+       150,
+       26
+      ],
+      "dunes": [
+       "#D9B48E",
+       "#C9A27C",
+       "#B8906A"
+      ]
+     },
+     "text": "Fir'awn gathered his army and chased them. At sunrise, they caught up.",
+     "ay": {
+      "ar": "فَأَتۡبَعُوهُم مُّشۡرِقِينَ",
+      "en": "So they followed them at sunrise.",
+      "ref": "Surah ash-Shu'ara 26:60"
+     }
+    },
+    {
+     "sc": {
+      "label": "The sea ahead under a grey sky",
+      "sky": [
+       "#3B4250",
+       "#6E7686"
+      ],
+      "sea": [
+       "#335C78",
+       "#244660"
+      ]
+     },
+     "text": "The believers came to the sea. The sea was in front of them and the army was behind them. They cried: We will be caught! But Musa said:",
+     "ay": {
+      "ar": "قَالَ كَلَّآۖ إِنَّ مَعِيَ رَبِّي سَيَهۡدِينِ",
+      "en": "No! My Lord is with me. He will guide me.",
+      "ref": "Surah ash-Shu'ara 26:62"
+     }
+    },
+    {
+     "sc": {
+      "label": "The sea split into two tall walls of water",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "sea": [
+       "#4F8FB4",
+       "#3C7698"
+      ],
+      "glow": [
+       200,
+       120
+      ]
+     },
+     "text": "Allah told Musa to strike the sea with his staff. The sea split in two, and each side stood up like a huge mountain!",
+     "ay": {
+      "ar": "فَأَوۡحَيۡنَآ إِلَىٰ مُوسَىٰٓ أَنِ ٱضۡرِب بِّعَصَاكَ ٱلۡبَحۡرَۖ فَٱنفَلَقَ فَكَانَ كُلُّ فِرۡقٖ كَٱلطَّوۡدِ ٱلۡعَظِيمِ",
+      "en": "Strike the sea with your staff. And it split, and each side was like a huge mountain.",
+      "ref": "Surah ash-Shu'ara 26:63"
+     }
+    },
+    {
+     "sc": {
+      "label": "A dry path through the middle of the sea",
+      "sky": [
+       "#A8D8EE",
+       "#E8F6FB"
+      ],
+      "sea": [
+       "#4F8FB4",
+       "#3C7698"
+      ],
+      "dunes": [
+       "#E8D3A8",
+       "#DCC496",
+       "#CEB484"
+      ]
+     },
+     "text": "There was a dry path right through the sea. Allah had promised Musa he would not need to be afraid.",
+     "ay": {
+      "ar": "فَٱضۡرِبۡ لَهُمۡ طَرِيقٗا فِي ٱلۡبَحۡرِ يَبَسٗا",
+      "en": "Strike for them a dry path through the sea.",
+      "ref": "Surah Ta-Ha 20:77"
+     }
+    },
+    {
+     "sc": {
+      "label": "A calm sea under a clear sky",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       160,
+       30
+      ],
+      "sea": [
+       "#6FA7C8",
+       "#5A92B4"
+      ]
+     },
+     "text": "Allah saved Musa and everyone with him. When Fir'awn and his army followed, the water closed over them.",
+     "ay": {
+      "ar": "وَأَنجَيۡنَا مُوسَىٰ وَمَن مَّعَهُۥٓ أَجۡمَعِينَ ثُمَّ أَغۡرَقۡنَا ٱلۡأٓخَرِينَ",
+      "en": "And We saved Musa and all who were with him. Then We drowned the others.",
+      "ref": "Surah ash-Shu'ara 26:65-66"
+     }
+    },
+    {
+     "sc": {
+      "label": "Calm waves shining in the sunlight",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "sun": [
+       320,
+       50,
+       20
+      ],
+      "sea": [
+       "#6FA7C8",
+       "#5A92B4"
+      ]
+     },
+     "text": "This was a great sign from Allah. The proud king was gone, and the weak people he had hurt were free.",
+     "ay": {
+      "ar": "إِنَّ فِي ذَٰلِكَ",
+      "en": "Truly, in that is a sign.",
+      "ref": "Surah ash-Shu'ara 26:67"
+     }
+    },
+    {
+     "sc": {
+      "label": "Sunrise over the sea and the shore",
+      "sky": [
+       "#F7C9A8",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       150,
+       28
+      ],
+      "sea": [
+       "#6FA7C8",
+       "#5A92B4"
+      ]
+     },
+     "text": "Allah is the Almighty, and He is also the Most Merciful.",
+     "ay": {
+      "ar": "وَإِنَّ رَبَّكَ لَهُوَ ٱلۡعَزِيزُ ٱلرَّحِيمُ",
+      "en": "And your Lord is the Almighty, the Most Merciful.",
+      "ref": "Surah ash-Shu'ara 26:68"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Even when it looks like there is no way out, Allah can make a way. When you are scared, say like Musa: Kalla, inna ma'iya Rabbi sayahdin. My Lord is with me, He will guide me."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "When did Allah tell Musa to leave with the believers?",
+     "o": [
+      "At night",
+      "At lunchtime",
+      "Never"
+     ],
+     "why": "Travel at night with My servants."
+    },
+    {
+     "q": "What did Musa say when the army was behind them?",
+     "o": [
+      "My Lord is with me, He will guide me",
+      "Let's run back",
+      "We are lost"
+     ],
+     "why": "Kalla, inna ma'iya Rabbi sayahdin."
+    },
+    {
+     "q": "What happened when Musa struck the sea?",
+     "o": [
+      "It split into two, like mountains",
+      "It froze",
+      "It dried up slowly"
+     ],
+     "why": "Each side stood up like a huge mountain."
+    },
+    {
+     "q": "Who did Allah save?",
+     "o": [
+      "Musa and all the believers with him",
+      "Only Fir'awn",
+      "Nobody"
+     ],
+     "why": "And We saved Musa and all who were with him."
+    }
+   ]
+  }
+ ],
+ "quiz": [
+  {
+   "q": "What did the mountains and birds do with Dawud?",
+   "o": [
+    "Glorified Allah",
+    "Ran away",
+    "Slept"
+   ],
+   "why": "They glorified Allah with him."
+  },
+  {
+   "q": "If we send one blessing on the Prophet ﷺ, how many does Allah send on us?",
+   "o": [
+    "Ten",
+    "One",
+    "None"
+   ],
+   "why": "Allah sends ten blessings on us. (Sahih Muslim 408)"
+  },
+  {
+   "q": "What did Allah say about giving Maryam a baby?",
+   "o": [
+    "It is easy for Me",
+    "It is too hard",
+    "Maybe later"
+   ],
+   "why": "Nothing is hard for Allah."
+  },
+  {
+   "q": "Why did Musa go back to his mother?",
+   "o": [
+    "Allah promised it, and Allah keeps His promises",
+    "She paid a lot of money",
+    "He walked home"
+   ],
+   "why": "Allah's promise is always true."
+  },
+  {
+   "q": "Who did Allah send when the Prophet ﷺ was very sad?",
+   "o": [
+    "The angel of the mountains",
+    "A king",
+    "A storm"
+   ],
+   "why": "The angel of the mountains offered to close the mountains on them."
+  },
+  {
+   "q": "Which Prophet did he meet in the fourth heaven?",
+   "o": [
+    "Idris",
+    "Nuh",
+    "Yunus"
+   ],
+   "why": "He met Idris in the fourth heaven."
+  },
+  {
+   "q": "Who found Yusuf in the well?",
+   "o": [
+    "Some travellers",
+    "A king",
+    "His father"
+   ],
+   "why": "Travellers let down a bucket and found him."
+  },
+  {
+   "q": "Who travelled with the Prophet ﷺ on the Hijrah?",
+   "o": [
+    "Abu Bakr",
+    "Musa",
+    "Khadijah"
+   ],
+   "why": "His best friend Abu Bakr went with him."
+  },
+  {
+   "q": "What did Zakariyya find with Maryam in the mihrab?",
+   "o": [
+    "Food from Allah",
+    "A cat",
+    "A big book"
+   ],
+   "why": "Every time, he found food with her."
+  },
+  {
+   "q": "Why did Yusuf not rush out of prison?",
+   "o": [
+    "He wanted everyone to know he was innocent",
+    "He was asleep",
+    "He was scared"
+   ],
+   "why": "He wanted the truth to come out first."
+  }
+ ]
+}
