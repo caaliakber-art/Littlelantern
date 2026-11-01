@@ -25,8 +25,8 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>window.LL_FB={apiKey:"AIzaSyAIZ4JyxxZPBcPD5OHjQ-hpofP-KJwHtzE",authDomain:"little-lantern-b8a7b.firebaseapp.com",projectId:"little-lantern-b8a7b",storageBucket:"little-lantern-b8a7b.firebasestorage.app",messagingSenderId:"598122924180",appId:"1:598122924180:web:2bf132131983ea04d74c81"};window.LL_NTFY="little-lantern-17b8f6b09be7";</script>
-<meta name="ll-build" content="202611011643">
-<script>window.LL_BUILD="202611011643";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
+<meta name="ll-build" content="202611011656">
+<script>window.LL_BUILD="202611011656";(function(){var busy=0;function chk(){if(busy||document.hidden)return;busy=1;fetch("./?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.text()}).then(function(t){var m=t.match(/name="ll-build" content="(\d+)"/);if(m&&m[1]!==window.LL_BUILD&&!/play|duel/.test((typeof ui!=="undefined"&&ui.screen)||""))location.reload()}).catch(function(){}).then(function(){busy=0})}document.addEventListener("visibilitychange",chk);setInterval(chk,300000);setTimeout(chk,4000)})();</script>
 </head>
 <body>
 <title>Little Lantern</title>
@@ -228,7 +228,7 @@ a{color:var(--green)}
 .feedend{display:flex;flex-direction:column;align-items:center;gap:2px;padding:26px 16px;border-radius:24px;background:linear-gradient(180deg,#1C2440,#2B3557);color:#FBEFD3;text-align:center}
 .feedend span{font-size:2.4rem}.feedend small{color:#CFE0E6}
 body.igon #app{padding-top:0;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px));gap:10px}
-.w-hz{background:#FBEFD3;color:var(--ink)}
+.w-hz{background:#FBEFD3;color:#2B2430}.w-hz small{color:#5E5560}
 .hzar{font-size:2.3rem!important;line-height:2}
 .aylisten{margin-top:6px;border:0;border-radius:999px;background:var(--gold-soft);color:var(--ink);font:800 .8rem var(--f-body);padding:6px 12px;cursor:pointer}
 .langbtn{border:0;background:var(--surface);border-radius:999px;height:42px;padding:0 12px;font:800 .9rem var(--f-body);cursor:pointer;flex:none;box-shadow:0 2px 8px rgba(0,0,0,.08)}
@@ -238,7 +238,7 @@ body.igon #app{padding-top:0;padding-bottom:calc(24px + env(safe-area-inset-bott
 .pill.lvl{background:var(--gold-soft);font-weight:800}
 .lvlbar{display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:800;color:var(--muted)}
 .lvlbar .lvt{flex:1;height:10px;border-radius:6px;background:var(--line);overflow:hidden;display:block}.lvlbar .lvf{display:block;height:100%;min-width:6%;border-radius:6px;background:linear-gradient(90deg,#C98F22,#B9587A)}
-.w-hc{background:#E3F4F1;color:var(--ink)}
+.w-hc{background:#E3F4F1;color:#2B2430}.w-hc small{color:#5E5560}
 .hijri{display:flex;gap:12px;align-items:flex-start;width:100%;border:0;padding:14px 16px;border-radius:22px;background:linear-gradient(135deg,#1E2A4A,#3D4E7A);color:#FBEFD3;font:inherit;text-align:left;cursor:pointer}
 .hijri .hm{font-size:2rem;line-height:1}.hijri small{display:block;color:#CFE0E6;font-weight:700;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase}
 .hijri b{font:600 1.2rem var(--f-display)}.hijri .har{font-family:var(--f-ar);font-size:1.2rem;margin-inline-start:8px;color:#F6C453}
@@ -246,7 +246,9 @@ body.igon #app{padding-top:0;padding-bottom:calc(24px + env(safe-area-inset-bott
 .hijri .hnext{display:block;font-size:.85rem;color:#E6EEF6;margin-top:2px}
 .hijri ul{margin:6px 0 0;padding:0;list-style:none;font-size:.9rem;display:grid;gap:3px}.hijri ul b{font:700 .9rem var(--f-body)}
 .tugban{display:flex;gap:12px;align-items:center;width:100%;border:0;padding:14px 16px;border-radius:22px;background:linear-gradient(120deg,#E3ECFA,#FCE3EC);color:var(--ink);font:inherit;text-align:left;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.06)}
-.tugban .ti{font-size:2.2rem}.tugban b{display:block;font:600 1.1rem var(--f-display)}.tugban small{color:var(--muted)}
+.tugban,.tteam,.tchip,.tbig{color:#2B2430}
+.gcchip{background:linear-gradient(135deg,#E3ECFA,#FFF1D1)!important;color:#2B2430!important}.gcchip small{color:#5E5560!important}.gcchip span{font-size:1.6rem}
+.tugban .ti{font-size:2.2rem}.tugban b{display:block;font:600 1.1rem var(--f-display)}.tugban small{color:#5E5560}
 .tugban.live{background:linear-gradient(120deg,#FFE6D9,#FBEFD3);animation:tugpulse 1.6s ease-in-out infinite}
 @keyframes tugpulse{50%{box-shadow:0 0 0 6px rgba(201,143,34,.18)}}
 .famvoice{display:block;margin:4px auto 2px;border:0;border-radius:999px;background:var(--rose);color:#fff;font:800 .9rem var(--f-body);padding:10px 16px;cursor:pointer;box-shadow:0 4px 12px rgba(185,88,122,.3)}
@@ -257,12 +259,12 @@ body.igon #app{padding-top:0;padding-bottom:calc(24px + env(safe-area-inset-bott
 .recli{width:100%;text-align:left;font:inherit;cursor:pointer}
 .sdots i.rd{background:var(--green)}
 .tugban.soon{background:linear-gradient(120deg,#FCE3EC,#FFF1D1);animation:tugpulse 1.6s ease-in-out infinite}
-.tugban .tcd{display:block;font:800 .95rem var(--f-body);color:var(--rose);margin-top:2px;font-variant-numeric:tabular-nums}
+.tugban .tcd{display:block;font:800 .95rem var(--f-body);color:#A8456C;margin-top:2px;font-variant-numeric:tabular-nums}
 .tteams2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .tteams2 .tteam{padding:8px 10px;text-align:left}
 .tteams2 .tteam>b{display:flex;justify-content:space-between;font:700 1rem var(--f-display)}
 .tchips{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;min-height:28px}
-.tchip{display:inline-flex;align-items:center;gap:4px;font-size:.78rem;font-weight:700;background:rgba(255,255,255,.7);border-radius:999px;padding:2px 8px 2px 2px}
+.tchip{display:inline-flex;align-items:center;gap:4px;font-size:.78rem;font-weight:700;background:rgba(255,255,255,.85);border-radius:999px;padding:2px 8px 2px 2px}
 .tchip.me{outline:2px solid var(--rose)}
 .tbig{font:700 2.6rem var(--f-display);text-align:center}
 .tlivetop{position:sticky;top:0;z-index:2;background:var(--bg);padding-bottom:6px}
@@ -271,6 +273,7 @@ body.igon #app{padding-top:0;padding-bottom:calc(24px + env(safe-area-inset-bott
 .tteams{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .tteam{border-radius:20px;padding:12px;text-align:center}
 .tteam.a{background:#E3ECFA}.tteam.b{background:#FFF1D1}
+.tteam .small.muted{color:#5E5560}
 .tteam h3{margin:0 0 6px;font-size:1.05rem}.tteam .tp{display:flex;align-items:center;gap:6px;justify-content:center;font-weight:700;font-size:.9rem;margin:4px 0}
 .tteam .tp.me{color:var(--rose)}
 .tteam .big{font:700 2rem var(--f-display)}
@@ -1458,11 +1461,11 @@ function subscribeAll(onErr){
         for(const k in S.deeds)await put('deeds/'+k,S.deeds[k]);
         return;}}
     S.presence={};S.waves={};
-    S.chat={};S.hearts={};S.tug={};S.tugp={};S.reports={};S.tugr={};S.auidx={};
-    for(const id in m){if(id.startsWith('p-'))S.presence[id.slice(2)]=m[id];else if(id.startsWith('w-'))S.waves[id]=m[id];else if(id.startsWith('c-'))S.chat[id]=m[id];else if(id.startsWith('h-'))S.hearts[id]=m[id];else if(id.startsWith('t-'))S.tug[id]=m[id];else if(id.startsWith('tp-'))S.tugp[id]=m[id];else if(id.startsWith('r-'))S.reports[id]=m[id];else if(id.startsWith('tr-'))S.tugr[id]=m[id];else if(id.startsWith('au-'))S.auidx[id]=m[id]}
+    S.chat={};S.hearts={};S.tug={};S.tugp={};S.reports={};S.tugr={};S.auidx={};S.gcerts={};
+    for(const id in m){if(id.startsWith('p-'))S.presence[id.slice(2)]=m[id];else if(id.startsWith('w-'))S.waves[id]=m[id];else if(id.startsWith('c-'))S.chat[id]=m[id];else if(id.startsWith('h-'))S.hearts[id]=m[id];else if(id.startsWith('t-'))S.tug[id]=m[id];else if(id.startsWith('tp-'))S.tugp[id]=m[id];else if(id.startsWith('r-'))S.reports[id]=m[id];else if(id.startsWith('tr-'))S.tugr[id]=m[id];else if(id.startsWith('au-'))S.auidx[id]=m[id];else if(id.startsWith('gc-'))S.gcerts[id]=m[id]}
     handleWaves();handleChat();
     const ch=s.docChanges?s.docChanges():[];
-    if(!wasFirst&&ch.length&&ch.every(c=>/^(?:[pwchr]|t[pr]?|au)-/.test(c.doc.id))){if(ui.screen==='tug')tugUpdate();else if(ui.screen==='home'||ui.screen==='tugscore'||ui.screen==='chat'||ui.screen==='bell'||(ui.screen==='parents'&&ch.some(c=>/^t-/.test(c.doc.id))))soft();return}
+    if(!wasFirst&&ch.length&&ch.every(c=>/^(?:[pwchr]|t[pr]?|au|gc)-/.test(c.doc.id))){if(ui.screen==='tug')tugUpdate();else if(ui.screen==='home'||ui.screen==='tugscore'||ui.screen==='chat'||ui.screen==='bell'||(ui.screen==='parents'&&ch.some(c=>/^t-/.test(c.doc.id))))soft();return}
     S.settings=Object.assign({},m.settings||{});S.approvals=Object.assign({},m.approvals||{});
     S.access=(m.access&&m.access.members)||[];
     dbReady=true;saveLocal();soft();
@@ -1578,12 +1581,13 @@ function render(){
   if(ui.screen==='duel')return;
   if(!['home','world','score','bell','flash','play'].includes(ui.screen)){const lp=document.querySelector('.lovepop');if(lp)lp.remove()}
   if(ui.screen==='tug'&&document.getElementById('tugwrap')){tugUpdate();return}
-  const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen,cert:certScreen,chat:chatScreen,bell:bellScreen,flash:flashScreen,wquiz:wquizScreen,tug:tugScreen,tugscore:tugScoreScreen,reclist:recListScreen,rec:recScreen}[ui.screen]||cover;
+  const f={cover,pin:pinScreen,home,world:worldScreen,play,score,parents,setup:setupScreen,duelpick:duelPick,duelres:duelRes,avatar:avatarScreen,cert:certScreen,chat:chatScreen,bell:bellScreen,flash:flashScreen,wquiz:wquizScreen,tug:tugScreen,tugscore:tugScoreScreen,gcert:gcertScreen,reclist:recListScreen,rec:recScreen}[ui.screen]||cover;
   app.innerHTML=f();
   const igOn=ui.screen==='home';document.body.classList.toggle('igon',igOn);document.documentElement.classList.toggle('snapy',igOn&&ui.page===2);
   placeRoad();
   beat(false);
   if(ui.screen==='cert')drawCert();
+  if(ui.screen==='gcert')(async()=>{const box=document.getElementById('certimg');try{certCanvas=await makeGroupCertificate(ui.gcert);if(box)box.innerHTML=`<img src="${certCanvas.toDataURL('image/png')}" alt="Family certificate: ${esc(ui.gcert.title)}">`}catch(e){if(box)box.innerHTML='<p class="muted">Could not draw the certificate.</p>'}})();
   if(ui.screen!=='play'&&ui.screen!=='flash'){stopAudio();if(ui.screen!=='rec')recStop()}
   autoRead(false);
   if(ui.screen==='home'||ui.screen==='score')levelCheck(ui.kid);
@@ -2248,6 +2252,7 @@ function galleryPage(){
   const kids=Object.keys(S.kids);
   const saved=mine?GEMS.filter(x=>(P.gemHearts||{})[x.id]):[];
   return `<div class="pgwrap">
+  ${groupShelf()}
   ${kids.length>1?`<div class="galfam">${kids.map(k=>`<button class="${k===g?'on':''}" data-act="galOf" data-k="${k}">${symEl(k,40)}<small>${k===ui.kid?'Me':esc(S.kids[k].name)}</small></button>`).join('')}</div>`:''}
   <section class="prof"><span class="ring">${symEl(g,80)}</span><div class="pst"><div><b>${list.length}</b><small>certificates</small></div><div><b>${stars}</b><small>stars</small></div><div><b>${hearts}</b><small>hearts</small></div></div></section>
   <h1 class="pname">${esc(S.kids[g].name)}${mine?'':`'s gallery`}</h1>
@@ -2539,7 +2544,7 @@ function tugScoreScreen(){
   ${ev?`<button class="tugban ${now>=ev.at?'live':''}" data-act="tugGo"><span class="ti">🚩</span><span><b>Next game: ${esc(tugTime(ev.at))}</b><small>${(n=>n+' minute'+(n>1?'s':''))(Math.max(1,Math.round((ev.dur||120e3)/60e3)))}${ev.auto?' · every week':''}</small><span class="tcd" data-cd="${ev.at}">${now<ev.at?'Starts in '+cdown(ev.at-now):'Tap to jump in!'}</span></span></button>`:'<p class="muted">No game planned yet. Ask a grown-up to set a weekly time.</p>'}
   <section class="sect"><h2 class="h2s">Team wins</h2><div class="tteams2 big"><div class="tteam a"><b>🌙 Moon team</b><div class="tbig">${st.wins[0]}</div><div class="tchips">${Object.keys(S.kids).filter(k=>T[k]===0).map(k=>`<span class="tchip">${symEl(k,22)} ${esc(S.kids[k].name)}</span>`).join('')}</div></div><div class="tteam b"><b>⭐ Star team</b><div class="tbig">${st.wins[1]}</div><div class="tchips">${Object.keys(S.kids).filter(k=>T[k]===1).map(k=>`<span class="tchip">${symEl(k,22)} ${esc(S.kids[k].name)}</span>`).join('')}</div></div></div>${st.draws?`<p class="small muted">${st.draws} draw${st.draws>1?'s':''}</p>`:''}</section>
   <section class="sect"><h2 class="h2s">Strongest pullers 💪</h2>${tops.length?`<div class="list">${tops.map(([k,o],i)=>`<div class="li">${['🥇','🥈','🥉'][i]||'🎗️'} ${symEl(k,32)}<span class="tx"><b>${esc(S.kids[k].name)}</b><span class="small muted" style="display:block">${o.pulls} pulls · ${o.games} game${o.games>1?'s':''} · ${o.wins} won</span></span></div>`).join('')}</div>`:'<p class="muted small">Play a game to get on the board!</p>'}</section>
-  <section class="sect"><h2 class="h2s">Recent games</h2>${st.R.length?`<div class="list">${st.R.slice(0,8).map(r=>`<div class="li"><span class="tx"><b>${r.winner<0?'Draw':TUG_TEAMS[r.winner][0]+' '+TUG_TEAMS[r.winner][1]+' won'}</b><span class="small muted" style="display:block">${esc(tugTime(r.at))} · 🌙 ${r.totals[0]} : ${r.totals[1]} ⭐</span></span></div>`).join('')}</div>`:'<p class="muted small">No games yet.</p>'}</section>`;
+  <section class="sect"><h2 class="h2s">Recent games</h2>${st.R.length?`<div class="list">${st.R.slice(0,8).map(r=>`<div class="li"><span class="tx"><b>${r.winner<0?'Draw':TUG_TEAMS[r.winner][0]+' '+TUG_TEAMS[r.winner][1]+' won'}</b><span class="small muted" style="display:block">${esc(tugTime(r.at))} · 🌙 ${r.totals[0]} : ${r.totals[1]} ⭐</span></span><button class="btn ghost sm" data-act="openGCert" data-key="team-tr-${esc(r.ev.replace(/^t-/,''))}">🏅 Certificate</button></div>`).join('')}</div>`:'<p class="muted small">No games yet.</p>'}</section>`;
 }
 function tugParentSection(){
   if(mode!=='db')return `<section class="sect"><h2>Team Tug of War</h2><p class="muted small">Sign in with Google (Family access) to plan live games where every child online pulls for their team.</p></section>`;
@@ -2570,6 +2575,61 @@ function tugCancel(id){
   Object.keys(S.tugp||{}).forEach(k=>{if(S.tugp[k].ev===id){delete S.tugp[k];del('fam/'+k)}});toast(e&&e.auto?'Skipped this week.':'Cancelled.');render();
 }
 
+
+/* ===================== GROUP CERTIFICATES (teams and the whole family) ===================== */
+function gcAt(key){const g=(S.gcerts||{})['gc-'+key];if(g&&g.at)return g.at;let t=null;try{t=+localStorage.getItem('ll-gc-'+key)||null}catch(e){}
+  if(!t){t=Date.now();try{localStorage.setItem('ll-gc-'+key,t)}catch(e){}if(mode==='db'&&dbReady){S.gcerts=S.gcerts||{};S.gcerts['gc-'+key]={at:t};put('fam/gc-'+key,{at:t})}}return t}
+function groupCerts(){
+  const out=[],kids=Object.keys(S.kids);
+  Object.entries(S.tugr||{}).sort((a,b)=>b[1].at-a[1].at).forEach(([id,r])=>{const mem=t=>Object.entries(r.players||{}).filter(([k,p])=>p.team===t&&S.kids[k]).map(([k])=>k);
+    if(r.winner>=0)out.push({key:'team-'+id,icon:TUG_TEAMS[r.winner][0],title:`${TUG_TEAMS[r.winner][1]} champions`,line:`won Team Tug of War, ${r.totals[r.winner]} pulls to ${r.totals[1-r.winner]}`,members:mem(r.winner),at:r.at,also:mem(1-r.winner),alsoLine:`Well played, ${TUG_TEAMS[1-r.winner][1]}!`});
+    else out.push({key:'team-'+id,icon:'🤝',title:'Brilliant teamwork',line:`pulled to a draw in Team Tug of War, ${r.totals[0]} each`,members:[...mem(0),...mem(1)],at:r.at})});
+  const sum=f=>kids.reduce((a,k)=>a+f(k),0),who=f=>kids.filter(k=>f(k)>0);
+  const stories=k=>STORIES.filter(st=>prog(k).done[st.id]).length,surahs=k=>HZ.filter(l=>prog(k).done[l.id]).length,yes=k=>(prog(k).love||[]).filter(x=>x.a===1).length,lessons=k=>Object.keys(prog(k).done||{}).length;
+  const mile=(key,icon,title,n,steps,line,f)=>{steps.filter(m=>n>=m).forEach(m=>out.push({key:key+m,icon,title,line:line(m),members:who(f),at:gcAt(key+m)}))};
+  if(kids.length>1){
+    mile('fam-stories','📜','Family story explorers',sum(stories),[10,25,50,100,200],m=>`read ${m} Prophet stories together`,stories);
+    mile('fam-quran','📖',"Qur'an family",sum(surahs),[3,10,25,50],m=>`learned ${m} surahs by heart together`,surahs);
+    mile('fam-love','💛','Hearts that remember Allah',sum(yes),[25,100,250],m=>`said "Yes, I did it" ${m} times to the love notes`,yes);
+    mile('fam-lessons','🌸','Family garden',sum(lessons),[50,150,300],m=>`finished ${m} lessons together`,lessons);
+  }
+  return out.sort((a,b)=>b.at-a.at);
+}
+function groupShelf(){const L=groupCerts();if(!L.length)return '';
+  return `<section class="sect"><h2 class="h2s">Our family certificates 🏆</h2><div class="certs strip">${L.slice(0,20).map(c=>`<button class="certchip gcchip" data-act="openGCert" data-key="${esc(c.key)}"><span>${c.icon}</span><b>${esc(c.title)}</b><small>${c.members.length} ${c.members.length===1?'child':'children'}</small></button>`).join('')}</div></section>`}
+function gcertScreen(){const c=ui.gcert;
+  return `<div class="topbar"><button class="back" data-act="${ui.gcBack||'home'}">← Back</button></div>
+  <h1>${c.icon} ${esc(c.title)}</h1><p class="muted">${c.members.map(k=>esc(S.kids[k].name)).join(', ')} ${esc(c.line)}. MashaAllah!</p>
+  <div class="certimg" id="certimg"><p class="muted">Preparing the certificate...</p></div>
+  <div class="row"><button class="btn rose" data-act="gcShare">Share with the family</button><button class="btn ghost" data-act="home">My garden</button></div>`}
+async function makeGroupCertificate(c){
+  await ready();try{await document.fonts.load('700 120px Fredoka');await document.fonts.load('700 60px Amiri')}catch(e){}
+  const W=1080,H=1350,cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d'),when=new Date(c.at||Date.now());
+  const PAL=['#F28DB2','#FFC94D','#7CCBA2','#7EB6F0','#B79CF0','#FF9F6E'];let seed=11;const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
+  const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#E3ECFA');g.addColorStop(1,'#FFF1D1');x.fillStyle=g;x.fillRect(0,0,W,H);
+  for(let i=0;i<80;i++){const cx=rnd()*W,cy=rnd()*H;x.save();x.translate(cx,cy);x.rotate(rnd()*6);x.fillStyle=PAL[i%PAL.length];x.globalAlpha=.7;if(i%2){x.fillRect(-10,-4,20,8)}else{x.beginPath();x.arc(0,0,5+rnd()*6,0,Math.PI*2);x.fill()}x.restore()}
+  x.strokeStyle='#C98F22';x.lineWidth=4;x.beginPath();x.moveTo(-10,40);x.quadraticCurveTo(W/2,150,W+10,40);x.stroke();
+  for(let i=0;i<11;i++){const t=(i+.5)/11,px=t*W,py=40+4*t*(1-t)*110;x.fillStyle=PAL[i%PAL.length];x.beginPath();x.moveTo(px-34,py);x.lineTo(px+34,py);x.lineTo(px,py+66);x.closePath();x.fill()}
+  const rr=(X,Y,w,hh,r)=>{x.beginPath();x.moveTo(X+r,Y);x.arcTo(X+w,Y,X+w,Y+hh,r);x.arcTo(X+w,Y+hh,X,Y+hh,r);x.arcTo(X,Y+hh,X,Y,r);x.arcTo(X,Y,X+w,Y,r);x.closePath()};
+  x.save();x.shadowColor='rgba(62,110,142,.25)';x.shadowBlur=40;x.shadowOffsetY=12;rr(60,190,W-120,H-250,60);x.fillStyle='#FFFFFF';x.fill();x.restore();
+  x.setLineDash([18,14]);x.strokeStyle='#BBD3EE';x.lineWidth=6;rr(84,214,W-168,H-298,46);x.stroke();x.setLineDash([]);x.textAlign='center';
+  x.fillStyle='#C98F22';x.font='600 36px Fredoka, Nunito, sans-serif';x.fillText('✦ Little Lantern · Family certificate ✦',W/2,280);
+  x.font='96px sans-serif';x.fillText(c.icon,W/2,400);
+  x.lineJoin='round';x.font='700 76px Fredoka, Nunito, sans-serif';x.lineWidth=12;x.strokeStyle='#FFFFFF';x.strokeText(c.title,W/2,500);x.fillStyle='#3E6E8E';x.fillText(c.title,W/2,500);
+  x.fillStyle='#C98F22';x.font='700 44px Amiri, serif';x.fillText('مَا شَاءَ اللَّه',W/2,560);
+  // members
+  const M=c.members.slice(0,10),per=M.length>5?5:M.length,r=M.length>5?70:88,rows=Math.ceil(M.length/per),top=M.length>5?620:650;
+  for(let i=0;i<M.length;i++){const row=Math.floor(i/per),inRow=Math.min(per,M.length-row*per),col=i%per,gap=(W-200)/inRow,cx=100+gap*(col+.5),cy=top+r+row*(r*2+70);
+    x.beginPath();x.arc(cx,cy,r+8,0,Math.PI*2);x.fillStyle=PAL[i%PAL.length];x.fill();
+    try{const av=await svgImg(avatarSVG(S.kids[M[i]].av||{}));x.save();x.beginPath();x.arc(cx,cy,r,0,Math.PI*2);x.clip();x.drawImage(av,cx-r,cy-r,r*2,r*2);x.restore()}catch(e){}
+    x.fillStyle='#3A2F3F';x.font='700 30px Fredoka, Nunito, sans-serif';x.fillText(S.kids[M[i]].name,cx,cy+r+40)}
+  const ly=top+rows*(r*2+70)+40;
+  x.fillStyle='#3A2F3F';x.font='600 44px Fredoka, Nunito, sans-serif';const ln=c.line.charAt(0).toUpperCase()+c.line.slice(1)+'!';wrapText(x,ln,W/2,ly,820,54);
+  if(c.also&&c.also.length){x.fillStyle='#6F6370';x.font='600 30px Fredoka, Nunito, sans-serif';wrapText(x,c.alsoLine+' '+c.also.map(k=>S.kids[k].name).join(', '),W/2,ly+120,820,38)}
+  let hijri='';try{hijri=new Intl.DateTimeFormat('en-u-ca-islamic-umalqura',{day:'numeric',month:'long',year:'numeric'}).format(when)}catch(e){}
+  x.fillStyle='#9A8C98';x.font='600 26px Nunito, sans-serif';x.fillText(when.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})+(hijri?'  ·  '+hijri:''),W/2,1196);
+  x.fillText('Together for Allah 💛',W/2,1234);return cv;
+}
 /* ===================== FAMILY VOICES (grown-ups record the stories) ===================== */
 // Audio lives in Firestore 'audio/{story-slide-lang}' (fetched only when needed), with a small index in fam/au-{story}.
 // Without the family sign-in, recordings stay on this device (IndexedDB).
@@ -2873,6 +2933,8 @@ app.addEventListener('click',e=>{
    case 'count':st.c++;render();break;
    case 'avatar':ui.avDraft=null;go('avatar');break;
    case 'openCert':{const c=certList(ui.kid).find(x=>x.key===b.dataset.key);if(!c)break;ui.certBack=ui.screen==='duelres'?'duelPick':'home';go('cert',{cert:c});break;}
+   case 'openGCert':{const c=groupCerts().find(x=>x.key===b.dataset.key);if(!c)break;ui.gcBack=ui.screen==='tugscore'?'tugScore':'home';go('gcert',{gcert:c});break;}
+   case 'gcShare':if(certCanvas)shareCanvas(certCanvas,'little-lantern-family-certificate',`${ui.gcert.members.map(k=>S.kids[k].name).join(', ')} ${ui.gcert.line}! MashaAllah 💛`);break;
    case 'certShare':if(certCanvas)shareCanvas(certCanvas,'little-lantern-certificate',`${S.kids[ui.cert.kid||ui.kid].name} ${ui.cert.line}! MashaAllah`);break;
    case 'avSet':{const k=b.dataset.k,v=b.dataset.v;ui.avDraft[k]=k==='head'||k==='holds'?v:k==='glasses'?v==='1':+v;render();break;}
    case 'avSave':{S.kids[ui.kid].av=Object.assign({},ui.avDraft);saveKid(ui.kid);toast('Avatar saved!');go('home');break;}
