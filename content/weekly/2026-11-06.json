@@ -1,0 +1,596 @@
+{
+ "id": "w-2026-11-06",
+ "title": "Week of 6 November 2026",
+ "notes": "New: the story of Prophet Lut, alayhis salaam (the next Prophet in order without a story), 21 gems on purity, haya, good friends and dua, and 10 Jumu'ah quiz questions. Sources: the Qur'an (verse numbers and meanings checked against a Qur'an text database and quran.com) and Sahih al-Bukhari and Sahih Muslim (numbers checked on sunnah.com and other hadith sites). abdurrahman.org was reached: its children's section has no Lut story, and its Prophets page has only an audio talk by Dr. Saleh as-Saleh with no written text, so the story relies on the Qur'an and the two Sahihs. Please read carefully: this is a sensitive story for young children. Slide 5 only says the people did 'a very shameful thing' and robbed travellers, without explaining further, so you may want to be ready for questions. Slide 10 mentions that Lut's wife was not saved and that the town was turned upside down, kept short and gentle. Slide 1 quotes only 'So Lut believed in him' from 29:26, because scholars differ on who said the next words. The Arabic was written in the same simple spelling the app uses, converted by hand from the mushaf text, so please check every ayah's Arabic against your mushaf.",
+ "stories": [
+  {
+   "id": "st-lut",
+   "pid": "lut",
+   "title": "Prophet Lut and the town that would not listen",
+   "ar": "لُوط عَلَيْهِ السَّلَام",
+   "sub": "Standing up for what is right, even when you are the only one",
+   "slides": [
+    {
+     "sc": {
+      "label": "A desert path between palm trees at sunrise",
+      "sky": [
+       "#F8C77E",
+       "#FBE3B8"
+      ],
+      "sun": [
+       300,
+       110,
+       24
+      ],
+      "palms": [
+       [
+        90,
+        1
+       ],
+       [
+        320,
+        0.9
+       ]
+      ]
+     },
+     "text": "Long ago, when Prophet Ibrahim, alayhis salaam, called people to worship Allah alone, a man believed in him. His name was Lut, alayhis salaam.",
+     "ay": {
+      "ar": "فَآمَنَ لَهُ لُوطٌ",
+      "en": "So Lut believed in him.",
+      "ref": "Surah al-'Ankabut 29:26"
+     }
+    },
+    {
+     "sc": {
+      "label": "A green, blessed land with trees and flowers",
+      "sky": [
+       "#A8D8EE",
+       "#E8F6FB"
+      ],
+      "garden": true,
+      "flowers": true,
+      "sun": [
+       320,
+       60,
+       20
+      ],
+      "dunes": [
+       "#A9C98A",
+       "#8DB873",
+       "#76A35E"
+      ]
+     },
+     "text": "Allah saved Ibrahim and Lut and brought them to a blessed land.",
+     "ay": {
+      "ar": "وَنَجَّيْنَاهُ وَلُوطًا إِلَى الْأَرْضِ الَّتِي بَارَكْنَا فِيهَا لِلْعَالَمِينَ",
+      "en": "And We saved him and Lut, to the land which We blessed for all people.",
+      "ref": "Surah al-Anbiya 21:71"
+     }
+    },
+    {
+     "sc": {
+      "label": "An open book with a soft light beside it",
+      "sky": [
+       "#E9DFD2",
+       "#F7F1E8"
+      ],
+      "glow": [
+       200,
+       90
+      ],
+      "book": true,
+      "dunes": [
+       "#D8CBB8",
+       "#C8BBA8",
+       "#B8AB98"
+      ]
+     },
+     "text": "Allah made Lut a Prophet and gave him wisdom and knowledge.",
+     "ay": {
+      "ar": "وَلُوطًا آتَيْنَاهُ حُكْمًا وَعِلْمًا",
+      "en": "And to Lut We gave wisdom and knowledge.",
+      "ref": "Surah al-Anbiya 21:74"
+     }
+    },
+    {
+     "sc": {
+      "label": "A small town with flat roofs under a blue sky",
+      "sky": [
+       "#7FB6E0",
+       "#D6ECF7"
+      ],
+      "sun": [
+       60,
+       50,
+       18
+      ],
+      "town": {},
+      "dunes": [
+       "#C9A07E",
+       "#B98F6D",
+       "#A87E5C"
+      ]
+     },
+     "text": "Allah sent Lut to the people of a town. The Qur'an calls Lut their brother. He said to them:",
+     "ay": {
+      "ar": "إِذْ قَالَ لَهُمْ أَخُوهُمْ لُوطٌ أَلَا تَتَّقُونَ",
+      "en": "When their brother Lut said to them: Will you not fear Allah?",
+      "ref": "Surah ash-Shu'ara 26:161"
+     }
+    },
+    {
+     "sc": {
+      "label": "The town under a heavy grey sky",
+      "sky": [
+       "#5E6472",
+       "#A3A9B5"
+      ],
+      "town": {
+       "c": "#8A7F78",
+       "d": "#6A605A"
+      },
+      "cloud": [
+       300,
+       40,
+       1,
+       "#8E949E"
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "The people of the town did a very shameful thing that no people before them had ever done. They also robbed travellers on the roads, and did bad things openly when they sat together. Lut told them:",
+     "ay": {
+      "ar": "أَتَأْتُونَ الْفَاحِشَةَ مَا سَبَقَكُم بِهَا مِنْ أَحَدٍ مِّنَ الْعَالَمِينَ",
+      "en": "Do you do a shameful thing that no one in all the worlds did before you?",
+      "ref": "Surah al-A'raf 7:80"
+     }
+    },
+    {
+     "sc": {
+      "label": "A clear spring of water in the dry sand",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "sun": [
+       320,
+       60,
+       20
+      ],
+      "water": true,
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "But they would not listen. They even made fun of Lut and the believers for wanting to stay clean and pure. They said:",
+     "ay": {
+      "ar": "أَخْرِجُوهُم مِّن قَرْيَتِكُمْ إِنَّهُمْ أُنَاسٌ يَتَطَهَّرُونَ",
+      "en": "Drive them out of your town. They are people who want to keep themselves pure!",
+      "ref": "Surah al-A'raf 7:82"
+     }
+    },
+    {
+     "sc": {
+      "label": "A quiet night sky with one bright star",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "bigstar": [
+       200,
+       50
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Lut kept calling them to do good. Then he turned to Allah and made dua:",
+     "ay": {
+      "ar": "رَبِّ انصُرْنِي عَلَى الْقَوْمِ الْمُفْسِدِينَ",
+      "en": "My Rabb, help me against the people who spread corruption.",
+      "ref": "Surah al-'Ankabut 29:30"
+     }
+    },
+    {
+     "sc": {
+      "label": "The town at night with lit windows and a soft glow of light",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "moon": true,
+      "town": {
+       "lit": true
+      },
+      "glow": [
+       200,
+       70
+      ]
+     },
+     "text": "Then Allah sent angels to Lut. They came to him as guests. Lut was worried for his guests, because his people were so bad. Then the guests told him:",
+     "ay": {
+      "ar": "يَا لُوطُ إِنَّا رُسُلُ رَبِّكَ لَن يَصِلُوا إِلَيْكَ",
+      "en": "O Lut, we are messengers from your Rabb. They will not reach you.",
+      "ref": "Surah Hud 11:81"
+     }
+    },
+    {
+     "sc": {
+      "label": "A sandy road leading away from the town under a crescent moon",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "moon": [
+       320,
+       50,
+       16
+      ],
+      "dunes": [
+       "#6E5A48",
+       "#5E4A38",
+       "#4E3A28"
+      ]
+     },
+     "text": "The angels told Lut to leave with his family in the dark of the night, and that nobody should look back.",
+     "ay": {
+      "ar": "فَأَسْرِ بِأَهْلِكَ بِقِطْعٍ مِّنَ اللَّيْلِ وَلَا يَلْتَفِتْ مِنكُمْ أَحَدٌ",
+      "en": "So travel with your family in a part of the night, and let none of you look back.",
+      "ref": "Surah Hud 11:81"
+     }
+    },
+    {
+     "sc": {
+      "label": "Broken stones on cracked ground under a dawn sky",
+      "sky": [
+       "#C7A0B8",
+       "#F7C9A8"
+      ],
+      "sun": [
+       80,
+       170,
+       22
+      ],
+      "blocks": true,
+      "cracks": true,
+      "dunes": [
+       "#B9A78E",
+       "#A8957B",
+       "#97836A"
+      ]
+     },
+     "text": "Allah saved Lut and his family, all except his wife, who did not believe. When the morning came, Allah's punishment came to the town, and it was turned upside down.",
+     "ay": {
+      "ar": "فَأَنجَيْنَاهُ وَأَهْلَهُ إِلَّا امْرَأَتَهُ",
+      "en": "So We saved him and his family, except his wife.",
+      "ref": "Surah al-A'raf 7:83"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Stand up for what is right, even if you are the only one. Love being clean and pure, and keep good friends. When things are hard, make dua, because Allah is the strongest support. And Allah always saves the believers."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Who did Lut, alayhis salaam, believe in?",
+     "o": [
+      "Prophet Ibrahim",
+      "The idols",
+      "The people of the town"
+     ],
+     "why": "Allah says: So Lut believed in him (Surah al-'Ankabut 29:26)."
+    },
+    {
+     "q": "What did Lut's people make fun of the believers for?",
+     "o": [
+      "Wanting to stay clean and pure",
+      "Being very rich",
+      "Building tall towers"
+     ],
+     "why": "They said: Drive them out, they are people who want to keep themselves pure (Surah al-A'raf 7:82)."
+    },
+    {
+     "q": "What dua did Lut make?",
+     "o": [
+      "My Rabb, help me against the people who spread corruption",
+      "Make me the richest man",
+      "Give me a big ship"
+     ],
+     "why": "Rabbi-nsurni 'alal-qawmil-mufsideen (Surah al-'Ankabut 29:30)."
+    },
+    {
+     "q": "What did the angels tell Lut to do?",
+     "o": [
+      "Leave at night with his family and not look back",
+      "Build an ark",
+      "Climb a mountain"
+     ],
+     "why": "Surah Hud 11:81."
+    }
+   ]
+  }
+ ],
+ "gems": [
+  {
+   "id": "w-2026-11-06-g1",
+   "kind": "Ayah",
+   "pic": "💧",
+   "text": "Allah loves those who keep turning back to Him, and He loves those who keep themselves clean and pure.",
+   "src": "Surah al-Baqarah 2:222",
+   "ar": "إِنَّ اللَّهَ يُحِبُّ التَّوَّابِينَ وَيُحِبُّ الْمُتَطَهِّرِينَ"
+  },
+  {
+   "id": "w-2026-11-06-g2",
+   "kind": "Ayah",
+   "pic": "👕",
+   "text": "And keep your clothes clean.",
+   "src": "Surah al-Muddaththir 74:4",
+   "ar": "وَثِيَابَكَ فَطَهِّرْ"
+  },
+  {
+   "id": "w-2026-11-06-g3",
+   "kind": "Ayah",
+   "pic": "🌙",
+   "text": "Your Rabb says: Call on Me, and I will answer you.",
+   "src": "Surah Ghafir 40:60",
+   "ar": "وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ"
+  },
+  {
+   "id": "w-2026-11-06-g4",
+   "kind": "Ayah",
+   "pic": "🕌",
+   "text": "Salah keeps us away from shameful and bad deeds.",
+   "src": "Surah al-'Ankabut 29:45",
+   "ar": "إِنَّ الصَّلَاةَ تَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنكَرِ"
+  },
+  {
+   "id": "w-2026-11-06-g5",
+   "kind": "Ayah",
+   "pic": "🛡️",
+   "text": "The believers said: Allah is enough for us, and He is the best One to trust.",
+   "src": "Surah Al 'Imran 3:173",
+   "ar": "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ"
+  },
+  {
+   "id": "w-2026-11-06-g6",
+   "kind": "Ayah",
+   "pic": "💚",
+   "text": "A dua: Our Rabb, do not let our hearts turn away after You have guided us.",
+   "src": "Surah Al 'Imran 3:8",
+   "ar": "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا"
+  },
+  {
+   "id": "w-2026-11-06-g7",
+   "kind": "Hadith",
+   "pic": "🏰",
+   "text": "The Prophet ﷺ said: May Allah have mercy on Lut. He was taking shelter with a strong support. That strong support is Allah.",
+   "src": "Sahih al-Bukhari 3372, Sahih Muslim 151",
+   "ar": "يَرْحَمُ اللَّهُ لُوطًا لَقَدْ كَانَ يَأْوِي إِلَى رُكْنٍ شَدِيدٍ"
+  },
+  {
+   "id": "w-2026-11-06-g8",
+   "kind": "Hadith",
+   "pic": "🌷",
+   "text": "The Prophet ﷺ said: Haya, being shy of doing wrong, brings nothing but good.",
+   "src": "Sahih al-Bukhari 6117, Sahih Muslim 37",
+   "ar": "الْحَيَاءُ لَا يَأْتِي إِلَّا بِخَيْرٍ"
+  },
+  {
+   "id": "w-2026-11-06-g9",
+   "kind": "Hadith",
+   "pic": "🌿",
+   "text": "The Prophet ﷺ said: Iman has more than sixty branches, and haya is one branch of iman.",
+   "src": "Sahih al-Bukhari 9",
+   "ar": "وَالْحَيَاءُ شُعْبَةٌ مِنَ الْإِيمَانِ"
+  },
+  {
+   "id": "w-2026-11-06-g10",
+   "kind": "Hadith",
+   "pic": "🚦",
+   "text": "The Prophet ﷺ said: If you see something wrong, change it with your actions. If you cannot, then with your words. If you cannot, then dislike it in your heart.",
+   "src": "Sahih Muslim 49"
+  },
+  {
+   "id": "w-2026-11-06-g11",
+   "kind": "Hadith",
+   "pic": "🌸",
+   "text": "The Prophet ﷺ said a good friend is like someone carrying musk: you get a lovely smell from him. A bad friend is like a blacksmith blowing on a fire: you may get a bad smell, or your clothes may burn.",
+   "src": "Sahih al-Bukhari 5534, Sahih Muslim 2628"
+  },
+  {
+   "id": "w-2026-11-06-g12",
+   "kind": "Hadith",
+   "pic": "🍯",
+   "text": "The Prophet ﷺ said: Allah is Pure and Good, and He only accepts what is pure and good.",
+   "src": "Sahih Muslim 1015",
+   "ar": "إِنَّ اللَّهَ طَيِّبٌ لَا يَقْبَلُ إِلَّا طَيِّبًا"
+  },
+  {
+   "id": "w-2026-11-06-g13",
+   "kind": "Hadith",
+   "pic": "💌",
+   "text": "The Prophet ﷺ said: When a Muslim makes dua for his brother who is not there, it is answered, and an angel says: And the same for you!",
+   "src": "Sahih Muslim 2733"
+  },
+  {
+   "id": "w-2026-11-06-g14",
+   "kind": "Prophets",
+   "pic": "📜",
+   "text": "Allah says Lut, alayhis salaam, was one of His Messengers.",
+   "src": "Surah as-Saffat 37:133",
+   "ar": "وَإِنَّ لُوطًا لَّمِنَ الْمُرْسَلِينَ"
+  },
+  {
+   "id": "w-2026-11-06-g15",
+   "kind": "Prophets",
+   "pic": "⭐",
+   "text": "Allah names Lut, alayhis salaam, together with Isma'il, al-Yasa' and Yunus, and says He honoured each of them above the worlds.",
+   "src": "Surah al-An'am 6:86"
+  },
+  {
+   "id": "w-2026-11-06-g16",
+   "kind": "Prophets",
+   "pic": "🏕️",
+   "text": "Before going to Lut, the angels visited Prophet Ibrahim, alayhis salaam. They told him: Do not be afraid. We have been sent to the people of Lut.",
+   "src": "Surah Hud 11:70",
+   "ar": "لَا تَخَفْ إِنَّا أُرْسِلْنَا إِلَىٰ قَوْمِ لُوطٍ"
+  },
+  {
+   "id": "w-2026-11-06-g17",
+   "kind": "Prophets",
+   "pic": "🔥",
+   "text": "When Ibrahim, alayhis salaam, heard about the town, he pleaded for its people. Allah says Ibrahim was gentle, soft-hearted and always turning to Allah.",
+   "src": "Surah Hud 11:74-75",
+   "ar": "إِنَّ إِبْرَاهِيمَ لَحَلِيمٌ أَوَّاهٌ مُّنِيبٌ"
+  },
+  {
+   "id": "w-2026-11-06-g18",
+   "kind": "Did you know?",
+   "pic": "🏠",
+   "text": "In the whole town of Lut's people, there was only one house of Muslims.",
+   "src": "Surah adh-Dhariyat 51:36",
+   "ar": "فَمَا وَجَدْنَا فِيهَا غَيْرَ بَيْتٍ مِّنَ الْمُسْلِمِينَ"
+  },
+  {
+   "id": "w-2026-11-06-g19",
+   "kind": "Did you know?",
+   "pic": "🌌",
+   "text": "Allah saved Lut's family at sahar, the last part of the night just before dawn.",
+   "src": "Surah al-Qamar 54:34"
+  },
+  {
+   "id": "w-2026-11-06-g20",
+   "kind": "Did you know?",
+   "pic": "🛤️",
+   "text": "Allah told the people of Makkah that they passed by the ruins of Lut's town in the morning and at night, as a reminder to think.",
+   "src": "Surah as-Saffat 37:137-138"
+  },
+  {
+   "id": "w-2026-11-06-g21",
+   "kind": "Did you know?",
+   "pic": "💯",
+   "text": "Allah made mercy in one hundred parts. He sent only one part to the earth, and with it all creatures are kind to each other. He kept ninety-nine parts with Him.",
+   "src": "Sahih al-Bukhari 6000, Sahih Muslim 2752"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "Which Prophet did Lut, alayhis salaam, believe in?",
+   "o": [
+    "Prophet Ibrahim",
+    "Prophet Musa",
+    "Prophet Isa"
+   ],
+   "why": "Surah al-'Ankabut 29:26 says Lut believed in Ibrahim."
+  },
+  {
+   "q": "What did Allah give Lut?",
+   "o": [
+    "Wisdom and knowledge",
+    "A big palace",
+    "A huge army"
+   ],
+   "why": "And to Lut We gave wisdom and knowledge (Surah al-Anbiya 21:74)."
+  },
+  {
+   "q": "Where did the angels go before they came to Lut?",
+   "o": [
+    "To Prophet Ibrahim",
+    "To Prophet Nuh",
+    "To Makkah"
+   ],
+   "why": "They visited Ibrahim first and said: We have been sent to the people of Lut (Surah Hud 11:70)."
+  },
+  {
+   "q": "How many houses of Muslims were in Lut's town?",
+   "o": [
+    "Only one",
+    "Ten",
+    "A hundred"
+   ],
+   "why": "Surah adh-Dhariyat 51:36."
+  },
+  {
+   "q": "When did Allah save Lut's family?",
+   "o": [
+    "Just before dawn",
+    "At lunchtime",
+    "In the afternoon"
+   ],
+   "why": "Allah saved them at sahar, just before dawn (Surah al-Qamar 54:34)."
+  },
+  {
+   "q": "Who loves those who keep themselves clean and pure?",
+   "o": [
+    "Allah",
+    "Nobody",
+    "Only the angels"
+   ],
+   "why": "Allah loves those who keep themselves pure (Surah al-Baqarah 2:222)."
+  },
+  {
+   "q": "A good friend is like someone carrying what?",
+   "o": [
+    "Musk perfume",
+    "A heavy rock",
+    "A muddy bucket"
+   ],
+   "why": "Sahih al-Bukhari 5534, Sahih Muslim 2628."
+  },
+  {
+   "q": "What does haya bring?",
+   "o": [
+    "Nothing but good",
+    "Bad luck",
+    "Sadness"
+   ],
+   "why": "Haya brings nothing but good (Sahih al-Bukhari 6117, Sahih Muslim 37)."
+  },
+  {
+   "q": "Who is the strongest support we can turn to?",
+   "o": [
+    "Allah",
+    "A strong wall",
+    "A big crowd"
+   ],
+   "why": "The Prophet ﷺ said Lut was taking shelter with a strong support, and that is Allah (Sahih al-Bukhari 3372)."
+  },
+  {
+   "q": "What does an angel say when you make dua for a friend who is not there?",
+   "o": [
+    "And the same for you",
+    "Stop now",
+    "Try again tomorrow"
+   ],
+   "why": "Sahih Muslim 2733."
+  }
+ ]
+}
