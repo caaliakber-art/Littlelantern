@@ -1,0 +1,610 @@
+{
+ "id": "w-2026-11-13",
+ "title": "Week of 13 November 2026",
+ "notes": "New: the story of Prophet Ishaq, alayhis salaam (the next Prophet in order without a story), 21 gems on guests, sharing food, thankfulness, family duas and Allah's signs, and 10 Jumu'ah quiz questions. Sources: the Qur'an (Arabic copied word for word from the Tanzil simple text, the same spelling the app uses; meanings checked against the Saheeh International translation) and Sahih al-Bukhari and Sahih Muslim (every hadith number checked on sunnah.com or hadithunlocked.com). abdurrahman.org could not be reached from this run, so the story relies on the Qur'an and the two Sahihs only. Please read carefully: the Qur'an tells very little about Ishaq's own life, so most of the story is the good news of his birth (Surah Hud, al-Hijr, adh-Dhariyat). It overlaps a little with Ibrahim part 2, but uses mostly different ayat. Slide 2 says Allah first gave Isma'il after Ibrahim's dua in as-Saffat 37:100, following the order of 37:101 and 37:112. Slide 5 says Ibrahim's wife laughed (fa-dahikat); some translations say smiled. Her name, Sarah, is left out because the Qur'an does not name her. Gem 17 (salawat) cites only Sahih al-Bukhari 3370 and gem 15 only al-Bukhari 3382, because a Muslim number could not be confirmed. Gem 11 is Sahih Muslim 2963 (sunnah.com lists it as 2963c).",
+ "stories": [
+  {
+   "id": "st-ishaq",
+   "pid": "ishaq",
+   "title": "Prophet Ishaq, the promised son",
+   "ar": "إِسْحَاق عَلَيْهِ السَّلَام",
+   "sub": "Nothing is too hard for Allah, so never stop making dua",
+   "slides": [
+    {
+     "sc": {
+      "label": "A desert path between palm trees at sunrise",
+      "sky": [
+       "#F8C77E",
+       "#FBE3B8"
+      ],
+      "sun": [
+       300,
+       110,
+       24
+      ],
+      "palms": [
+       [
+        80,
+        1
+       ],
+       [
+        330,
+        0.9
+       ]
+      ]
+     },
+     "text": "Prophet Ibrahim, alayhis salaam, told his people to stop worshipping idols. When they would not listen, he left them for the sake of Allah. He said:",
+     "ay": {
+      "ar": "وَأَعْتَزِلُكُمْ وَمَا تَدْعُونَ مِنْ دُونِ اللَّهِ وَأَدْعُو رَبِّي",
+      "en": "I will leave you and what you call on besides Allah, and I will call on my Rabb.",
+      "ref": "Surah Maryam 19:48"
+     }
+    },
+    {
+     "sc": {
+      "label": "A quiet night sky with one bright star",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "bigstar": [
+       200,
+       50
+      ],
+      "dunes": [
+       "#6E5A48",
+       "#5E4A38",
+       "#4E3A28"
+      ]
+     },
+     "text": "Ibrahim was growing old, and he made dua to Allah for a good child. Allah gave him a son, Isma'il, alayhis salaam. And Allah had another gift waiting for him.",
+     "ay": {
+      "ar": "رَبِّ هَبْ لِي مِنَ الصَّالِحِينَ",
+      "en": "My Rabb, give me a child who is one of the righteous.",
+      "ref": "Surah as-Saffat 37:100"
+     }
+    },
+    {
+     "sc": {
+      "label": "A small town at dusk with warm lit windows",
+      "sky": [
+       "#C7A0B8",
+       "#F7C9A8"
+      ],
+      "town": {
+       "lit": true
+      },
+      "lantern": [
+       320,
+       150
+      ],
+      "dunes": [
+       "#C9A07E",
+       "#B98F6D",
+       "#A87E5C"
+      ]
+     },
+     "text": "One day, guests came to Ibrahim's home and greeted him with salam. They were really angels sent by Allah, but Ibrahim did not know that yet.",
+     "ay": {
+      "ar": "هَلْ أَتَاكَ حَدِيثُ ضَيْفِ إِبْرَاهِيمَ الْمُكْرَمِينَ",
+      "en": "Has the story of Ibrahim's honoured guests reached you?",
+      "ref": "Surah adh-Dhariyat 51:24"
+     }
+    },
+    {
+     "sc": {
+      "label": "A soft glow of light between palm trees in the evening",
+      "sky": [
+       "#E8A87C",
+       "#F6D5B8"
+      ],
+      "glow": [
+       200,
+       110
+      ],
+      "palms": [
+       [
+        90,
+        1
+       ],
+       [
+        310,
+        1.05
+       ]
+      ],
+      "dunes": [
+       "#D8B07A",
+       "#C99F68",
+       "#B88E57"
+      ]
+     },
+     "text": "Ibrahim hurried and brought them a fat roasted calf, the best food he had. But the guests did not eat, and Ibrahim felt afraid. They said:",
+     "ay": {
+      "ar": "قَالُوا لَا تَوْجَلْ إِنَّا نُبَشِّرُكَ بِغُلَامٍ عَلِيمٍ",
+      "en": "Do not be afraid. We bring you good news of a boy who will have much knowledge.",
+      "ref": "Surah al-Hijr 15:53"
+     }
+    },
+    {
+     "sc": {
+      "label": "A green garden with flowers in the morning sun",
+      "sky": [
+       "#A8D8EE",
+       "#E8F6FB"
+      ],
+      "sun": [
+       320,
+       60,
+       20
+      ],
+      "garden": true,
+      "flowers": true,
+      "dunes": [
+       "#A9C98A",
+       "#8DB873",
+       "#76A35E"
+      ]
+     },
+     "text": "Ibrahim's wife was standing nearby, and she laughed. Then the angels gave her good news of a son called Ishaq, and after Ishaq, a grandson called Ya'qub.",
+     "ay": {
+      "ar": "فَبَشَّرْنَاهَا بِإِسْحَاقَ وَمِنْ وَرَاءِ إِسْحَاقَ يَعْقُوبَ",
+      "en": "So We gave her good news of Ishaq, and after Ishaq, Ya'qub.",
+      "ref": "Surah Hud 11:71"
+     }
+    },
+    {
+     "sc": {
+      "label": "A white cloud over warm sand hills",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "cloud": [
+       120,
+       45,
+       1,
+       "#FFFFFF"
+      ],
+      "sun": [
+       320,
+       60,
+       20
+      ],
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "She was amazed, because she and Ibrahim were both very old. She said:",
+     "ay": {
+      "ar": "أَأَلِدُ وَأَنَا عَجُوزٌ وَهَٰذَا بَعْلِي شَيْخًا",
+      "en": "Will I have a baby when I am an old woman, and my husband here is an old man?",
+      "ref": "Surah Hud 11:72"
+     }
+    },
+    {
+     "sc": {
+      "label": "A night sky full of stars over the desert",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "moon": true,
+      "dunes": [
+       "#6E5A48",
+       "#5E4A38",
+       "#4E3A28"
+      ]
+     },
+     "text": "The angels told them this was a promise from Allah, and nothing is too hard for Him. They said:",
+     "ay": {
+      "ar": "قَالُوا كَذَٰلِكِ قَالَ رَبُّكِ إِنَّهُ هُوَ الْحَكِيمُ الْعَلِيمُ",
+      "en": "That is what your Rabb has said. He is the All-Wise, the All-Knowing.",
+      "ref": "Surah adh-Dhariyat 51:30"
+     }
+    },
+    {
+     "sc": {
+      "label": "Flowers and palm trees in the golden sunrise",
+      "sky": [
+       "#F8C77E",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       120,
+       26
+      ],
+      "flowers": true,
+      "palms": [
+       [
+        70,
+        0.9
+       ],
+       [
+        340,
+        1
+       ]
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Allah's promise came true. Baby Ishaq, alayhis salaam, was born! Ibrahim thanked Allah and said:",
+     "ay": {
+      "ar": "الْحَمْدُ لِلَّهِ الَّذِي وَهَبَ لِي عَلَى الْكِبَرِ إِسْمَاعِيلَ وَإِسْحَاقَ إِنَّ رَبِّي لَسَمِيعُ الدُّعَاءِ",
+      "en": "All praise is for Allah, who gave me Isma'il and Ishaq even though I am old. My Rabb truly hears every dua.",
+      "ref": "Surah Ibrahim 14:39"
+     }
+    },
+    {
+     "sc": {
+      "label": "An open book with a soft light beside it",
+      "sky": [
+       "#E9DFD2",
+       "#F7F1E8"
+      ],
+      "glow": [
+       200,
+       90
+      ],
+      "book": true,
+      "dunes": [
+       "#D8CBB8",
+       "#C8BBA8",
+       "#B8AB98"
+      ]
+     },
+     "text": "Ishaq grew up to be a Prophet and one of the righteous. Allah blessed Ibrahim and Ishaq (Surah as-Saffat 37:113).",
+     "ay": {
+      "ar": "وَبَشَّرْنَاهُ بِإِسْحَاقَ نَبِيًّا مِنَ الصَّالِحِينَ",
+      "en": "And We gave him good news of Ishaq, a Prophet, one of the righteous.",
+      "ref": "Surah as-Saffat 37:112"
+     }
+    },
+    {
+     "sc": {
+      "label": "A small town at night with lit windows under a crescent moon",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "moon": [
+       320,
+       50,
+       16
+      ],
+      "town": {
+       "lit": true
+      },
+      "glow": [
+       200,
+       70
+      ]
+     },
+     "text": "Allah made Ishaq and his son Ya'qub leaders who guided people. Allah told them to do good deeds, pray salah and give zakah, and they worshipped Allah alone.",
+     "ay": {
+      "ar": "وَجَعَلْنَاهُمْ أَئِمَّةً يَهْدُونَ بِأَمْرِنَا",
+      "en": "And We made them leaders, guiding by Our command.",
+      "ref": "Surah al-Anbiya 21:73"
+     }
+    },
+    {
+     "sc": {
+      "label": "A lantern glowing beside an open book at night",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? Never give up making dua, because nothing is too hard for Allah. Be generous to guests, like Ibrahim. And when Allah gives you something good, say Alhamdulillah, just like Ibrahim did."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Who brought Ibrahim the good news of Ishaq?",
+     "o": [
+      "Angels sent by Allah",
+      "A traveller from Makkah",
+      "A king"
+     ],
+     "why": "Angels came as guests and gave the good news (Surah adh-Dhariyat 51:24-28)."
+    },
+    {
+     "q": "What food did Ibrahim bring for his guests?",
+     "o": [
+      "A fat roasted calf",
+      "Only some water",
+      "Nothing at all"
+     ],
+     "why": "Ibrahim was generous and brought a roasted calf (Surah Hud 11:69, Surah adh-Dhariyat 51:26)."
+    },
+    {
+     "q": "Why was Ibrahim's wife amazed by the good news?",
+     "o": [
+      "She and Ibrahim were very old",
+      "It was raining",
+      "The guests were very tall"
+     ],
+     "why": "She said: Will I have a baby when I am an old woman and my husband is an old man? (Surah Hud 11:72)"
+    },
+    {
+     "q": "What did Ibrahim say when Allah gave him Isma'il and Ishaq?",
+     "o": [
+      "All praise is for Allah",
+      "Nothing at all",
+      "I did it all by myself"
+     ],
+     "why": "He said Alhamdulillah, all praise is for Allah, who gave me Isma'il and Ishaq (Surah Ibrahim 14:39)."
+    }
+   ]
+  }
+ ],
+ "gems": [
+  {
+   "id": "w-2026-11-13-g1",
+   "kind": "Ayah",
+   "pic": "🌱",
+   "text": "Prophet Zakariyya, alayhis salaam, made this dua: My Rabb, give me good children from You. You hear every dua.",
+   "src": "Surah Al 'Imran 3:38",
+   "ar": "رَبِّ هَبْ لِي مِنْ لَدُنْكَ ذُرِّيَّةً طَيِّبَةً إِنَّكَ سَمِيعُ الدُّعَاءِ"
+  },
+  {
+   "id": "w-2026-11-13-g2",
+   "kind": "Ayah",
+   "pic": "🏡",
+   "text": "A family dua from the Qur'an: Our Rabb, make our families and children a joy for our eyes.",
+   "src": "Surah al-Furqan 25:74",
+   "ar": "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ"
+  },
+  {
+   "id": "w-2026-11-13-g3",
+   "kind": "Ayah",
+   "pic": "✨",
+   "text": "When Allah wants something to happen, He only says to it: Be! And it is.",
+   "src": "Surah Ya-Sin 36:82",
+   "ar": "كُنْ فَيَكُونُ"
+  },
+  {
+   "id": "w-2026-11-13-g4",
+   "kind": "Ayah",
+   "pic": "🎁",
+   "text": "Allah gave Luqman wisdom and told him: Be thankful to Allah. Whoever is thankful, it is good for himself.",
+   "src": "Surah Luqman 31:12",
+   "ar": "أَنِ اشْكُرْ لِلَّهِ"
+  },
+  {
+   "id": "w-2026-11-13-g5",
+   "kind": "Ayah",
+   "pic": "📜",
+   "text": "We believe in Allah and in what He sent to Ibrahim, Isma'il, Ishaq, Ya'qub, Musa, 'Isa and all the Prophets. We make no difference between any of them.",
+   "src": "Surah al-Baqarah 2:136",
+   "ar": "لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِنْهُمْ"
+  },
+  {
+   "id": "w-2026-11-13-g6",
+   "kind": "Ayah",
+   "pic": "🌸",
+   "text": "Allah gives daughters to whom He wants, and sons to whom He wants. Every child is a gift from Allah.",
+   "src": "Surah ash-Shura 42:49",
+   "ar": "يَهَبُ لِمَنْ يَشَاءُ إِنَاثًا وَيَهَبُ لِمَنْ يَشَاءُ الذُّكُورَ"
+  },
+  {
+   "id": "w-2026-11-13-g7",
+   "kind": "Hadith",
+   "pic": "🍽️",
+   "text": "The Prophet ﷺ said: Whoever believes in Allah and the Last Day should be generous to his guest.",
+   "src": "Sahih al-Bukhari 6135, Sahih Muslim 48"
+  },
+  {
+   "id": "w-2026-11-13-g8",
+   "kind": "Hadith",
+   "pic": "🍲",
+   "text": "The Prophet ﷺ said: Food for two people is enough for three, and food for three is enough for four. So share your food!",
+   "src": "Sahih al-Bukhari 5392, Sahih Muslim 2058"
+  },
+  {
+   "id": "w-2026-11-13-g9",
+   "kind": "Hadith",
+   "pic": "🌷",
+   "text": "Someone asked which deeds in Islam are best. The Prophet ﷺ said: Feed people, and say salam to those you know and those you do not know.",
+   "src": "Sahih al-Bukhari 12, Sahih Muslim 39"
+  },
+  {
+   "id": "w-2026-11-13-g10",
+   "kind": "Hadith",
+   "pic": "🥛",
+   "text": "Allah is pleased with a person who eats a bite of food and says Alhamdulillah, and drinks and says Alhamdulillah.",
+   "src": "Sahih Muslim 2734"
+  },
+  {
+   "id": "w-2026-11-13-g11",
+   "kind": "Hadith",
+   "pic": "⛰️",
+   "text": "Look at people who have less than you, not at those who have more. Then you will not forget how much Allah has given you.",
+   "src": "Sahih Muslim 2963"
+  },
+  {
+   "id": "w-2026-11-13-g12",
+   "kind": "Hadith",
+   "pic": "🏷️",
+   "text": "The Prophet ﷺ said: The names Allah loves most are Abdullah and Abdur-Rahman.",
+   "src": "Sahih Muslim 2132"
+  },
+  {
+   "id": "w-2026-11-13-g13",
+   "kind": "Hadith",
+   "pic": "📿",
+   "text": "When a person dies, his deeds stop, except three: charity that keeps helping, knowledge that helps people, and a good child who makes dua for him.",
+   "src": "Sahih Muslim 1631"
+  },
+  {
+   "id": "w-2026-11-13-g14",
+   "kind": "Prophets",
+   "pic": "🌳",
+   "text": "Allah gave Ibrahim his son Ishaq and his grandson Ya'qub, and He guided each one of them.",
+   "src": "Surah al-An'am 6:84",
+   "ar": "كُلًّا هَدَيْنَا"
+  },
+  {
+   "id": "w-2026-11-13-g15",
+   "kind": "Prophets",
+   "pic": "⭐",
+   "text": "The Prophet ﷺ said: The noble one, son of the noble one, son of the noble one, son of the noble one: Yusuf, son of Ya'qub, son of Ishaq, son of Ibrahim.",
+   "src": "Sahih al-Bukhari 3382"
+  },
+  {
+   "id": "w-2026-11-13-g16",
+   "kind": "Prophets",
+   "pic": "💡",
+   "text": "Allah praised Ibrahim, Ishaq and Ya'qub: they were strong in obeying Allah, they saw the truth clearly, and they always remembered the Akhirah.",
+   "src": "Surah Sad 38:45-46",
+   "ar": "أُولِي الْأَيْدِي وَالْأَبْصَارِ"
+  },
+  {
+   "id": "w-2026-11-13-g17",
+   "kind": "Prophets",
+   "pic": "🕌",
+   "text": "When we send salawat in our salah, we ask Allah to bless Prophet Muhammad ﷺ and his family, just as He blessed Ibrahim and his family.",
+   "src": "Sahih al-Bukhari 3370"
+  },
+  {
+   "id": "w-2026-11-13-g18",
+   "kind": "Did you know?",
+   "pic": "🌊",
+   "text": "Allah lets two seas meet, but there is a barrier between them, so neither one takes over the other.",
+   "src": "Surah ar-Rahman 55:19-20",
+   "ar": "بَيْنَهُمَا بَرْزَخٌ لَا يَبْغِيَانِ"
+  },
+  {
+   "id": "w-2026-11-13-g19",
+   "kind": "Did you know?",
+   "pic": "🍇",
+   "text": "Grapes, crops and palm trees drink the very same water, yet Allah makes some fruits taste better than others.",
+   "src": "Surah ar-Ra'd 13:4"
+  },
+  {
+   "id": "w-2026-11-13-g20",
+   "kind": "Did you know?",
+   "pic": "🐄",
+   "text": "Allah gives us pure, tasty milk to drink from inside grazing animals like cows, goats and camels.",
+   "src": "Surah an-Nahl 16:66"
+  },
+  {
+   "id": "w-2026-11-13-g21",
+   "kind": "Did you know?",
+   "pic": "🗺️",
+   "text": "People all over the world speak different languages and have different colours. This is one of Allah's signs!",
+   "src": "Surah ar-Rum 30:22"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "Which Prophet was the son of Ibrahim and the father of Ya'qub?",
+   "o": [
+    "Prophet Ishaq",
+    "Prophet Nuh",
+    "Prophet Musa"
+   ],
+   "why": "Allah gave Ibrahim the good news of Ishaq, and after Ishaq, Ya'qub (Surah Hud 11:71)."
+  },
+  {
+   "q": "What did the angels say when Ibrahim felt afraid?",
+   "o": [
+    "Do not be afraid, we bring you good news",
+    "Run away quickly",
+    "Close the door"
+   ],
+   "why": "They said: Do not be afraid. We bring you good news of a boy (Surah al-Hijr 15:53)."
+  },
+  {
+   "q": "Whose promise was the good news of Ishaq?",
+   "o": [
+    "Allah's promise",
+    "Ibrahim's guess",
+    "A dream of the neighbours"
+   ],
+   "why": "The angels said: That is what your Rabb has said (Surah adh-Dhariyat 51:30)."
+  },
+  {
+   "q": "What did Allah make Ishaq when he grew up?",
+   "o": [
+    "A Prophet and one of the righteous",
+    "A king of a big city",
+    "A sailor on the sea"
+   ],
+   "why": "We gave him good news of Ishaq, a Prophet, one of the righteous (Surah as-Saffat 37:112)."
+  },
+  {
+   "q": "What does Allah say when He wants something to happen?",
+   "o": [
+    "Be! And it is",
+    "Wait for many years",
+    "Someone help Me"
+   ],
+   "why": "He only says to it: Be! And it is (Surah Ya-Sin 36:82)."
+  },
+  {
+   "q": "Food for two people is enough for how many?",
+   "o": [
+    "Three",
+    "One",
+    "None"
+   ],
+   "why": "The Prophet ﷺ said food for two is enough for three (Sahih al-Bukhari 5392, Sahih Muslim 2058)."
+  },
+  {
+   "q": "What should we say after we eat or drink?",
+   "o": [
+    "Alhamdulillah",
+    "Nothing",
+    "Goodbye"
+   ],
+   "why": "Allah is pleased with the one who praises Him after eating and drinking (Sahih Muslim 2734)."
+  },
+  {
+   "q": "Which names does Allah love most?",
+   "o": [
+    "Abdullah and Abdur-Rahman",
+    "The names of kings",
+    "The longest names"
+   ],
+   "why": "The Prophet ﷺ said so (Sahih Muslim 2132)."
+  },
+  {
+   "q": "To remember Allah's blessings, who should we look at?",
+   "o": [
+    "People who have less than us",
+    "People who have more than us",
+    "Nobody at all"
+   ],
+   "why": "Then we will not forget how much Allah has given us (Sahih Muslim 2963)."
+  },
+  {
+   "q": "Who was the grandson of Prophet Ishaq?",
+   "o": [
+    "Prophet Yusuf",
+    "Prophet Yunus",
+    "Prophet Hud"
+   ],
+   "why": "Yusuf, son of Ya'qub, son of Ishaq, son of Ibrahim (Sahih al-Bukhari 3382)."
+  }
+ ]
+}
