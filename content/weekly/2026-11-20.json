@@ -1,0 +1,615 @@
+{
+ "id": "w-2026-11-20",
+ "title": "Week of 20 November 2026",
+ "notes": "New: the story of Prophet Ya'qub, alayhis salaam (the next Prophet in order without a story), 21 gems on patience, hope in Allah's mercy, trust in Allah and family, and 10 Jumu'ah quiz questions. Sources: the Qur'an (every Arabic line checked word for word against the Uthmani text from the Noble Qur'an Encyclopedia and written in the simple spelling the app uses; meanings checked against the Saheeh International translation) and Sahih al-Bukhari and Sahih Muslim (numbers checked on sunnah.com and hadithunlocked.com). abdurrahman.org and quran.com could not be reached from this run, so the story relies on the Qur'an and the two Sahihs only. Please read carefully: most of what the Qur'an tells about Ya'qub is inside Surah Yusuf, so slides 4 to 9 overlap with the Yusuf series, told this time from Ya'qub's side and mostly with different ayat (12:67, 12:83, 12:94, 12:98). Slide 6 says three sons were away: Yusuf, the youngest brother and the eldest brother who stayed in Egypt (Surah Yusuf 12:80). The youngest brother and the eldest are left unnamed because the Qur'an does not name them. Ya'qub's other name, Isra'il, is left out because no reference in the Qur'an, al-Bukhari or Muslim that states it outright could be confirmed in this run. Slide 8 says the caravan set off; the ayah does not say from where. Gem 5 mentions the death of the Prophet's ﷺ baby son Ibrahim, gently worded. Gem 18 leaves out the part about spitting lightly to the left, to keep it short.",
+ "stories": [
+  {
+   "id": "st-yaqub",
+   "pid": "yaqub",
+   "title": "Prophet Ya'qub and beautiful patience",
+   "ar": "يَعْقُوب عَلَيْهِ السَّلَام",
+   "sub": "Be patient, tell your sadness to Allah, and never lose hope",
+   "slides": [
+    {
+     "sc": {
+      "label": "Palm trees and green hills at sunrise",
+      "sky": [
+       "#F8C77E",
+       "#FDEBD9"
+      ],
+      "sun": [
+       200,
+       130,
+       24
+      ],
+      "palms": [
+       [
+        70,
+        0.9
+       ],
+       [
+        335,
+        1
+       ]
+      ],
+      "dunes": [
+       "#C9D89A",
+       "#AFC97E",
+       "#97B868"
+      ]
+     },
+     "text": "Prophet Ibrahim, alayhis salaam, left his people for the sake of Allah. Allah gave him a son, Ishaq, and then a grandson, Ya'qub, as an extra gift. Allah made every one of them good and righteous.",
+     "ay": {
+      "ar": "وَوَهَبْنَا لَهُ إِسْحَاقَ وَيَعْقُوبَ نَافِلَةً وَكُلًّا جَعَلْنَا صَالِحِينَ",
+      "en": "And We gave him Ishaq, and Ya'qub as an extra gift, and We made each of them righteous.",
+      "ref": "Surah al-Anbiya 21:72"
+     }
+    },
+    {
+     "sc": {
+      "label": "Tall mountains with a soft light above them",
+      "sky": [
+       "#9FD0EE",
+       "#E6F4FB"
+      ],
+      "glow": [
+       200,
+       70
+      ],
+      "mountains": {},
+      "dunes": [
+       "#C9A07E",
+       "#B98F6D",
+       "#A87E5C"
+      ]
+     },
+     "text": "Ya'qub, alayhis salaam, grew up and Allah made him a Prophet. Allah praised him, his father and his grandfather for being strong in worshipping Allah and wise in understanding.",
+     "ay": {
+      "ar": "وَاذْكُرْ عِبَادَنَا إِبْرَاهِيمَ وَإِسْحَاقَ وَيَعْقُوبَ أُولِي الْأَيْدِي وَالْأَبْصَارِ",
+      "en": "And remember Our servants Ibrahim, Ishaq and Ya'qub, people of strength and understanding.",
+      "ref": "Surah Sad 38:45"
+     }
+    },
+    {
+     "sc": {
+      "label": "A small town at dusk with warm lit windows",
+      "sky": [
+       "#C7A0B8",
+       "#F7C9A8"
+      ],
+      "town": {
+       "lit": true
+      },
+      "lantern": [
+       320,
+       150
+      ],
+      "dunes": [
+       "#C9A07E",
+       "#B98F6D",
+       "#A87E5C"
+      ]
+     },
+     "text": "Ya'qub had many sons. Just like his grandfather Ibrahim, he gave his children the most important advice of all:",
+     "ay": {
+      "ar": "يَا بَنِيَّ إِنَّ اللَّهَ اصْطَفَىٰ لَكُمُ الدِّينَ فَلَا تَمُوتُنَّ إِلَّا وَأَنْتُمْ مُسْلِمُونَ",
+      "en": "O my sons, Allah has chosen this religion for you, so stay Muslims until the very end of your lives.",
+      "ref": "Surah al-Baqarah 2:132"
+     }
+    },
+    {
+     "sc": {
+      "label": "A stone well under a dark night sky",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "moon": true,
+      "well": true,
+      "dunes": [
+       "#6E5A48",
+       "#5E4A38",
+       "#4E3A28"
+      ]
+     },
+     "text": "One of his sons was Yusuf, alayhis salaam. Yusuf's brothers were jealous, so they threw him into a well and came home with a false story. Ya'qub was very sad, but he chose beautiful patience. He said:",
+     "ay": {
+      "ar": "فَصَبْرٌ جَمِيلٌ وَاللَّهُ الْمُسْتَعَانُ عَلَىٰ مَا تَصِفُونَ",
+      "en": "So patience is beautiful, and Allah is the One whose help I ask about what you describe.",
+      "ref": "Surah Yusuf 12:18"
+     }
+    },
+    {
+     "sc": {
+      "label": "A town under a bright sun, seen across the sand",
+      "sky": [
+       "#F3D3A6",
+       "#FBEAD2"
+      ],
+      "sun": [
+       320,
+       60,
+       20
+      ],
+      "town": {},
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "Years later, the brothers had to travel to Egypt for food, taking their youngest brother with them. Ya'qub told them to go in through different gates. But he knew that only Allah decides what happens, so he said:",
+     "ay": {
+      "ar": "إِنِ الْحُكْمُ إِلَّا لِلَّهِ عَلَيْهِ تَوَكَّلْتُ وَعَلَيْهِ فَلْيَتَوَكَّلِ الْمُتَوَكِّلُونَ",
+      "en": "The decision is only Allah's. In Him I put my trust, and in Him let all who trust put their trust.",
+      "ref": "Surah Yusuf 12:67"
+     }
+    },
+    {
+     "sc": {
+      "label": "Grey clouds over quiet sand hills in the evening",
+      "sky": [
+       "#8C93A3",
+       "#D9C7B8"
+      ],
+      "cloud": [
+       120,
+       45,
+       1.1,
+       "#B7BCC8"
+      ],
+      "dunes": [
+       "#B9A78E",
+       "#A8957B",
+       "#97836A"
+      ]
+     },
+     "text": "The youngest brother did not come home, and the eldest brother stayed behind in Egypt too. Now three of Ya'qub's sons were far away. Still he did not give up. He said:",
+     "ay": {
+      "ar": "فَصَبْرٌ جَمِيلٌ عَسَى اللَّهُ أَنْ يَأْتِيَنِي بِهِمْ جَمِيعًا",
+      "en": "Patience is beautiful. Maybe Allah will bring them all back to me together.",
+      "ref": "Surah Yusuf 12:83"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern under a crescent moon at night",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "moon": [
+       320,
+       50,
+       16
+      ],
+      "lantern": [
+       200,
+       118
+      ],
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "Ya'qub cried so much for Yusuf that his eyes turned white. But he did not complain to people. He told his sons never to lose hope in Allah's mercy (Surah Yusuf 12:87), and he said:",
+     "ay": {
+      "ar": "إِنَّمَا أَشْكُو بَثِّي وَحُزْنِي إِلَى اللَّهِ",
+      "en": "I only tell my sadness and my grief to Allah.",
+      "ref": "Surah Yusuf 12:86"
+     }
+    },
+    {
+     "sc": {
+      "label": "Wind blowing across the desert between palm trees",
+      "sky": [
+       "#F3C9A2",
+       "#FCE8D4"
+      ],
+      "sun": [
+       330,
+       60,
+       18
+      ],
+      "wind": true,
+      "palms": [
+       [
+        80,
+        1
+       ],
+       [
+        320,
+        0.9
+       ]
+      ],
+      "dunes": [
+       "#E4B57B",
+       "#D8A464",
+       "#C99252"
+      ]
+     },
+     "text": "In Egypt, the brothers found Yusuf at last! Yusuf sent his shirt home to his father. As soon as the caravan set off, far, far away, Ya'qub said:",
+     "ay": {
+      "ar": "إِنِّي لَأَجِدُ رِيحَ يُوسُفَ",
+      "en": "I can truly smell the scent of Yusuf.",
+      "ref": "Surah Yusuf 12:94"
+     }
+    },
+    {
+     "sc": {
+      "label": "A bright sunrise over a garden full of flowers",
+      "sky": [
+       "#A8D8EE",
+       "#E8F6FB"
+      ],
+      "sun": [
+       200,
+       120,
+       26
+      ],
+      "garden": true,
+      "flowers": true,
+      "dunes": [
+       "#A9C98A",
+       "#8DB873",
+       "#76A35E"
+      ]
+     },
+     "text": "When the shirt was laid on his face, Allah gave Ya'qub his sight back (Surah Yusuf 12:96)! His sons were sorry and asked him to pray for their forgiveness. Ya'qub said:",
+     "ay": {
+      "ar": "سَوْفَ أَسْتَغْفِرُ لَكُمْ رَبِّي إِنَّهُ هُوَ الْغَفُورُ الرَّحِيمُ",
+      "en": "I will ask my Rabb to forgive you. He is the Forgiving, the Most Merciful.",
+      "ref": "Surah Yusuf 12:98"
+     }
+    },
+    {
+     "sc": {
+      "label": "A full moon over a quiet town with lit windows",
+      "sky": [
+       "#0E1A2E",
+       "#1E3150"
+      ],
+      "stars": true,
+      "fullmoon": [
+       300,
+       60,
+       16
+      ],
+      "town": {
+       "lit": true
+      },
+      "dunes": [
+       "#6E5A48",
+       "#5E4A38",
+       "#4E3A28"
+      ]
+     },
+     "text": "When Ya'qub was very old, near the end of his life, he asked his sons one important question: What will you worship after me? They answered:",
+     "ay": {
+      "ar": "نَعْبُدُ إِلَٰهَكَ وَإِلَٰهَ آبَائِكَ إِبْرَاهِيمَ وَإِسْمَاعِيلَ وَإِسْحَاقَ إِلَٰهًا وَاحِدًا وَنَحْنُ لَهُ مُسْلِمُونَ",
+      "en": "We will worship your God, the God of your fathers Ibrahim, Isma'il and Ishaq, one God, and to Him we submit.",
+      "ref": "Surah al-Baqarah 2:133"
+     }
+    },
+    {
+     "sc": {
+      "label": "A glowing lantern beside an open Qur'an",
+      "sky": [
+       "#1E2A4A",
+       "#3D4E7A"
+      ],
+      "stars": true,
+      "lantern": [
+       90,
+       104
+      ],
+      "book": true,
+      "dunes": [
+       "#B88A5A",
+       "#A67848",
+       "#946639"
+      ]
+     },
+     "text": "What do we learn? When something sad happens, be patient like Ya'qub, and tell your sadness to Allah. Never lose hope in Allah's mercy. Put your trust in Allah. And the most important thing to pass on to your family is to worship Allah alone."
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What did Ya'qub say when he was very sad?",
+     "o": [
+      "Patience is beautiful",
+      "I give up",
+      "It is not fair"
+     ],
+     "why": "He said: Fa sabrun jameel, patience is beautiful (Surah Yusuf 12:18 and 12:83)."
+    },
+    {
+     "q": "Who did Ya'qub tell his sadness to?",
+     "o": [
+      "Allah",
+      "The king of Egypt",
+      "The travellers"
+     ],
+     "why": "He said: I only tell my sadness and my grief to Allah (Surah Yusuf 12:86)."
+    },
+    {
+     "q": "What did Ya'qub smell from far away?",
+     "o": [
+      "The scent of Yusuf",
+      "Fresh bread",
+      "Rain"
+     ],
+     "why": "He said: I can truly smell the scent of Yusuf (Surah Yusuf 12:94)."
+    },
+    {
+     "q": "What did Ya'qub ask his sons near the end of his life?",
+     "o": [
+      "What will you worship after me?",
+      "Who is the strongest?",
+      "Where is the food?"
+     ],
+     "why": "They answered that they would worship Allah alone (Surah al-Baqarah 2:133)."
+    }
+   ]
+  }
+ ],
+ "gems": [
+  {
+   "id": "w-2026-11-20-g1",
+   "kind": "Ayah",
+   "pic": "🌈",
+   "text": "Allah says: Do not lose hope in the mercy of Allah. Allah forgives all sins.",
+   "src": "Surah az-Zumar 39:53",
+   "ar": "لَا تَقْنَطُوا مِنْ رَحْمَةِ اللَّهِ"
+  },
+  {
+   "id": "w-2026-11-20-g2",
+   "kind": "Hadith",
+   "pic": "⏳",
+   "text": "The Prophet ﷺ said: True patience is at the very first moment something hard happens.",
+   "src": "Sahih al-Bukhari 1283, Sahih Muslim 926",
+   "ar": "إِنَّمَا الصَّبْرُ عِنْدَ الصَّدْمَةِ الْأُولَى"
+  },
+  {
+   "id": "w-2026-11-20-g3",
+   "kind": "Prophets",
+   "pic": "📜",
+   "text": "Allah tells us to say: We believe in Allah, and in what was sent to Ibrahim, Isma'il, Ishaq and Ya'qub, and to all the Prophets. We do not reject any of them.",
+   "src": "Surah Al 'Imran 3:84"
+  },
+  {
+   "id": "w-2026-11-20-g4",
+   "kind": "Did you know?",
+   "pic": "📖",
+   "text": "At the start of Surah Yusuf, Allah says: We tell you the best of stories.",
+   "src": "Surah Yusuf 12:3",
+   "ar": "نَحْنُ نَقُصُّ عَلَيْكَ أَحْسَنَ الْقَصَصِ"
+  },
+  {
+   "id": "w-2026-11-20-g5",
+   "kind": "Hadith",
+   "pic": "💧",
+   "text": "When the Prophet's ﷺ little son Ibrahim passed away, he cried and said: The eyes cry and the heart is sad, but we only say what pleases our Rabb.",
+   "src": "Sahih al-Bukhari 1303, Sahih Muslim 2315",
+   "ar": "تَدْمَعُ الْعَيْنُ وَيَحْزَنُ الْقَلْبُ"
+  },
+  {
+   "id": "w-2026-11-20-g6",
+   "kind": "Ayah",
+   "pic": "🕊️",
+   "text": "When something sad happens, the patient say: We belong to Allah, and to Him we will return.",
+   "src": "Surah al-Baqarah 2:156",
+   "ar": "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ"
+  },
+  {
+   "id": "w-2026-11-20-g7",
+   "kind": "Hadith",
+   "pic": "🌷",
+   "text": "The Prophet ﷺ saw a mother holding her baby close and said: Allah is more merciful to His servants than this mother is to her child.",
+   "src": "Sahih al-Bukhari 5999, Sahih Muslim 2754",
+   "ar": "اللَّهُ أَرْحَمُ بِعِبَادِهِ مِنْ هَذِهِ بِوَلَدِهَا"
+  },
+  {
+   "id": "w-2026-11-20-g8",
+   "kind": "Prophets",
+   "pic": "⭐",
+   "text": "Allah says that Ibrahim, Ishaq and Ya'qub are, with Him, among the chosen and the very best.",
+   "src": "Surah Sad 38:47",
+   "ar": "وَإِنَّهُمْ عِنْدَنَا لَمِنَ الْمُصْطَفَيْنَ الْأَخْيَارِ"
+  },
+  {
+   "id": "w-2026-11-20-g9",
+   "kind": "Ayah",
+   "pic": "🏔️",
+   "text": "Be patient. Allah is with those who are patient.",
+   "src": "Surah al-Anfal 8:46",
+   "ar": "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ"
+  },
+  {
+   "id": "w-2026-11-20-g10",
+   "kind": "Hadith",
+   "pic": "🌿",
+   "text": "The Prophet ﷺ said: Do not hate each other, do not be jealous of each other, and do not turn away from each other. Be brothers, O servants of Allah.",
+   "src": "Sahih al-Bukhari 6065, Sahih Muslim 2559",
+   "ar": "وَكُونُوا عِبَادَ اللَّهِ إِخْوَانًا"
+  },
+  {
+   "id": "w-2026-11-20-g11",
+   "kind": "Did you know?",
+   "pic": "🐑",
+   "text": "Every Prophet that Allah sent looked after sheep. Prophet Muhammad ﷺ did too, for the people of Makkah.",
+   "src": "Sahih al-Bukhari 2262"
+  },
+  {
+   "id": "w-2026-11-20-g12",
+   "kind": "Ayah",
+   "pic": "🕯️",
+   "text": "Remembering Allah gives our hearts peace.",
+   "src": "Surah ar-Ra'd 13:28",
+   "ar": "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ"
+  },
+  {
+   "id": "w-2026-11-20-g13",
+   "kind": "Hadith",
+   "pic": "🏡",
+   "text": "The Prophet ﷺ said: Every one of you is a caretaker, and every one of you will be asked about what was in your care.",
+   "src": "Sahih al-Bukhari 893, Sahih Muslim 1829",
+   "ar": "كُلُّكُمْ رَاعٍ وَكُلُّكُمْ مَسْئُولٌ عَنْ رَعِيَّتِهِ"
+  },
+  {
+   "id": "w-2026-11-20-g14",
+   "kind": "Prophets",
+   "pic": "🎁",
+   "text": "Allah gave Ibrahim his son Ishaq and his grandson Ya'qub, and He placed prophethood and the Book among Ibrahim's children.",
+   "src": "Surah al-'Ankabut 29:27"
+  },
+  {
+   "id": "w-2026-11-20-g15",
+   "kind": "Hadith",
+   "pic": "🌵",
+   "text": "The Prophet ﷺ said: When a Muslim is tired, ill, worried or sad, even from the prick of a thorn, Allah wipes away some of his sins because of it.",
+   "src": "Sahih al-Bukhari 5641, Sahih Muslim 2573"
+  },
+  {
+   "id": "w-2026-11-20-g16",
+   "kind": "Did you know?",
+   "pic": "🧩",
+   "text": "The Prophet ﷺ said the Prophets are like brothers: their mothers are different, but their religion is one.",
+   "src": "Sahih al-Bukhari 3443, Sahih Muslim 2365",
+   "ar": "وَدِينُهُمْ وَاحِدٌ"
+  },
+  {
+   "id": "w-2026-11-20-g17",
+   "kind": "Ayah",
+   "pic": "🕌",
+   "text": "Allah says: Tell your family to pray, and keep praying patiently yourself.",
+   "src": "Surah Ta-Ha 20:132",
+   "ar": "وَأْمُرْ أَهْلَكَ بِالصَّلَاةِ وَاصْطَبِرْ عَلَيْهَا"
+  },
+  {
+   "id": "w-2026-11-20-g18",
+   "kind": "Hadith",
+   "pic": "🌙",
+   "text": "The Prophet ﷺ said: A good dream is from Allah, and a bad dream is from Shaytan. If you have a scary dream, seek refuge with Allah from its harm, and it will not harm you.",
+   "src": "Sahih al-Bukhari 3292, Sahih Muslim 2261"
+  },
+  {
+   "id": "w-2026-11-20-g19",
+   "kind": "Prophets",
+   "pic": "✨",
+   "text": "Ya'qub told Yusuf that Allah would complete His blessing on him and on the family of Ya'qub, as He did for Ibrahim and Ishaq before.",
+   "src": "Surah Yusuf 12:6"
+  },
+  {
+   "id": "w-2026-11-20-g20",
+   "kind": "Ayah",
+   "pic": "🌟",
+   "text": "Allah loves those who put their trust in Him.",
+   "src": "Surah Al 'Imran 3:159",
+   "ar": "إِنَّ اللَّهَ يُحِبُّ الْمُتَوَكِّلِينَ"
+  },
+  {
+   "id": "w-2026-11-20-g21",
+   "kind": "Did you know?",
+   "pic": "💡",
+   "text": "Allah tells us that in the stories of the Prophets there is a lesson for people who think.",
+   "src": "Surah Yusuf 12:111",
+   "ar": "لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ لِأُولِي الْأَلْبَابِ"
+  }
+ ],
+ "quiz": [
+  {
+   "q": "Which Prophet was the son of Ishaq and the father of Yusuf?",
+   "o": [
+    "Prophet Ya'qub",
+    "Prophet Nuh",
+    "Prophet Huud"
+   ],
+   "why": "Allah gave Ibrahim his son Ishaq and his grandson Ya'qub, and Yusuf was Ya'qub's son."
+  },
+  {
+   "q": "What did Ya'qub say about who decides what happens?",
+   "o": [
+    "The decision is only Allah's, and in Him I trust",
+    "My sons decide everything",
+    "The king of Egypt decides"
+   ],
+   "why": "He said: The decision is only Allah's. In Him I put my trust (Surah Yusuf 12:67)."
+  },
+  {
+   "q": "Why did Ya'qub's eyes turn white?",
+   "o": [
+    "He cried so much for Yusuf",
+    "He looked at the sun",
+    "He was very sleepy"
+   ],
+   "why": "He was so sad about Yusuf that his eyes turned white, but he told his sadness only to Allah."
+  },
+  {
+   "q": "Who did Ya'qub's sons promise to worship?",
+   "o": [
+    "Allah alone, the God of Ibrahim, Isma'il and Ishaq",
+    "The stars",
+    "Statues"
+   ],
+   "why": "They said: We will worship your God and the God of your fathers, one God (Surah al-Baqarah 2:133)."
+  },
+  {
+   "q": "What do we say when something sad happens?",
+   "o": [
+    "Inna lillahi wa inna ilayhi raji'un",
+    "It is not fair",
+    "Nothing at all"
+   ],
+   "why": "We belong to Allah, and to Him we will return (Surah al-Baqarah 2:156)."
+  },
+  {
+   "q": "When is true patience?",
+   "o": [
+    "At the very first moment something hard happens",
+    "After a whole week",
+    "Only on Fridays"
+   ],
+   "why": "The Prophet ﷺ said: True patience is at the first moment something hard happens."
+  },
+  {
+   "q": "Who is more merciful to us than a mother to her baby?",
+   "o": [
+    "Allah",
+    "Our teacher",
+    "Our friends"
+   ],
+   "why": "The Prophet ﷺ said: Allah is more merciful to His servants than this mother is to her child."
+  },
+  {
+   "q": "What did every Prophet look after?",
+   "o": [
+    "Sheep",
+    "Lions",
+    "Ships"
+   ],
+   "why": "Every Prophet Allah sent looked after sheep, and Prophet Muhammad ﷺ did too."
+  },
+  {
+   "q": "What gives our hearts peace?",
+   "o": [
+    "Remembering Allah",
+    "Watching more videos",
+    "Getting new toys"
+   ],
+   "why": "Allah says: In the remembrance of Allah, hearts find peace (Surah ar-Ra'd 13:28)."
+  },
+  {
+   "q": "What should you do after a scary dream?",
+   "o": [
+    "Seek refuge with Allah from its harm",
+    "Tell everyone about it",
+    "Stay awake all night"
+   ],
+   "why": "The Prophet ﷺ said a bad dream is from Shaytan, so seek refuge with Allah and it will not harm you."
+  }
+ ]
+}
